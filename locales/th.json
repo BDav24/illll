@@ -11,7 +11,6 @@
     "goodMorning": "สวัสดีตอนเช้า",
     "goodAfternoon": "สวัสดีตอนบ่าย",
     "goodEvening": "สวัสดีตอนเย็น",
-    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "ติดต่อกัน {{count}} วัน",
     "streakZero": "เริ่มสถิติต่อเนื่องของคุณ!",

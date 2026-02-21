@@ -11,7 +11,6 @@
     "goodMorning": "Доброе утро",
     "goodAfternoon": "Добрый день",
     "goodEvening": "Добрый вечер",
-    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "{{count}} дней подряд",
     "streakZero": "Начните свою серию!",

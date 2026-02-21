@@ -11,7 +11,6 @@
     "goodMorning": "早上好",
     "goodAfternoon": "下午好",
     "goodEvening": "晚上好",
-    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "连续 {{count}} 天",
     "streakZero": "开始你的连续记录！",

@@ -11,7 +11,6 @@
     "goodMorning": "Good morning",
     "goodAfternoon": "Good afternoon",
     "goodEvening": "Good evening",
-    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "{{count}} day streak",
     "streakZero": "Start your streak!",

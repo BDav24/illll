@@ -11,7 +11,6 @@
     "goodMorning": "Selamat pagi",
     "goodAfternoon": "Selamat siang",
     "goodEvening": "Selamat malam",
-    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "{{count}} hari berturut-turut",
     "streakZero": "Mulai rangkaianmu!",

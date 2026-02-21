@@ -165,7 +165,6 @@ export default function DailyHub() {
         {/* Custom Habits */}
         {settings.customHabits.length > 0 && (
           <View style={styles.customHabitsSection}>
-            <Text style={styles.sectionTitle}>{t('hub.myHabits')}</Text>
             {settings.customHabits.map((ch) => (
               <CustomHabitCard
                 key={ch.id}
@@ -305,7 +304,7 @@ const styles = StyleSheet.create({
   },
   habitsSection: {
     gap: 12,
-    marginBottom: 28,
+    marginBottom: 16,
   },
   customHabitsSection: {
     gap: 12,

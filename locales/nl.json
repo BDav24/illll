@@ -11,7 +11,6 @@
     "goodMorning": "Goedemorgen",
     "goodAfternoon": "Goedemiddag",
     "goodEvening": "Goedenavond",
-    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "{{count}} dagen op rij",
     "streakZero": "Begin je reeks!",
