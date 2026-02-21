@@ -1,4 +1,4 @@
-import { useCallback, useRef, useMemo, useState } from 'react';
+import { useCallback, useRef, useMemo, useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -36,7 +36,19 @@ export default function DailyHub() {
   const bottomSheetRef = useRef<BottomSheet>(null);
   const [activeHabit, setActiveHabit] = useState<HabitId | null>(null);
 
-  const todayKey = getTodayKey();
+  const [currentDateKey, setCurrentDateKey] = useState(getTodayKey());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newKey = getTodayKey();
+      if (newKey !== currentDateKey) {
+        setCurrentDateKey(newKey);
+      }
+    }, 60000);
+    return () => clearInterval(interval);
+  }, [currentDateKey]);
+
+  const todayKey = currentDateKey;
   const days = useStore((s) => s.days);
   const settings = useStore((s) => s.settings);
   const today = days[todayKey] ?? emptyDayRecord(todayKey);
