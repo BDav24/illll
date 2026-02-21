@@ -11,12 +11,11 @@
     "goodMorning": "สวัสดีตอนเช้า",
     "goodAfternoon": "สวัสดีตอนบ่าย",
     "goodEvening": "สวัสดีตอนเย็น",
-    "addTask": "เพิ่มงาน…",
+    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "ติดต่อกัน {{count}} วัน",
     "streakZero": "เริ่มสถิติต่อเนื่องของคุณ!",
     "allDone": "ทำเสร็จหมดแล้ววันนี้!",
-    "tasksTitle": "งานของฉัน",
     "welcomeHint": "แตะนิสัยเพื่อทำเครื่องหมาย!",
     "tapToComplete": "แตะเพื่อทำเครื่องหมาย",
     "tapToUndo": "แตะเพื่อยกเลิก"
@@ -80,6 +79,8 @@
     "autoDetect": "ตรวจจับอัตโนมัติ",
     "about": "เกี่ยวกับ",
     "version": "เวอร์ชัน {{version}}",
+    "myHabits": "My Habits",
+    "addHabit": "Add a habit...",
     "resetData": "รีเซ็ตข้อมูลทั้งหมด",
     "resetConfirm": "การดำเนินการนี้จะลบข้อมูลทั้งหมดของคุณ คุณแน่ใจหรือไม่?"
   },

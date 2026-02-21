@@ -11,12 +11,11 @@
     "goodMorning": "おはようございます",
     "goodAfternoon": "こんにちは",
     "goodEvening": "こんばんは",
-    "addTask": "タスクを追加…",
+    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "{{count}}日連続",
     "streakZero": "連続記録を始めよう！",
     "allDone": "今日はすべて完了！",
-    "tasksTitle": "マイタスク",
     "welcomeHint": "習慣をタップして完了にしましょう！",
     "tapToComplete": "タップして完了",
     "tapToUndo": "タップして取り消し"
@@ -80,6 +79,8 @@
     "autoDetect": "自動検出",
     "about": "このアプリについて",
     "version": "バージョン {{version}}",
+    "myHabits": "My Habits",
+    "addHabit": "Add a habit...",
     "resetData": "すべてのデータをリセット",
     "resetConfirm": "すべてのデータが削除されます。よろしいですか？"
   },

@@ -11,12 +11,11 @@
     "goodMorning": "Goedemorgen",
     "goodAfternoon": "Goedemiddag",
     "goodEvening": "Goedenavond",
-    "addTask": "Taak toevoegen…",
+    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "{{count}} dagen op rij",
     "streakZero": "Begin je reeks!",
     "allDone": "Alles gedaan voor vandaag!",
-    "tasksTitle": "Mijn taken",
     "welcomeHint": "Tik op een gewoonte om het af te vinken!",
     "tapToComplete": "Tik om af te vinken",
     "tapToUndo": "Tik om ongedaan te maken"
@@ -80,6 +79,8 @@
     "autoDetect": "Automatisch detecteren",
     "about": "Over",
     "version": "Versie {{version}}",
+    "myHabits": "My Habits",
+    "addHabit": "Add a habit...",
     "resetData": "Alle gegevens wissen",
     "resetConfirm": "Dit verwijdert al je gegevens. Weet je het zeker?"
   },

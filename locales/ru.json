@@ -11,12 +11,11 @@
     "goodMorning": "Доброе утро",
     "goodAfternoon": "Добрый день",
     "goodEvening": "Добрый вечер",
-    "addTask": "Добавить задачу…",
+    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "{{count}} дней подряд",
     "streakZero": "Начните свою серию!",
     "allDone": "На сегодня всё сделано!",
-    "tasksTitle": "Мои задачи",
     "welcomeHint": "Нажмите на привычку, чтобы отметить!",
     "tapToComplete": "Нажмите чтобы отметить",
     "tapToUndo": "Нажмите чтобы отменить"
@@ -80,6 +79,8 @@
     "autoDetect": "Автоопределение",
     "about": "О приложении",
     "version": "Версия {{version}}",
+    "myHabits": "My Habits",
+    "addHabit": "Add a habit...",
     "resetData": "Сбросить все данные",
     "resetConfirm": "Это удалит все ваши данные. Вы уверены?"
   },

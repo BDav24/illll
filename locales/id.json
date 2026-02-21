@@ -11,12 +11,11 @@
     "goodMorning": "Selamat pagi",
     "goodAfternoon": "Selamat siang",
     "goodEvening": "Selamat malam",
-    "addTask": "Tambah tugas…",
+    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "{{count}} hari berturut-turut",
     "streakZero": "Mulai rangkaianmu!",
     "allDone": "Semua selesai untuk hari ini!",
-    "tasksTitle": "Tugas Saya",
     "welcomeHint": "Ketuk kebiasaan untuk menandainya!",
     "tapToComplete": "Ketuk untuk menandai",
     "tapToUndo": "Ketuk untuk membatalkan"
@@ -80,6 +79,8 @@
     "autoDetect": "Deteksi otomatis",
     "about": "Tentang",
     "version": "Versi {{version}}",
+    "myHabits": "My Habits",
+    "addHabit": "Add a habit...",
     "resetData": "Atur Ulang Semua Data",
     "resetConfirm": "Ini akan menghapus semua datamu. Apakah kamu yakin?"
   },

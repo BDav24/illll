@@ -11,12 +11,11 @@
     "goodMorning": "Günaydın",
     "goodAfternoon": "İyi günler",
     "goodEvening": "İyi akşamlar",
-    "addTask": "Görev ekle…",
+    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "{{count}} gün üst üste",
     "streakZero": "Serini başlat!",
     "allDone": "Bugünlük her şey tamam!",
-    "tasksTitle": "Görevlerim",
     "welcomeHint": "Bir alışkanlığa dokun ve tamamla!",
     "tapToComplete": "Tamamlamak için dokun",
     "tapToUndo": "Geri almak için dokun"
@@ -80,6 +79,8 @@
     "autoDetect": "Otomatik algıla",
     "about": "Hakkında",
     "version": "Sürüm {{version}}",
+    "myHabits": "My Habits",
+    "addHabit": "Add a habit...",
     "resetData": "Tüm Verileri Sıfırla",
     "resetConfirm": "Bu, tüm verilerini silecek. Emin misin?"
   },

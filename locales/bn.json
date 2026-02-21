@@ -11,12 +11,11 @@
     "goodMorning": "সুপ্রভাত",
     "goodAfternoon": "শুভ অপরাহ্ন",
     "goodEvening": "শুভ সন্ধ্যা",
-    "addTask": "কাজ যোগ করুন…",
+    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "{{count}} দিন ধারাবাহিক",
     "streakZero": "আপনার ধারা শুরু করুন!",
     "allDone": "আজকের সব কাজ শেষ!",
-    "tasksTitle": "আমার কাজ",
     "welcomeHint": "একটি অভ্যাসে ট্যাপ করুন!",
     "tapToComplete": "সম্পূর্ণ করতে ট্যাপ করুন",
     "tapToUndo": "পূর্বাবস্থায় ফেরাতে ট্যাপ করুন"
@@ -80,6 +79,8 @@
     "autoDetect": "স্বয়ংক্রিয় সনাক্তকরণ",
     "about": "সম্পর্কে",
     "version": "সংস্করণ {{version}}",
+    "myHabits": "My Habits",
+    "addHabit": "Add a habit...",
     "resetData": "সমস্ত ডেটা রিসেট করুন",
     "resetConfirm": "এটি আপনার সমস্ত ডেটা মুছে ফেলবে। আপনি কি নিশ্চিত?"
   },

@@ -11,12 +11,11 @@
     "goodMorning": "صباح الخير",
     "goodAfternoon": "مساء الخير",
     "goodEvening": "مساء الخير",
-    "addTask": "أضف مهمة…",
+    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "{{count}} يوم متتالي",
     "streakZero": "ابدأ سلسلتك!",
     "allDone": "أنجزت كل شيء اليوم!",
-    "tasksTitle": "مهامي",
     "welcomeHint": "اضغط على عادة لتحديدها!",
     "tapToComplete": "اضغط للتحديد",
     "tapToUndo": "اضغط للتراجع"
@@ -80,6 +79,8 @@
     "autoDetect": "اكتشاف تلقائي",
     "about": "حول التطبيق",
     "version": "الإصدار {{version}}",
+    "myHabits": "My Habits",
+    "addHabit": "Add a habit...",
     "resetData": "إعادة تعيين جميع البيانات",
     "resetConfirm": "سيؤدي هذا إلى حذف جميع بياناتك. هل أنت متأكد؟"
   },

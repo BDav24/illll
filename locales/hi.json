@@ -11,12 +11,11 @@
     "goodMorning": "सुप्रभात",
     "goodAfternoon": "नमस्कार",
     "goodEvening": "शुभ संध्या",
-    "addTask": "कार्य जोड़ें…",
+    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "{{count}} दिन की लगातार लय",
     "streakZero": "अपनी लय शुरू करें!",
     "allDone": "आज का सब काम हो गया!",
-    "tasksTitle": "मेरे कार्य",
     "welcomeHint": "आदत पर टैप करें!",
     "tapToComplete": "पूरा करने के लिए टैप करें",
     "tapToUndo": "पूर्ववत करने के लिए टैप करें"
@@ -80,6 +79,8 @@
     "autoDetect": "स्वतः पहचान",
     "about": "ऐप के बारे में",
     "version": "संस्करण {{version}}",
+    "myHabits": "My Habits",
+    "addHabit": "Add a habit...",
     "resetData": "सभी डेटा रीसेट करें",
     "resetConfirm": "इससे आपका सारा डेटा मिट जाएगा। क्या आप सुनिश्चित हैं?"
   },

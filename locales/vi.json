@@ -11,12 +11,11 @@
     "goodMorning": "Chào buổi sáng",
     "goodAfternoon": "Chào buổi chiều",
     "goodEvening": "Chào buổi tối",
-    "addTask": "Thêm việc cần làm…",
+    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "{{count}} ngày liên tiếp",
     "streakZero": "Bắt đầu chuỗi ngày của bạn!",
     "allDone": "Hoàn thành tất cả cho hôm nay!",
-    "tasksTitle": "Việc của tôi",
     "welcomeHint": "Nhấn vào thói quen để đánh dấu!",
     "tapToComplete": "Nhấn để hoàn thành",
     "tapToUndo": "Nhấn để hoàn tác"
@@ -80,6 +79,8 @@
     "autoDetect": "Tự động nhận diện",
     "about": "Giới thiệu",
     "version": "Phiên bản {{version}}",
+    "myHabits": "My Habits",
+    "addHabit": "Add a habit...",
     "resetData": "Đặt lại tất cả dữ liệu",
     "resetConfirm": "Thao tác này sẽ xóa tất cả dữ liệu của bạn. Bạn có chắc không?"
   },

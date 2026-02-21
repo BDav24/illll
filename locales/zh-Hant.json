@@ -11,12 +11,11 @@
     "goodMorning": "早安",
     "goodAfternoon": "午安",
     "goodEvening": "晚安",
-    "addTask": "新增任務…",
+    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "連續 {{count}} 天",
     "streakZero": "開始你的連續紀錄！",
     "allDone": "今天全部完成！",
-    "tasksTitle": "我的任務",
     "welcomeHint": "點擊習慣來標記完成！",
     "tapToComplete": "點擊完成",
     "tapToUndo": "點擊撤銷"
@@ -80,6 +79,8 @@
     "autoDetect": "自動偵測",
     "about": "關於",
     "version": "版本 {{version}}",
+    "myHabits": "My Habits",
+    "addHabit": "Add a habit...",
     "resetData": "重設所有資料",
     "resetConfirm": "這將刪除你的所有資料。確定要繼續嗎？"
   },

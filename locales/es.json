@@ -11,12 +11,11 @@
     "goodMorning": "Buenos días",
     "goodAfternoon": "Buenas tardes",
     "goodEvening": "Buenas noches",
-    "addTask": "Añadir tarea…",
+    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "{{count}} días seguidos",
     "streakZero": "¡Empieza tu racha!",
     "allDone": "¡Todo listo por hoy!",
-    "tasksTitle": "Mis tareas",
     "welcomeHint": "¡Toca un hábito para marcarlo!",
     "tapToComplete": "Toca para completar",
     "tapToUndo": "Toca para deshacer"
@@ -80,6 +79,8 @@
     "autoDetect": "Detectar automáticamente",
     "about": "Acerca de",
     "version": "Versión {{version}}",
+    "myHabits": "My Habits",
+    "addHabit": "Add a habit...",
     "resetData": "Restablecer todos los datos",
     "resetConfirm": "Esto eliminará todos tus datos. ¿Estás seguro?"
   },

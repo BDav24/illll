@@ -11,12 +11,11 @@
     "goodMorning": "Dzień dobry",
     "goodAfternoon": "Dzień dobry",
     "goodEvening": "Dobry wieczór",
-    "addTask": "Dodaj zadanie…",
+    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "{{count}} dni z rzędu",
     "streakZero": "Zacznij swoją serię!",
     "allDone": "Wszystko zrobione na dziś!",
-    "tasksTitle": "Moje zadania",
     "welcomeHint": "Dotknij nawyk, aby go oznaczyć!",
     "tapToComplete": "Dotknij aby oznaczyć",
     "tapToUndo": "Dotknij aby cofnąć"
@@ -80,6 +79,8 @@
     "autoDetect": "Wykryj automatycznie",
     "about": "O aplikacji",
     "version": "Wersja {{version}}",
+    "myHabits": "My Habits",
+    "addHabit": "Add a habit...",
     "resetData": "Resetuj wszystkie dane",
     "resetConfirm": "Spowoduje to usunięcie wszystkich danych. Czy na pewno?"
   },

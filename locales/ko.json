@@ -11,12 +11,11 @@
     "goodMorning": "좋은 아침이에요",
     "goodAfternoon": "좋은 오후예요",
     "goodEvening": "좋은 저녁이에요",
-    "addTask": "할 일 추가…",
+    "myHabits": "My Habits",
     "score": "{{completed}}/{{total}}",
     "streak": "{{count}}일 연속",
     "streakZero": "연속 기록을 시작하세요!",
     "allDone": "오늘 할 일 모두 완료!",
-    "tasksTitle": "내 할 일",
     "welcomeHint": "습관을 탭하여 완료하세요!",
     "tapToComplete": "탭하여 완료",
     "tapToUndo": "탭하여 취소"
@@ -80,6 +79,8 @@
     "autoDetect": "자동 감지",
     "about": "앱 정보",
     "version": "버전 {{version}}",
+    "myHabits": "My Habits",
+    "addHabit": "Add a habit...",
     "resetData": "모든 데이터 초기화",
     "resetConfirm": "모든 데이터가 삭제됩니다. 계속하시겠습니까?"
   },
