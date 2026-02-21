@@ -14,7 +14,7 @@ export function TaskItem({ task, onToggle, onDelete }: TaskItemProps) {
   return (
     <View style={styles.container}>
       {/* Checkbox */}
-      <Pressable onPress={onToggle} hitSlop={6} style={styles.checkboxHit}>
+      <Pressable onPress={onToggle} style={({ pressed }) => [styles.checkboxHit, pressed && { opacity: 0.5 }]}>
         <View
           style={[
             styles.checkbox,
@@ -34,7 +34,7 @@ export function TaskItem({ task, onToggle, onDelete }: TaskItemProps) {
       </Text>
 
       {/* Delete button */}
-      <Pressable onPress={onDelete} hitSlop={8} style={styles.deleteButton}>
+      <Pressable onPress={onDelete} style={({ pressed }) => [styles.deleteButton, pressed && { opacity: 0.5 }]}>
         <Text style={styles.deleteIcon}>✕</Text>
       </Pressable>
     </View>
@@ -50,7 +50,10 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   checkboxHit: {
-    padding: 2,
+    minWidth: 44,
+    minHeight: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   checkbox: {
     width: 22,
@@ -81,8 +84,8 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
   deleteButton: {
-    width: 24,
-    height: 24,
+    width: 44,
+    height: 44,
     borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
