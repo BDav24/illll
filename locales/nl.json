@@ -23,32 +23,50 @@
     "breathing": {
       "name": "Ademhaling",
       "oneLiner": "Activeert je kalmerende zenuwstelsel — directe verlichting",
-      "action": "Start ademhalingsoefening"
+      "action": "Start ademhalingsoefening",
+      "tldr": "Langzame, gestructureerde ademhaling verlaagt cortisol, verlaagt de bloeddruk en verbetert de hartslagvariabiliteit binnen enkele minuten. Slechts 5 minuten per dag vermindert angst meetbaar.",
+      "body": "Je autonome zenuwstelsel heeft twee takken: het sympathische (\"vecht of vlucht\") en het parasympathische (\"rust en vertering\"). Langzame, bewuste ademhaling activeert rechtstreeks de parasympathische tak via de nervus vagus.\n\nWanneer je langzaam uitademt, detecteren baroreceptoren in je aortaboog de drukverandering en signaleren de hersenstam om je hartslag te vertragen. Daarom zijn technieken met verlengde uitademing (zoals cyclisch zuchten) bijzonder effectief.\n\nEen Stanford-studie uit 2023 toonde aan dat slechts 5 minuten dagelijks gestructureerd ademhalen — specifiek cyclisch zuchten — effectiever was dan mindfulness-meditatie in het verminderen van angst en het verbeteren van stemming. Het effect was meetbaar vanaf de eerste sessie en nam toe gedurende 28 dagen.\n\nHRV (hartslagvariabiliteit), een belangrijke indicator voor stressbestendigheid, verbetert aanzienlijk bij regelmatige ademhalingsoefeningen. Een hogere HRV wordt geassocieerd met betere emotieregulatie, cognitieve flexibiliteit en cardiovasculaire gezondheid.\n\nHet mooie van ademhalingsoefeningen is hun toegankelijkheid: je hebt geen apparatuur nodig, geen speciale ruimte, en je kunt ze overal doen. Zelfs één minuut langzaam ademen voor een stressvolle gebeurtenis vermindert de cortisolrespons meetbaar.",
+      "recommendation": "2-5 minuten langzaam ademen per dag. Box breathing (4-4-4-4) of cyclisch zuchten."
     },
     "light": {
       "name": "Lichtblootstelling",
       "oneLiner": "Ochtendzonlicht stelt je klok in — betere slaap en stemming",
-      "action": "Zonlicht registreren"
+      "action": "Zonlicht registreren",
+      "tldr": "10-30 minuten blootstelling aan fel licht reguleert het circadiaan ritme, verbetert de slaapkwaliteit, verhoogt alertheid en heeft antidepressieve effecten.",
+      "body": "Je lichaam draait op een hoofdklok — de nucleus suprachiasmaticus (SCN) in de hypothalamus. Deze klok bepaalt wanneer je je slaperig voelt, wanneer cortisol piekt, wanneer je lichaamstemperatuur stijgt en honderden andere ritmische processen. De belangrijkste input die deze klok synchroniseert, is licht dat valt op gespecialiseerde cellen in je netvlies, genaamd intrinsiek lichtgevoelige retinale ganglioncellen (ipRGCs).\n\nOchtendlicht zet een cascade in gang: het onderdrukt de melatonineproductie, verhoogt cortisol (de gezonde ochtendpiek), verhoogt de serotoninesynthese en zet een timer voor melatonine-afgifte ongeveer 14-16 uur later. Daarom verbetert ochtendlicht zowel de alertheid overdag ALS de slaap 's nachts.\n\nEen baanbrekende studie in JAMA Psychiatry uit 2016 toonde aan dat felle-lichttherapie even effectief was als fluoxetine (Prozac) bij niet-seizoensgebonden depressie — en de combinatie van beide was significant effectiever dan elk afzonderlijk. De effectgrootte was klinisch relevant en snel merkbaar.\n\nEen studie uit 2023 in Nature Mental Health, die gegevens analyseerde van meer dan 85.000 UK Biobank-deelnemers, toonde aan dat meer blootstelling aan daglicht geassocieerd was met een lager risico op depressie, een betere stemming, gemakkelijker opstaan 's ochtends en minder vermoeidheid. Cruciaal: blootstelling aan nachtelijk licht had het tegenovergestelde effect.\n\nHet belangrijkste inzicht: het gaat niet alleen om licht krijgen — het gaat om het juiste licht op het juiste moment. Helder buitenlicht in de ochtend is fundamenteel anders dan kunstmatig binnenlicht. Zelfs op een bewolkte dag is het buitenlicht doorgaans 10-50 keer feller dan binnenverlichting.",
+      "recommendation": "Ga binnen 1 uur na het wakker worden naar buiten. 10 min bij zon, 20-30 min bij bewolking."
     },
     "food": {
       "name": "Gezond eten",
       "oneLiner": "Wat je eet bouwt je brein — elke goede maaltijd telt",
-      "action": "Gezonde maaltijd registreren"
+      "action": "Gezonde maaltijd registreren",
+      "tldr": "Een mediterraan dieet vermindert het risico op depressie met ~33%, hart- en vaatziekten met ~30% en sterfte door alle oorzaken.",
+      "body": "Het verband tussen voeding en geestelijke gezondheid wordt nu ondersteund door robuust interventioneel bewijs, niet alleen door observationele correlaties. Het vakgebied \"voedingspsychiatrie\" heeft de afgelopen tien jaar een enorme vlucht genomen.\n\nDe baanbrekende SMILES trial (2017) was het eerste gerandomiseerde gecontroleerde onderzoek dat rechtstreeks testte of het verbeteren van de voeding klinische depressie kan behandelen. Deelnemers met een ernstige depressie die voedingsadvies kregen richting een mediterraan dieet, vertoonden significant meer verbetering dan degenen die sociale ondersteuning ontvingen. Na 12 weken bereikte 32% van de dieetgroep remissie, tegenover 8% in de controlegroep.\n\nDe PREDIMED trial, een van de grootste voedingsinterventiestudies ooit (7.447 deelnemers), toonde aan dat een mediterraan dieet aangevuld met extra vierge olijfolie of noten het aantal cardiovasculaire gebeurtenissen met ongeveer 30% verminderde vergeleken met een controledieet. Dit was zo significant dat de studie om ethische redenen vroegtijdig werd gestopt.\n\nDe mechanismen zijn veelzijdig: anti-inflammatoire effecten (chronische ontsteking is gelinkt aan depressie), diversiteit van het darmmicrobioom (de darmen produceren ~95% van je serotonine), betere bloedsuikerregulatie (glucosepieken verslechteren het cognitief functioneren) en betere voorziening van voedingsstoffen die cruciaal zijn voor de aanmaak van neurotransmitters (omega-3-vetzuren, B-vitamines, zink, magnesium).\n\nJe hoeft je hele voeding niet van de ene op de andere dag om te gooien. Onderzoek toont consequent aan dat stapsgewijze verbeteringen al meetbare voordelen opleveren. Meer groenten eten, ultrabewerkt voedsel verminderen en meer volwaardige producten eten creëert een positieve spiraal — betere voeding verbetert je stemming, wat je voedingskeuzes verbetert.",
+      "recommendation": "Voeg een extra portie groenten toe, vervang een bewerkte snack door fruit of noten."
     },
     "sleep": {
       "name": "Slaap",
       "oneLiner": "Je brein reinigt zichzelf tijdens het slapen — elk uur telt",
-      "action": "Slaaptijden registreren"
+      "action": "Slaaptijden registreren",
+      "tldr": "Tijdens diepe slaap ruimt het glymfatisch systeem van de hersenen afvalstoffen op. Minder dan 7 uur slapen verhoogt de sterftekans met 13%. Eén nacht slaaptekort vermindert emotieregulatie met ~60%.",
+      "body": "Slaap is geen passieve bewusteloosheid — het is een actief, zeer georganiseerd proces dat essentieel is voor overleving. Tijdens diepe (langzame-golf) slaap verhoogt het glymfatisch systeem van de hersenen de doorstroming van hersenvocht met 60%, waardoor metabole afvalstoffen worden afgevoerd, waaronder bèta-amyloïd — het eiwit dat betrokken is bij de ziekte van Alzheimer.\n\nEen baanbrekend artikel in Science uit 2013 van Xie et al. ontdekte dat de ruimte tussen hersencellen tijdens de slaap met 60% toeneemt, waardoor deze \"hersenspoeling\" kan plaatsvinden. Dit betekent dat chronisch slaaptekort er letterlijk voor kan zorgen dat giftige afvalstoffen zich ophopen in je hersenen.\n\nDe sterftecijfers zijn duidelijk: een meta-analyse van 1,3 miljoen deelnemers toonde aan dat minder dan 7 uur slaap per nacht geassocieerd is met een 13% hoger risico op sterfte door alle oorzaken. Maar het gaat niet alleen om de duur — slaapkwaliteit is enorm belangrijk.\n\nMisschien het meest direct voelbaar: één nacht slaaptekort veroorzaakt een toename van 60% in de reactie van de amygdala op negatieve prikkels, waardoor je prefrontale cortex (rationele brein) effectief wordt losgekoppeld van je emotionele centra. Daarom voelt alles erger na een slechte nacht — het vermogen van je hersenen om emoties te reguleren is fysiologisch aangetast.\n\nSlaap consolideert ook het geheugen, reguleert hormonen (groeihormoon komt voornamelijk vrij tijdens diepe slaap), onderhoudt de immuunfunctie (de effectiviteit van je T-cellen daalt aanzienlijk na slechts één nacht slechte slaap) en reguleert de eethormonen (slaaptekort verhoogt ghreline en verlaagt leptine, waardoor je meer honger hebt).\n\nDe twee meest impactvolle dingen die je kunt doen voor je slaap zijn regelmaat (vaste bedtijd en wektijd) en ochtendlicht (dat je melatoninetimer instelt voor de avond).",
+      "recommendation": "7-9 uur. Vaste bedtijd en wektijd."
     },
     "exercise": {
       "name": "Beweging",
       "oneLiner": "Het beste antidepressivum en middel voor een lang leven — beweeg dagelijks",
-      "action": "Beweging registreren"
+      "action": "Beweging registreren",
+      "tldr": "Vermindert sterfte door alle oorzaken met 30-35%, is even effectief als SSRI's bij depressie, bevordert neurogenese. 11 minuten stevig wandelen helpt al.",
+      "body": "Beweging is het dichtste bij een wondermiddel dat we hebben. Een meta-analyse in de BMJ uit 2024 van meer dan 200 studies toonde aan dat beweging 1,5 keer effectiever is dan counseling of de beste medicijnen in het verminderen van symptomen van depressie, angst en psychische nood. Wandelen of joggen, yoga en krachttraining behoorden tot de meest effectieve vormen.\n\nDe dosis-responscurve voor beweging is opmerkelijk steil aan het begin: een studie uit 2023 in het British Journal of Sports Medicine, gebaseerd op 196 studies, toonde aan dat slechts 11 minuten dagelijks stevig wandelen (75 minuten per week) geassocieerd was met een 23% lager risico op vroegtijdig overlijden. De overstap van niets naar zelfs minimale activiteit levert het grootste marginale voordeel op.\n\nNeurologisch gezien toonde een baanbrekende PNAS-studie uit 2011 aan dat een jaar matige aerobe beweging het hippocampusvolume met 2% vergrootte, waardoor effectief 1-2 jaar leeftijdsgebonden krimp werd teruggedraaid. De hippocampus is cruciaal voor het geheugen en is een van de eerste structuren die worden aangetast bij de ziekte van Alzheimer. Beweging bevordert neurogenese (de geboorte van nieuwe hersencellen) door verhoging van BDNF (brain-derived neurotrophic factor).\n\nBewegen verbetert ook de slaapkwaliteit, vermindert ontsteking, verbetert de insulinegevoeligheid, versterkt de botten, vermindert het risico op kanker, verbetert cognitieve functies en versterkt het gevoel van eigen effectiviteit. De mechanismen zijn zo divers dat geen enkel medicijn alle voordelen van regelmatige lichaamsbeweging kan evenaren.\n\nHet belangrijkste inzicht uit modern onderzoek: de grootste gezondheidswinst komt van de overgang van niets naar iets. Je hoeft geen marathons te lopen. Een wandeling van 10 minuten is oneindig veel beter dan helemaal niet wandelen. Begin belachelijk klein en bouw eerst regelmaat op voordat je de intensiteit verhoogt.",
+      "recommendation": "Elke beweging telt. Een wandeling van 10 minuten is oneindig veel beter dan niets."
     },
     "gratitude": {
       "name": "Dankbaarheid",
       "oneLiner": "3 goede dingen herprogrammeren je brein richting het positieve",
-      "action": "Dankbaarheden opschrijven"
+      "action": "Dankbaarheden opschrijven",
+      "tldr": "Het opschrijven van dankbaarheid verhoogt het welzijn met 10-25%, verbetert de slaap, vermindert depressie en creëert blijvende veranderingen in de hersenen.",
+      "body": "Dankbaarheidsoefeningen zijn een van de best onderzochte interventies uit de positieve psychologie, met robuust bewijs dat meer dan twee decennia onderzoek omvat. De effecten zijn niet alleen subjectief — dankbaarheidsoefeningen creëren meetbare veranderingen in de hersenstructuur en -functie.\n\nHet fundamentele onderzoek van Emmons en McCullough uit 2003 toonde aan dat mensen die wekelijks opschreven waarvoor ze dankbaar waren, meer bewogen, minder lichamelijke klachten hadden en zich beter voelden over hun leven dan degenen die over problemen of neutrale gebeurtenissen schreven. De effectgrootte was aanzienlijk: 10-25% verbetering in welzijnsmetingen.\n\nEen fMRI-studie van Kini et al. uit 2016 toonde aan dat dankbaarheidsoefeningen blijvende veranderingen teweegbrachten in de manier waarop de hersenen informatie verwerken. Deelnemers die dankbaarheidsbrieven schreven, vertoonden maanden later een significant grotere neurale gevoeligheid voor dankbaarheidservaringen — zelfs wanneer ze niet actief oefenden. De mediale prefrontale cortex, betrokken bij leren en besluitvorming, vertoonde de meest significante veranderingen. Dit suggereert dat dankbaarheidsoefeningen letterlijk de basisverwerking van je hersenen herprogrammeren.\n\nBijzonder overtuigend is het verband met slaap: Wood et al. (2009) toonden aan dat dankbaarheid geassocieerd was met betere slaapkwaliteit, voornamelijk via het mechanisme van gedachten voor het slapen. Dankbare mensen hebben meer positieve en minder negatieve gedachten voordat ze in slaap vallen, wat leidt tot sneller inslapen en een betere slaapkwaliteit.\n\nDe sleutel tot effectieve dankbaarheidsoefeningen is specificiteit. \"Ik ben dankbaar voor mijn gezondheid\" is veel minder effectief dan \"Ik ben dankbaar dat mijn benen me vanochtend door het park droegen en dat ik zag dat de kersenbloesems bloeiden.\" Specifieke dankbaarheid dwingt je om de positieve ervaring opnieuw te beleven, waardoor de emotionele impact wordt versterkt en je hersenen worden getraind om positieve details op te merken.",
+      "recommendation": "1-3 specifieke dingen per dag. Wees specifiek, niet algemeen."
     }
   },
   "breathing": {
@@ -66,7 +84,8 @@
     "days": "dagen",
     "thisWeek": "Deze week",
     "thisYear": "Dit jaar",
-    "completionRate": "{{rate}}% voltooid"
+    "completionRate": "{{rate}}% voltooid",
+    "noData": "Nog geen gegevens"
   },
   "settings": {
     "title": "Instellingen",
@@ -101,6 +120,7 @@
     "edit": "Bewerken",
     "ok": "OK",
     "yes": "Ja",
-    "no": "Nee"
+    "no": "Nee",
+    "notFound": "Niet gevonden"
   }
 }

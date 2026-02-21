@@ -10,6 +10,7 @@ import {
 
 import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
+import { useDateLocale } from '../lib/dateFnsLocale';
 
 interface HeatmapProps {
   data: Record<string, { completed: number; total: number }>;
@@ -20,8 +21,6 @@ const GAP = 2;
 const MONTH_LABEL_WIDTH = 28;
 const PARENT_HORIZONTAL_PADDING = 40;
 const MAX_DAYS = 31;
-
-const MONTH_LABELS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 function getHeatmapColor(completed: number, total: number, heatmap: string[]): string {
   if (total === 0 || completed === 0) return heatmap[0];
@@ -34,6 +33,7 @@ function getHeatmapColor(completed: number, total: number, heatmap: string[]): s
 
 export function Heatmap({ data, year }: HeatmapProps) {
   const colors = useColors();
+  const dateLocale = useDateLocale();
   const styles = useMemo(() => makeStyles(colors), [colors]);
 
   const targetYear = year ?? new Date().getFullYear();
@@ -67,9 +67,10 @@ export function Heatmap({ data, year }: HeatmapProps) {
         return { dateKey, color };
       });
 
-      return { label: MONTH_LABELS[monthIdx], cells, daysInMonth: getDaysInMonth(monthStart) };
+      const label = format(monthStart, 'MMM', { locale: dateLocale });
+      return { label, cells, daysInMonth: getDaysInMonth(monthStart) };
     });
-  }, [data, targetYear, colors.heatmap]);
+  }, [data, targetYear, colors.heatmap, dateLocale]);
 
   return (
     <View style={styles.container}>

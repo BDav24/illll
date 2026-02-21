@@ -14,6 +14,7 @@ import { format } from 'date-fns';
 import Svg, { Path } from 'react-native-svg';
 
 import { useColors, type ColorPalette } from '../../constants/colors';
+import { useDateLocale } from '../../lib/dateFnsLocale';
 import { Fonts } from '../../constants/fonts';
 import { HABIT_MAP } from '../../constants/habits';
 import {
@@ -35,6 +36,7 @@ export default function DailyHub() {
   const { t } = useTranslation();
   const router = useRouter();
   const colors = useColors();
+  const dateLocale = useDateLocale();
   const styles = useMemo(() => makeStyles(colors), [colors]);
   const bottomSheetRef = useRef<BottomSheet>(null);
   const [activeHabit, setActiveHabit] = useState<HabitId | null>(null);
@@ -68,7 +70,7 @@ export default function DailyHub() {
         ? t('hub.goodAfternoon')
         : t('hub.goodEvening');
 
-  const dateStr = format(new Date(), 'EEEE, MMMM d');
+  const dateStr = format(new Date(), 'EEEE, MMMM d', { locale: dateLocale });
 
   const handleHabitPress = useCallback(
     (id: HabitId) => {

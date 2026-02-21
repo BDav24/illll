@@ -1,9 +1,12 @@
 import React, { useMemo } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Svg, { Polyline, Circle as SvgCircle } from 'react-native-svg';
+import { format } from 'date-fns';
+import { useTranslation } from 'react-i18next';
 
 import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
+import { useDateLocale } from '../lib/dateFnsLocale';
 
 interface WeeklyChartProps {
   data: { date: string; score: number }[];
@@ -14,10 +17,10 @@ const CHART_PADDING_TOP = 10;
 const CHART_PADDING_BOTTOM = 4;
 const DOT_RADIUS = 4;
 
-const DAY_NAMES = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-
 export function WeeklyChart({ data }: WeeklyChartProps) {
+  const { t } = useTranslation();
   const colors = useColors();
+  const dateLocale = useDateLocale();
   const styles = useMemo(() => makeStyles(colors), [colors]);
 
   const displayData = data.length > 0 ? data.slice(-7) : [];
@@ -56,18 +59,16 @@ export function WeeklyChart({ data }: WeeklyChartProps) {
     .map((p) => `${p.cx},${p.cy}`)
     .join(' ');
 
-  // Derive day labels from dates
+  // Derive day labels from dates using locale-aware formatting
   const dayLabels = displayData.map((entry) => {
     const d = new Date(entry.date + 'T00:00:00');
-    const jsDay = d.getDay(); // 0=Sun, 1=Mon..6=Sat
-    const idx = jsDay === 0 ? 6 : jsDay - 1; // Mon=0..Sun=6
-    return DAY_NAMES[idx];
+    return format(d, 'EEE', { locale: dateLocale });
   });
 
   if (displayData.length === 0) {
     return (
       <View style={[styles.container, styles.emptyContainer]}>
-        <Text style={styles.emptyText}>No data yet</Text>
+        <Text style={styles.emptyText}>{t('progress.noData')}</Text>
       </View>
     );
   }

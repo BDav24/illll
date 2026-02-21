@@ -23,32 +23,50 @@
     "breathing": {
       "name": "Nefes",
       "oneLiner": "Sakinleştirici sinir sistemini aktive eder — anında rahatlama",
-      "action": "Nefes egzersizine başla"
+      "action": "Nefes egzersizine başla",
+      "tldr": "Yavaş, yapılandırılmış nefes alma kortizolü düşürür, kan basıncını azaltır ve kalp hızı değişkenliğini dakikalar içinde iyileştirir. Günde sadece 5 dakika kaygıyı ölçülebilir şekilde azaltır.",
+      "body": "Otonom sinir sisteminizin iki dalı vardır: sempatik (\"savaş ya da kaç\") ve parasempatik (\"dinlen ve sindir\"). Yavaş, bilinçli nefes alma vagus siniri aracılığıyla parasempatik dalı doğrudan aktive eder.\n\nYavaşça nefes verdiğinizde, aort arkusundaki baroreseptörler basınç değişikliğini algılar ve beyin sapına kalp hızını yavaşlatması için sinyal gönderir. Bu nedenle uzatılmış nefes verme içeren teknikler (döngüsel iç çekme gibi) özellikle etkilidir.\n\n2023 yılında yapılan bir Stanford araştırması, günde sadece 5 dakikalık yapılandırılmış nefes egzersizinin — özellikle döngüsel iç çekmenin — kaygıyı azaltmada ve ruh halini iyileştirmede farkındalık meditasyonundan daha etkili olduğunu ortaya koymuştur. Etki ilk seanstan itibaren ölçülebilir olup 28 gün boyunca birikim göstermiştir.\n\nStres direncinin önemli bir göstergesi olan kalp hızı değişkenliği (HRV), düzenli nefes çalışmalarıyla belirgin şekilde iyileşir. Daha yüksek HRV, daha iyi duygusal düzenleme, bilişsel esneklik ve kardiyovasküler sağlıkla ilişkilidir.\n\nNefes egzersizlerinin güzelliği erişilebilir olmalarıdır: ekipman gerektirmez, özel alan gerektirmez ve her yerde yapılabilir. Stresli bir olaydan önce bile sadece bir dakikalık yavaş nefes alma, kortizol tepkisini ölçülebilir şekilde azaltır.",
+      "recommendation": "Günde 2-5 dakika yavaş nefes. Kutu nefesi (4-4-4-4) veya döngüsel iç çekme."
     },
     "light": {
       "name": "Işık Maruziyeti",
       "oneLiner": "Sabah güneşi biyolojik saatini ayarlar — daha iyi uyku ve ruh hali",
-      "action": "Güneş ışığını kaydet"
+      "action": "Güneş ışığını kaydet",
+      "tldr": "10-30 dakika parlak ışık maruziyeti sirkadiyen ritmi düzenler, uyku kalitesini artırır, uyanıklığı güçlendirir ve antidepresan etkilere sahiptir.",
+      "body": "Vücudunuz bir ana saat üzerinden çalışır — hipotalamustaki suprakiyazmatik çekirdek (SCN). Bu saat ne zaman uykulu hissedeceğinizi, kortizolün ne zaman zirve yapacağını, vücut ısısının ne zaman yükseleceğini ve yüzlerce diğer ritmik süreci kontrol eder. Bu saati senkronize eden birincil girdi, retinanızdaki intrinsically photosensitive retinal ganglion cells (ipRGCs) adlı özelleşmiş hücrelere ulaşan ışıktır.\n\nSabah ışığına maruz kalma bir dizi tepkiyi tetikler: melatonin üretimini baskılar, kortizolü yükseltir (sağlıklı sabah artışı), serotonin sentezini artırır ve yaklaşık 14-16 saat sonra melatonin salınımı için bir zamanlayıcı kurar. Bu nedenle sabah ışığı hem gündüz uyanıklığını HEM DE gece uyku kalitesini iyileştirir.\n\n2016 yılında JAMA Psychiatry'de yayımlanan önemli bir klinik çalışma, parlak ışık terapisinin mevsimsel olmayan majör depresyonda fluoksetin (Prozac) kadar etkili olduğunu — ve ikisinin kombinasyonunun tek başına ikisinden de önemli ölçüde daha etkili olduğunu ortaya koymuştur. Etki büyüklüğü klinik olarak anlamlı ve hızlıydı.\n\n2023 yılında Nature Mental Health'te yayımlanan ve 85.000'den fazla UK Biobank katılımcısının verilerini analiz eden bir çalışma, gündüz ışığına daha fazla maruz kalmanın depresyon riskinin azalması, daha iyi ruh hali, sabahları daha kolay kalkma ve daha az yorgunlukla ilişkili olduğunu bulmuştur. Önemle belirtmek gerekir ki, gece ışığına maruz kalma tam tersi etki göstermiştir.\n\nKilit bulgu: mesele sadece ışık almak değil — doğru zamanda doğru ışığı almaktır. Sabah parlak, dış mekan ışığı iç mekan yapay ışığından köklü bir şekilde farklıdır. Bulutlu bir günde bile dış mekan ışığı genellikle iç mekan aydınlatmasından 10-50 kat daha parlaktır.",
+      "recommendation": "Uyanmanızdan sonraki 1 saat içinde dışarı çıkın. Güneşli havada 10 dk, bulutlu havada 20-30 dk."
     },
     "food": {
       "name": "Sağlıklı Beslenme",
       "oneLiner": "Yediklerin beynini inşa eder — her sağlıklı öğün önemli",
-      "action": "Sağlıklı öğün kaydet"
+      "action": "Sağlıklı öğün kaydet",
+      "tldr": "Akdeniz tarzı beslenme depresyon riskini yaklaşık %33, kardiyovasküler hastalığı yaklaşık %30 ve tüm nedenlere bağlı ölüm oranını azaltır.",
+      "body": "Beslenme ile ruh sağlığı arasındaki bağlantı artık yalnızca gözlemsel korelasyonlarla değil, güçlü müdahale kanıtlarıyla desteklenmektedir. \"Beslenme psikiyatrisi\" alanı son on yılda büyük bir patlama yaşamıştır.\n\nÇığır açan SMILES trial (2017), diyet iyileştirmenin klinik depresyonu tedavi edip edemeyeceğini doğrudan test eden ilk randomize kontrollü çalışmaydı. Akdeniz tarzı beslenmeye yönelik diyet danışmanlığı alan majör depresyonlu katılımcılar, sosyal destek alanlara kıyasla önemli ölçüde daha fazla iyileşme gösterdi. 12 hafta sonra diyet grubunun %32'si remisyona ulaşırken kontrol grubunda bu oran %8'di.\n\nBugüne kadar yapılmış en büyük diyet müdahale çalışmalarından biri olan PREDIMED trial (7.447 katılımcı), sızma zeytinyağı veya kuruyemişle desteklenen Akdeniz diyetinin kontrol diyetine kıyasla kardiyovasküler olayları yaklaşık %30 azalttığını gösterdi. Bu sonuç o kadar anlamlıydı ki çalışma etik nedenlerle erken sonlandırıldı.\n\nMekanizmalar çok yönlüdür: anti-enflamatuar etkiler (kronik enflamasyon depresyonla bağlantılıdır), bağırsak mikrobiyom çeşitliliği (bağırsaklar serotoninizin yaklaşık %95'ini üretir), daha iyi kan şekeri düzenlemesi (glikoz artışları bilişsel işlevi bozar) ve nörotransmiter sentezi için kritik besinlerin daha iyi sağlanması (omega-3'ler, B vitaminleri, çinko, magnezyum).\n\nBeslenmenizi bir gecede tamamen değiştirmeniz gerekmez. Araştırmalar tutarlı bir şekilde kademeli iyileştirmelerin anlamlı faydalar sağladığını göstermektedir. Sebze eklemek, ultra işlenmiş gıdaları azaltmak ve daha fazla tam gıda tüketmek olumlu bir geri bildirim döngüsü yaratır — daha iyi beslenme ruh halini iyileştirir, bu da beslenme tercihlerini iyileştirir.",
+      "recommendation": "Bir porsiyon fazladan sebze ekleyin, işlenmiş atıştırmalıkları meyve/kuruyemişle değiştirin."
     },
     "sleep": {
       "name": "Uyku",
       "oneLiner": "Beynin uyurken kendini temizler — her saat önemli",
-      "action": "Uyku saatlerini kaydet"
+      "action": "Uyku saatlerini kaydet",
+      "tldr": "Derin uyku sırasında beynin glimfatik sistemi atıkları temizler. 7 saatten az uyku ölüm riskini %13 artırır. Tek bir gece uyku yoksunluğu duygusal düzenlemeyi yaklaşık %60 azaltır.",
+      "body": "Uyku pasif bir bilinçsizlik hali değildir — hayatta kalma için gerekli, aktif ve son derece organize bir süreçtir. Derin (yavaş dalga) uyku sırasında beynin glimfatik sistemi beyin omurilik sıvısı akışını %60 artırarak Alzheimer hastalığında rolü olan beta-amiloid proteini dahil metabolik atık ürünlerini temizler.\n\nXie ve arkadaşlarının 2013 yılında Science dergisinde yayımlanan çığır açıcı makalesi, uyku sırasında beyin hücreleri arasındaki boşluğun %60 genişlediğini ve bu \"beyin yıkaması\" sürecinin gerçekleşmesine olanak tanıdığını keşfetti. Bu, kronik uyku yoksunluğunun beyninizde toksik atık birikmesine gerçek anlamda yol açabileceği anlamına gelir.\n\nÖlüm oranı verileri çarpıcıdır: 1,3 milyon katılımcıyı kapsayan bir meta-analiz, gece 7 saatten az uyumanın tüm nedenlere bağlı ölüm riskinde %13'lük bir artışla ilişkili olduğunu bulmuştur. Ancak mesele sadece süre değil — uyku kalitesi de büyük önem taşır.\n\nBelki de en doğrudan ilgili olan: tek bir gece uyku yoksunluğu, amigdalanın olumsuz uyaranlara tepkisinde %60'lık bir artışa neden olarak prefrontal korteksinizi (rasyonel beyin) duygusal merkezlerinizden fiilen koparır. Kötü bir gece uykusundan sonra her şeyin daha kötü hissettirmesinin nedeni budur — beyninizin duyguları düzenleme yeteneği fizyolojik olarak bozulmuştur.\n\nUyku ayrıca hafızayı pekiştirir, hormonları düzenler (büyüme hormonu esas olarak derin uyku sırasında salınır), bağışıklık fonksiyonunu korur (T hücresi etkinliğiniz sadece bir gece kötü uykudan sonra önemli ölçüde düşer) ve iştah hormonlarını düzenler (uyku yoksunluğu ghrelini artırır ve leptini azaltır, sizi daha aç hissettirir).\n\nUyku için yapabileceğiniz en etkili iki şey tutarlılıktır (aynı yatma/kalkma saati) ve sabah ışığına maruz kalmaktır (akşam melatonin zamanlayıcınızı kurar).",
+      "recommendation": "7-9 saat. Tutarlı yatma ve kalkma saatleri."
     },
     "exercise": {
       "name": "Egzersiz",
       "oneLiner": "1 numaralı antidepresan ve uzun ömür aracı — her gün hareket et",
-      "action": "Egzersiz kaydet"
+      "action": "Egzersiz kaydet",
+      "tldr": "Tüm nedenlere bağlı ölümü %30-35 azaltır, depresyon için SSRI'lar kadar etkilidir, nörogenezi teşvik eder. 11 dakika tempolu yürüyüş bile fayda sağlar.",
+      "body": "Egzersiz, mucize ilaca sahip olduğumuz en yakın şeydir. 200'den fazla çalışmayı kapsayan 2024 BMJ meta-analizi, egzersizin depresyon, kaygı ve psikolojik sıkıntı belirtilerini azaltmada danışmanlık veya önde gelen ilaçlardan 1,5 kat daha etkili olduğunu ortaya koymuştur. Yürüyüş veya koşu, yoga ve kuvvet antrenmanı en etkili yöntemler arasındaydı.\n\nEgzersiz için doz-yanıt eğrisi dikkate değer şekilde ön yüklemlidir: British Journal of Sports Medicine'de 196 çalışmanın verilerini analiz eden 2023 tarihli bir araştırma, günde sadece 11 dakika tempolu yürüyüşün (haftada 75 dakika) erken ölüm riskinde %23'lük bir azalmayla ilişkili olduğunu bulmuştur. Sıfırdan minimal aktiviteye geçmek en büyük marjinal faydayı sağlar.\n\nNörolojik açıdan, 2011 yılında PNAS'ta yayımlanan önemli bir çalışma, bir yıllık orta düzeyde aerobik egzersizin hipokampüs hacmini %2 artırdığını, yaşa bağlı 1-2 yıllık küçülmeyi fiilen tersine çevirdiğini göstermiştir. Hipokampüs hafıza için kritik öneme sahiptir ve Alzheimer hastalığında etkilenen ilk yapılardan biridir. Egzersiz, artan BDNF (beyin kaynaklı nörotrofik faktör) aracılığıyla nörogenezi (yeni beyin hücrelerinin doğumunu) teşvik eder.\n\nEgzersiz ayrıca uyku kalitesini artırır, iltihabı azaltır, insülin duyarlılığını iyileştirir, kemikleri güçlendirir, kanser riskini azaltır, bilişsel işlevi geliştirir ve öz yeterliliği artırır. Mekanizmalar o kadar çeşitlidir ki hiçbir tek ilaç düzenli fiziksel aktivitenin tüm faydalarını kopyalayamaz.\n\nModern araştırmanın temel bulgusu: en büyük sağlık kazanımı hiç hareket etmemekten bir şeyler yapmaya geçişte elde edilir. Maraton koşmanıza gerek yok. 10 dakikalık bir yürüyüş, hiç yürümemekten sonsuz kat daha faydalıdır. Son derece küçük başlayın ve yoğunluktan önce tutarlılığı oluşturun.",
+      "recommendation": "Her hareket önemlidir. 10 dakikalık yürüyüş hiç yürümemekten sonsuz kat iyidir."
     },
     "gratitude": {
       "name": "Şükran",
       "oneLiner": "3 güzel şey beynini olumluya doğru yeniden programlar",
-      "action": "Şükranlarını yaz"
+      "action": "Şükranlarını yaz",
+      "tldr": "Şükran yazmak iyi oluşu %10-25 artırır, uykuyu iyileştirir, depresyonu azaltır ve kalıcı sinirsel değişiklikler yaratır.",
+      "body": "Şükran pratiği, yirmi yılı aşkın araştırma sürecinde güçlü kanıtlarla desteklenen, en çok incelenen pozitif psikoloji müdahalelerinden biridir. Etkiler yalnızca öznel değildir — şükran pratiği beyin yapısı ve işlevinde ölçülebilir değişiklikler yaratır.\n\n2003 yılında Emmons ve McCullough tarafından yapılan temel çalışma, şükrettikleri şeyler hakkında haftalık yazanların, sıkıntılar veya nötr olaylar hakkında yazanlara kıyasla daha fazla egzersiz yaptığını, daha az fiziksel şikayette bulunduğunu ve hayatları hakkında daha iyi hissettiğini ortaya koymuştur. Etki büyüklüğü kayda değerdi: iyi oluş ölçümlerinde %10-25 iyileşme.\n\nKini ve arkadaşlarının 2016 yılında yaptığı bir fMRI çalışması, şükran pratiğinin beynin bilgiyi işleme biçiminde kalıcı değişiklikler yarattığını bulmuştur. Şükran mektupları yazan katılımcılar, aktif olarak pratik yapmadıkları zamanlarda bile aylar sonra şükran deneyimlerine karşı önemli ölçüde daha fazla nöral duyarlılık göstermiştir. Öğrenme ve karar verme süreçlerinde rol oynayan medial prefrontal korteks en belirgin değişiklikleri göstermiştir. Bu, şükran pratiğinin beyninizin temel işleme biçimini gerçek anlamda yeniden şekillendirdiğini göstermektedir.\n\nUyku bağlantısı özellikle ilgi çekicidir: Wood ve arkadaşları (2009), şükranın uyku öncesi bilişsel süreçler mekanizması aracılığıyla daha iyi uyku kalitesiyle ilişkili olduğunu bulmuştur. Minnettar insanlar uykuya dalmadan önce daha fazla olumlu ve daha az olumsuz düşüncelere sahiptir, bu da daha hızlı uykuya dalma ve daha iyi uyku kalitesine yol açar.\n\nEtkili şükran pratiğinin anahtarı özgüllüktür. \"Sağlığım için minnettarım\" ifadesi, \"Bu sabah bacaklarımın beni parkta yürüyüşe çıkarmasına ve kiraz çiçeklerinin açtığını fark etmeme minnettarım\" ifadesinden çok daha az etkilidir. Özgül şükran sizi olumlu deneyimi yeniden yaşamaya zorlar, duygusal etkisini güçlendirir ve beyninizi olumlu ayrıntıları fark etmek üzere eğitir.",
+      "recommendation": "Günde 1-3 spesifik şey. Genel değil, spesifik olun."
     }
   },
   "breathing": {
@@ -66,7 +84,8 @@
     "days": "gün",
     "thisWeek": "Bu Hafta",
     "thisYear": "Bu Yıl",
-    "completionRate": "%{{rate}} tamamlandı"
+    "completionRate": "%{{rate}} tamamlandı",
+    "noData": "Henüz veri yok"
   },
   "settings": {
     "title": "Ayarlar",
@@ -101,6 +120,7 @@
     "edit": "Düzenle",
     "ok": "Tamam",
     "yes": "Evet",
-    "no": "Hayır"
+    "no": "Hayır",
+    "notFound": "Bulunamadı"
   }
 }

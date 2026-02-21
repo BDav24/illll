@@ -24,7 +24,7 @@ export default function HabitArticleScreen() {
   if (!meta || !article) {
     return (
       <SafeAreaView style={styles.container}>
-        <Text style={styles.errorText}>Habit not found</Text>
+        <Text style={styles.errorText}>{t('common.notFound')}</Text>
       </SafeAreaView>
     );
   }
@@ -54,18 +54,18 @@ export default function HabitArticleScreen() {
         {/* Recommendation (What to do) */}
         <View style={[styles.card, styles.recoCard]}>
           <Text style={styles.cardLabel}>{t('article.recommendation')}</Text>
-          <Text style={styles.recoText}>{article.recommendation}</Text>
+          <Text style={styles.recoText}>{t(`habits.${habitId}.recommendation`)}</Text>
         </View>
 
         {/* TL;DR */}
         <View style={[styles.card, { borderLeftColor: meta.color }]}>
           <Text style={styles.cardLabel}>{t('article.tldr')}</Text>
-          <Text style={styles.tldrText}>{article.tldr}</Text>
+          <Text style={styles.tldrText}>{t(`habits.${habitId}.tldr`)}</Text>
         </View>
 
         {/* Body */}
         <View style={styles.bodySection}>
-          <Text style={styles.bodyText}>{article.body}</Text>
+          <Text style={styles.bodyText}>{t(`habits.${habitId}.body`)}</Text>
         </View>
 
         {/* Studies */}

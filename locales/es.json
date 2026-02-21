@@ -23,32 +23,50 @@
     "breathing": {
       "name": "Respiración",
       "oneLiner": "Activa tu sistema nervioso calmante — alivio inmediato",
-      "action": "Iniciar ejercicio de respiración"
+      "action": "Iniciar ejercicio de respiración",
+      "tldr": "La respiración lenta y estructurada reduce el cortisol, baja la presión arterial y mejora la variabilidad de la frecuencia cardíaca en minutos. Solo 5 minutos al día reducen la ansiedad de forma medible.",
+      "body": "Tu sistema nervioso autónomo tiene dos ramas: la simpática (\"lucha o huida\") y la parasimpática (\"descanso y digestión\"). La respiración lenta y deliberada activa directamente la rama parasimpática a través del nervio vago.\n\nCuando exhalas lentamente, los barorreceptores del arco aórtico detectan el cambio de presión y envían señales al tronco encefálico para reducir la frecuencia cardíaca. Por eso las técnicas con exhalaciones prolongadas (como el suspiro cíclico) son particularmente eficaces.\n\nUn estudio de Stanford de 2023 descubrió que solo 5 minutos diarios de respiración estructurada — específicamente el suspiro cíclico — superó a la meditación de atención plena en la reducción de la ansiedad y la mejora del estado de ánimo. El efecto fue medible desde la primera sesión y se acumuló durante 28 días.\n\nLa variabilidad de la frecuencia cardíaca (HRV), un indicador clave de la resiliencia al estrés, mejora significativamente con la práctica regular de ejercicios de respiración. Una HRV más alta se asocia con una mejor regulación emocional, flexibilidad cognitiva y salud cardiovascular.\n\nLa ventaja de los ejercicios de respiración es su accesibilidad: no requieren equipo, ni espacio especial, y se pueden hacer en cualquier lugar. Incluso un solo minuto de respiración lenta antes de un evento estresante reduce de forma medible la respuesta del cortisol.",
+      "recommendation": "2-5 minutos de respiración lenta al día. Respiración cuadrada (4-4-4-4) o suspiro cíclico."
     },
     "light": {
       "name": "Exposición a la luz",
       "oneLiner": "La luz solar matutina ajusta tu reloj — mejor sueño y ánimo",
-      "action": "Registrar luz solar"
+      "action": "Registrar luz solar",
+      "tldr": "10-30 minutos de exposición a luz brillante regulan el ritmo circadiano, mejoran la calidad del sueño, aumentan la alerta y tienen efectos antidepresivos.",
+      "body": "Tu cuerpo funciona con un reloj maestro: el núcleo supraquiasmático (SCN) del hipotálamo. Este reloj controla cuándo sientes sueño, cuándo el cortisol alcanza su pico, cuándo sube la temperatura corporal y cientos de otros procesos rítmicos. La señal principal que sincroniza este reloj es la luz que llega a unas células especializadas de la retina llamadas células ganglionares retinianas intrínsecamente fotosensibles (ipRGCs).\n\nLa exposición a la luz matutina desencadena una cascada de efectos: suprime la producción de melatonina, eleva el cortisol (el pico matutino saludable), aumenta la síntesis de serotonina y programa la liberación de melatonina aproximadamente 14-16 horas después. Por eso la luz matutina mejora tanto la alerta diurna COMO el sueño nocturno.\n\nUn ensayo publicado en JAMA Psychiatry en 2016 descubrió que la terapia de luz brillante era tan eficaz como la fluoxetina (Prozac) para la depresión mayor no estacional — y la combinación de ambas fue significativamente más eficaz que cualquiera de las dos por separado. El tamaño del efecto fue clínicamente relevante y rápido.\n\nUn estudio de 2023 en Nature Mental Health, que analizó datos de más de 85,000 participantes del UK Biobank, encontró que una mayor exposición a la luz diurna se asociaba con menor riesgo de depresión, mejor estado de ánimo autoinformado, mayor facilidad para levantarse por la mañana y menos cansancio. Crucialmente, la exposición a la luz nocturna tenía el efecto contrario.\n\nLa clave: no se trata solo de recibir luz — se trata de recibir la luz adecuada en el momento adecuado. La luz brillante del exterior por la mañana es profundamente diferente de la luz artificial interior. Incluso en un día nublado, la luz exterior suele ser 10-50 veces más brillante que la iluminación interior.",
+      "recommendation": "Sal al exterior dentro de la primera hora tras despertar. 10 min con sol, 20-30 min nublado."
     },
     "food": {
       "name": "Alimentación saludable",
       "oneLiner": "Lo que comes construye tu cerebro — cada buena comida cuenta",
-      "action": "Registrar comida saludable"
+      "action": "Registrar comida saludable",
+      "tldr": "Las dietas de estilo mediterráneo reducen el riesgo de depresión en ~33%, las enfermedades cardiovasculares en ~30% y la mortalidad por todas las causas.",
+      "body": "La conexión entre la alimentación y la salud mental está ahora respaldada por evidencia sólida de estudios de intervención, no solo por correlaciones observacionales. El campo de la \"psiquiatría nutricional\" ha crecido enormemente en la última década.\n\nEl histórico SMILES trial (2017) fue el primer ensayo controlado aleatorizado en comprobar directamente si mejorar la dieta podía tratar la depresión clínica. Los participantes con depresión mayor que recibieron asesoramiento dietético hacia una dieta mediterránea mostraron una mejoría significativamente mayor que los que recibieron apoyo social. Tras 12 semanas, el 32% del grupo de dieta logró la remisión frente al 8% del grupo de control.\n\nEl PREDIMED trial, uno de los mayores estudios de intervención dietética jamás realizados (7,447 participantes), demostró que una dieta mediterránea complementada con aceite de oliva virgen extra o frutos secos reducía los eventos cardiovasculares en aproximadamente un 30% en comparación con una dieta de control. El resultado fue tan significativo que el ensayo se detuvo antes de tiempo por razones éticas.\n\nLos mecanismos son múltiples: efectos antiinflamatorios (la inflamación crónica está vinculada a la depresión), diversidad del microbioma intestinal (el intestino produce ~95% de la serotonina), mejor regulación del azúcar en sangre (los picos de glucosa deterioran la función cognitiva) y mejor aporte de nutrientes esenciales para la síntesis de neurotransmisores (omega-3, vitaminas B, zinc, magnesio).\n\nNo necesitas cambiar toda tu dieta de la noche a la mañana. La investigación muestra consistentemente que las mejoras graduales producen beneficios significativos. Añadir verduras, reducir los ultraprocesados y comer más alimentos integrales crea un ciclo positivo: una mejor nutrición mejora el ánimo, lo que mejora las elecciones alimentarias.",
+      "recommendation": "Añade una ración extra de verduras, cambia el snack procesado por fruta o frutos secos."
     },
     "sleep": {
       "name": "Sueño",
       "oneLiner": "Tu cerebro se limpia mientras duermes — cada hora cuenta",
-      "action": "Registrar horas de sueño"
+      "action": "Registrar horas de sueño",
+      "tldr": "Durante el sueño profundo, el sistema glinfático del cerebro elimina desechos. Menos de 7 horas eleva la mortalidad un 13%. Una sola noche de privación reduce la regulación emocional en ~60%.",
+      "body": "El sueño no es una inconsciencia pasiva — es un proceso activo, altamente organizado y esencial para la supervivencia. Durante el sueño profundo (de ondas lentas), el sistema glinfático del cerebro aumenta el flujo de líquido cefalorraquídeo en un 60%, eliminando productos de desecho metabólico como la beta-amiloide, la proteína implicada en la enfermedad de Alzheimer.\n\nUn artículo revolucionario publicado en Science en 2013 por Xie et al. descubrió que el espacio entre las células cerebrales se expande un 60% durante el sueño, permitiendo que este \"lavado cerebral\" ocurra. Esto significa que la privación crónica de sueño puede literalmente dejar residuos tóxicos acumulándose en tu cerebro.\n\nLos datos de mortalidad son contundentes: un metaanálisis de 1.3 millones de participantes encontró que dormir menos de 7 horas por noche se asocia con un 13% más de riesgo de mortalidad por todas las causas. Pero no se trata solo de duración — la calidad del sueño importa enormemente.\n\nQuizás lo más relevante a nivel inmediato: una sola noche de privación de sueño provoca un aumento del 60% en la reactividad de la amígdala ante estímulos negativos, desconectando efectivamente tu corteza prefrontal (cerebro racional) de tus centros emocionales. Por eso todo se siente peor después de una mala noche de sueño: la capacidad de tu cerebro para regular las emociones está fisiológicamente deteriorada.\n\nEl sueño también consolida la memoria, regula las hormonas (la hormona del crecimiento se libera principalmente durante el sueño profundo), mantiene la función inmunológica (la eficacia de tus células T disminuye significativamente tras una sola noche de mal sueño) y regula las hormonas del apetito (la privación de sueño aumenta la grelina y disminuye la leptina, haciendo que tengas más hambre).\n\nLas dos cosas con mayor impacto para el sueño son la consistencia (misma hora de acostarse y levantarse) y la exposición a la luz matutina (que programa tu reloj de melatonina para la noche).",
+      "recommendation": "7-9 horas. Horarios consistentes para acostarse y levantarse."
     },
     "exercise": {
       "name": "Ejercicio",
       "oneLiner": "El antidepresivo nº 1 y herramienta de longevidad — muévete a diario",
-      "action": "Registrar ejercicio"
+      "action": "Registrar ejercicio",
+      "tldr": "Reduce la mortalidad por todas las causas un 30-35%, es tan eficaz como los ISRS para la depresión, promueve la neurogénesis. 11 min de caminata rápida ya ayudan.",
+      "body": "El ejercicio es lo más parecido a un fármaco milagroso que tenemos. Un metaanálisis del BMJ de 2024 con más de 200 estudios encontró que el ejercicio es 1.5 veces más eficaz que la psicoterapia o los principales medicamentos para reducir los síntomas de depresión, ansiedad y malestar psicológico. Caminar o trotar, yoga y entrenamiento de fuerza estaban entre las modalidades más eficaces.\n\nLa curva dosis-respuesta del ejercicio tiene una carga frontal notable: un estudio de 2023 en el British Journal of Sports Medicine, que analizó datos de 196 estudios, encontró que solo 11 minutos de caminata rápida diaria (75 minutos/semana) se asociaban con un 23% menos de riesgo de muerte prematura. Pasar de cero a una actividad mínima proporciona el mayor beneficio marginal.\n\nEn el ámbito neurológico, un estudio histórico de 2011 en PNAS demostró que un año de ejercicio aeróbico moderado aumentó el volumen del hipocampo en un 2%, revirtiendo efectivamente 1-2 años de encogimiento relacionado con la edad. El hipocampo es fundamental para la memoria y es una de las primeras estructuras afectadas en la enfermedad de Alzheimer. El ejercicio promueve la neurogénesis (el nacimiento de nuevas neuronas) a través del aumento de BDNF (factor neurotrófico derivado del cerebro).\n\nEl ejercicio también mejora la calidad del sueño, reduce la inflamación, mejora la sensibilidad a la insulina, fortalece los huesos, reduce el riesgo de cáncer, mejora la función cognitiva y aumenta la autoeficacia. Los mecanismos son tan diversos que ningún fármaco podría replicar todos los beneficios de la actividad física regular.\n\nEl hallazgo clave de la investigación moderna: el mayor beneficio para la salud viene de pasar de no hacer nada a hacer algo. No necesitas correr maratones. Una caminata de 10 minutos es infinitamente más beneficiosa que no caminar. Empieza con algo absurdamente pequeño y construye la consistencia antes que la intensidad.",
+      "recommendation": "Cualquier movimiento cuenta. Una caminata de 10 minutos es infinitamente mejor que nada."
     },
     "gratitude": {
       "name": "Gratitud",
       "oneLiner": "3 cosas buenas reprograman tu cerebro hacia lo positivo",
-      "action": "Escribir gratitudes"
+      "action": "Escribir gratitudes",
+      "tldr": "Escribir gratitudes aumenta el bienestar un 10-25%, mejora el sueño, reduce la depresión y genera cambios neuronales duraderos.",
+      "body": "La práctica de la gratitud es una de las intervenciones de psicología positiva más estudiadas, con evidencia sólida que abarca más de dos décadas de investigación. Los efectos no son solo subjetivos — la práctica de la gratitud produce cambios medibles en la estructura y función del cerebro.\n\nEl estudio fundacional de 2003 de Emmons y McCullough estableció que las personas que escribían semanalmente sobre cosas por las que estaban agradecidas hacían más ejercicio, tenían menos quejas físicas y se sentían mejor con sus vidas en comparación con quienes escribían sobre problemas o eventos neutros. El tamaño del efecto fue sustancial: una mejora del 10-25% en las medidas de bienestar.\n\nUn estudio de fMRI de 2016 de Kini et al. descubrió que la práctica de la gratitud producía cambios duraderos en la forma en que el cerebro procesa la información. Los participantes que escribieron cartas de gratitud mostraron una sensibilidad neuronal significativamente mayor a las experiencias de gratitud meses después — incluso sin practicar activamente. La corteza prefrontal medial, involucrada en el aprendizaje y la toma de decisiones, mostró los cambios más significativos. Esto sugiere que la práctica de la gratitud literalmente reconfigura el procesamiento basal de tu cerebro.\n\nLa conexión con el sueño es especialmente convincente: Wood et al. (2009) encontraron que la gratitud se asociaba con una mejor calidad del sueño principalmente a través del mecanismo de los pensamientos previos al dormir. Las personas agradecidas tienen más pensamientos positivos y menos negativos antes de quedarse dormidas, lo que lleva a un inicio del sueño más rápido y una mejor calidad del mismo.\n\nLa clave de una práctica de gratitud eficaz es la especificidad. \"Estoy agradecido por mi salud\" es mucho menos impactante que \"Estoy agradecido de que mis piernas me llevaron a pasear por el parque esta mañana y noté que los cerezos estaban en flor\". La gratitud específica te obliga a revivir la experiencia positiva, amplificando su impacto emocional y entrenando a tu cerebro para notar los detalles positivos.",
+      "recommendation": "1-3 cosas específicas al día. Sé específico, no genérico."
     }
   },
   "breathing": {
@@ -66,7 +84,8 @@
     "days": "días",
     "thisWeek": "Esta semana",
     "thisYear": "Este año",
-    "completionRate": "{{rate}}% completado"
+    "completionRate": "{{rate}}% completado",
+    "noData": "Aún no hay datos"
   },
   "settings": {
     "title": "Ajustes",
@@ -101,6 +120,7 @@
     "edit": "Editar",
     "ok": "OK",
     "yes": "Sí",
-    "no": "No"
+    "no": "No",
+    "notFound": "No encontrado"
   }
 }
