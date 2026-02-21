@@ -16,7 +16,8 @@
     "streak": "{{count}} hari berturut-turut",
     "streakZero": "Mulai rangkaianmu!",
     "allDone": "Semua selesai untuk hari ini!",
-    "tasksTitle": "Tugas Saya"
+    "tasksTitle": "Tugas Saya",
+    "welcomeHint": "Ketuk kebiasaan untuk menandainya!"
   },
   "habits": {
     "breathing": {

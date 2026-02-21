@@ -16,7 +16,8 @@
     "streak": "{{count}} day streak",
     "streakZero": "Start your streak!",
     "allDone": "All done for today!",
-    "tasksTitle": "My Tasks"
+    "tasksTitle": "My Tasks",
+    "welcomeHint": "Tap a habit to mark it done!"
   },
   "habits": {
     "breathing": {

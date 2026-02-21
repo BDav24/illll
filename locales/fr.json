@@ -16,7 +16,8 @@
     "streak": "{{count}} jours consécutifs",
     "streakZero": "Commencez votre série !",
     "allDone": "Tout est fait pour aujourd'hui !",
-    "tasksTitle": "Mes tâches"
+    "tasksTitle": "Mes tâches",
+    "welcomeHint": "Appuyez sur une habitude pour la valider !"
   },
   "habits": {
     "breathing": {

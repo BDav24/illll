@@ -16,7 +16,8 @@
     "streak": "{{count}} gün üst üste",
     "streakZero": "Serini başlat!",
     "allDone": "Bugünlük her şey tamam!",
-    "tasksTitle": "Görevlerim"
+    "tasksTitle": "Görevlerim",
+    "welcomeHint": "Bir alışkanlığa dokun ve tamamla!"
   },
   "habits": {
     "breathing": {

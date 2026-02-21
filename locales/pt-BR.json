@@ -16,7 +16,8 @@
     "streak": "{{count}} dias seguidos",
     "streakZero": "Comece sua sequência!",
     "allDone": "Tudo pronto por hoje!",
-    "tasksTitle": "Minhas tarefas"
+    "tasksTitle": "Minhas tarefas",
+    "welcomeHint": "Toque em um hábito para marcá-lo!"
   },
   "habits": {
     "breathing": {

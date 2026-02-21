@@ -135,6 +135,11 @@ export default function DailyHub() {
           </Pressable>
         </View>
 
+        {/* Welcome hint */}
+        {score.completed === 0 && score.total > 0 && (
+          <Text style={styles.welcomeHint}>{t('hub.welcomeHint')}</Text>
+        )}
+
         {/* Habit Cards */}
         <View style={styles.habitsSection}>
           {visibleHabits.map((id) => {
@@ -284,6 +289,12 @@ const styles = StyleSheet.create({
   },
   settingsIcon: {
     fontSize: 22,
+  },
+  welcomeHint: {
+    color: Colors.textMuted,
+    fontSize: 14,
+    textAlign: 'center',
+    marginBottom: 16,
   },
   habitsSection: {
     gap: 12,

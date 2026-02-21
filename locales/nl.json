@@ -16,7 +16,8 @@
     "streak": "{{count}} dagen op rij",
     "streakZero": "Begin je reeks!",
     "allDone": "Alles gedaan voor vandaag!",
-    "tasksTitle": "Mijn taken"
+    "tasksTitle": "Mijn taken",
+    "welcomeHint": "Tik op een gewoonte om het af te vinken!"
   },
   "habits": {
     "breathing": {

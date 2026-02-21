@@ -16,7 +16,8 @@
     "streak": "{{count}} Tage in Folge",
     "streakZero": "Starte deine Serie!",
     "allDone": "Alles erledigt für heute!",
-    "tasksTitle": "Meine Aufgaben"
+    "tasksTitle": "Meine Aufgaben",
+    "welcomeHint": "Tippe auf eine Gewohnheit, um sie abzuhaken!"
   },
   "habits": {
     "breathing": {

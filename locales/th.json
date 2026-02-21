@@ -16,7 +16,8 @@
     "streak": "ติดต่อกัน {{count}} วัน",
     "streakZero": "เริ่มสถิติต่อเนื่องของคุณ!",
     "allDone": "ทำเสร็จหมดแล้ววันนี้!",
-    "tasksTitle": "งานของฉัน"
+    "tasksTitle": "งานของฉัน",
+    "welcomeHint": "แตะนิสัยเพื่อทำเครื่องหมาย!"
   },
   "habits": {
     "breathing": {
