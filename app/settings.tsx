@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import {
   View,
   Text,
+  TextInput,
   ScrollView,
   StyleSheet,
   Pressable,
@@ -24,8 +25,11 @@ export default function SettingsScreen() {
   const settings = useStore((s) => s.settings);
   const toggleHideHabit = useStore((s) => s.toggleHideHabit);
   const setLanguage = useStore((s) => s.setLanguage);
+  const addCustomHabit = useStore((s) => s.addCustomHabit);
+  const deleteCustomHabit = useStore((s) => s.deleteCustomHabit);
 
   const [showLangPicker, setShowLangPicker] = useState(false);
+  const [newHabitText, setNewHabitText] = useState('');
 
   const handleClose = useCallback(() => {
     if (router.canGoBack()) {
@@ -34,6 +38,13 @@ export default function SettingsScreen() {
       router.replace('/');
     }
   }, [router]);
+
+  const handleAddHabit = useCallback(() => {
+    const trimmed = newHabitText.trim();
+    if (trimmed.length === 0) return;
+    addCustomHabit(trimmed);
+    setNewHabitText('');
+  }, [newHabitText, addCustomHabit]);
 
   const handleLanguageChange = async (code: string | null) => {
     setLanguage(code);
@@ -102,6 +113,33 @@ export default function SettingsScreen() {
               </View>
             );
           })}
+        </View>
+
+        {/* Custom Habits Section */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>{t('settings.myHabits')}</Text>
+          {settings.customHabits.map((ch) => (
+            <View key={ch.id} style={styles.habitRow}>
+              <Text style={styles.habitName}>{ch.text}</Text>
+              <Pressable onPress={() => deleteCustomHabit(ch.id)} hitSlop={8}>
+                <Text style={styles.deleteIcon}>✕</Text>
+              </Pressable>
+            </View>
+          ))}
+          <View style={styles.addHabitRow}>
+            <TextInput
+              style={styles.addHabitInput}
+              placeholder={t('settings.addHabit')}
+              placeholderTextColor={Colors.textMuted}
+              value={newHabitText}
+              onChangeText={setNewHabitText}
+              onSubmitEditing={handleAddHabit}
+              returnKeyType="done"
+            />
+            <Pressable onPress={handleAddHabit} style={styles.addHabitBtn}>
+              <Text style={styles.addHabitBtnText}>+</Text>
+            </Pressable>
+          </View>
         </View>
 
         {/* Language Section */}
@@ -310,5 +348,39 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: Colors.danger,
     fontWeight: '600',
+  },
+  deleteIcon: {
+    color: Colors.textMuted,
+    fontSize: 16,
+    padding: 8,
+  },
+  addHabitRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: Colors.surface,
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    gap: 8,
+  },
+  addHabitInput: {
+    flex: 1,
+    color: Colors.text,
+    fontSize: 15,
+    paddingVertical: 10,
+  },
+  addHabitBtn: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: Colors.surfaceLight,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  addHabitBtnText: {
+    color: Colors.textSecondary,
+    fontSize: 20,
+    fontWeight: '600',
+    lineHeight: 22,
   },
 });
