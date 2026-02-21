@@ -91,75 +91,72 @@ export function Heatmap({ data, year }: HeatmapProps) {
 
   const totalWidth = grid.length * TOTAL_CELL;
 
+  const dayLabelColumnWidth = 16;
+
   return (
     <View style={styles.container}>
-      {/* Month labels */}
-      <View style={styles.monthRow}>
-        {/* Spacer for day labels column */}
-        <View style={styles.dayLabelColumn} />
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          scrollEnabled={false}
-        >
-          <View style={[styles.monthLabelsInner, { width: totalWidth }]}>
-            {MONTH_LABELS.map((label, idx) => {
-              const colPos = monthPositions.get(idx) ?? 0;
-              return (
-                <Text
-                  key={idx}
-                  style={[
-                    styles.monthLabel,
-                    { position: 'absolute', left: colPos * TOTAL_CELL },
-                  ]}
-                >
-                  {label}
-                </Text>
-              );
-            })}
-          </View>
-        </ScrollView>
-      </View>
-
-      {/* Grid area */}
-      <View style={styles.gridArea}>
-        {/* Day labels */}
-        <View style={styles.dayLabelColumn}>
-          {[0, 1, 2, 3, 4, 5, 6].map((row) => (
-            <View key={row} style={styles.dayLabelCell}>
-              {DAY_LABELS[row] != null && (
-                <Text style={styles.dayLabel}>{DAY_LABELS[row]}</Text>
-              )}
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <View style={{ width: totalWidth + dayLabelColumnWidth }}>
+          {/* Month labels */}
+          <View style={styles.monthRow}>
+            <View style={styles.dayLabelColumn} />
+            <View style={[styles.monthLabelsInner, { width: totalWidth }]}>
+              {MONTH_LABELS.map((label, idx) => {
+                const colPos = monthPositions.get(idx) ?? 0;
+                return (
+                  <Text
+                    key={idx}
+                    style={[
+                      styles.monthLabel,
+                      { position: 'absolute', left: colPos * TOTAL_CELL },
+                    ]}
+                  >
+                    {label}
+                  </Text>
+                );
+              })}
             </View>
-          ))}
-        </View>
-
-        {/* Scrollable grid */}
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          <View style={styles.gridContainer}>
-            {grid.map((column, colIdx) => (
-              <View key={colIdx} style={styles.column}>
-                {[0, 1, 2, 3, 4, 5, 6].map((rowIdx) => {
-                  const cell = column.find((c) => c.day === rowIdx);
-                  return (
-                    <View
-                      key={rowIdx}
-                      style={[
-                        styles.cell,
-                        {
-                          backgroundColor: cell
-                            ? cell.color
-                            : 'transparent',
-                        },
-                      ]}
-                    />
-                  );
-                })}
-              </View>
-            ))}
           </View>
-        </ScrollView>
-      </View>
+
+          {/* Grid area */}
+          <View style={styles.gridArea}>
+            {/* Day labels */}
+            <View style={styles.dayLabelColumn}>
+              {[0, 1, 2, 3, 4, 5, 6].map((row) => (
+                <View key={row} style={styles.dayLabelCell}>
+                  {DAY_LABELS[row] != null && (
+                    <Text style={styles.dayLabel}>{DAY_LABELS[row]}</Text>
+                  )}
+                </View>
+              ))}
+            </View>
+
+            {/* Grid */}
+            <View style={styles.gridContainer}>
+              {grid.map((column, colIdx) => (
+                <View key={colIdx} style={styles.column}>
+                  {[0, 1, 2, 3, 4, 5, 6].map((rowIdx) => {
+                    const cell = column.find((c) => c.day === rowIdx);
+                    return (
+                      <View
+                        key={rowIdx}
+                        style={[
+                          styles.cell,
+                          {
+                            backgroundColor: cell
+                              ? cell.color
+                              : 'transparent',
+                          },
+                        ]}
+                      />
+                    );
+                  })}
+                </View>
+              ))}
+            </View>
+          </View>
+        </View>
+      </ScrollView>
     </View>
   );
 }
