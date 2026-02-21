@@ -12,6 +12,7 @@ interface HabitCardProps {
   completed: boolean;
   onPress: () => void;
   onInfoPress: () => void;
+  onCheckboxPress: () => void;
 }
 
 export function HabitCard({
@@ -19,6 +20,7 @@ export function HabitCard({
   completed,
   onPress,
   onInfoPress,
+  onCheckboxPress,
 }: HabitCardProps) {
   const { t } = useTranslation();
   const habit = HABIT_MAP[habitId];
@@ -28,13 +30,16 @@ export function HabitCard({
     onPress();
   }, [onPress]);
 
+  const handleCheckbox = useCallback(() => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    onCheckboxPress();
+  }, [onCheckboxPress]);
+
   return (
     <Pressable
       onPress={handlePress}
-      accessibilityRole="checkbox"
-      accessibilityState={{ checked: completed }}
+      accessibilityRole="button"
       accessibilityLabel={t(`${habit.i18nKey}.name`)}
-      accessibilityHint={completed ? t('hub.tapToUndo') : t('hub.tapToComplete')}
       style={({ pressed }) => [
         styles.card,
         { borderLeftColor: habit.color },
@@ -63,24 +68,35 @@ export function HabitCard({
         </Text>
       </View>
 
-      {/* Info button */}
+      {/* Info button - goes straight to article */}
       <Pressable
         onPress={onInfoPress}
         hitSlop={8}
         style={styles.infoButton}
+        accessibilityRole="button"
+        accessibilityLabel={t('article.whyTitle', { habit: t(`${habit.i18nKey}.name`) })}
       >
         <Text style={styles.infoText}>?</Text>
       </Pressable>
 
       {/* Checkbox */}
-      <View
-        style={[
-          styles.checkbox,
-          completed && [styles.checkboxCompleted, { backgroundColor: habit.color }],
-        ]}
+      <Pressable
+        onPress={handleCheckbox}
+        hitSlop={6}
+        accessibilityRole="checkbox"
+        accessibilityState={{ checked: completed }}
+        accessibilityLabel={t(`${habit.i18nKey}.name`)}
+        accessibilityHint={completed ? t('hub.tapToUndo') : t('hub.tapToComplete')}
       >
-        {completed && <Text style={styles.checkmark}>✓</Text>}
-      </View>
+        <View
+          style={[
+            styles.checkbox,
+            completed && [styles.checkboxCompleted, { backgroundColor: habit.color }],
+          ]}
+        >
+          {completed && <Text style={styles.checkmark}>✓</Text>}
+        </View>
+      </Pressable>
     </Pressable>
   );
 }
@@ -128,18 +144,18 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
   infoButton: {
-    width: 22,
-    height: 22,
-    borderRadius: 11,
-    borderWidth: 1,
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    borderWidth: 1.5,
     borderColor: Colors.border,
     alignItems: 'center',
     justifyContent: 'center',
   },
   infoText: {
     color: Colors.textMuted,
-    fontSize: 12,
-    fontWeight: '600',
+    fontSize: 16,
+    fontWeight: '700',
   },
   checkbox: {
     width: 28,

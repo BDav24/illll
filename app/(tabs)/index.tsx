@@ -68,31 +68,24 @@ export default function DailyHub() {
 
   const handleHabitPress = useCallback(
     (id: HabitId) => {
-      toggleHabit(id);
-    },
-    [toggleHabit],
-  );
-
-  const handleInfoPress = useCallback(
-    (id: HabitId) => {
-      const meta = HABIT_MAP[id];
-      if (meta.quickActionType === 'timer') {
-        setActiveHabit(id);
-        bottomSheetRef.current?.expand();
-      } else {
-        setActiveHabit(id);
-        bottomSheetRef.current?.expand();
-      }
+      setActiveHabit(id);
+      bottomSheetRef.current?.expand();
     },
     [],
   );
 
-  const handleWhyPress = useCallback(
+  const handleInfoPress = useCallback(
     (id: HabitId) => {
-      bottomSheetRef.current?.close();
       router.push(`/habit/${id}`);
     },
     [router],
+  );
+
+  const handleCheckboxPress = useCallback(
+    (id: HabitId) => {
+      toggleHabit(id);
+    },
+    [toggleHabit],
   );
 
   const handleBreathingComplete = useCallback(
@@ -157,6 +150,7 @@ export default function DailyHub() {
                 completed={entry?.completed ?? false}
                 onPress={() => handleHabitPress(id)}
                 onInfoPress={() => handleInfoPress(id)}
+                onCheckboxPress={() => handleCheckboxPress(id)}
               />
             );
           })}
@@ -233,7 +227,10 @@ export default function DailyHub() {
 
               <Pressable
                 style={styles.whyBtn}
-                onPress={() => handleWhyPress(activeHabit)}
+                onPress={() => {
+                  bottomSheetRef.current?.close();
+                  router.push(`/habit/${activeHabit}`);
+                }}
               >
                 <Text style={styles.whyBtnText}>
                   {t('article.whyTitle', {
