@@ -17,7 +17,9 @@
     "streakZero": "연속 기록을 시작하세요!",
     "allDone": "오늘 할 일 모두 완료!",
     "tasksTitle": "내 할 일",
-    "welcomeHint": "습관을 탭하여 완료하세요!"
+    "welcomeHint": "습관을 탭하여 완료하세요!",
+    "tapToComplete": "탭하여 완료",
+    "tapToUndo": "탭하여 취소"
   },
   "habits": {
     "breathing": {

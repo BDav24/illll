@@ -17,7 +17,9 @@
     "streakZero": "¡Empieza tu racha!",
     "allDone": "¡Todo listo por hoy!",
     "tasksTitle": "Mis tareas",
-    "welcomeHint": "¡Toca un hábito para marcarlo!"
+    "welcomeHint": "¡Toca un hábito para marcarlo!",
+    "tapToComplete": "Toca para completar",
+    "tapToUndo": "Toca para deshacer"
   },
   "habits": {
     "breathing": {

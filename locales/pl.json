@@ -17,7 +17,9 @@
     "streakZero": "Zacznij swoją serię!",
     "allDone": "Wszystko zrobione na dziś!",
     "tasksTitle": "Moje zadania",
-    "welcomeHint": "Dotknij nawyk, aby go oznaczyć!"
+    "welcomeHint": "Dotknij nawyk, aby go oznaczyć!",
+    "tapToComplete": "Dotknij aby oznaczyć",
+    "tapToUndo": "Dotknij aby cofnąć"
   },
   "habits": {
     "breathing": {

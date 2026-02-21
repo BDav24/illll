@@ -17,7 +17,9 @@
     "streakZero": "開始你的連續紀錄！",
     "allDone": "今天全部完成！",
     "tasksTitle": "我的任務",
-    "welcomeHint": "點擊習慣來標記完成！"
+    "welcomeHint": "點擊習慣來標記完成！",
+    "tapToComplete": "點擊完成",
+    "tapToUndo": "點擊撤銷"
   },
   "habits": {
     "breathing": {

@@ -17,7 +17,9 @@
     "streakZero": "Commencez votre série !",
     "allDone": "Tout est fait pour aujourd'hui !",
     "tasksTitle": "Mes tâches",
-    "welcomeHint": "Appuyez sur une habitude pour la valider !"
+    "welcomeHint": "Appuyez sur une habitude pour la valider !",
+    "tapToComplete": "Appuyez pour valider",
+    "tapToUndo": "Appuyez pour annuler"
   },
   "habits": {
     "breathing": {

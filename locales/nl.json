@@ -17,7 +17,9 @@
     "streakZero": "Begin je reeks!",
     "allDone": "Alles gedaan voor vandaag!",
     "tasksTitle": "Mijn taken",
-    "welcomeHint": "Tik op een gewoonte om het af te vinken!"
+    "welcomeHint": "Tik op een gewoonte om het af te vinken!",
+    "tapToComplete": "Tik om af te vinken",
+    "tapToUndo": "Tik om ongedaan te maken"
   },
   "habits": {
     "breathing": {

@@ -17,7 +17,9 @@
     "streakZero": "連続記録を始めよう！",
     "allDone": "今日はすべて完了！",
     "tasksTitle": "マイタスク",
-    "welcomeHint": "習慣をタップして完了にしましょう！"
+    "welcomeHint": "習慣をタップして完了にしましょう！",
+    "tapToComplete": "タップして完了",
+    "tapToUndo": "タップして取り消し"
   },
   "habits": {
     "breathing": {

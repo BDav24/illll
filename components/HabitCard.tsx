@@ -31,6 +31,10 @@ export function HabitCard({
   return (
     <Pressable
       onPress={handlePress}
+      accessibilityRole="checkbox"
+      accessibilityState={{ checked: completed }}
+      accessibilityLabel={t(`${habit.i18nKey}.name`)}
+      accessibilityHint={completed ? t('hub.tapToUndo') : t('hub.tapToComplete')}
       style={({ pressed }) => [
         styles.card,
         { borderLeftColor: habit.color },

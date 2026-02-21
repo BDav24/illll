@@ -17,7 +17,9 @@
     "streakZero": "Bắt đầu chuỗi ngày của bạn!",
     "allDone": "Hoàn thành tất cả cho hôm nay!",
     "tasksTitle": "Việc của tôi",
-    "welcomeHint": "Nhấn vào thói quen để đánh dấu!"
+    "welcomeHint": "Nhấn vào thói quen để đánh dấu!",
+    "tapToComplete": "Nhấn để hoàn thành",
+    "tapToUndo": "Nhấn để hoàn tác"
   },
   "habits": {
     "breathing": {

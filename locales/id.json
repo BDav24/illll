@@ -17,7 +17,9 @@
     "streakZero": "Mulai rangkaianmu!",
     "allDone": "Semua selesai untuk hari ini!",
     "tasksTitle": "Tugas Saya",
-    "welcomeHint": "Ketuk kebiasaan untuk menandainya!"
+    "welcomeHint": "Ketuk kebiasaan untuk menandainya!",
+    "tapToComplete": "Ketuk untuk menandai",
+    "tapToUndo": "Ketuk untuk membatalkan"
   },
   "habits": {
     "breathing": {

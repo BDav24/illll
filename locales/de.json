@@ -17,7 +17,9 @@
     "streakZero": "Starte deine Serie!",
     "allDone": "Alles erledigt für heute!",
     "tasksTitle": "Meine Aufgaben",
-    "welcomeHint": "Tippe auf eine Gewohnheit, um sie abzuhaken!"
+    "welcomeHint": "Tippe auf eine Gewohnheit, um sie abzuhaken!",
+    "tapToComplete": "Tippen zum Abhaken",
+    "tapToUndo": "Tippen zum Rückgängig"
   },
   "habits": {
     "breathing": {

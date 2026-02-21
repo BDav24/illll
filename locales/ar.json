@@ -17,7 +17,9 @@
     "streakZero": "ابدأ سلسلتك!",
     "allDone": "أنجزت كل شيء اليوم!",
     "tasksTitle": "مهامي",
-    "welcomeHint": "اضغط على عادة لتحديدها!"
+    "welcomeHint": "اضغط على عادة لتحديدها!",
+    "tapToComplete": "اضغط للتحديد",
+    "tapToUndo": "اضغط للتراجع"
   },
   "habits": {
     "breathing": {

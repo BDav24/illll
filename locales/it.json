@@ -17,7 +17,9 @@
     "streakZero": "Inizia la tua serie!",
     "allDone": "Tutto fatto per oggi!",
     "tasksTitle": "Le mie attività",
-    "welcomeHint": "Tocca un'abitudine per completarla!"
+    "welcomeHint": "Tocca un'abitudine per completarla!",
+    "tapToComplete": "Tocca per completare",
+    "tapToUndo": "Tocca per annullare"
   },
   "habits": {
     "breathing": {
