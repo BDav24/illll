@@ -1,30 +1,30 @@
 export const Colors = {
-  bg: '#0F0F0F',
-  surface: '#1A1A1A',
-  surfaceLight: '#252525',
-  border: '#333333',
-  text: '#FFFFFF',
-  textSecondary: '#999999',
-  textMuted: '#666666',
+  bg: '#FFFFFF',
+  surface: '#F5F5F5',
+  surfaceLight: '#EBEBEB',
+  border: '#E0E0E0',
+  text: '#1A1A1A',
+  textSecondary: '#666666',
+  textMuted: '#999999',
 
   // Habit colors (vibrant, distinct)
-  breathing: '#6C9CFF',  // calm blue
-  light: '#FFD666',       // warm yellow
-  food: '#66E0A0',        // fresh green
-  sleep: '#B088F9',       // purple
-  exercise: '#FF7A7A',    // energetic red
-  gratitude: '#FFB366',   // warm orange
+  breathing: '#4A7FE5',  // calm blue
+  light: '#E5B830',       // warm yellow
+  food: '#3DBF7A',        // fresh green
+  sleep: '#9060E0',       // purple
+  exercise: '#E05555',    // energetic red
+  gratitude: '#E08A30',   // warm orange
 
   // UI
-  accent: '#6C9CFF',
-  success: '#66E0A0',
-  warning: '#FFD666',
-  danger: '#FF7A7A',
+  accent: '#4A7FE5',
+  success: '#3DBF7A',
+  warning: '#E5B830',
+  danger: '#E05555',
 
   // Heatmap intensity levels (0-4)
-  heatmap: ['#1A1A1A', '#1a3a2a', '#2a5a3a', '#3a8a4a', '#4aCC5a'],
+  heatmap: ['#F0F0F0', '#c6e6c6', '#8dd18d', '#52b852', '#2d9a2d'],
 
   // Score ring
-  ringBg: '#252525',
-  ringFill: '#6C9CFF',
+  ringBg: '#EBEBEB',
+  ringFill: '#4A7FE5',
 };

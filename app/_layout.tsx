@@ -8,11 +8,11 @@ import '../lib/i18n';
 export default function RootLayout() {
   return (
     <GestureHandlerRootView style={styles.root}>
-      <StatusBar style="light" />
+      <StatusBar style="dark" />
       <Stack
         screenOptions={{
           headerShown: false,
-          contentStyle: { backgroundColor: '#0F0F0F' },
+          contentStyle: { backgroundColor: '#FFFFFF' },
           animation: 'slide_from_right',
         }}
       >
@@ -39,6 +39,6 @@ export default function RootLayout() {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: '#0F0F0F',
+    backgroundColor: '#FFFFFF',
   },
 });
