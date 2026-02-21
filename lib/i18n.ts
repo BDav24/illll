@@ -75,18 +75,34 @@ export async function loadLanguage(code: string) {
   }
 }
 
-const deviceLocale = getDeviceLocale();
+// Determine initial language: prefer stored user preference, fall back to device locale
+function getInitialLocale(): string {
+  try {
+    const { storage } = require('../store/mmkv');
+    const raw = storage.getString('illll-store');
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      const stored = parsed?.settings?.language;
+      if (stored) return stored;
+    }
+  } catch {
+    // storage not ready or corrupted — fall back
+  }
+  return getDeviceLocale();
+}
+
+const initialLocale = getInitialLocale();
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: deviceLocale,
+  lng: initialLocale,
   fallbackLng: 'en',
   interpolation: { escapeValue: false },
 });
 
-// Load non-English device locale async
-if (deviceLocale !== 'en') {
-  loadLanguage(deviceLocale);
+// Load non-English locale async
+if (initialLocale !== 'en') {
+  loadLanguage(initialLocale);
 }
 
 export default i18n;

@@ -70,7 +70,7 @@ export default function DailyHub() {
         ? t('hub.goodAfternoon')
         : t('hub.goodEvening');
 
-  const dateStr = format(new Date(), 'EEEE, MMMM d', { locale: dateLocale });
+  const dateStr = format(new Date(), 'PPPP', { locale: dateLocale });
 
   const handleHabitPress = useCallback(
     (id: HabitId) => {
