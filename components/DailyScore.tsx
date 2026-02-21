@@ -43,7 +43,12 @@ export function DailyScore({
   }));
 
   return (
-    <View style={[styles.container, { width: size, height: size }]}>
+    <View
+      style={[styles.container, { width: size, height: size }]}
+      accessibilityRole="progressbar"
+      accessibilityLabel={`${completed} of ${total} habits completed`}
+      accessibilityValue={{ min: 0, max: total, now: completed }}
+    >
       <Svg width={size} height={size}>
         {/* Background ring */}
         <Circle
