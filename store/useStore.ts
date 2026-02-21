@@ -72,6 +72,7 @@ interface StoreState {
   reorderHabits: (order: HabitId[]) => void;
   setLanguage: (lang: string | null) => void;
   setColorScheme: (scheme: ColorScheme) => void;
+  resetAll: () => void;
 }
 
 // ---------------------------------------------------------------------------
@@ -382,6 +383,11 @@ export const useStore = create<StoreState>()((set) => ({
     set((state) => ({
       settings: { ...state.settings, colorScheme: scheme },
     }));
+  },
+
+  resetAll: () => {
+    storage.clearAll();
+    set({ days: {}, settings: { ...DEFAULT_SETTINGS } });
   },
 }));
 

@@ -55,7 +55,7 @@ function makeStyles(colors: ColorPalette) {
       fontFamily: Fonts.regular,
     },
     dimmed: {
-      opacity: 0.4,
+      opacity: 0.7,
     },
   });
 }

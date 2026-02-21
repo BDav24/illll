@@ -8,6 +8,7 @@ import {
   Pressable,
   Switch,
   Alert,
+  Platform,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -18,6 +19,24 @@ import { Fonts } from '../constants/fonts';
 import { HABITS } from '../constants/habits';
 import { useStore, type HabitId, type ColorScheme } from '../store/useStore';
 import { SUPPORTED_LOCALES, loadLanguage } from '../lib/i18n';
+
+function confirmAlert(
+  title: string,
+  message: string,
+  onConfirm: () => void,
+  buttons?: { cancel: string; confirm: string },
+) {
+  if (Platform.OS === 'web') {
+    if (window.confirm(`${title}\n${message}`)) {
+      onConfirm();
+    }
+  } else {
+    Alert.alert(title, message, [
+      { text: buttons?.cancel ?? 'Cancel', style: 'cancel' },
+      { text: buttons?.confirm ?? 'OK', style: 'destructive', onPress: onConfirm },
+    ]);
+  }
+}
 
 const COLOR_SCHEME_OPTIONS: { value: ColorScheme; labelKey: string }[] = [
   { value: 'light', labelKey: 'settings.themeLight' },
@@ -37,6 +56,7 @@ export default function SettingsScreen() {
   const setColorScheme = useStore((s) => s.setColorScheme);
   const addCustomHabit = useStore((s) => s.addCustomHabit);
   const deleteCustomHabit = useStore((s) => s.deleteCustomHabit);
+  const resetAll = useStore((s) => s.resetAll);
 
   const [showLangPicker, setShowLangPicker] = useState(false);
   const [newHabitText, setNewHabitText] = useState('');
@@ -64,20 +84,15 @@ export default function SettingsScreen() {
   };
 
   const handleReset = () => {
-    Alert.alert(t('settings.resetData'), t('settings.resetConfirm'), [
-      { text: t('common.cancel'), style: 'cancel' },
-      {
-        text: t('common.yes'),
-        style: 'destructive',
-        onPress: () => {
-          // Clear storage and reload
-          const { storage } = require('../store/mmkv');
-          storage.clearAll();
-          // Force reload by navigating
-          router.replace('/');
-        },
+    confirmAlert(
+      t('settings.resetData'),
+      t('settings.resetConfirm'),
+      () => {
+        resetAll();
+        router.replace('/');
       },
-    ]);
+      { cancel: t('common.cancel'), confirm: t('common.yes') },
+    );
   };
 
   const currentLang =
@@ -132,10 +147,12 @@ export default function SettingsScreen() {
             <View key={ch.id} style={styles.customHabitRow}>
               <Text style={styles.habitName}>{ch.text}</Text>
               <Pressable onPress={() => {
-                Alert.alert(t('common.delete'), ch.text, [
-                  { text: t('common.cancel'), style: 'cancel' },
-                  { text: t('common.delete'), style: 'destructive', onPress: () => deleteCustomHabit(ch.id) },
-                ]);
+                confirmAlert(
+                  t('common.delete'),
+                  ch.text,
+                  () => deleteCustomHabit(ch.id),
+                  { cancel: t('common.cancel'), confirm: t('common.delete') },
+                );
               }} hitSlop={8}>
                 <Text style={styles.deleteIcon}>✕</Text>
               </Pressable>

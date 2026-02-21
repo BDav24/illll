@@ -45,10 +45,17 @@ export function Heatmap({ data, year }: HeatmapProps) {
   }, [screenWidth]);
 
   const months = useMemo(() => {
-    return Array.from({ length: 12 }, (_, monthIdx) => {
-      const monthStart = startOfMonth(new Date(targetYear, monthIdx, 1));
+    // Rotate months so current month is second-to-last row (easy to see near bottom)
+    const now = new Date();
+    const currentMonth = now.getMonth(); // 0-based
+    const startMonth = (currentMonth + 2) % 12;
+
+    return Array.from({ length: 12 }, (_, i) => {
+      const monthIdx = (startMonth + i) % 12;
+      // Determine year: months after currentMonth that wrap around are from targetYear-1
+      const monthYear = monthIdx > currentMonth ? targetYear - 1 : targetYear;
+      const monthStart = startOfMonth(new Date(monthYear, monthIdx, 1));
       const monthEnd = endOfMonth(monthStart);
-      const daysInMonth = getDaysInMonth(monthStart);
       const days = eachDayOfInterval({ start: monthStart, end: monthEnd });
 
       const cells = days.map((d) => {
@@ -60,7 +67,7 @@ export function Heatmap({ data, year }: HeatmapProps) {
         return { dateKey, color };
       });
 
-      return { label: MONTH_LABELS[monthIdx], cells, daysInMonth };
+      return { label: MONTH_LABELS[monthIdx], cells, daysInMonth: getDaysInMonth(monthStart) };
     });
   }, [data, targetYear, colors.heatmap]);
 
