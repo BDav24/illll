@@ -8,26 +8,25 @@ const LightColors = {
   border: '#E0E0E0',
   text: '#1A1A1A',
   textSecondary: '#666666',
-  textMuted: '#999999',
+  textMuted: '#767676',
 
-  breathing: '#4A7FE5',
-  light: '#E5B830',
-  food: '#3DBF7A',
-  sleep: '#9060E0',
-  exercise: '#E05555',
-  gratitude: '#E08A30',
+  breathing: '#3A6FD4',
+  light: '#AC8A24',
+  food: '#33A066',
+  sleep: '#7E50D0',
+  exercise: '#CA4C4C',
+  gratitude: '#C07428',
 
-  accent: '#4A7FE5',
-  success: '#3DBF7A',
-  warning: '#E5B830',
-  danger: '#E05555',
+  accent: '#3A6FD4',
+  success: '#2B8656',
+  warning: '#AC8A24',
+  danger: '#CA4C4C',
 
   heatmap: ['#F0F0F0', '#c6e6c6', '#8dd18d', '#52b852', '#2d9a2d'] as string[],
 
   ringBg: '#EBEBEB',
-  ringFill: '#4A7FE5',
+  ringFill: '#3A6FD4',
 
-  // Checkmark on colored backgrounds — always white
   checkmark: '#FFFFFF',
 };
 
@@ -38,7 +37,7 @@ const DarkColors: typeof LightColors = {
   border: '#333333',
   text: '#FFFFFF',
   textSecondary: '#999999',
-  textMuted: '#666666',
+  textMuted: '#7B7B7B',
 
   breathing: '#6C9CFF',
   light: '#FFD666',
@@ -57,7 +56,7 @@ const DarkColors: typeof LightColors = {
   ringBg: '#252525',
   ringFill: '#6C9CFF',
 
-  checkmark: '#FFFFFF',
+  checkmark: '#1A1A1A',
 };
 
 export type ColorPalette = typeof LightColors;
