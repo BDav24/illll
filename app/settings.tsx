@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import {
   View,
   Text,
@@ -27,13 +27,13 @@ export default function SettingsScreen() {
 
   const [showLangPicker, setShowLangPicker] = useState(false);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     if (router.canGoBack()) {
       router.back();
     } else {
       router.replace('/');
     }
-  };
+  }, [router]);
 
   const handleLanguageChange = async (code: string | null) => {
     setLanguage(code);

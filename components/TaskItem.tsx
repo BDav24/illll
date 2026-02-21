@@ -16,6 +16,7 @@ export function TaskItem({ task, onToggle, onDelete }: TaskItemProps) {
 
   const handleDelete = useCallback(() => {
     if (confirmDelete) {
+      if (timerRef.current) clearTimeout(timerRef.current);
       onDelete();
     } else {
       setConfirmDelete(true);

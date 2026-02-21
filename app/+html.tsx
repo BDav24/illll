@@ -21,6 +21,7 @@ export default function Root({ children }: PropsWithChildren) {
 
 const bodyCss = `
 body {
+  /* Must match Colors.bg from constants/colors.ts */
   background-color: #0F0F0F;
   overflow: hidden;
 }

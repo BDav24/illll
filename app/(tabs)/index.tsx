@@ -41,12 +41,10 @@ export default function DailyHub() {
   useEffect(() => {
     const interval = setInterval(() => {
       const newKey = getTodayKey();
-      if (newKey !== currentDateKey) {
-        setCurrentDateKey(newKey);
-      }
+      setCurrentDateKey((prev) => (prev !== newKey ? newKey : prev));
     }, 60000);
     return () => clearInterval(interval);
-  }, [currentDateKey]);
+  }, []);
 
   const todayKey = currentDateKey;
   const days = useStore((s) => s.days);
