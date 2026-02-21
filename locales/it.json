@@ -1,0 +1,99 @@
+{
+  "app": {
+    "name": "ILLLL",
+    "tagline": "Vivrò più a lungo"
+  },
+  "tabs": {
+    "today": "Oggi",
+    "progress": "Progressi"
+  },
+  "hub": {
+    "goodMorning": "Buongiorno",
+    "goodAfternoon": "Buon pomeriggio",
+    "goodEvening": "Buonasera",
+    "addTask": "Aggiungi attività…",
+    "score": "{{completed}}/{{total}}",
+    "streak": "{{count}} giorni consecutivi",
+    "streakZero": "Inizia la tua serie!",
+    "allDone": "Tutto fatto per oggi!",
+    "tasksTitle": "Le mie attività"
+  },
+  "habits": {
+    "breathing": {
+      "name": "Respirazione",
+      "oneLiner": "Attiva il sistema nervoso calmante — sollievo immediato",
+      "action": "Inizia esercizio di respirazione"
+    },
+    "light": {
+      "name": "Esposizione alla luce",
+      "oneLiner": "La luce mattutina regola il tuo orologio — sonno e umore migliori",
+      "action": "Registra esposizione al sole"
+    },
+    "food": {
+      "name": "Alimentazione sana",
+      "oneLiner": "Ciò che mangi costruisce il tuo cervello — ogni buon pasto conta",
+      "action": "Registra pasto sano"
+    },
+    "sleep": {
+      "name": "Sonno",
+      "oneLiner": "Il cervello si pulisce durante il sonno — ogni ora conta",
+      "action": "Registra orari di sonno"
+    },
+    "exercise": {
+      "name": "Esercizio fisico",
+      "oneLiner": "L'antidepressivo n. 1 e strumento di longevità — muoviti ogni giorno",
+      "action": "Registra esercizio"
+    },
+    "gratitude": {
+      "name": "Gratitudine",
+      "oneLiner": "3 cose belle riprogrammano il cervello verso il positivo",
+      "action": "Scrivi le gratitudini"
+    }
+  },
+  "breathing": {
+    "inhale": "Inspira",
+    "hold": "Trattieni",
+    "exhale": "Espira",
+    "tapToStart": "Tocca per iniziare",
+    "sessionComplete": "Sessione completata",
+    "rounds": "{{count}} cicli"
+  },
+  "progress": {
+    "title": "Progressi",
+    "currentStreak": "Serie attuale",
+    "bestStreak": "Migliore serie",
+    "days": "giorni",
+    "thisWeek": "Questa settimana",
+    "thisYear": "Quest'anno",
+    "completionRate": "{{rate}}% completato"
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "habits": "Abitudini",
+    "hideHabit": "Nascondi abitudine",
+    "showHabit": "Mostra abitudine",
+    "notifications": "Notifiche",
+    "language": "Lingua",
+    "autoDetect": "Rilevamento automatico",
+    "about": "Informazioni",
+    "version": "Versione {{version}}",
+    "resetData": "Reimposta tutti i dati",
+    "resetConfirm": "Questo cancellerà tutti i tuoi dati. Sei sicuro?"
+  },
+  "article": {
+    "whyTitle": "Perché {{habit}}?",
+    "tldr": "In breve",
+    "studies": "Studi",
+    "recommendation": "Cosa fare"
+  },
+  "common": {
+    "done": "Fatto",
+    "cancel": "Annulla",
+    "save": "Salva",
+    "delete": "Elimina",
+    "edit": "Modifica",
+    "ok": "OK",
+    "yes": "Sì",
+    "no": "No"
+  }
+}

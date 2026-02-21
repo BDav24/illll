@@ -1,0 +1,355 @@
+import { useCallback, useRef, useMemo, useState } from 'react';
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+  Pressable,
+} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
+import { useTranslation } from 'react-i18next';
+import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
+import { format } from 'date-fns';
+
+import { Colors } from '../../constants/colors';
+import { HABITS, HABIT_MAP } from '../../constants/habits';
+import { useStore, type HabitId } from '../../store/useStore';
+import { DailyScore } from '../../components/DailyScore';
+import { StreakBadge } from '../../components/StreakBadge';
+import { HabitCard } from '../../components/HabitCard';
+import { TaskInput } from '../../components/TaskInput';
+import { TaskItem } from '../../components/TaskItem';
+import { BreathingTimer } from '../../components/BreathingTimer';
+
+export default function DailyHub() {
+  const { t } = useTranslation();
+  const router = useRouter();
+  const bottomSheetRef = useRef<BottomSheet>(null);
+  const [activeHabit, setActiveHabit] = useState<HabitId | null>(null);
+
+  const todayKey = useStore((s) => s.getTodayKey());
+  const today = useStore((s) => s.getToday());
+  const visibleHabits = useStore((s) => s.getVisibleHabits());
+  const score = useStore((s) => s.getDayScore(todayKey));
+  const streak = useStore((s) => s.getStreak());
+  const toggleHabit = useStore((s) => s.toggleHabit);
+  const addTask = useStore((s) => s.addTask);
+  const toggleTask = useStore((s) => s.toggleTask);
+  const deleteTask = useStore((s) => s.deleteTask);
+  const updateHabitData = useStore((s) => s.updateHabitData);
+
+  const hour = new Date().getHours();
+  const greeting =
+    hour < 12
+      ? t('hub.goodMorning')
+      : hour < 18
+        ? t('hub.goodAfternoon')
+        : t('hub.goodEvening');
+
+  const dateStr = format(new Date(), 'EEEE, MMMM d');
+
+  const handleHabitPress = useCallback(
+    (id: HabitId) => {
+      toggleHabit(id);
+    },
+    [toggleHabit],
+  );
+
+  const handleInfoPress = useCallback(
+    (id: HabitId) => {
+      const meta = HABIT_MAP[id];
+      if (meta.quickActionType === 'timer') {
+        setActiveHabit(id);
+        bottomSheetRef.current?.expand();
+      } else {
+        setActiveHabit(id);
+        bottomSheetRef.current?.expand();
+      }
+    },
+    [],
+  );
+
+  const handleWhyPress = useCallback(
+    (id: HabitId) => {
+      bottomSheetRef.current?.close();
+      router.push(`/habit/${id}`);
+    },
+    [router],
+  );
+
+  const handleBreathingComplete = useCallback(
+    (rounds: number) => {
+      updateHabitData('breathing', { duration: rounds * 16, rounds });
+      bottomSheetRef.current?.close();
+      setActiveHabit(null);
+    },
+    [updateHabitData],
+  );
+
+  const snapPoints = useMemo(() => ['50%', '75%'], []);
+
+  const habitEntries = today.habits;
+  const tasks = today.tasks;
+
+  return (
+    <SafeAreaView style={styles.container} edges={['top']}>
+      <ScrollView
+        style={styles.scroll}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* Header */}
+        <View style={styles.header}>
+          <View style={styles.headerLeft}>
+            <Text style={styles.greeting}>{greeting}</Text>
+            <Text style={styles.date}>{dateStr}</Text>
+          </View>
+          <View style={styles.headerRight}>
+            <DailyScore
+              completed={score.completed}
+              total={score.total}
+              size={64}
+            />
+          </View>
+        </View>
+
+        {/* Streak */}
+        <View style={styles.streakRow}>
+          <StreakBadge count={streak} />
+          <Pressable
+            onPress={() => router.push('/settings')}
+            style={styles.settingsBtn}
+          >
+            <Text style={styles.settingsIcon}>⚙️</Text>
+          </Pressable>
+        </View>
+
+        {/* Habit Cards */}
+        <View style={styles.habitsSection}>
+          {visibleHabits.map((id) => {
+            const entry = habitEntries[id];
+            return (
+              <HabitCard
+                key={id}
+                habitId={id}
+                completed={entry?.completed ?? false}
+                onPress={() => handleHabitPress(id)}
+                onInfoPress={() => handleInfoPress(id)}
+              />
+            );
+          })}
+        </View>
+
+        {/* Custom Tasks */}
+        <View style={styles.tasksSection}>
+          <Text style={styles.sectionTitle}>{t('hub.tasksTitle')}</Text>
+          {tasks.map((task) => (
+            <TaskItem
+              key={task.id}
+              task={task}
+              onToggle={() => toggleTask(task.id)}
+              onDelete={() => deleteTask(task.id)}
+            />
+          ))}
+          <TaskInput onSubmit={addTask} />
+        </View>
+
+        {/* All done message */}
+        {score.total > 0 && score.completed === score.total && (
+          <View style={styles.allDone}>
+            <Text style={styles.allDoneText}>{t('hub.allDone')}</Text>
+          </View>
+        )}
+
+        <View style={{ height: 40 }} />
+      </ScrollView>
+
+      {/* Bottom Sheet for habit quick actions */}
+      <BottomSheet
+        ref={bottomSheetRef}
+        index={-1}
+        snapPoints={snapPoints}
+        enablePanDownToClose
+        backgroundStyle={styles.sheetBg}
+        handleIndicatorStyle={styles.sheetHandle}
+        onClose={() => setActiveHabit(null)}
+      >
+        <BottomSheetView style={styles.sheetContent}>
+          {activeHabit && (
+            <>
+              <View style={styles.sheetHeader}>
+                <Text style={styles.sheetIcon}>
+                  {HABIT_MAP[activeHabit].icon}
+                </Text>
+                <Text style={styles.sheetTitle}>
+                  {t(`habits.${activeHabit}.name`)}
+                </Text>
+              </View>
+
+              {activeHabit === 'breathing' && (
+                <BreathingTimer onComplete={handleBreathingComplete} />
+              )}
+
+              {activeHabit !== 'breathing' && (
+                <View style={styles.sheetBody}>
+                  <Text style={styles.sheetOneLiner}>
+                    {t(`habits.${activeHabit}.oneLiner`)}
+                  </Text>
+                  <Pressable
+                    style={styles.sheetActionBtn}
+                    onPress={() => {
+                      toggleHabit(activeHabit);
+                      bottomSheetRef.current?.close();
+                    }}
+                  >
+                    <Text style={styles.sheetActionText}>
+                      {t(`habits.${activeHabit}.action`)}
+                    </Text>
+                  </Pressable>
+                </View>
+              )}
+
+              <Pressable
+                style={styles.whyBtn}
+                onPress={() => handleWhyPress(activeHabit)}
+              >
+                <Text style={styles.whyBtnText}>
+                  {t('article.whyTitle', {
+                    habit: t(`habits.${activeHabit}.name`),
+                  })}
+                </Text>
+              </Pressable>
+            </>
+          )}
+        </BottomSheetView>
+      </BottomSheet>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: Colors.bg,
+  },
+  scroll: {
+    flex: 1,
+  },
+  scrollContent: {
+    paddingHorizontal: 20,
+    paddingTop: 8,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 4,
+  },
+  headerLeft: {
+    flex: 1,
+  },
+  headerRight: {
+    marginLeft: 16,
+  },
+  greeting: {
+    fontSize: 28,
+    fontWeight: '700',
+    color: Colors.text,
+  },
+  date: {
+    fontSize: 15,
+    color: Colors.textSecondary,
+    marginTop: 2,
+  },
+  streakRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 20,
+    marginTop: 8,
+  },
+  settingsBtn: {
+    padding: 8,
+  },
+  settingsIcon: {
+    fontSize: 22,
+  },
+  habitsSection: {
+    gap: 12,
+    marginBottom: 28,
+  },
+  tasksSection: {
+    marginBottom: 16,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: Colors.text,
+    marginBottom: 12,
+  },
+  allDone: {
+    alignItems: 'center',
+    paddingVertical: 24,
+  },
+  allDoneText: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: Colors.success,
+  },
+  sheetBg: {
+    backgroundColor: Colors.surface,
+  },
+  sheetHandle: {
+    backgroundColor: Colors.textMuted,
+  },
+  sheetContent: {
+    flex: 1,
+    paddingHorizontal: 24,
+    paddingTop: 8,
+  },
+  sheetHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    marginBottom: 20,
+  },
+  sheetIcon: {
+    fontSize: 32,
+  },
+  sheetTitle: {
+    fontSize: 24,
+    fontWeight: '700',
+    color: Colors.text,
+  },
+  sheetBody: {
+    gap: 16,
+  },
+  sheetOneLiner: {
+    fontSize: 16,
+    color: Colors.textSecondary,
+    lineHeight: 24,
+  },
+  sheetActionBtn: {
+    backgroundColor: Colors.accent,
+    paddingVertical: 14,
+    paddingHorizontal: 24,
+    borderRadius: 12,
+    alignItems: 'center',
+  },
+  sheetActionText: {
+    color: Colors.text,
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  whyBtn: {
+    marginTop: 20,
+    paddingVertical: 12,
+    alignItems: 'center',
+  },
+  whyBtnText: {
+    color: Colors.accent,
+    fontSize: 15,
+    fontWeight: '500',
+  },
+});

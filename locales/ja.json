@@ -1,0 +1,99 @@
+{
+  "app": {
+    "name": "ILLLL",
+    "tagline": "もっと長く生きる"
+  },
+  "tabs": {
+    "today": "今日",
+    "progress": "進捗"
+  },
+  "hub": {
+    "goodMorning": "おはようございます",
+    "goodAfternoon": "こんにちは",
+    "goodEvening": "こんばんは",
+    "addTask": "タスクを追加…",
+    "score": "{{completed}}/{{total}}",
+    "streak": "{{count}}日連続",
+    "streakZero": "連続記録を始めよう！",
+    "allDone": "今日はすべて完了！",
+    "tasksTitle": "マイタスク"
+  },
+  "habits": {
+    "breathing": {
+      "name": "呼吸",
+      "oneLiner": "副交感神経を活性化 — 即座にリラックス",
+      "action": "呼吸エクササイズを始める"
+    },
+    "light": {
+      "name": "光を浴びる",
+      "oneLiner": "朝の日光が体内時計を整える — より良い睡眠と気分に",
+      "action": "日光を記録"
+    },
+    "food": {
+      "name": "健康的な食事",
+      "oneLiner": "食べ物が脳を作る — 良い食事の一つ一つが大切",
+      "action": "健康的な食事を記録"
+    },
+    "sleep": {
+      "name": "睡眠",
+      "oneLiner": "睡眠中に脳は自らを浄化する — 一時間一時間が大切",
+      "action": "睡眠時間を記録"
+    },
+    "exercise": {
+      "name": "運動",
+      "oneLiner": "最高の抗うつ剤であり長寿のツール — 毎日体を動かそう",
+      "action": "運動を記録"
+    },
+    "gratitude": {
+      "name": "感謝",
+      "oneLiner": "3つの良いことが脳をポジティブに書き換える",
+      "action": "感謝を書く"
+    }
+  },
+  "breathing": {
+    "inhale": "吸う",
+    "hold": "止める",
+    "exhale": "吐く",
+    "tapToStart": "タップして開始",
+    "sessionComplete": "セッション完了",
+    "rounds": "{{count}}ラウンド"
+  },
+  "progress": {
+    "title": "進捗",
+    "currentStreak": "現在の連続日数",
+    "bestStreak": "最高連続日数",
+    "days": "日",
+    "thisWeek": "今週",
+    "thisYear": "今年",
+    "completionRate": "達成率 {{rate}}%"
+  },
+  "settings": {
+    "title": "設定",
+    "habits": "習慣",
+    "hideHabit": "習慣を非表示",
+    "showHabit": "習慣を表示",
+    "notifications": "通知",
+    "language": "言語",
+    "autoDetect": "自動検出",
+    "about": "このアプリについて",
+    "version": "バージョン {{version}}",
+    "resetData": "すべてのデータをリセット",
+    "resetConfirm": "すべてのデータが削除されます。よろしいですか？"
+  },
+  "article": {
+    "whyTitle": "なぜ{{habit}}？",
+    "tldr": "まとめ",
+    "studies": "研究",
+    "recommendation": "何をすべきか"
+  },
+  "common": {
+    "done": "完了",
+    "cancel": "キャンセル",
+    "save": "保存",
+    "delete": "削除",
+    "edit": "編集",
+    "ok": "OK",
+    "yes": "はい",
+    "no": "いいえ"
+  }
+}

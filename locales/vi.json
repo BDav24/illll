@@ -1,0 +1,99 @@
+{
+  "app": {
+    "name": "ILLLL",
+    "tagline": "Tôi sẽ sống lâu hơn"
+  },
+  "tabs": {
+    "today": "Hôm nay",
+    "progress": "Tiến trình"
+  },
+  "hub": {
+    "goodMorning": "Chào buổi sáng",
+    "goodAfternoon": "Chào buổi chiều",
+    "goodEvening": "Chào buổi tối",
+    "addTask": "Thêm việc cần làm…",
+    "score": "{{completed}}/{{total}}",
+    "streak": "{{count}} ngày liên tiếp",
+    "streakZero": "Bắt đầu chuỗi ngày của bạn!",
+    "allDone": "Hoàn thành tất cả cho hôm nay!",
+    "tasksTitle": "Việc của tôi"
+  },
+  "habits": {
+    "breathing": {
+      "name": "Hít thở",
+      "oneLiner": "Kích hoạt hệ thần kinh thư giãn — giảm căng thẳng ngay lập tức",
+      "action": "Bắt đầu bài tập thở"
+    },
+    "light": {
+      "name": "Tiếp xúc ánh sáng",
+      "oneLiner": "Ánh nắng buổi sáng điều chỉnh đồng hồ sinh học — ngủ ngon và tâm trạng tốt hơn",
+      "action": "Ghi nhận ánh nắng"
+    },
+    "food": {
+      "name": "Ăn uống lành mạnh",
+      "oneLiner": "Thực phẩm xây dựng não bộ — mỗi bữa ăn lành mạnh đều quan trọng",
+      "action": "Ghi nhận bữa ăn lành mạnh"
+    },
+    "sleep": {
+      "name": "Giấc ngủ",
+      "oneLiner": "Não bộ tự làm sạch khi bạn ngủ — mỗi giờ đều quan trọng",
+      "action": "Ghi nhận giờ ngủ"
+    },
+    "exercise": {
+      "name": "Tập thể dục",
+      "oneLiner": "Thuốc chống trầm cảm số 1 và công cụ sống lâu — vận động mỗi ngày",
+      "action": "Ghi nhận tập thể dục"
+    },
+    "gratitude": {
+      "name": "Biết ơn",
+      "oneLiner": "3 điều tốt đẹp giúp tái lập trình não bộ theo hướng tích cực",
+      "action": "Viết lời biết ơn"
+    }
+  },
+  "breathing": {
+    "inhale": "Hít vào",
+    "hold": "Giữ",
+    "exhale": "Thở ra",
+    "tapToStart": "Chạm để bắt đầu",
+    "sessionComplete": "Hoàn thành phiên",
+    "rounds": "{{count}} vòng"
+  },
+  "progress": {
+    "title": "Tiến trình",
+    "currentStreak": "Chuỗi hiện tại",
+    "bestStreak": "Chuỗi tốt nhất",
+    "days": "ngày",
+    "thisWeek": "Tuần này",
+    "thisYear": "Năm nay",
+    "completionRate": "Hoàn thành {{rate}}%"
+  },
+  "settings": {
+    "title": "Cài đặt",
+    "habits": "Thói quen",
+    "hideHabit": "Ẩn thói quen",
+    "showHabit": "Hiện thói quen",
+    "notifications": "Thông báo",
+    "language": "Ngôn ngữ",
+    "autoDetect": "Tự động nhận diện",
+    "about": "Giới thiệu",
+    "version": "Phiên bản {{version}}",
+    "resetData": "Đặt lại tất cả dữ liệu",
+    "resetConfirm": "Thao tác này sẽ xóa tất cả dữ liệu của bạn. Bạn có chắc không?"
+  },
+  "article": {
+    "whyTitle": "Tại sao {{habit}}?",
+    "tldr": "Tóm tắt",
+    "studies": "Nghiên cứu",
+    "recommendation": "Nên làm gì"
+  },
+  "common": {
+    "done": "Xong",
+    "cancel": "Hủy",
+    "save": "Lưu",
+    "delete": "Xóa",
+    "edit": "Sửa",
+    "ok": "OK",
+    "yes": "Có",
+    "no": "Không"
+  }
+}

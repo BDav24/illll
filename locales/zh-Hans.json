@@ -1,0 +1,99 @@
+{
+  "app": {
+    "name": "ILLLL",
+    "tagline": "活得更久"
+  },
+  "tabs": {
+    "today": "今天",
+    "progress": "进度"
+  },
+  "hub": {
+    "goodMorning": "早上好",
+    "goodAfternoon": "下午好",
+    "goodEvening": "晚上好",
+    "addTask": "添加任务…",
+    "score": "{{completed}}/{{total}}",
+    "streak": "连续 {{count}} 天",
+    "streakZero": "开始你的连续记录！",
+    "allDone": "今天全部完成！",
+    "tasksTitle": "我的任务"
+  },
+  "habits": {
+    "breathing": {
+      "name": "呼吸",
+      "oneLiner": "激活副交感神经系统——即刻缓解压力",
+      "action": "开始呼吸练习"
+    },
+    "light": {
+      "name": "光照",
+      "oneLiner": "晨间阳光调节生物钟——改善睡眠和情绪",
+      "action": "记录日照"
+    },
+    "food": {
+      "name": "健康饮食",
+      "oneLiner": "饮食塑造大脑——每一餐健康饮食都很重要",
+      "action": "记录健康饮食"
+    },
+    "sleep": {
+      "name": "睡眠",
+      "oneLiner": "睡眠时大脑会自我清洁——每一小时都很重要",
+      "action": "记录睡眠时间"
+    },
+    "exercise": {
+      "name": "运动",
+      "oneLiner": "最佳的抗抑郁和长寿工具——每天动起来",
+      "action": "记录运动"
+    },
+    "gratitude": {
+      "name": "感恩",
+      "oneLiner": "记录三件好事能重塑大脑的积极思维",
+      "action": "写下感恩的事"
+    }
+  },
+  "breathing": {
+    "inhale": "吸气",
+    "hold": "屏息",
+    "exhale": "呼气",
+    "tapToStart": "点击开始",
+    "sessionComplete": "练习完成",
+    "rounds": "{{count}} 轮"
+  },
+  "progress": {
+    "title": "进度",
+    "currentStreak": "当前连续天数",
+    "bestStreak": "最佳连续天数",
+    "days": "天",
+    "thisWeek": "本周",
+    "thisYear": "今年",
+    "completionRate": "完成率 {{rate}}%"
+  },
+  "settings": {
+    "title": "设置",
+    "habits": "习惯",
+    "hideHabit": "隐藏习惯",
+    "showHabit": "显示习惯",
+    "notifications": "通知",
+    "language": "语言",
+    "autoDetect": "自动检测",
+    "about": "关于",
+    "version": "版本 {{version}}",
+    "resetData": "重置所有数据",
+    "resetConfirm": "这将删除你的所有数据。确定要继续吗？"
+  },
+  "article": {
+    "whyTitle": "为什么要{{habit}}？",
+    "tldr": "简而言之",
+    "studies": "研究",
+    "recommendation": "怎么做"
+  },
+  "common": {
+    "done": "完成",
+    "cancel": "取消",
+    "save": "保存",
+    "delete": "删除",
+    "edit": "编辑",
+    "ok": "确定",
+    "yes": "是",
+    "no": "否"
+  }
+}

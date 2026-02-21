@@ -1,0 +1,99 @@
+{
+  "app": {
+    "name": "ILLLL",
+    "tagline": "Daha uzun yaşayacağım"
+  },
+  "tabs": {
+    "today": "Bugün",
+    "progress": "İlerleme"
+  },
+  "hub": {
+    "goodMorning": "Günaydın",
+    "goodAfternoon": "İyi günler",
+    "goodEvening": "İyi akşamlar",
+    "addTask": "Görev ekle…",
+    "score": "{{completed}}/{{total}}",
+    "streak": "{{count}} gün üst üste",
+    "streakZero": "Serini başlat!",
+    "allDone": "Bugünlük her şey tamam!",
+    "tasksTitle": "Görevlerim"
+  },
+  "habits": {
+    "breathing": {
+      "name": "Nefes",
+      "oneLiner": "Sakinleştirici sinir sistemini aktive eder — anında rahatlama",
+      "action": "Nefes egzersizine başla"
+    },
+    "light": {
+      "name": "Işık Maruziyeti",
+      "oneLiner": "Sabah güneşi biyolojik saatini ayarlar — daha iyi uyku ve ruh hali",
+      "action": "Güneş ışığını kaydet"
+    },
+    "food": {
+      "name": "Sağlıklı Beslenme",
+      "oneLiner": "Yediklerin beynini inşa eder — her sağlıklı öğün önemli",
+      "action": "Sağlıklı öğün kaydet"
+    },
+    "sleep": {
+      "name": "Uyku",
+      "oneLiner": "Beynin uyurken kendini temizler — her saat önemli",
+      "action": "Uyku saatlerini kaydet"
+    },
+    "exercise": {
+      "name": "Egzersiz",
+      "oneLiner": "1 numaralı antidepresan ve uzun ömür aracı — her gün hareket et",
+      "action": "Egzersiz kaydet"
+    },
+    "gratitude": {
+      "name": "Şükran",
+      "oneLiner": "3 güzel şey beynini olumluya doğru yeniden programlar",
+      "action": "Şükranlarını yaz"
+    }
+  },
+  "breathing": {
+    "inhale": "Nefes al",
+    "hold": "Tut",
+    "exhale": "Nefes ver",
+    "tapToStart": "Başlamak için dokun",
+    "sessionComplete": "Oturum tamamlandı",
+    "rounds": "{{count}} tur"
+  },
+  "progress": {
+    "title": "İlerleme",
+    "currentStreak": "Mevcut Seri",
+    "bestStreak": "En İyi Seri",
+    "days": "gün",
+    "thisWeek": "Bu Hafta",
+    "thisYear": "Bu Yıl",
+    "completionRate": "%{{rate}} tamamlandı"
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "habits": "Alışkanlıklar",
+    "hideHabit": "Alışkanlığı gizle",
+    "showHabit": "Alışkanlığı göster",
+    "notifications": "Bildirimler",
+    "language": "Dil",
+    "autoDetect": "Otomatik algıla",
+    "about": "Hakkında",
+    "version": "Sürüm {{version}}",
+    "resetData": "Tüm Verileri Sıfırla",
+    "resetConfirm": "Bu, tüm verilerini silecek. Emin misin?"
+  },
+  "article": {
+    "whyTitle": "Neden {{habit}}?",
+    "tldr": "Özet",
+    "studies": "Çalışmalar",
+    "recommendation": "Ne yapmalı"
+  },
+  "common": {
+    "done": "Tamam",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "ok": "Tamam",
+    "yes": "Evet",
+    "no": "Hayır"
+  }
+}

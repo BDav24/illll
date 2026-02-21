@@ -1,0 +1,99 @@
+{
+  "app": {
+    "name": "ILLLL",
+    "tagline": "سأعيش أطول"
+  },
+  "tabs": {
+    "today": "اليوم",
+    "progress": "التقدّم"
+  },
+  "hub": {
+    "goodMorning": "صباح الخير",
+    "goodAfternoon": "مساء الخير",
+    "goodEvening": "مساء الخير",
+    "addTask": "أضف مهمة…",
+    "score": "{{completed}}/{{total}}",
+    "streak": "{{count}} يوم متتالي",
+    "streakZero": "ابدأ سلسلتك!",
+    "allDone": "أنجزت كل شيء اليوم!",
+    "tasksTitle": "مهامي"
+  },
+  "habits": {
+    "breathing": {
+      "name": "التنفّس",
+      "oneLiner": "ينشّط جهازك العصبي المهدّئ — راحة فورية",
+      "action": "ابدأ تمرين التنفّس"
+    },
+    "light": {
+      "name": "التعرّض للضوء",
+      "oneLiner": "ضوء الشمس الصباحي يضبط ساعتك البيولوجية — نوم ومزاج أفضل",
+      "action": "سجّل التعرّض للشمس"
+    },
+    "food": {
+      "name": "طعام صحي",
+      "oneLiner": "ما تأكله يبني دماغك — كل وجبة صحية مهمة",
+      "action": "سجّل وجبة صحية"
+    },
+    "sleep": {
+      "name": "النوم",
+      "oneLiner": "دماغك ينظّف نفسه أثناء النوم — كل ساعة مهمة",
+      "action": "سجّل أوقات النوم"
+    },
+    "exercise": {
+      "name": "الرياضة",
+      "oneLiner": "أقوى مضاد للاكتئاب وأداة لطول العمر — تحرّك يومياً",
+      "action": "سجّل التمارين"
+    },
+    "gratitude": {
+      "name": "الامتنان",
+      "oneLiner": "٣ أشياء جيدة تعيد برمجة دماغك نحو الإيجابية",
+      "action": "اكتب ما تمتنّ له"
+    }
+  },
+  "breathing": {
+    "inhale": "شهيق",
+    "hold": "احبس",
+    "exhale": "زفير",
+    "tapToStart": "اضغط للبدء",
+    "sessionComplete": "اكتملت الجلسة",
+    "rounds": "{{count}} جولات"
+  },
+  "progress": {
+    "title": "التقدّم",
+    "currentStreak": "السلسلة الحالية",
+    "bestStreak": "أفضل سلسلة",
+    "days": "أيام",
+    "thisWeek": "هذا الأسبوع",
+    "thisYear": "هذا العام",
+    "completionRate": "نسبة الإنجاز {{rate}}%"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "habits": "العادات",
+    "hideHabit": "إخفاء العادة",
+    "showHabit": "إظهار العادة",
+    "notifications": "الإشعارات",
+    "language": "اللغة",
+    "autoDetect": "اكتشاف تلقائي",
+    "about": "حول التطبيق",
+    "version": "الإصدار {{version}}",
+    "resetData": "إعادة تعيين جميع البيانات",
+    "resetConfirm": "سيؤدي هذا إلى حذف جميع بياناتك. هل أنت متأكد؟"
+  },
+  "article": {
+    "whyTitle": "لماذا {{habit}}؟",
+    "tldr": "باختصار",
+    "studies": "الدراسات",
+    "recommendation": "ماذا تفعل"
+  },
+  "common": {
+    "done": "تم",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "ok": "حسناً",
+    "yes": "نعم",
+    "no": "لا"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "app": {
+    "name": "ILLLL",
+    "tagline": "더 오래 살 거야"
+  },
+  "tabs": {
+    "today": "오늘",
+    "progress": "진행"
+  },
+  "hub": {
+    "goodMorning": "좋은 아침이에요",
+    "goodAfternoon": "좋은 오후예요",
+    "goodEvening": "좋은 저녁이에요",
+    "addTask": "할 일 추가…",
+    "score": "{{completed}}/{{total}}",
+    "streak": "{{count}}일 연속",
+    "streakZero": "연속 기록을 시작하세요!",
+    "allDone": "오늘 할 일 모두 완료!",
+    "tasksTitle": "내 할 일"
+  },
+  "habits": {
+    "breathing": {
+      "name": "호흡",
+      "oneLiner": "부교감 신경을 활성화 — 즉각적인 안정",
+      "action": "호흡 운동 시작"
+    },
+    "light": {
+      "name": "빛 쬐기",
+      "oneLiner": "아침 햇빛이 생체 시계를 맞춰줌 — 더 나은 수면과 기분",
+      "action": "햇빛 기록"
+    },
+    "food": {
+      "name": "건강한 식사",
+      "oneLiner": "먹는 음식이 뇌를 만듦 — 좋은 한 끼가 중요해요",
+      "action": "건강한 식사 기록"
+    },
+    "sleep": {
+      "name": "수면",
+      "oneLiner": "잠자는 동안 뇌가 스스로 청소함 — 매 시간이 중요해요",
+      "action": "수면 시간 기록"
+    },
+    "exercise": {
+      "name": "운동",
+      "oneLiner": "최고의 항우울제이자 장수 도구 — 매일 움직이세요",
+      "action": "운동 기록"
+    },
+    "gratitude": {
+      "name": "감사",
+      "oneLiner": "좋은 일 3가지가 뇌를 긍정적으로 바꿔줘요",
+      "action": "감사한 일 쓰기"
+    }
+  },
+  "breathing": {
+    "inhale": "들이쉬기",
+    "hold": "멈추기",
+    "exhale": "내쉬기",
+    "tapToStart": "탭하여 시작",
+    "sessionComplete": "세션 완료",
+    "rounds": "{{count}}라운드"
+  },
+  "progress": {
+    "title": "진행",
+    "currentStreak": "현재 연속 일수",
+    "bestStreak": "최고 연속 일수",
+    "days": "일",
+    "thisWeek": "이번 주",
+    "thisYear": "올해",
+    "completionRate": "달성률 {{rate}}%"
+  },
+  "settings": {
+    "title": "설정",
+    "habits": "습관",
+    "hideHabit": "습관 숨기기",
+    "showHabit": "습관 표시",
+    "notifications": "알림",
+    "language": "언어",
+    "autoDetect": "자동 감지",
+    "about": "앱 정보",
+    "version": "버전 {{version}}",
+    "resetData": "모든 데이터 초기화",
+    "resetConfirm": "모든 데이터가 삭제됩니다. 계속하시겠습니까?"
+  },
+  "article": {
+    "whyTitle": "왜 {{habit}}?",
+    "tldr": "요약",
+    "studies": "연구",
+    "recommendation": "무엇을 할까"
+  },
+  "common": {
+    "done": "완료",
+    "cancel": "취소",
+    "save": "저장",
+    "delete": "삭제",
+    "edit": "편집",
+    "ok": "확인",
+    "yes": "예",
+    "no": "아니오"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "app": {
+    "name": "ILLLL",
+    "tagline": "I'll Live Longer"
+  },
+  "tabs": {
+    "today": "Today",
+    "progress": "Progress"
+  },
+  "hub": {
+    "goodMorning": "Good morning",
+    "goodAfternoon": "Good afternoon",
+    "goodEvening": "Good evening",
+    "addTask": "Add a task...",
+    "score": "{{completed}}/{{total}}",
+    "streak": "{{count}} day streak",
+    "streakZero": "Start your streak!",
+    "allDone": "All done for today!",
+    "tasksTitle": "My Tasks"
+  },
+  "habits": {
+    "breathing": {
+      "name": "Breathing",
+      "oneLiner": "Activates your calm nervous system — instant relief",
+      "action": "Start breathing exercise"
+    },
+    "light": {
+      "name": "Light Exposure",
+      "oneLiner": "Morning sunlight sets your clock — better sleep & mood",
+      "action": "Log sunlight"
+    },
+    "food": {
+      "name": "Healthy Food",
+      "oneLiner": "What you eat builds your brain — one good meal matters",
+      "action": "Log a healthy meal"
+    },
+    "sleep": {
+      "name": "Sleep",
+      "oneLiner": "Your brain cleans itself while you sleep — every hour counts",
+      "action": "Log sleep times"
+    },
+    "exercise": {
+      "name": "Exercise",
+      "oneLiner": "The #1 antidepressant and longevity tool — move daily",
+      "action": "Log exercise"
+    },
+    "gratitude": {
+      "name": "Gratitude",
+      "oneLiner": "3 good things rewires your brain toward the positive",
+      "action": "Write gratitudes"
+    }
+  },
+  "breathing": {
+    "inhale": "Inhale",
+    "hold": "Hold",
+    "exhale": "Exhale",
+    "tapToStart": "Tap to start",
+    "sessionComplete": "Session complete",
+    "rounds": "{{count}} rounds"
+  },
+  "progress": {
+    "title": "Progress",
+    "currentStreak": "Current Streak",
+    "bestStreak": "Best Streak",
+    "days": "days",
+    "thisWeek": "This Week",
+    "thisYear": "This Year",
+    "completionRate": "{{rate}}% completion"
+  },
+  "settings": {
+    "title": "Settings",
+    "habits": "Habits",
+    "hideHabit": "Hide habit",
+    "showHabit": "Show habit",
+    "notifications": "Notifications",
+    "language": "Language",
+    "autoDetect": "Auto-detect",
+    "about": "About",
+    "version": "Version {{version}}",
+    "resetData": "Reset All Data",
+    "resetConfirm": "This will delete all your data. Are you sure?"
+  },
+  "article": {
+    "whyTitle": "Why {{habit}}?",
+    "tldr": "TL;DR",
+    "studies": "Studies",
+    "recommendation": "What to do"
+  },
+  "common": {
+    "done": "Done",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "ok": "OK",
+    "yes": "Yes",
+    "no": "No"
+  }
+}

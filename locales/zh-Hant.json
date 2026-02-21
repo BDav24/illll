@@ -1,0 +1,99 @@
+{
+  "app": {
+    "name": "ILLLL",
+    "tagline": "活得更久"
+  },
+  "tabs": {
+    "today": "今天",
+    "progress": "進度"
+  },
+  "hub": {
+    "goodMorning": "早安",
+    "goodAfternoon": "午安",
+    "goodEvening": "晚安",
+    "addTask": "新增任務…",
+    "score": "{{completed}}/{{total}}",
+    "streak": "連續 {{count}} 天",
+    "streakZero": "開始你的連續紀錄！",
+    "allDone": "今天全部完成！",
+    "tasksTitle": "我的任務"
+  },
+  "habits": {
+    "breathing": {
+      "name": "呼吸",
+      "oneLiner": "啟動副交感神經系統——立即放鬆",
+      "action": "開始呼吸練習"
+    },
+    "light": {
+      "name": "光照",
+      "oneLiner": "晨間陽光調節生理時鐘——改善睡眠與情緒",
+      "action": "記錄日照"
+    },
+    "food": {
+      "name": "健康飲食",
+      "oneLiner": "飲食塑造大腦——每一餐健康飲食都很重要",
+      "action": "記錄健康飲食"
+    },
+    "sleep": {
+      "name": "睡眠",
+      "oneLiner": "睡眠時大腦會自我清潔——每一小時都很重要",
+      "action": "記錄睡眠時間"
+    },
+    "exercise": {
+      "name": "運動",
+      "oneLiner": "最佳的抗憂鬱和長壽工具——每天動起來",
+      "action": "記錄運動"
+    },
+    "gratitude": {
+      "name": "感恩",
+      "oneLiner": "記錄三件好事能重塑大腦的正向思維",
+      "action": "寫下感恩的事"
+    }
+  },
+  "breathing": {
+    "inhale": "吸氣",
+    "hold": "屏息",
+    "exhale": "呼氣",
+    "tapToStart": "點擊開始",
+    "sessionComplete": "練習完成",
+    "rounds": "{{count}} 輪"
+  },
+  "progress": {
+    "title": "進度",
+    "currentStreak": "目前連續天數",
+    "bestStreak": "最佳連續天數",
+    "days": "天",
+    "thisWeek": "本週",
+    "thisYear": "今年",
+    "completionRate": "完成率 {{rate}}%"
+  },
+  "settings": {
+    "title": "設定",
+    "habits": "習慣",
+    "hideHabit": "隱藏習慣",
+    "showHabit": "顯示習慣",
+    "notifications": "通知",
+    "language": "語言",
+    "autoDetect": "自動偵測",
+    "about": "關於",
+    "version": "版本 {{version}}",
+    "resetData": "重設所有資料",
+    "resetConfirm": "這將刪除你的所有資料。確定要繼續嗎？"
+  },
+  "article": {
+    "whyTitle": "為什麼要{{habit}}？",
+    "tldr": "簡而言之",
+    "studies": "研究",
+    "recommendation": "怎麼做"
+  },
+  "common": {
+    "done": "完成",
+    "cancel": "取消",
+    "save": "儲存",
+    "delete": "刪除",
+    "edit": "編輯",
+    "ok": "確定",
+    "yes": "是",
+    "no": "否"
+  }
+}

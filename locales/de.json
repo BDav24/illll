@@ -1,0 +1,99 @@
+{
+  "app": {
+    "name": "ILLLL",
+    "tagline": "Ich werde länger leben"
+  },
+  "tabs": {
+    "today": "Heute",
+    "progress": "Fortschritt"
+  },
+  "hub": {
+    "goodMorning": "Guten Morgen",
+    "goodAfternoon": "Guten Tag",
+    "goodEvening": "Guten Abend",
+    "addTask": "Aufgabe hinzufügen…",
+    "score": "{{completed}}/{{total}}",
+    "streak": "{{count}} Tage in Folge",
+    "streakZero": "Starte deine Serie!",
+    "allDone": "Alles erledigt für heute!",
+    "tasksTitle": "Meine Aufgaben"
+  },
+  "habits": {
+    "breathing": {
+      "name": "Atmung",
+      "oneLiner": "Aktiviert dein beruhigendes Nervensystem — sofortige Erleichterung",
+      "action": "Atemübung starten"
+    },
+    "light": {
+      "name": "Lichtexposition",
+      "oneLiner": "Morgenlicht stellt deine innere Uhr — besserer Schlaf und Stimmung",
+      "action": "Sonnenlicht eintragen"
+    },
+    "food": {
+      "name": "Gesunde Ernährung",
+      "oneLiner": "Was du isst, baut dein Gehirn auf — jede gute Mahlzeit zählt",
+      "action": "Gesunde Mahlzeit eintragen"
+    },
+    "sleep": {
+      "name": "Schlaf",
+      "oneLiner": "Dein Gehirn reinigt sich im Schlaf — jede Stunde zählt",
+      "action": "Schlafzeiten eintragen"
+    },
+    "exercise": {
+      "name": "Bewegung",
+      "oneLiner": "Das Antidepressivum Nr. 1 und Langlebigkeitstool — bewege dich täglich",
+      "action": "Bewegung eintragen"
+    },
+    "gratitude": {
+      "name": "Dankbarkeit",
+      "oneLiner": "3 gute Dinge programmieren dein Gehirn auf Positives um",
+      "action": "Dankbarkeiten schreiben"
+    }
+  },
+  "breathing": {
+    "inhale": "Einatmen",
+    "hold": "Halten",
+    "exhale": "Ausatmen",
+    "tapToStart": "Tippen zum Starten",
+    "sessionComplete": "Sitzung abgeschlossen",
+    "rounds": "{{count}} Runden"
+  },
+  "progress": {
+    "title": "Fortschritt",
+    "currentStreak": "Aktuelle Serie",
+    "bestStreak": "Beste Serie",
+    "days": "Tage",
+    "thisWeek": "Diese Woche",
+    "thisYear": "Dieses Jahr",
+    "completionRate": "{{rate}}% abgeschlossen"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "habits": "Gewohnheiten",
+    "hideHabit": "Gewohnheit ausblenden",
+    "showHabit": "Gewohnheit anzeigen",
+    "notifications": "Benachrichtigungen",
+    "language": "Sprache",
+    "autoDetect": "Automatisch erkennen",
+    "about": "Über",
+    "version": "Version {{version}}",
+    "resetData": "Alle Daten zurücksetzen",
+    "resetConfirm": "Dadurch werden alle deine Daten gelöscht. Bist du sicher?"
+  },
+  "article": {
+    "whyTitle": "Warum {{habit}}?",
+    "tldr": "Kurzfassung",
+    "studies": "Studien",
+    "recommendation": "Was tun"
+  },
+  "common": {
+    "done": "Fertig",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "ok": "OK",
+    "yes": "Ja",
+    "no": "Nein"
+  }
+}

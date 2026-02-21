@@ -1,0 +1,99 @@
+{
+  "app": {
+    "name": "ILLLL",
+    "tagline": "Ik zal langer leven"
+  },
+  "tabs": {
+    "today": "Vandaag",
+    "progress": "Voortgang"
+  },
+  "hub": {
+    "goodMorning": "Goedemorgen",
+    "goodAfternoon": "Goedemiddag",
+    "goodEvening": "Goedenavond",
+    "addTask": "Taak toevoegen…",
+    "score": "{{completed}}/{{total}}",
+    "streak": "{{count}} dagen op rij",
+    "streakZero": "Begin je reeks!",
+    "allDone": "Alles gedaan voor vandaag!",
+    "tasksTitle": "Mijn taken"
+  },
+  "habits": {
+    "breathing": {
+      "name": "Ademhaling",
+      "oneLiner": "Activeert je kalmerende zenuwstelsel — directe verlichting",
+      "action": "Start ademhalingsoefening"
+    },
+    "light": {
+      "name": "Lichtblootstelling",
+      "oneLiner": "Ochtendzonlicht stelt je klok in — betere slaap en stemming",
+      "action": "Zonlicht registreren"
+    },
+    "food": {
+      "name": "Gezond eten",
+      "oneLiner": "Wat je eet bouwt je brein — elke goede maaltijd telt",
+      "action": "Gezonde maaltijd registreren"
+    },
+    "sleep": {
+      "name": "Slaap",
+      "oneLiner": "Je brein reinigt zichzelf tijdens het slapen — elk uur telt",
+      "action": "Slaaptijden registreren"
+    },
+    "exercise": {
+      "name": "Beweging",
+      "oneLiner": "Het beste antidepressivum en middel voor een lang leven — beweeg dagelijks",
+      "action": "Beweging registreren"
+    },
+    "gratitude": {
+      "name": "Dankbaarheid",
+      "oneLiner": "3 goede dingen herprogrammeren je brein richting het positieve",
+      "action": "Dankbaarheden opschrijven"
+    }
+  },
+  "breathing": {
+    "inhale": "Inademen",
+    "hold": "Vasthouden",
+    "exhale": "Uitademen",
+    "tapToStart": "Tik om te starten",
+    "sessionComplete": "Sessie voltooid",
+    "rounds": "{{count}} rondes"
+  },
+  "progress": {
+    "title": "Voortgang",
+    "currentStreak": "Huidige reeks",
+    "bestStreak": "Beste reeks",
+    "days": "dagen",
+    "thisWeek": "Deze week",
+    "thisYear": "Dit jaar",
+    "completionRate": "{{rate}}% voltooid"
+  },
+  "settings": {
+    "title": "Instellingen",
+    "habits": "Gewoontes",
+    "hideHabit": "Gewoonte verbergen",
+    "showHabit": "Gewoonte tonen",
+    "notifications": "Meldingen",
+    "language": "Taal",
+    "autoDetect": "Automatisch detecteren",
+    "about": "Over",
+    "version": "Versie {{version}}",
+    "resetData": "Alle gegevens wissen",
+    "resetConfirm": "Dit verwijdert al je gegevens. Weet je het zeker?"
+  },
+  "article": {
+    "whyTitle": "Waarom {{habit}}?",
+    "tldr": "Samenvatting",
+    "studies": "Onderzoeken",
+    "recommendation": "Wat te doen"
+  },
+  "common": {
+    "done": "Klaar",
+    "cancel": "Annuleren",
+    "save": "Opslaan",
+    "delete": "Verwijderen",
+    "edit": "Bewerken",
+    "ok": "OK",
+    "yes": "Ja",
+    "no": "Nee"
+  }
+}

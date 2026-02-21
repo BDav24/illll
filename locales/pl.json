@@ -1,0 +1,99 @@
+{
+  "app": {
+    "name": "ILLLL",
+    "tagline": "Będę żyć dłużej"
+  },
+  "tabs": {
+    "today": "Dziś",
+    "progress": "Postępy"
+  },
+  "hub": {
+    "goodMorning": "Dzień dobry",
+    "goodAfternoon": "Dzień dobry",
+    "goodEvening": "Dobry wieczór",
+    "addTask": "Dodaj zadanie…",
+    "score": "{{completed}}/{{total}}",
+    "streak": "{{count}} dni z rzędu",
+    "streakZero": "Zacznij swoją serię!",
+    "allDone": "Wszystko zrobione na dziś!",
+    "tasksTitle": "Moje zadania"
+  },
+  "habits": {
+    "breathing": {
+      "name": "Oddychanie",
+      "oneLiner": "Aktywuje uspokajający układ nerwowy — natychmiastowa ulga",
+      "action": "Rozpocznij ćwiczenie oddechowe"
+    },
+    "light": {
+      "name": "Ekspozycja na światło",
+      "oneLiner": "Poranne słońce reguluje zegar biologiczny — lepszy sen i nastrój",
+      "action": "Zapisz ekspozycję na słońce"
+    },
+    "food": {
+      "name": "Zdrowe jedzenie",
+      "oneLiner": "To, co jesz, buduje twój mózg — każdy dobry posiłek się liczy",
+      "action": "Zapisz zdrowy posiłek"
+    },
+    "sleep": {
+      "name": "Sen",
+      "oneLiner": "Mózg oczyszcza się podczas snu — każda godzina się liczy",
+      "action": "Zapisz godziny snu"
+    },
+    "exercise": {
+      "name": "Ćwiczenia",
+      "oneLiner": "Antydepresant nr 1 i narzędzie długowieczności — ruszaj się codziennie",
+      "action": "Zapisz ćwiczenia"
+    },
+    "gratitude": {
+      "name": "Wdzięczność",
+      "oneLiner": "3 dobre rzeczy przeprogramowują mózg na pozytywne myślenie",
+      "action": "Zapisz rzeczy, za które jesteś wdzięczny"
+    }
+  },
+  "breathing": {
+    "inhale": "Wdech",
+    "hold": "Wstrzymaj",
+    "exhale": "Wydech",
+    "tapToStart": "Dotknij, aby zacząć",
+    "sessionComplete": "Sesja zakończona",
+    "rounds": "{{count}} rund"
+  },
+  "progress": {
+    "title": "Postępy",
+    "currentStreak": "Obecna seria",
+    "bestStreak": "Najlepsza seria",
+    "days": "dni",
+    "thisWeek": "Ten tydzień",
+    "thisYear": "Ten rok",
+    "completionRate": "{{rate}}% ukończono"
+  },
+  "settings": {
+    "title": "Ustawienia",
+    "habits": "Nawyki",
+    "hideHabit": "Ukryj nawyk",
+    "showHabit": "Pokaż nawyk",
+    "notifications": "Powiadomienia",
+    "language": "Język",
+    "autoDetect": "Wykryj automatycznie",
+    "about": "O aplikacji",
+    "version": "Wersja {{version}}",
+    "resetData": "Resetuj wszystkie dane",
+    "resetConfirm": "Spowoduje to usunięcie wszystkich danych. Czy na pewno?"
+  },
+  "article": {
+    "whyTitle": "Dlaczego {{habit}}?",
+    "tldr": "W skrócie",
+    "studies": "Badania",
+    "recommendation": "Co robić"
+  },
+  "common": {
+    "done": "Gotowe",
+    "cancel": "Anuluj",
+    "save": "Zapisz",
+    "delete": "Usuń",
+    "edit": "Edytuj",
+    "ok": "OK",
+    "yes": "Tak",
+    "no": "Nie"
+  }
+}

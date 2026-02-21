@@ -1,0 +1,99 @@
+{
+  "app": {
+    "name": "ILLLL",
+    "tagline": "Aku akan hidup lebih lama"
+  },
+  "tabs": {
+    "today": "Hari Ini",
+    "progress": "Kemajuan"
+  },
+  "hub": {
+    "goodMorning": "Selamat pagi",
+    "goodAfternoon": "Selamat siang",
+    "goodEvening": "Selamat malam",
+    "addTask": "Tambah tugas…",
+    "score": "{{completed}}/{{total}}",
+    "streak": "{{count}} hari berturut-turut",
+    "streakZero": "Mulai rangkaianmu!",
+    "allDone": "Semua selesai untuk hari ini!",
+    "tasksTitle": "Tugas Saya"
+  },
+  "habits": {
+    "breathing": {
+      "name": "Pernapasan",
+      "oneLiner": "Mengaktifkan sistem saraf penenang — bantuan instan",
+      "action": "Mulai latihan pernapasan"
+    },
+    "light": {
+      "name": "Paparan Cahaya",
+      "oneLiner": "Sinar matahari pagi mengatur jam tubuhmu — tidur & suasana hati lebih baik",
+      "action": "Catat paparan sinar matahari"
+    },
+    "food": {
+      "name": "Makanan Sehat",
+      "oneLiner": "Apa yang kamu makan membangun otakmu — setiap makanan sehat berarti",
+      "action": "Catat makanan sehat"
+    },
+    "sleep": {
+      "name": "Tidur",
+      "oneLiner": "Otakmu membersihkan dirinya saat tidur — setiap jam berarti",
+      "action": "Catat waktu tidur"
+    },
+    "exercise": {
+      "name": "Olahraga",
+      "oneLiner": "Antidepresan #1 dan alat umur panjang — bergerak setiap hari",
+      "action": "Catat olahraga"
+    },
+    "gratitude": {
+      "name": "Rasa Syukur",
+      "oneLiner": "3 hal baik memprogram ulang otakmu ke arah positif",
+      "action": "Tulis rasa syukur"
+    }
+  },
+  "breathing": {
+    "inhale": "Tarik napas",
+    "hold": "Tahan",
+    "exhale": "Buang napas",
+    "tapToStart": "Ketuk untuk mulai",
+    "sessionComplete": "Sesi selesai",
+    "rounds": "{{count}} putaran"
+  },
+  "progress": {
+    "title": "Kemajuan",
+    "currentStreak": "Rangkaian Saat Ini",
+    "bestStreak": "Rangkaian Terbaik",
+    "days": "hari",
+    "thisWeek": "Minggu Ini",
+    "thisYear": "Tahun Ini",
+    "completionRate": "{{rate}}% selesai"
+  },
+  "settings": {
+    "title": "Pengaturan",
+    "habits": "Kebiasaan",
+    "hideHabit": "Sembunyikan kebiasaan",
+    "showHabit": "Tampilkan kebiasaan",
+    "notifications": "Notifikasi",
+    "language": "Bahasa",
+    "autoDetect": "Deteksi otomatis",
+    "about": "Tentang",
+    "version": "Versi {{version}}",
+    "resetData": "Atur Ulang Semua Data",
+    "resetConfirm": "Ini akan menghapus semua datamu. Apakah kamu yakin?"
+  },
+  "article": {
+    "whyTitle": "Mengapa {{habit}}?",
+    "tldr": "Ringkasan",
+    "studies": "Studi",
+    "recommendation": "Apa yang harus dilakukan"
+  },
+  "common": {
+    "done": "Selesai",
+    "cancel": "Batal",
+    "save": "Simpan",
+    "delete": "Hapus",
+    "edit": "Ubah",
+    "ok": "OK",
+    "yes": "Ya",
+    "no": "Tidak"
+  }
+}
