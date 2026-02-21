@@ -27,6 +27,14 @@ export default function SettingsScreen() {
 
   const [showLangPicker, setShowLangPicker] = useState(false);
 
+  const handleClose = () => {
+    if (router.canGoBack()) {
+      router.back();
+    } else {
+      router.replace('/');
+    }
+  };
+
   const handleLanguageChange = async (code: string | null) => {
     setLanguage(code);
     const lang = code ?? 'en';
@@ -66,7 +74,7 @@ export default function SettingsScreen() {
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.title}>{t('settings.title')}</Text>
-          <Pressable onPress={() => router.back()} style={styles.closeBtn}>
+          <Pressable onPress={handleClose} style={styles.closeBtn}>
             <Text style={styles.closeText}>✕</Text>
           </Pressable>
         </View>
