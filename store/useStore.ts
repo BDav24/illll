@@ -165,7 +165,7 @@ export function getVisibleHabits(settings: UserSettings): HabitId[] {
 export function getDayScore(
   day: DayRecord | undefined,
   visibleHabits: HabitId[],
-  customHabits: CustomHabit[],
+  customHabits: CustomHabit[] = [],
 ): { completed: number; total: number } {
   if (!day) return { completed: 0, total: visibleHabits.length + customHabits.length };
 
@@ -185,7 +185,7 @@ export function getDayScore(
 export function getStreak(
   days: Record<string, DayRecord>,
   visibleHabits: HabitId[],
-  customHabits: CustomHabit[],
+  customHabits: CustomHabit[] = [],
 ): number {
   let streak = 0;
   const now = new Date();
@@ -300,11 +300,13 @@ export const useStore = create<StoreState>()((set) => ({
   },
 
   addCustomHabit: (text: string) => {
+    const trimmed = text.trim();
+    if (!trimmed) return;
     const id = `custom_${crypto.randomUUID()}`;
     set((state) => ({
       settings: {
         ...state.settings,
-        customHabits: [...state.settings.customHabits, { id, text }],
+        customHabits: [...state.settings.customHabits, { id, text: trimmed }],
       },
     }));
   },

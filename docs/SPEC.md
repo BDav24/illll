@@ -15,12 +15,14 @@ ILLLL (I'll Live Longer) empowers people to live healthier, longer lives by maki
 ## Target Users
 
 ### Primary Audience
+
 - Health-conscious individuals (25-55 years old)
 - People interested in longevity and preventive health
 - Users who value simplicity over feature-bloat
 - Privacy-conscious individuals
 
 ### User Goals
+
 - Build sustainable healthy habits
 - Track progress without overwhelming complexity
 - Understand the "why" behind each practice
@@ -33,6 +35,7 @@ ILLLL (I'll Live Longer) empowers people to live healthier, longer lives by maki
 **Purpose**: Central dashboard for daily habit tracking and task management.
 
 **Components**:
+
 - **Greeting**: Time-appropriate greeting with current date
 - **Daily Score**: Circular progress indicator showing completed/total items
 - **Streak Badge**: Current consecutive days streak
@@ -44,6 +47,7 @@ ILLLL (I'll Live Longer) empowers people to live healthier, longer lives by maki
 - **All Done Celebration**: Shown when 100% complete
 
 **User Flow**:
+
 1. User opens app → sees greeting and today's score
 2. Taps habit card → marks it complete (instant haptic feedback)
 3. OR taps info button → opens bottom sheet with quick action
@@ -55,6 +59,7 @@ ILLLL (I'll Live Longer) empowers people to live healthier, longer lives by maki
 Each habit represents a fundamental longevity practice:
 
 #### 2.1 Breathing
+
 - **Icon**: 🫁
 - **Color**: Blue (#6C9CFF)
 - **Quick Action**: Interactive breathing timer
@@ -65,6 +70,7 @@ Each habit represents a fundamental longevity practice:
 - **Data Tracked**: Duration, number of rounds
 
 #### 2.2 Light Exposure
+
 - **Icon**: ☀️
 - **Color**: Yellow (#FFD666)
 - **Quick Action**: Simple checkbox
@@ -72,6 +78,7 @@ Each habit represents a fundamental longevity practice:
 - **Recommendation**: 10-30 minutes of morning sunlight
 
 #### 2.3 Healthy Food
+
 - **Icon**: 🥗
 - **Color**: Green (#66E0A0)
 - **Quick Action**: Text input for meal description
@@ -79,6 +86,7 @@ Each habit represents a fundamental longevity practice:
 - **Focus**: Whole foods, vegetables, lean proteins, healthy fats
 
 #### 2.4 Sleep
+
 - **Icon**: 😴
 - **Color**: Purple (#B088F9)
 - **Quick Action**: Time range input (bedtime → wake time)
@@ -86,6 +94,7 @@ Each habit represents a fundamental longevity practice:
 - **Recommendation**: 7-9 hours of quality sleep
 
 #### 2.5 Exercise
+
 - **Icon**: 🏃
 - **Color**: Red (#FF7A7A)
 - **Quick Action**: Input field for activity and duration
@@ -93,6 +102,7 @@ Each habit represents a fundamental longevity practice:
 - **Recommendation**: 150+ minutes moderate activity per week
 
 #### 2.6 Gratitude
+
 - **Icon**: 🙏
 - **Color**: Orange (#FFB366)
 - **Quick Action**: Text area for gratitude entries
@@ -104,6 +114,7 @@ Each habit represents a fundamental longevity practice:
 **Purpose**: Visualize long-term patterns and maintain motivation.
 
 **Components**:
+
 - **Current Streak**: Consecutive days with at least 1 completion
 - **Best Streak**: Personal record
 - **Weekly Chart**: Bar chart showing daily completion percentage
@@ -115,6 +126,7 @@ Each habit represents a fundamental longevity practice:
   - Tap cell to see date details
 
 **Metrics**:
+
 - Completion rate: `completed / total * 100`
 - Streak: consecutive days with `completed >= 1`
 - Breaks on days with zero completions
@@ -124,6 +136,7 @@ Each habit represents a fundamental longevity practice:
 **Purpose**: Help users understand WHY each habit matters.
 
 **Components**:
+
 - Habit name and icon
 - One-liner explanation
 - **TL;DR**: Quick summary of benefits
@@ -131,6 +144,7 @@ Each habit represents a fundamental longevity practice:
 - **Recommendation**: Actionable advice on how to practice
 
 **Content Strategy**:
+
 - Keep articles short (< 500 words)
 - Link to primary research when possible
 - Focus on practical application
@@ -141,12 +155,14 @@ Each habit represents a fundamental longevity practice:
 **Purpose**: Allow users to track personal daily goals beyond the core habits.
 
 **Features**:
+
 - Add unlimited tasks
 - Mark complete/incomplete
 - Delete tasks
 - Tasks reset each day (not recurring yet)
 
 **Use Cases**:
+
 - "Drink 8 glasses of water"
 - "Read 30 minutes"
 - "Call mom"
@@ -157,6 +173,7 @@ Each habit represents a fundamental longevity practice:
 **Purpose**: Personalize the app experience.
 
 **Options**:
+
 - **Habits**: Show/hide individual habits
 - **Notifications**: Enable/disable reminders (future)
 - **Language**: Choose from 20+ languages or auto-detect
@@ -166,6 +183,7 @@ Each habit represents a fundamental longevity practice:
 ## Data Model
 
 ### Storage Technology
+
 - **MMKV**: Fast, encrypted key-value storage
 - All data stored locally (no cloud sync)
 
@@ -219,6 +237,7 @@ Each habit represents a fundamental longevity practice:
 ### Computed Values
 
 **Daily Score**:
+
 ```typescript
 const total = visibleHabits.length + tasks.length;
 const completed =
@@ -227,6 +246,7 @@ const completed =
 ```
 
 **Streak**:
+
 ```typescript
 // Starting from today, count backwards consecutive days
 // where completed >= 1
@@ -240,6 +260,7 @@ const completed =
 ## User Flows
 
 ### First Launch
+
 1. App opens → shows Daily Hub
 2. All 6 habits visible, score 0/6
 3. No streak (0 days)
@@ -247,6 +268,7 @@ const completed =
 5. User can immediately start completing habits
 
 ### Daily Routine
+
 1. Morning: User checks app, sees greeting
 2. Completes morning sunlight → taps light habit
 3. Throughout day: adds and completes custom tasks
@@ -257,12 +279,14 @@ const completed =
 8. Streak increments next day
 
 ### Week Review
+
 1. User navigates to Progress tab
 2. Sees current 5-day streak
 3. Weekly chart shows consistent 80%+ completion
 4. Feels motivated to continue
 
 ### Language Change
+
 1. User opens Settings
 2. Taps Language
 3. Selects new language (e.g., Spanish)
@@ -272,6 +296,7 @@ const completed =
 ## Technical Architecture
 
 ### App Structure
+
 ```
 Entry Point (index.ts)
   ↓
@@ -285,6 +310,7 @@ Expo Router (_layout.tsx)
 ```
 
 ### State Flow
+
 ```
 User Action (e.g., tap habit)
   ↓
@@ -300,6 +326,7 @@ UI updates (haptic feedback, animation)
 ```
 
 ### Dependencies
+
 - **Expo SDK 54**: Platform foundation
 - **React Native 0.81**: UI framework
 - **TypeScript 5.9**: Type safety
@@ -329,6 +356,7 @@ UI updates (haptic feedback, animation)
 ## Internationalization
 
 ### Supported Languages (20+)
+
 - English (en)
 - Spanish (es)
 - French (fr)
@@ -351,6 +379,7 @@ UI updates (haptic feedback, animation)
 - Indonesian (id)
 
 ### RTL Support
+
 - Arabic and other RTL languages supported
 - UI automatically flips for RTL
 - Text alignment adapts
@@ -358,27 +387,30 @@ UI updates (haptic feedback, animation)
 ## Future Roadmap
 
 ### V1.1 - Insights & Habits
+
 - [ ] Notifications for daily reminders
-- [ ] Habit streaks (per-habit, not just global)
 - [ ] Insights based on patterns ("You complete exercise 80% more when you do morning light!")
 
 ### V1.2 - Social & Sharing
+
 - [ ] Share progress images
 - [ ] Accountability partners (optional)
 - [ ] Anonymous community challenges
 
 ### V1.3 - Data & Export
+
 - [ ] Export data to CSV
 - [ ] Backup/restore (iCloud, Google Drive)
 - [ ] Advanced analytics dashboard
 
 ### V2.0 - Personalization
-- [ ] Custom habits (user-defined)
+
 - [ ] Habit goals (e.g., "Exercise 5x/week")
 - [ ] Smart recommendations based on behavior
 - [ ] Integration with Health app (iOS) / Google Fit (Android)
 
 ### Long-term Ideas
+
 - [ ] Wearable integration (Apple Watch, etc.)
 - [ ] Journaling features
 - [ ] Meditation timer
@@ -390,16 +422,19 @@ UI updates (haptic feedback, animation)
 ## Success Metrics
 
 ### Engagement
+
 - **Daily Active Users (DAU)**: % of users who open app daily
 - **Streak Retention**: % of users maintaining 7+ day streaks
 - **Habit Completion Rate**: Average % of habits completed per day
 
 ### Quality
+
 - **Crash Rate**: < 0.1%
 - **Load Time**: < 2s on P50 devices
 - **App Rating**: 4.5+ stars
 
 ### Growth
+
 - **Retention**: 40%+ D7, 20%+ D30
 - **Virality**: Organic shares, word-of-mouth
 - **Reviews**: Positive qualitative feedback
@@ -407,6 +442,7 @@ UI updates (haptic feedback, animation)
 ## Design Philosophy
 
 ### Visual Design
+
 - **Minimalist**: Clean, uncluttered interface
 - **Dark Mode First**: Optimized for evening use
 - **Vibrant Accents**: Each habit has a distinct, pleasant color
@@ -414,6 +450,7 @@ UI updates (haptic feedback, animation)
 - **Typography**: Clear hierarchy, readable fonts
 
 ### UX Principles
+
 - **Zero Friction**: Complete a habit in 1 tap
 - **Immediate Feedback**: Haptics, animations, sound (optional)
 - **Forgiving**: Easy to undo, no penalties
@@ -421,6 +458,7 @@ UI updates (haptic feedback, animation)
 - **Consistent**: Patterns repeat across the app
 
 ### Content Voice
+
 - **Encouraging**: Positive, never judgmental
 - **Scientific**: Evidence-based, credible
 - **Concise**: Respect user's time
@@ -433,16 +471,18 @@ UI updates (haptic feedback, animation)
 - **No Data Collection**: Zero analytics, tracking, or telemetry
 - **Local Storage**: Everything stays on device
 - **No Ads**: Clean, distraction-free experience
-- **Open Source** (potential): Build trust through transparency
+- **Open Source**: Build trust through transparency
 
 ## Platform Support
 
 ### Current
+
 - iOS 13+
 - Android 8.0+
-- Web (limited, mainly for preview)
+- Web
 
 ### Future
+
 - iPad optimization
 - macOS (Catalyst)
 - Apple Watch
@@ -460,26 +500,32 @@ UI updates (haptic feedback, animation)
 ## Appendix: Research References
 
 ### Breathing
+
 - Gerritsen & Band (2018). "Breath of Life: The Respiratory Vagal Stimulation Model of Contemplative Activity"
 - Ma et al. (2017). "The Effect of Diaphragmatic Breathing on Attention, Negative Affect and Stress"
 
 ### Light Exposure
+
 - Rosenthal et al. (2016). "Light Therapy for Seasonal Affective Disorder"
 - Wright et al. (2013). "Entrainment of the Human Circadian Clock to the Natural Light-Dark Cycle"
 
 ### Nutrition
+
 - Schwingshackl & Hoffmann (2015). "Diet Quality and Mortality"
 - Sofi et al. (2014). "Mediterranean Diet and Health Status: An Updated Meta-Analysis"
 
 ### Sleep
+
 - Walker (2017). "Why We Sleep: Unlocking the Power of Sleep and Dreams"
 - Xie et al. (2013). "Sleep Drives Metabolite Clearance from the Adult Brain"
 
 ### Exercise
+
 - Warburton et al. (2006). "Health Benefits of Physical Activity"
 - Pedersen & Saltin (2015). "Exercise as Medicine"
 
 ### Gratitude
+
 - Emmons & McCullough (2003). "Counting Blessings Versus Burdens"
 - Wood et al. (2010). "Gratitude and Well-Being: A Review"
 
