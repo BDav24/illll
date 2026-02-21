@@ -23,7 +23,7 @@ interface DailyScoreProps {
 
 const STROKE_WIDTH = 6;
 
-export function DailyScore({
+export const DailyScore = React.memo(function DailyScore({
   completed,
   total,
   size = 80,
@@ -87,7 +87,7 @@ export function DailyScore({
       </View>
     </View>
   );
-}
+});
 
 function makeStyles(colors: ColorPalette) {
   return StyleSheet.create({

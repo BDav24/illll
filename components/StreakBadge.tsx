@@ -9,7 +9,7 @@ interface StreakBadgeProps {
   count: number;
 }
 
-export function StreakBadge({ count }: StreakBadgeProps) {
+export const StreakBadge = React.memo(function StreakBadge({ count }: StreakBadgeProps) {
   const { t } = useTranslation();
   const colors = useColors();
   const styles = useMemo(() => makeStyles(colors), [colors]);
@@ -32,7 +32,7 @@ export function StreakBadge({ count }: StreakBadgeProps) {
       <Text style={styles.text}>{t('hub.streak', { count })}</Text>
     </View>
   );
-}
+});
 
 function makeStyles(colors: ColorPalette) {
   return StyleSheet.create({

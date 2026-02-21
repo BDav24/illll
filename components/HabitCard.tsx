@@ -11,12 +11,12 @@ import type { HabitId } from '../store/useStore';
 interface HabitCardProps {
   habitId: HabitId;
   completed: boolean;
-  onPress: () => void;
-  onInfoPress: () => void;
-  onCheckboxPress: () => void;
+  onPress: (id: HabitId) => void;
+  onInfoPress: (id: HabitId) => void;
+  onCheckboxPress: (id: HabitId) => void;
 }
 
-export function HabitCard({
+export const HabitCard = React.memo(function HabitCard({
   habitId,
   completed,
   onPress,
@@ -30,13 +30,17 @@ export function HabitCard({
 
   const handlePress = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    onPress();
-  }, [onPress]);
+    onPress(habitId);
+  }, [onPress, habitId]);
+
+  const handleInfo = useCallback(() => {
+    onInfoPress(habitId);
+  }, [onInfoPress, habitId]);
 
   const handleCheckbox = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    onCheckboxPress();
-  }, [onCheckboxPress]);
+    onCheckboxPress(habitId);
+  }, [onCheckboxPress, habitId]);
 
   return (
     <Pressable
@@ -73,7 +77,7 @@ export function HabitCard({
 
       {/* Info button - goes straight to article */}
       <Pressable
-        onPress={onInfoPress}
+        onPress={handleInfo}
         hitSlop={8}
         style={styles.infoButton}
         accessibilityRole="button"
@@ -103,7 +107,7 @@ export function HabitCard({
       </Pressable>
     </Pressable>
   );
-}
+});
 
 function makeStyles(colors: ColorPalette) {
   return StyleSheet.create({

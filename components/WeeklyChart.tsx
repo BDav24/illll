@@ -17,53 +17,49 @@ const CHART_PADDING_TOP = 10;
 const CHART_PADDING_BOTTOM = 4;
 const DOT_RADIUS = 4;
 
-export function WeeklyChart({ data }: WeeklyChartProps) {
+export const WeeklyChart = React.memo(function WeeklyChart({ data }: WeeklyChartProps) {
   const { t } = useTranslation();
   const colors = useColors();
   const dateLocale = useDateLocale();
   const styles = useMemo(() => makeStyles(colors), [colors]);
 
-  const displayData = data.length > 0 ? data.slice(-7) : [];
+  const displayData = useMemo(
+    () => (data.length > 0 ? data.slice(-7) : []),
+    [data],
+  );
 
-  const points = useMemo(() => {
-    if (displayData.length === 0) return [];
+  const svgWidth = displayData.length * 48;
+  const usableHeight = CHART_HEIGHT - CHART_PADDING_TOP - CHART_PADDING_BOTTOM;
+
+  const { svgPoints, polylinePoints, dayLabels } = useMemo(() => {
+    if (displayData.length === 0)
+      return { svgPoints: [] as { cx: number; cy: number; score: number; date: string }[], polylinePoints: '', dayLabels: [] as string[] };
 
     const maxScore = Math.max(...displayData.map((d) => d.score), 1);
     const count = displayData.length;
     const spacing = count > 1 ? 1 / (count - 1) : 0;
 
-    return displayData.map((entry, i) => {
+    const sp = displayData.map((entry, i) => {
       const xPct = count > 1 ? i * spacing : 0.5;
       const yPct = maxScore > 0 ? entry.score / maxScore : 0;
+      const yCoord = 1 - yPct;
       return {
-        x: xPct,
-        y: 1 - yPct, // invert for SVG coords
+        cx: xPct * (svgWidth - DOT_RADIUS * 2) + DOT_RADIUS,
+        cy: yCoord * usableHeight + CHART_PADDING_TOP,
         score: entry.score,
         date: entry.date,
       };
     });
-  }, [displayData]);
 
-  // SVG dimensions based on available width
-  const svgWidth = displayData.length * 48;
-  const usableHeight = CHART_HEIGHT - CHART_PADDING_TOP - CHART_PADDING_BOTTOM;
+    const pp = sp.map((p) => `${p.cx},${p.cy}`).join(' ');
 
-  const svgPoints = points.map((p) => ({
-    cx: p.x * (svgWidth - DOT_RADIUS * 2) + DOT_RADIUS,
-    cy: p.y * usableHeight + CHART_PADDING_TOP,
-    score: p.score,
-    date: p.date,
-  }));
+    const dl = displayData.map((entry) => {
+      const d = new Date(entry.date + 'T00:00:00');
+      return format(d, 'EEE', { locale: dateLocale });
+    });
 
-  const polylinePoints = svgPoints
-    .map((p) => `${p.cx},${p.cy}`)
-    .join(' ');
-
-  // Derive day labels from dates using locale-aware formatting
-  const dayLabels = displayData.map((entry) => {
-    const d = new Date(entry.date + 'T00:00:00');
-    return format(d, 'EEE', { locale: dateLocale });
-  });
+    return { svgPoints: sp, polylinePoints: pp, dayLabels: dl };
+  }, [displayData, svgWidth, usableHeight, dateLocale]);
 
   if (displayData.length === 0) {
     return (
@@ -127,7 +123,7 @@ export function WeeklyChart({ data }: WeeklyChartProps) {
       </View>
     </View>
   );
-}
+});
 
 function makeStyles(colors: ColorPalette) {
   return StyleSheet.create({

@@ -25,6 +25,7 @@ import {
   getDayScore,
   getStreak,
   type HabitId,
+  type DayRecord,
 } from '../../store/useStore';
 import { DailyScore } from '../../components/DailyScore';
 import { StreakBadge } from '../../components/StreakBadge';
@@ -52,28 +53,44 @@ export default function DailyHub() {
   }, []);
 
   const todayKey = currentDateKey;
-  const days = useStore((s) => s.days);
-  const settings = useStore((s) => s.settings);
-  const today = days[todayKey] ?? emptyDayRecord(todayKey);
-  const visibleHabits = useMemo(() => getVisibleHabits(settings), [settings]);
-  const score = useMemo(() => getDayScore(days[todayKey], visibleHabits, settings.customHabits), [days, todayKey, visibleHabits, settings.customHabits]);
-  const streak = useMemo(() => getStreak(days, visibleHabits, settings.customHabits), [days, visibleHabits, settings.customHabits]);
+  const todayRecord = useStore((s) => s.days[todayKey]) as DayRecord | undefined;
+  const hiddenHabits = useStore((s) => s.settings.hiddenHabits);
+  const habitOrder = useStore((s) => s.settings.habitOrder);
+  const customHabits = useStore((s) => s.settings.customHabits);
   const toggleHabit = useStore((s) => s.toggleHabit);
   const toggleCustomHabit = useStore((s) => s.toggleCustomHabit);
   const updateHabitData = useStore((s) => s.updateHabitData);
 
-  const hour = new Date().getHours();
-  const greeting =
-    hour < 12
-      ? t('hub.goodMorning')
-      : hour < 18
-        ? t('hub.goodAfternoon')
-        : t('hub.goodEvening');
+  const today = useMemo(
+    () => todayRecord ?? emptyDayRecord(todayKey),
+    [todayRecord, todayKey],
+  );
+  const visibleHabits = useMemo(
+    () => habitOrder.filter((id) => !hiddenHabits.includes(id)),
+    [habitOrder, hiddenHabits],
+  );
+  const score = useMemo(
+    () => getDayScore(todayRecord, visibleHabits, customHabits),
+    [todayRecord, visibleHabits, customHabits],
+  );
+  const streak = useStore(
+    (s) => getStreak(s.days, getVisibleHabits(s.settings), s.settings.customHabits),
+  );
 
-  const rawDate = format(new Date(), 'PPPP', { locale: dateLocale })
-    .replace(/[,\s]*\d{4}[年년]?[,\s]*/g, ' ')
-    .trim();
-  const dateStr = rawDate.charAt(0).toUpperCase() + rawDate.slice(1);
+  const { greeting, dateStr } = useMemo(() => {
+    const hour = new Date().getHours();
+    const g =
+      hour < 12
+        ? t('hub.goodMorning')
+        : hour < 18
+          ? t('hub.goodAfternoon')
+          : t('hub.goodEvening');
+    const rawDate = format(new Date(), 'PPPP', { locale: dateLocale })
+      .replace(/[,\s]*\d{4}[年년]?[,\s]*/g, ' ')
+      .trim();
+    const d = rawDate.charAt(0).toUpperCase() + rawDate.slice(1);
+    return { greeting: g, dateStr: d };
+  }, [currentDateKey, dateLocale, t]);
 
   const handleHabitPress = useCallback(
     (id: HabitId) => {
@@ -174,23 +191,24 @@ export default function DailyHub() {
                 key={id}
                 habitId={id}
                 completed={entry?.completed ?? false}
-                onPress={() => handleHabitPress(id)}
-                onInfoPress={() => handleInfoPress(id)}
-                onCheckboxPress={() => handleCheckboxPress(id)}
+                onPress={handleHabitPress}
+                onInfoPress={handleInfoPress}
+                onCheckboxPress={handleCheckboxPress}
               />
             );
           })}
         </View>
 
         {/* Custom Habits */}
-        {settings.customHabits.length > 0 && (
+        {customHabits.length > 0 && (
           <View style={styles.customHabitsSection}>
-            {settings.customHabits.map((ch) => (
+            {customHabits.map((ch) => (
               <CustomHabitCard
                 key={ch.id}
+                id={ch.id}
                 text={ch.text}
                 completed={today.habits[ch.id]?.completed ?? false}
-                onPress={() => toggleCustomHabit(ch.id)}
+                onPress={toggleCustomHabit}
               />
             ))}
           </View>
@@ -203,7 +221,7 @@ export default function DailyHub() {
           </View>
         )}
 
-        <View style={{ height: 40 }} />
+        <View style={styles.bottomSpacer} />
       </ScrollView>
 
       {/* Bottom Sheet for habit quick actions */}
@@ -405,6 +423,9 @@ function makeStyles(colors: ColorPalette) {
       color: colors.accent,
       fontSize: 15,
       fontFamily: Fonts.medium,
+    },
+    bottomSpacer: {
+      height: 40,
     },
   });
 }

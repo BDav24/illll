@@ -33,7 +33,7 @@ function getHeatmapColor(completed: number, total: number, heatmap: string[]): s
   return heatmap[4];
 }
 
-export function Heatmap({ data, year }: HeatmapProps) {
+export const Heatmap = React.memo(function Heatmap({ data, year }: HeatmapProps) {
   const colors = useColors();
   const dateLocale = useDateLocale();
   const styles = useMemo(() => makeStyles(colors), [colors]);
@@ -101,7 +101,7 @@ export function Heatmap({ data, year }: HeatmapProps) {
       ))}
     </View>
   );
-}
+});
 
 function makeStyles(colors: ColorPalette) {
   return StyleSheet.create({

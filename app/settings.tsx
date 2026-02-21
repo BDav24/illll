@@ -50,7 +50,10 @@ export default function SettingsScreen() {
   const colors = useColors();
   const styles = useMemo(() => makeStyles(colors), [colors]);
 
-  const settings = useStore((s) => s.settings);
+  const hiddenHabits = useStore((s) => s.settings.hiddenHabits);
+  const customHabits = useStore((s) => s.settings.customHabits);
+  const language = useStore((s) => s.settings.language);
+  const currentScheme = useStore((s) => s.settings.colorScheme);
   const toggleHideHabit = useStore((s) => s.toggleHideHabit);
   const setLanguage = useStore((s) => s.setLanguage);
   const setColorScheme = useStore((s) => s.setColorScheme);
@@ -96,7 +99,7 @@ export default function SettingsScreen() {
   };
 
   const currentLang =
-    settings.language ??
+    language ??
     SUPPORTED_LOCALES.find((l) => l.code === i18n.language)?.code ??
     'en';
 
@@ -119,7 +122,7 @@ export default function SettingsScreen() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle} accessibilityRole="header">{t('settings.habits')}</Text>
           {HABITS.map((habit) => {
-            const isHidden = settings.hiddenHabits.includes(habit.id);
+            const isHidden = hiddenHabits.includes(habit.id);
             return (
               <View key={habit.id} style={styles.habitRow}>
                 <Text style={styles.habitIcon} importantForAccessibility="no">{habit.icon}</Text>
@@ -144,7 +147,7 @@ export default function SettingsScreen() {
         {/* Custom Habits Section */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle} accessibilityRole="header">{t('settings.myHabits')}</Text>
-          {settings.customHabits.map((ch) => (
+          {customHabits.map((ch) => (
             <View key={ch.id} style={styles.customHabitRow}>
               <Text style={styles.habitName}>{ch.text}</Text>
               <Pressable onPress={() => {
@@ -178,7 +181,7 @@ export default function SettingsScreen() {
 
         {/* Language Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle} accessibilityRole="header">{t('settings.language')}</Text>
+          <Text style={styles.sectionTitle} accessibilityRole="header">{t('language')}</Text>
 
           {!showLangPicker ? (
             <Pressable
@@ -187,7 +190,7 @@ export default function SettingsScreen() {
               accessibilityRole="button"
             >
               <Text style={styles.langCurrent}>
-                {settings.language === null
+                {language === null
                   ? t('settings.autoDetect')
                   : SUPPORTED_LOCALES.find((l) => l.code === currentLang)
                       ?.nativeName ?? currentLang}
@@ -200,16 +203,16 @@ export default function SettingsScreen() {
               <Pressable
                 style={[
                   styles.langOption,
-                  settings.language === null && styles.langOptionActive,
+                  language === null && styles.langOptionActive,
                 ]}
                 onPress={() => handleLanguageChange(null)}
                 accessibilityRole="radio"
-                accessibilityState={{ selected: settings.language === null }}
+                accessibilityState={{ selected: language === null }}
               >
                 <Text
                   style={[
                     styles.langOptionText,
-                    settings.language === null && styles.langOptionTextActive,
+                    language === null && styles.langOptionTextActive,
                   ]}
                 >
                   {t('settings.autoDetect')}
@@ -254,16 +257,16 @@ export default function SettingsScreen() {
                 key={option.value}
                 style={[
                   styles.langOption,
-                  settings.colorScheme === option.value && styles.langOptionActive,
+                  currentScheme === option.value && styles.langOptionActive,
                 ]}
                 onPress={() => setColorScheme(option.value)}
                 accessibilityRole="radio"
-                accessibilityState={{ selected: settings.colorScheme === option.value }}
+                accessibilityState={{ selected: currentScheme === option.value }}
               >
                 <Text
                   style={[
                     styles.langOptionText,
-                    settings.colorScheme === option.value && styles.langOptionTextActive,
+                    currentScheme === option.value && styles.langOptionTextActive,
                   ]}
                 >
                   {t(option.labelKey)}
@@ -286,7 +289,7 @@ export default function SettingsScreen() {
           <Text style={styles.resetText}>{t('settings.resetData')}</Text>
         </Pressable>
 
-        <View style={{ height: 60 }} />
+        <View style={styles.bottomSpacer} />
       </ScrollView>
     </SafeAreaView>
   );
@@ -468,6 +471,9 @@ function makeStyles(colors: ColorPalette) {
       fontSize: 20,
       fontFamily: Fonts.semiBold,
       lineHeight: 22,
+    },
+    bottomSpacer: {
+      height: 60,
     },
   });
 }

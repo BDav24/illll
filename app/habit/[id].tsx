@@ -91,7 +91,7 @@ export default function HabitArticleScreen() {
           ))}
         </View>
 
-        <View style={{ height: 60 }} />
+        <View style={styles.bottomSpacer} />
       </ScrollView>
     </SafeAreaView>
   );
@@ -228,6 +228,9 @@ function makeStyles(colors: ColorPalette) {
       fontFamily: Fonts.regular,
       textAlign: 'center',
       marginTop: 100,
+    },
+    bottomSpacer: {
+      height: 60,
     },
   });
 }

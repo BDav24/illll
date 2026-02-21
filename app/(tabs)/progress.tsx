@@ -14,7 +14,6 @@ import { useColors, type ColorPalette } from '../../constants/colors';
 import { Fonts } from '../../constants/fonts';
 import {
   useStore,
-  getVisibleHabits,
   getDayScore,
   getStreak,
 } from '../../store/useStore';
@@ -27,10 +26,15 @@ export default function ProgressScreen() {
   const styles = useMemo(() => makeStyles(colors), [colors]);
 
   const days = useStore((s) => s.days);
-  const settings = useStore((s) => s.settings);
+  const hiddenHabits = useStore((s) => s.settings.hiddenHabits);
+  const habitOrder = useStore((s) => s.settings.habitOrder);
+  const customHabits = useStore((s) => s.settings.customHabits);
 
-  const visibleHabits = useMemo(() => getVisibleHabits(settings), [settings]);
-  const streak = useMemo(() => getStreak(days, visibleHabits, settings.customHabits), [days, visibleHabits, settings.customHabits]);
+  const visibleHabits = useMemo(
+    () => habitOrder.filter((id) => !hiddenHabits.includes(id)),
+    [habitOrder, hiddenHabits],
+  );
+  const streak = useMemo(() => getStreak(days, visibleHabits, customHabits), [days, visibleHabits, customHabits]);
   const today = new Date();
   const year = today.getFullYear();
 
@@ -44,7 +48,7 @@ export default function ProgressScreen() {
     let current = 0;
     for (const day of allDays) {
       const key = format(day, 'yyyy-MM-dd');
-      const score = getDayScore(days[key], visibleHabits, settings.customHabits);
+      const score = getDayScore(days[key], visibleHabits, customHabits);
       if (score.completed > 0) {
         current++;
         best = Math.max(best, current);
@@ -53,7 +57,7 @@ export default function ProgressScreen() {
       }
     }
     return best;
-  }, [days, visibleHabits, settings.customHabits]);
+  }, [days, visibleHabits, customHabits]);
 
   // Heatmap data
   const heatmapData = useMemo(() => {
@@ -64,23 +68,23 @@ export default function ProgressScreen() {
     });
     for (const day of allDays) {
       const key = format(day, 'yyyy-MM-dd');
-      result[key] = getDayScore(days[key], visibleHabits, settings.customHabits);
+      result[key] = getDayScore(days[key], visibleHabits, customHabits);
     }
     return result;
-  }, [days, visibleHabits, settings.customHabits]);
+  }, [days, visibleHabits, customHabits]);
 
   // Weekly chart data (last 7 days)
   const weeklyData = useMemo(() => {
     return Array.from({ length: 7 }, (_, i) => {
       const date = subDays(today, 6 - i);
       const key = format(date, 'yyyy-MM-dd');
-      const score = getDayScore(days[key], visibleHabits, settings.customHabits);
+      const score = getDayScore(days[key], visibleHabits, customHabits);
       return {
         date: key,
         score: score.total > 0 ? score.completed / score.total : 0,
       };
     });
-  }, [days, visibleHabits, settings.customHabits]);
+  }, [days, visibleHabits, customHabits]);
 
   // Completion rate this week
   const weeklyRate = useMemo(() => {
@@ -132,7 +136,7 @@ export default function ProgressScreen() {
           <Heatmap data={heatmapData} year={year} />
         </View>
 
-        <View style={{ height: 40 }} />
+        <View style={styles.bottomSpacer} />
       </ScrollView>
     </SafeAreaView>
   );
@@ -205,6 +209,9 @@ function makeStyles(colors: ColorPalette) {
       fontSize: 13,
       fontFamily: Fonts.regular,
       color: colors.textSecondary,
+    },
+    bottomSpacer: {
+      height: 40,
     },
   });
 }

@@ -6,20 +6,21 @@ import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
 
 interface CustomHabitCardProps {
+  id: string;
   text: string;
   completed: boolean;
-  onPress: () => void;
+  onPress: (id: string) => void;
 }
 
-export function CustomHabitCard({ text, completed, onPress }: CustomHabitCardProps) {
+export const CustomHabitCard = React.memo(function CustomHabitCard({ id, text, completed, onPress }: CustomHabitCardProps) {
   const colors = useColors();
   const styles = useMemo(() => makeStyles(colors), [colors]);
   const { t } = useTranslation();
 
   const handlePress = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    onPress();
-  }, [onPress]);
+    onPress(id);
+  }, [onPress, id]);
 
   return (
     <Pressable
@@ -50,7 +51,7 @@ export function CustomHabitCard({ text, completed, onPress }: CustomHabitCardPro
       </View>
     </Pressable>
   );
-}
+});
 
 function makeStyles(colors: ColorPalette) {
   return StyleSheet.create({

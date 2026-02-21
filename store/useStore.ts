@@ -139,15 +139,8 @@ export function getTodayKey(): string {
   return format(new Date(), 'yyyy-MM-dd');
 }
 
-const EMPTY_DAY_RECORDS = new Map<string, DayRecord>();
-
 export function emptyDayRecord(date: string): DayRecord {
-  let record = EMPTY_DAY_RECORDS.get(date);
-  if (!record) {
-    record = { date, habits: {}, tasks: [] };
-    EMPTY_DAY_RECORDS.set(date, record);
-  }
-  return record;
+  return { date, habits: {}, tasks: [] };
 }
 
 function ensureDay(
@@ -397,11 +390,16 @@ export const useStore = create<StoreState>()((set) => ({
 
 let prevDays = useStore.getState().days;
 let prevSettings = useStore.getState().settings;
+let persistTimeout: ReturnType<typeof setTimeout> | null = null;
 
 useStore.subscribe((state) => {
   if (state.days !== prevDays || state.settings !== prevSettings) {
     prevDays = state.days;
     prevSettings = state.settings;
-    persistState({ days: state.days, settings: state.settings });
+    if (persistTimeout) clearTimeout(persistTimeout);
+    persistTimeout = setTimeout(
+      () => persistState({ days: state.days, settings: state.settings }),
+      300,
+    );
   }
 });
