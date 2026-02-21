@@ -11,17 +11,22 @@ import {
 } from 'date-fns';
 
 import { Colors } from '../../constants/colors';
-import { useStore } from '../../store/useStore';
+import {
+  useStore,
+  getVisibleHabits,
+  getDayScore,
+  getStreak,
+} from '../../store/useStore';
 import { Heatmap } from '../../components/Heatmap';
 import { WeeklyChart } from '../../components/WeeklyChart';
 
 export default function ProgressScreen() {
   const { t } = useTranslation();
   const days = useStore((s) => s.days);
-  const getDayScore = useStore((s) => s.getDayScore);
-  const getStreak = useStore((s) => s.getStreak);
+  const settings = useStore((s) => s.settings);
 
-  const streak = getStreak();
+  const visibleHabits = useMemo(() => getVisibleHabits(settings), [settings]);
+  const streak = useMemo(() => getStreak(days, visibleHabits), [days, visibleHabits]);
   const today = new Date();
   const year = today.getFullYear();
 
@@ -35,7 +40,7 @@ export default function ProgressScreen() {
     let current = 0;
     for (const day of allDays) {
       const key = format(day, 'yyyy-MM-dd');
-      const score = getDayScore(key);
+      const score = getDayScore(days[key], visibleHabits);
       if (score.completed > 0) {
         current++;
         best = Math.max(best, current);
@@ -44,7 +49,7 @@ export default function ProgressScreen() {
       }
     }
     return best;
-  }, [days, getDayScore]);
+  }, [days, visibleHabits]);
 
   // Heatmap data
   const heatmapData = useMemo(() => {
@@ -55,23 +60,23 @@ export default function ProgressScreen() {
     });
     for (const day of allDays) {
       const key = format(day, 'yyyy-MM-dd');
-      result[key] = getDayScore(key);
+      result[key] = getDayScore(days[key], visibleHabits);
     }
     return result;
-  }, [days, getDayScore]);
+  }, [days, visibleHabits]);
 
   // Weekly chart data (last 7 days)
   const weeklyData = useMemo(() => {
     return Array.from({ length: 7 }, (_, i) => {
       const date = subDays(today, 6 - i);
       const key = format(date, 'yyyy-MM-dd');
-      const score = getDayScore(key);
+      const score = getDayScore(days[key], visibleHabits);
       return {
         date: key,
         score: score.total > 0 ? score.completed / score.total : 0,
       };
     });
-  }, [days, getDayScore]);
+  }, [days, visibleHabits]);
 
   // Completion rate this week
   const weeklyRate = useMemo(() => {

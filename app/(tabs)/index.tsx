@@ -13,8 +13,16 @@ import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
 import { format } from 'date-fns';
 
 import { Colors } from '../../constants/colors';
-import { HABITS, HABIT_MAP } from '../../constants/habits';
-import { useStore, type HabitId } from '../../store/useStore';
+import { HABIT_MAP } from '../../constants/habits';
+import {
+  useStore,
+  getTodayKey,
+  emptyDayRecord,
+  getVisibleHabits,
+  getDayScore,
+  getStreak,
+  type HabitId,
+} from '../../store/useStore';
 import { DailyScore } from '../../components/DailyScore';
 import { StreakBadge } from '../../components/StreakBadge';
 import { HabitCard } from '../../components/HabitCard';
@@ -28,11 +36,13 @@ export default function DailyHub() {
   const bottomSheetRef = useRef<BottomSheet>(null);
   const [activeHabit, setActiveHabit] = useState<HabitId | null>(null);
 
-  const todayKey = useStore((s) => s.getTodayKey());
-  const today = useStore((s) => s.getToday());
-  const visibleHabits = useStore((s) => s.getVisibleHabits());
-  const score = useStore((s) => s.getDayScore(todayKey));
-  const streak = useStore((s) => s.getStreak());
+  const todayKey = getTodayKey();
+  const days = useStore((s) => s.days);
+  const settings = useStore((s) => s.settings);
+  const today = days[todayKey] ?? emptyDayRecord(todayKey);
+  const visibleHabits = useMemo(() => getVisibleHabits(settings), [settings]);
+  const score = useMemo(() => getDayScore(days[todayKey], visibleHabits), [days, todayKey, visibleHabits]);
+  const streak = useMemo(() => getStreak(days, visibleHabits), [days, visibleHabits]);
   const toggleHabit = useStore((s) => s.toggleHabit);
   const addTask = useStore((s) => s.addTask);
   const toggleTask = useStore((s) => s.toggleTask);
