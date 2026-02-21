@@ -389,6 +389,7 @@ UI updates (haptic feedback, animation)
 ### V1.1 - Insights & Habits
 
 - [ ] Notifications for daily reminders
+- [ ] Allow updating past entries (e.g., forgot to log yesterday)
 - [ ] Insights based on patterns ("You complete exercise 80% more when you do morning light!")
 
 ### V1.2 - Social & Sharing
