@@ -10,7 +10,7 @@ import {
   endOfYear,
 } from 'date-fns';
 
-import { Colors } from '../../constants/colors';
+import { useColors, type ColorPalette } from '../../constants/colors';
 import { Fonts } from '../../constants/fonts';
 import {
   useStore,
@@ -23,6 +23,9 @@ import { WeeklyChart } from '../../components/WeeklyChart';
 
 export default function ProgressScreen() {
   const { t } = useTranslation();
+  const colors = useColors();
+  const styles = useMemo(() => makeStyles(colors), [colors]);
+
   const days = useStore((s) => s.days);
   const settings = useStore((s) => s.settings);
 
@@ -135,71 +138,73 @@ export default function ProgressScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.bg,
-  },
-  scroll: {
-    flex: 1,
-  },
-  scrollContent: {
-    paddingHorizontal: 20,
-    paddingTop: 16,
-  },
-  title: {
-    fontSize: 28,
-    fontFamily: Fonts.bold,
-    color: Colors.text,
-    marginBottom: 20,
-  },
-  streakRow: {
-    flexDirection: 'row',
-    gap: 12,
-    marginBottom: 28,
-  },
-  streakCard: {
-    flex: 1,
-    backgroundColor: Colors.surface,
-    borderRadius: 16,
-    padding: 20,
-    alignItems: 'center',
-  },
-  streakNumber: {
-    fontSize: 40,
-    fontFamily: Fonts.bold,
-    color: Colors.accent,
-  },
-  streakLabel: {
-    fontSize: 13,
-    fontFamily: Fonts.regular,
-    color: Colors.textSecondary,
-    marginTop: 4,
-  },
-  streakUnit: {
-    fontSize: 12,
-    fontFamily: Fonts.regular,
-    color: Colors.textMuted,
-    marginTop: 2,
-  },
-  section: {
-    marginBottom: 28,
-  },
-  sectionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'baseline',
-    marginBottom: 12,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontFamily: Fonts.semiBold,
-    color: Colors.text,
-    marginBottom: 12,
-  },
-  sectionSubtitle: {
-    fontSize: 13,
-    fontFamily: Fonts.regular,
-    color: Colors.textSecondary,
-  },
-});
+function makeStyles(colors: ColorPalette) {
+  return StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.bg,
+    },
+    scroll: {
+      flex: 1,
+    },
+    scrollContent: {
+      paddingHorizontal: 20,
+      paddingTop: 16,
+    },
+    title: {
+      fontSize: 28,
+      fontFamily: Fonts.bold,
+      color: colors.text,
+      marginBottom: 20,
+    },
+    streakRow: {
+      flexDirection: 'row',
+      gap: 12,
+      marginBottom: 28,
+    },
+    streakCard: {
+      flex: 1,
+      backgroundColor: colors.surface,
+      borderRadius: 16,
+      padding: 20,
+      alignItems: 'center',
+    },
+    streakNumber: {
+      fontSize: 40,
+      fontFamily: Fonts.bold,
+      color: colors.accent,
+    },
+    streakLabel: {
+      fontSize: 13,
+      fontFamily: Fonts.regular,
+      color: colors.textSecondary,
+      marginTop: 4,
+    },
+    streakUnit: {
+      fontSize: 12,
+      fontFamily: Fonts.regular,
+      color: colors.textMuted,
+      marginTop: 2,
+    },
+    section: {
+      marginBottom: 28,
+    },
+    sectionHeader: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'baseline',
+      marginBottom: 12,
+    },
+    sectionTitle: {
+      fontSize: 18,
+      fontFamily: Fonts.semiBold,
+      color: colors.text,
+      marginBottom: 12,
+    },
+    sectionSubtitle: {
+      fontSize: 13,
+      fontFamily: Fonts.regular,
+      color: colors.textSecondary,
+    },
+  });
+}

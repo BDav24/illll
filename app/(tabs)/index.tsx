@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
 import { format } from 'date-fns';
 
-import { Colors } from '../../constants/colors';
+import { useColors, type ColorPalette } from '../../constants/colors';
 import { Fonts } from '../../constants/fonts';
 import { HABIT_MAP } from '../../constants/habits';
 import {
@@ -33,6 +33,8 @@ import { BreathingTimer } from '../../components/BreathingTimer';
 export default function DailyHub() {
   const { t } = useTranslation();
   const router = useRouter();
+  const colors = useColors();
+  const styles = useMemo(() => makeStyles(colors), [colors]);
   const bottomSheetRef = useRef<BottomSheet>(null);
   const [activeHabit, setActiveHabit] = useState<HabitId | null>(null);
 
@@ -247,138 +249,140 @@ export default function DailyHub() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.bg,
-  },
-  scroll: {
-    flex: 1,
-  },
-  scrollContent: {
-    paddingHorizontal: 20,
-    paddingTop: 8,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 4,
-  },
-  headerLeft: {
-    flex: 1,
-  },
-  headerRight: {
-    marginLeft: 16,
-  },
-  greeting: {
-    fontSize: 28,
-    fontFamily: Fonts.bold,
-    color: Colors.text,
-  },
-  date: {
-    fontSize: 15,
-    fontFamily: Fonts.regular,
-    color: Colors.textSecondary,
-    marginTop: 2,
-  },
-  streakRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 20,
-    marginTop: 8,
-  },
-  settingsBtn: {
-    padding: 8,
-  },
-  settingsIcon: {
-    fontSize: 22,
-  },
-  welcomeHint: {
-    color: Colors.textMuted,
-    fontSize: 14,
-    fontFamily: Fonts.regular,
-    textAlign: 'center',
-    marginBottom: 16,
-  },
-  habitsSection: {
-    gap: 12,
-    marginBottom: 16,
-  },
-  customHabitsSection: {
-    gap: 12,
-    marginBottom: 16,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontFamily: Fonts.semiBold,
-    color: Colors.text,
-    marginBottom: 12,
-  },
-  allDone: {
-    alignItems: 'center',
-    paddingVertical: 24,
-  },
-  allDoneText: {
-    fontSize: 18,
-    fontFamily: Fonts.semiBold,
-    color: Colors.success,
-  },
-  sheetBg: {
-    backgroundColor: Colors.surface,
-  },
-  sheetHandle: {
-    backgroundColor: Colors.textMuted,
-  },
-  sheetContent: {
-    flex: 1,
-    paddingHorizontal: 24,
-    paddingTop: 8,
-  },
-  sheetHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
-    marginBottom: 20,
-  },
-  sheetIcon: {
-    fontSize: 32,
-  },
-  sheetTitle: {
-    fontSize: 24,
-    fontFamily: Fonts.bold,
-    color: Colors.text,
-  },
-  sheetBody: {
-    gap: 16,
-  },
-  sheetOneLiner: {
-    fontSize: 16,
-    fontFamily: Fonts.regular,
-    color: Colors.textSecondary,
-    lineHeight: 24,
-  },
-  sheetActionBtn: {
-    backgroundColor: Colors.accent,
-    paddingVertical: 14,
-    paddingHorizontal: 24,
-    borderRadius: 12,
-    alignItems: 'center',
-  },
-  sheetActionText: {
-    color: Colors.text,
-    fontSize: 16,
-    fontFamily: Fonts.semiBold,
-  },
-  whyBtn: {
-    marginTop: 20,
-    paddingVertical: 12,
-    alignItems: 'center',
-  },
-  whyBtnText: {
-    color: Colors.accent,
-    fontSize: 15,
-    fontFamily: Fonts.medium,
-  },
-});
+function makeStyles(colors: ColorPalette) {
+  return StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.bg,
+    },
+    scroll: {
+      flex: 1,
+    },
+    scrollContent: {
+      paddingHorizontal: 20,
+      paddingTop: 8,
+    },
+    header: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: 4,
+    },
+    headerLeft: {
+      flex: 1,
+    },
+    headerRight: {
+      marginLeft: 16,
+    },
+    greeting: {
+      fontSize: 28,
+      fontFamily: Fonts.bold,
+      color: colors.text,
+    },
+    date: {
+      fontSize: 15,
+      fontFamily: Fonts.regular,
+      color: colors.textSecondary,
+      marginTop: 2,
+    },
+    streakRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: 20,
+      marginTop: 8,
+    },
+    settingsBtn: {
+      padding: 8,
+    },
+    settingsIcon: {
+      fontSize: 22,
+    },
+    welcomeHint: {
+      color: colors.textMuted,
+      fontSize: 14,
+      fontFamily: Fonts.regular,
+      textAlign: 'center',
+      marginBottom: 16,
+    },
+    habitsSection: {
+      gap: 12,
+      marginBottom: 16,
+    },
+    customHabitsSection: {
+      gap: 12,
+      marginBottom: 16,
+    },
+    sectionTitle: {
+      fontSize: 18,
+      fontFamily: Fonts.semiBold,
+      color: colors.text,
+      marginBottom: 12,
+    },
+    allDone: {
+      alignItems: 'center',
+      paddingVertical: 24,
+    },
+    allDoneText: {
+      fontSize: 18,
+      fontFamily: Fonts.semiBold,
+      color: colors.success,
+    },
+    sheetBg: {
+      backgroundColor: colors.surface,
+    },
+    sheetHandle: {
+      backgroundColor: colors.textMuted,
+    },
+    sheetContent: {
+      flex: 1,
+      paddingHorizontal: 24,
+      paddingTop: 8,
+    },
+    sheetHeader: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 12,
+      marginBottom: 20,
+    },
+    sheetIcon: {
+      fontSize: 32,
+    },
+    sheetTitle: {
+      fontSize: 24,
+      fontFamily: Fonts.bold,
+      color: colors.text,
+    },
+    sheetBody: {
+      gap: 16,
+    },
+    sheetOneLiner: {
+      fontSize: 16,
+      fontFamily: Fonts.regular,
+      color: colors.textSecondary,
+      lineHeight: 24,
+    },
+    sheetActionBtn: {
+      backgroundColor: colors.accent,
+      paddingVertical: 14,
+      paddingHorizontal: 24,
+      borderRadius: 12,
+      alignItems: 'center',
+    },
+    sheetActionText: {
+      color: colors.checkmark,
+      fontSize: 16,
+      fontFamily: Fonts.semiBold,
+    },
+    whyBtn: {
+      marginTop: 20,
+      paddingVertical: 12,
+      alignItems: 'center',
+    },
+    whyBtnText: {
+      color: colors.accent,
+      fontSize: 15,
+      fontFamily: Fonts.medium,
+    },
+  });
+}

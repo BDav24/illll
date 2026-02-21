@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 import Animated, {
@@ -8,7 +8,7 @@ import Animated, {
   Easing,
 } from 'react-native-reanimated';
 
-import { Colors } from '../constants/colors';
+import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
@@ -26,6 +26,9 @@ export function DailyScore({
   total,
   size = 80,
 }: DailyScoreProps) {
+  const colors = useColors();
+  const styles = useMemo(() => makeStyles(colors), [colors]);
+
   const radius = (size - STROKE_WIDTH) / 2;
   const circumference = 2 * Math.PI * radius;
   const progress = total > 0 ? completed / total : 0;
@@ -56,7 +59,7 @@ export function DailyScore({
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke={Colors.ringBg}
+          stroke={colors.ringBg}
           strokeWidth={STROKE_WIDTH}
           fill="none"
         />
@@ -65,7 +68,7 @@ export function DailyScore({
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke={Colors.ringFill}
+          stroke={colors.ringFill}
           strokeWidth={STROKE_WIDTH}
           fill="none"
           strokeLinecap="round"
@@ -83,19 +86,21 @@ export function DailyScore({
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  labelContainer: {
-    position: 'absolute',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  labelText: {
-    color: Colors.text,
-    fontSize: 16,
-    fontFamily: Fonts.bold,
-  },
-});
+function makeStyles(colors: ColorPalette) {
+  return StyleSheet.create({
+    container: {
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    labelContainer: {
+      position: 'absolute',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    labelText: {
+      color: colors.text,
+      fontSize: 16,
+      fontFamily: Fonts.bold,
+    },
+  });
+}

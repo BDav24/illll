@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { Colors } from '../constants/colors';
+import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
 
 interface StreakBadgeProps {
@@ -11,6 +11,8 @@ interface StreakBadgeProps {
 
 export function StreakBadge({ count }: StreakBadgeProps) {
   const { t } = useTranslation();
+  const colors = useColors();
+  const styles = useMemo(() => makeStyles(colors), [colors]);
 
   if (count === 0) {
     return (
@@ -32,26 +34,28 @@ export function StreakBadge({ count }: StreakBadgeProps) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-  },
-  emoji: {
-    fontSize: 18,
-  },
-  count: {
-    color: Colors.text,
-    fontSize: 16,
-    fontFamily: Fonts.bold,
-  },
-  text: {
-    color: Colors.textSecondary,
-    fontSize: 14,
-    fontFamily: Fonts.regular,
-  },
-  dimmed: {
-    opacity: 0.4,
-  },
-});
+function makeStyles(colors: ColorPalette) {
+  return StyleSheet.create({
+    container: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 6,
+    },
+    emoji: {
+      fontSize: 18,
+    },
+    count: {
+      color: colors.text,
+      fontSize: 16,
+      fontFamily: Fonts.bold,
+    },
+    text: {
+      color: colors.textSecondary,
+      fontSize: 14,
+      fontFamily: Fonts.regular,
+    },
+    dimmed: {
+      opacity: 0.4,
+    },
+  });
+}

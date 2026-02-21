@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Svg, { Polyline, Circle as SvgCircle } from 'react-native-svg';
 
-import { Colors } from '../constants/colors';
+import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
 
 interface WeeklyChartProps {
@@ -17,6 +17,9 @@ const DOT_RADIUS = 4;
 const DAY_NAMES = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 export function WeeklyChart({ data }: WeeklyChartProps) {
+  const colors = useColors();
+  const styles = useMemo(() => makeStyles(colors), [colors]);
+
   const displayData = data.length > 0 ? data.slice(-7) : [];
 
   const points = useMemo(() => {
@@ -79,7 +82,7 @@ export function WeeklyChart({ data }: WeeklyChartProps) {
             <Polyline
               points={polylinePoints}
               fill="none"
-              stroke={Colors.accent}
+              stroke={colors.accent}
               strokeWidth={2}
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -92,7 +95,7 @@ export function WeeklyChart({ data }: WeeklyChartProps) {
               cx={pt.cx}
               cy={pt.cy}
               r={DOT_RADIUS}
-              fill={Colors.accent}
+              fill={colors.accent}
             />
           ))}
         </Svg>
@@ -125,38 +128,40 @@ export function WeeklyChart({ data }: WeeklyChartProps) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    height: 120,
-  },
-  emptyContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  emptyText: {
-    color: Colors.textMuted,
-    fontSize: 14,
-    fontFamily: Fonts.regular,
-  },
-  chartWrapper: {
-    alignItems: 'center',
-  },
-  labelsRow: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  labelCell: {
-    alignItems: 'center',
-  },
-  scoreLabel: {
-    color: Colors.textSecondary,
-    fontSize: 11,
-    fontFamily: Fonts.semiBold,
-  },
-  dayLabel: {
-    color: Colors.textMuted,
-    fontSize: 10,
-    fontFamily: Fonts.regular,
-    marginTop: 2,
-  },
-});
+function makeStyles(colors: ColorPalette) {
+  return StyleSheet.create({
+    container: {
+      height: 120,
+    },
+    emptyContainer: {
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    emptyText: {
+      color: colors.textMuted,
+      fontSize: 14,
+      fontFamily: Fonts.regular,
+    },
+    chartWrapper: {
+      alignItems: 'center',
+    },
+    labelsRow: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+    },
+    labelCell: {
+      alignItems: 'center',
+    },
+    scoreLabel: {
+      color: colors.textSecondary,
+      fontSize: 11,
+      fontFamily: Fonts.semiBold,
+    },
+    dayLabel: {
+      color: colors.textMuted,
+      fontSize: 10,
+      fontFamily: Fonts.regular,
+      marginTop: 2,
+    },
+  });
+}

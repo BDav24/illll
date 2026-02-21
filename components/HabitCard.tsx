@@ -1,9 +1,9 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import * as Haptics from 'expo-haptics';
 
-import { Colors } from '../constants/colors';
+import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
 import { HABIT_MAP } from '../constants/habits';
 import type { HabitId } from '../store/useStore';
@@ -24,6 +24,8 @@ export function HabitCard({
   onCheckboxPress,
 }: HabitCardProps) {
   const { t } = useTranslation();
+  const colors = useColors();
+  const styles = useMemo(() => makeStyles(colors), [colors]);
   const habit = HABIT_MAP[habitId];
 
   const handlePress = useCallback(() => {
@@ -102,78 +104,80 @@ export function HabitCard({
   );
 }
 
-const styles = StyleSheet.create({
-  card: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: Colors.surface,
-    borderRadius: 16,
-    borderLeftWidth: 4,
-    paddingVertical: 14,
-    paddingHorizontal: 14,
-    gap: 12,
-  },
-  cardCompleted: {
-    opacity: 0.7,
-  },
-  cardPressed: {
-    opacity: 0.8,
-  },
-  iconContainer: {
-    width: 36,
-    height: 36,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  icon: {
-    fontSize: 24,
-  },
-  content: {
-    flex: 1,
-    gap: 2,
-  },
-  name: {
-    color: Colors.text,
-    fontSize: 16,
-    fontFamily: Fonts.semiBold,
-  },
-  oneLiner: {
-    color: Colors.textSecondary,
-    fontSize: 13,
-    fontFamily: Fonts.regular,
-  },
-  textCompleted: {
-    opacity: 0.6,
-  },
-  infoButton: {
-    width: 30,
-    height: 30,
-    borderRadius: 15,
-    borderWidth: 1.5,
-    borderColor: Colors.border,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  infoText: {
-    color: Colors.textMuted,
-    fontSize: 16,
-    fontFamily: Fonts.bold,
-  },
-  checkbox: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    borderWidth: 2,
-    borderColor: Colors.border,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  checkboxCompleted: {
-    borderWidth: 0,
-  },
-  checkmark: {
-    color: Colors.bg,
-    fontSize: 14,
-    fontFamily: Fonts.bold,
-  },
-});
+function makeStyles(colors: ColorPalette) {
+  return StyleSheet.create({
+    card: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: colors.surface,
+      borderRadius: 16,
+      borderLeftWidth: 4,
+      paddingVertical: 14,
+      paddingHorizontal: 14,
+      gap: 12,
+    },
+    cardCompleted: {
+      opacity: 0.7,
+    },
+    cardPressed: {
+      opacity: 0.8,
+    },
+    iconContainer: {
+      width: 36,
+      height: 36,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    icon: {
+      fontSize: 24,
+    },
+    content: {
+      flex: 1,
+      gap: 2,
+    },
+    name: {
+      color: colors.text,
+      fontSize: 16,
+      fontFamily: Fonts.semiBold,
+    },
+    oneLiner: {
+      color: colors.textSecondary,
+      fontSize: 13,
+      fontFamily: Fonts.regular,
+    },
+    textCompleted: {
+      opacity: 0.6,
+    },
+    infoButton: {
+      width: 30,
+      height: 30,
+      borderRadius: 15,
+      borderWidth: 1.5,
+      borderColor: colors.border,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    infoText: {
+      color: colors.textMuted,
+      fontSize: 16,
+      fontFamily: Fonts.bold,
+    },
+    checkbox: {
+      width: 28,
+      height: 28,
+      borderRadius: 14,
+      borderWidth: 2,
+      borderColor: colors.border,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    checkboxCompleted: {
+      borderWidth: 0,
+    },
+    checkmark: {
+      color: colors.checkmark,
+      fontSize: 14,
+      fontFamily: Fonts.bold,
+    },
+  });
+}

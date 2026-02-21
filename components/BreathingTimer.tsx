@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import Animated, {
   useSharedValue,
@@ -11,7 +11,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
 
-import { Colors } from '../constants/colors';
+import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
 
 interface BreathingTimerProps {
@@ -28,6 +28,9 @@ const CIRCLE_MAX_SCALE = 1.0;
 
 export function BreathingTimer({ onComplete }: BreathingTimerProps) {
   const { t } = useTranslation();
+  const colors = useColors();
+  const styles = useMemo(() => makeStyles(colors), [colors]);
+
   const [phase, setPhase] = useState<Phase>('idle');
   const [countdown, setCountdown] = useState(4);
   const [currentRound, setCurrentRound] = useState(0);
@@ -197,44 +200,46 @@ export function BreathingTimer({ onComplete }: BreathingTimerProps) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 20,
-  },
-  pressArea: {
-    width: CIRCLE_SIZE,
-    height: CIRCLE_SIZE,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  circle: {
-    position: 'absolute',
-    width: CIRCLE_SIZE,
-    height: CIRCLE_SIZE,
-    borderRadius: CIRCLE_SIZE / 2,
-    backgroundColor: Colors.breathing,
-  },
-  centerContent: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 4,
-  },
-  countdown: {
-    color: Colors.text,
-    fontSize: 40,
-    fontFamily: Fonts.bold,
-  },
-  phaseLabel: {
-    color: Colors.text,
-    fontSize: 16,
-    fontFamily: Fonts.semiBold,
-  },
-  roundLabel: {
-    color: Colors.text,
-    fontSize: 12,
-    fontFamily: Fonts.regular,
-    opacity: 0.7,
-  },
-});
+function makeStyles(colors: ColorPalette) {
+  return StyleSheet.create({
+    container: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 20,
+    },
+    pressArea: {
+      width: CIRCLE_SIZE,
+      height: CIRCLE_SIZE,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    circle: {
+      position: 'absolute',
+      width: CIRCLE_SIZE,
+      height: CIRCLE_SIZE,
+      borderRadius: CIRCLE_SIZE / 2,
+      backgroundColor: colors.breathing,
+    },
+    centerContent: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 4,
+    },
+    countdown: {
+      color: colors.text,
+      fontSize: 40,
+      fontFamily: Fonts.bold,
+    },
+    phaseLabel: {
+      color: colors.text,
+      fontSize: 16,
+      fontFamily: Fonts.semiBold,
+    },
+    roundLabel: {
+      color: colors.text,
+      fontSize: 12,
+      fontFamily: Fonts.regular,
+      opacity: 0.7,
+    },
+  });
+}

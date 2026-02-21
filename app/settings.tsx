@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import {
   View,
   Text,
@@ -13,19 +13,28 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
-import { Colors } from '../constants/colors';
+import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
 import { HABITS } from '../constants/habits';
-import { useStore, type HabitId } from '../store/useStore';
+import { useStore, type HabitId, type ColorScheme } from '../store/useStore';
 import { SUPPORTED_LOCALES, loadLanguage } from '../lib/i18n';
+
+const COLOR_SCHEME_OPTIONS: { value: ColorScheme; labelKey: string }[] = [
+  { value: 'light', labelKey: 'settings.themeLight' },
+  { value: 'dark', labelKey: 'settings.themeDark' },
+  { value: 'auto', labelKey: 'settings.themeAuto' },
+];
 
 export default function SettingsScreen() {
   const { t, i18n } = useTranslation();
   const router = useRouter();
+  const colors = useColors();
+  const styles = useMemo(() => makeStyles(colors), [colors]);
 
   const settings = useStore((s) => s.settings);
   const toggleHideHabit = useStore((s) => s.toggleHideHabit);
   const setLanguage = useStore((s) => s.setLanguage);
+  const setColorScheme = useStore((s) => s.setColorScheme);
   const addCustomHabit = useStore((s) => s.addCustomHabit);
   const deleteCustomHabit = useStore((s) => s.deleteCustomHabit);
 
@@ -106,10 +115,10 @@ export default function SettingsScreen() {
                   value={!isHidden}
                   onValueChange={() => toggleHideHabit(habit.id)}
                   trackColor={{
-                    false: Colors.border,
+                    false: colors.border,
                     true: habit.color + '80',
                   }}
-                  thumbColor={isHidden ? Colors.textMuted : habit.color}
+                  thumbColor={isHidden ? colors.textMuted : habit.color}
                 />
               </View>
             );
@@ -131,7 +140,7 @@ export default function SettingsScreen() {
             <TextInput
               style={styles.addHabitInput}
               placeholder={t('settings.addHabit')}
-              placeholderTextColor={Colors.textMuted}
+              placeholderTextColor={colors.textMuted}
               value={newHabitText}
               onChangeText={setNewHabitText}
               onSubmitEditing={handleAddHabit}
@@ -207,6 +216,32 @@ export default function SettingsScreen() {
           )}
         </View>
 
+        {/* Color Scheme Section */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>{t('settings.theme')}</Text>
+          <View style={styles.langList}>
+            {COLOR_SCHEME_OPTIONS.map((option) => (
+              <Pressable
+                key={option.value}
+                style={[
+                  styles.langOption,
+                  settings.colorScheme === option.value && styles.langOptionActive,
+                ]}
+                onPress={() => setColorScheme(option.value)}
+              >
+                <Text
+                  style={[
+                    styles.langOptionText,
+                    settings.colorScheme === option.value && styles.langOptionTextActive,
+                  ]}
+                >
+                  {t(option.labelKey)}
+                </Text>
+              </Pressable>
+            ))}
+          </View>
+        </View>
+
         {/* About */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>{t('settings.about')}</Text>
@@ -226,171 +261,173 @@ export default function SettingsScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.bg,
-  },
-  scroll: {
-    flex: 1,
-  },
-  scrollContent: {
-    paddingHorizontal: 20,
-    paddingTop: 16,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 28,
-  },
-  title: {
-    fontSize: 28,
-    fontFamily: Fonts.bold,
-    color: Colors.text,
-  },
-  closeBtn: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: Colors.surface,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  closeText: {
-    fontSize: 18,
-    fontFamily: Fonts.regular,
-    color: Colors.text,
-  },
-  section: {
-    marginBottom: 32,
-  },
-  sectionTitle: {
-    fontSize: 16,
-    fontFamily: Fonts.semiBold,
-    color: Colors.textSecondary,
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
-    marginBottom: 12,
-  },
-  habitRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: Colors.surface,
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 8,
-  },
-  habitIcon: {
-    fontSize: 20,
-    marginRight: 12,
-  },
-  habitName: {
-    flex: 1,
-    fontSize: 16,
-    fontFamily: Fonts.regular,
-    color: Colors.text,
-  },
-  langButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: Colors.surface,
-    borderRadius: 12,
-    padding: 16,
-  },
-  langCurrent: {
-    fontSize: 16,
-    fontFamily: Fonts.regular,
-    color: Colors.text,
-  },
-  langArrow: {
-    fontSize: 22,
-    fontFamily: Fonts.regular,
-    color: Colors.textMuted,
-  },
-  langList: {
-    gap: 4,
-  },
-  langOption: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: Colors.surface,
-    borderRadius: 10,
-    padding: 14,
-  },
-  langOptionActive: {
-    backgroundColor: Colors.accent + '20',
-    borderColor: Colors.accent,
-    borderWidth: 1,
-  },
-  langOptionText: {
-    fontSize: 15,
-    fontFamily: Fonts.regular,
-    color: Colors.text,
-  },
-  langOptionTextActive: {
-    color: Colors.accent,
-    fontFamily: Fonts.semiBold,
-  },
-  langOptionSub: {
-    fontSize: 12,
-    fontFamily: Fonts.regular,
-    color: Colors.textMuted,
-  },
-  versionText: {
-    fontSize: 14,
-    fontFamily: Fonts.regular,
-    color: Colors.textMuted,
-  },
-  resetBtn: {
-    backgroundColor: Colors.danger + '15',
-    borderRadius: 12,
-    padding: 16,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: Colors.danger + '30',
-  },
-  resetText: {
-    fontSize: 15,
-    color: Colors.danger,
-    fontFamily: Fonts.semiBold,
-  },
-  deleteIcon: {
-    color: Colors.textMuted,
-    fontSize: 16,
-    fontFamily: Fonts.regular,
-    padding: 8,
-  },
-  addHabitRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: Colors.surface,
-    borderRadius: 12,
-    paddingHorizontal: 12,
-    paddingVertical: 4,
-    gap: 8,
-  },
-  addHabitInput: {
-    flex: 1,
-    color: Colors.text,
-    fontSize: 15,
-    fontFamily: Fonts.regular,
-    paddingVertical: 10,
-  },
-  addHabitBtn: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    backgroundColor: Colors.surfaceLight,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  addHabitBtnText: {
-    color: Colors.textSecondary,
-    fontSize: 20,
-    fontFamily: Fonts.semiBold,
-    lineHeight: 22,
-  },
-});
+function makeStyles(colors: ColorPalette) {
+  return StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.bg,
+    },
+    scroll: {
+      flex: 1,
+    },
+    scrollContent: {
+      paddingHorizontal: 20,
+      paddingTop: 16,
+    },
+    header: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: 28,
+    },
+    title: {
+      fontSize: 28,
+      fontFamily: Fonts.bold,
+      color: colors.text,
+    },
+    closeBtn: {
+      width: 36,
+      height: 36,
+      borderRadius: 18,
+      backgroundColor: colors.surface,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    closeText: {
+      fontSize: 18,
+      fontFamily: Fonts.regular,
+      color: colors.text,
+    },
+    section: {
+      marginBottom: 32,
+    },
+    sectionTitle: {
+      fontSize: 16,
+      fontFamily: Fonts.semiBold,
+      color: colors.textSecondary,
+      textTransform: 'uppercase',
+      letterSpacing: 0.5,
+      marginBottom: 12,
+    },
+    habitRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: colors.surface,
+      borderRadius: 12,
+      padding: 16,
+      marginBottom: 8,
+    },
+    habitIcon: {
+      fontSize: 20,
+      marginRight: 12,
+    },
+    habitName: {
+      flex: 1,
+      fontSize: 16,
+      fontFamily: Fonts.regular,
+      color: colors.text,
+    },
+    langButton: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      backgroundColor: colors.surface,
+      borderRadius: 12,
+      padding: 16,
+    },
+    langCurrent: {
+      fontSize: 16,
+      fontFamily: Fonts.regular,
+      color: colors.text,
+    },
+    langArrow: {
+      fontSize: 22,
+      fontFamily: Fonts.regular,
+      color: colors.textMuted,
+    },
+    langList: {
+      gap: 4,
+    },
+    langOption: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      backgroundColor: colors.surface,
+      borderRadius: 10,
+      padding: 14,
+    },
+    langOptionActive: {
+      backgroundColor: colors.accent + '20',
+      borderColor: colors.accent,
+      borderWidth: 1,
+    },
+    langOptionText: {
+      fontSize: 15,
+      fontFamily: Fonts.regular,
+      color: colors.text,
+    },
+    langOptionTextActive: {
+      color: colors.accent,
+      fontFamily: Fonts.semiBold,
+    },
+    langOptionSub: {
+      fontSize: 12,
+      fontFamily: Fonts.regular,
+      color: colors.textMuted,
+    },
+    versionText: {
+      fontSize: 14,
+      fontFamily: Fonts.regular,
+      color: colors.textMuted,
+    },
+    resetBtn: {
+      backgroundColor: colors.danger + '15',
+      borderRadius: 12,
+      padding: 16,
+      alignItems: 'center',
+      borderWidth: 1,
+      borderColor: colors.danger + '30',
+    },
+    resetText: {
+      fontSize: 15,
+      color: colors.danger,
+      fontFamily: Fonts.semiBold,
+    },
+    deleteIcon: {
+      color: colors.textMuted,
+      fontSize: 16,
+      fontFamily: Fonts.regular,
+      padding: 8,
+    },
+    addHabitRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: colors.surface,
+      borderRadius: 12,
+      paddingHorizontal: 12,
+      paddingVertical: 4,
+      gap: 8,
+    },
+    addHabitInput: {
+      flex: 1,
+      color: colors.text,
+      fontSize: 15,
+      fontFamily: Fonts.regular,
+      paddingVertical: 10,
+    },
+    addHabitBtn: {
+      width: 28,
+      height: 28,
+      borderRadius: 14,
+      backgroundColor: colors.surfaceLight,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    addHabitBtnText: {
+      color: colors.textSecondary,
+      fontSize: 20,
+      fontFamily: Fonts.semiBold,
+      lineHeight: 22,
+    },
+  });
+}

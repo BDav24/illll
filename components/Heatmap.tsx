@@ -8,7 +8,7 @@ import {
   getDaysInMonth,
 } from 'date-fns';
 
-import { Colors } from '../constants/colors';
+import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
 
 interface HeatmapProps {
@@ -23,16 +23,19 @@ const MAX_DAYS = 31;
 
 const MONTH_LABELS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-function getHeatmapColor(completed: number, total: number): string {
-  if (total === 0 || completed === 0) return Colors.heatmap[0];
+function getHeatmapColor(completed: number, total: number, heatmap: string[]): string {
+  if (total === 0 || completed === 0) return heatmap[0];
   const pct = (completed / total) * 100;
-  if (pct <= 25) return Colors.heatmap[1];
-  if (pct <= 50) return Colors.heatmap[2];
-  if (pct <= 75) return Colors.heatmap[3];
-  return Colors.heatmap[4];
+  if (pct <= 25) return heatmap[1];
+  if (pct <= 50) return heatmap[2];
+  if (pct <= 75) return heatmap[3];
+  return heatmap[4];
 }
 
 export function Heatmap({ data, year }: HeatmapProps) {
+  const colors = useColors();
+  const styles = useMemo(() => makeStyles(colors), [colors]);
+
   const targetYear = year ?? new Date().getFullYear();
   const { width: screenWidth } = useWindowDimensions();
 
@@ -52,14 +55,14 @@ export function Heatmap({ data, year }: HeatmapProps) {
         const dateKey = format(d, 'yyyy-MM-dd');
         const entry = data[dateKey];
         const color = entry
-          ? getHeatmapColor(entry.completed, entry.total)
-          : Colors.heatmap[0];
+          ? getHeatmapColor(entry.completed, entry.total, colors.heatmap)
+          : colors.heatmap[0];
         return { dateKey, color };
       });
 
       return { label: MONTH_LABELS[monthIdx], cells, daysInMonth };
     });
-  }, [data, targetYear]);
+  }, [data, targetYear, colors.heatmap]);
 
   return (
     <View style={styles.container}>
@@ -89,28 +92,30 @@ export function Heatmap({ data, year }: HeatmapProps) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    gap: GAP,
-  },
-  monthRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  monthLabelCell: {
-    width: MONTH_LABEL_WIDTH,
-    justifyContent: 'center',
-  },
-  monthLabel: {
-    color: Colors.textMuted,
-    fontSize: 9,
-    fontFamily: Fonts.regular,
-  },
-  cellRow: {
-    flexDirection: 'row',
-    gap: GAP,
-  },
-  cell: {
-    borderRadius: 2,
-  },
-});
+function makeStyles(colors: ColorPalette) {
+  return StyleSheet.create({
+    container: {
+      gap: GAP,
+    },
+    monthRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    monthLabelCell: {
+      width: MONTH_LABEL_WIDTH,
+      justifyContent: 'center',
+    },
+    monthLabel: {
+      color: colors.textMuted,
+      fontSize: 9,
+      fontFamily: Fonts.regular,
+    },
+    cellRow: {
+      flexDirection: 'row',
+      gap: GAP,
+    },
+    cell: {
+      borderRadius: 2,
+    },
+  });
+}

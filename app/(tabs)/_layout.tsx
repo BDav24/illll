@@ -1,20 +1,30 @@
 import { Tabs } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { Text, StyleSheet } from 'react-native';
-import { Colors } from '../../constants/colors';
+import { useColors } from '../../constants/colors';
 import { Fonts } from '../../constants/fonts';
 
 export default function TabLayout() {
   const { t } = useTranslation();
+  const colors = useColors();
 
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarStyle: styles.tabBar,
-        tabBarActiveTintColor: Colors.accent,
-        tabBarInactiveTintColor: Colors.textMuted,
-        tabBarLabelStyle: styles.tabLabel,
+        tabBarStyle: {
+          backgroundColor: colors.surface,
+          borderTopColor: colors.border,
+          borderTopWidth: StyleSheet.hairlineWidth,
+          height: 85,
+          paddingTop: 8,
+        },
+        tabBarActiveTintColor: colors.accent,
+        tabBarInactiveTintColor: colors.textMuted,
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontFamily: Fonts.semiBold,
+        },
       }}
     >
       <Tabs.Screen
@@ -40,18 +50,7 @@ export default function TabLayout() {
 }
 
 const styles = StyleSheet.create({
-  tabBar: {
-    backgroundColor: Colors.surface,
-    borderTopColor: Colors.border,
-    borderTopWidth: StyleSheet.hairlineWidth,
-    height: 85,
-    paddingTop: 8,
-  },
   tabIcon: {
     fontSize: 22,
-  },
-  tabLabel: {
-    fontSize: 12,
-    fontFamily: Fonts.semiBold,
   },
 });

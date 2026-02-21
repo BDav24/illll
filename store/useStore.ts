@@ -43,12 +43,15 @@ export interface NotificationSetting {
   minute: number;
 }
 
+export type ColorScheme = 'light' | 'dark' | 'auto';
+
 export interface UserSettings {
   hiddenHabits: HabitId[];
   habitOrder: HabitId[];
   notifications: Partial<Record<HabitId, NotificationSetting>>;
   language: string | null; // null = auto-detect
   customHabits: CustomHabit[];
+  colorScheme: ColorScheme;
 }
 
 // ---------------------------------------------------------------------------
@@ -68,6 +71,7 @@ interface StoreState {
   toggleHideHabit: (habitId: HabitId) => void;
   reorderHabits: (order: HabitId[]) => void;
   setLanguage: (lang: string | null) => void;
+  setColorScheme: (scheme: ColorScheme) => void;
 }
 
 // ---------------------------------------------------------------------------
@@ -89,6 +93,7 @@ const DEFAULT_SETTINGS: UserSettings = {
   notifications: {},
   language: null,
   customHabits: [],
+  colorScheme: 'light' as ColorScheme,
 };
 
 // ---------------------------------------------------------------------------
@@ -370,6 +375,12 @@ export const useStore = create<StoreState>()((set) => ({
   setLanguage: (lang: string | null) => {
     set((state) => ({
       settings: { ...state.settings, language: lang },
+    }));
+  },
+
+  setColorScheme: (scheme: ColorScheme) => {
+    set((state) => ({
+      settings: { ...state.settings, colorScheme: scheme },
     }));
   },
 }));

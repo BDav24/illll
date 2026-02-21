@@ -1,9 +1,10 @@
+import { useMemo } from 'react';
 import { View, Text, ScrollView, StyleSheet, Pressable, Linking } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
-import { Colors } from '../../constants/colors';
+import { useColors, type ColorPalette } from '../../constants/colors';
 import { Fonts } from '../../constants/fonts';
 import { HABIT_MAP } from '../../constants/habits';
 import { ARTICLES } from '../../constants/articles';
@@ -13,6 +14,8 @@ export default function HabitArticleScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const { t } = useTranslation();
   const router = useRouter();
+  const colors = useColors();
+  const styles = useMemo(() => makeStyles(colors), [colors]);
 
   const habitId = id as HabitId;
   const meta = HABIT_MAP[habitId];
@@ -92,135 +95,137 @@ export default function HabitArticleScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.bg,
-  },
-  scroll: {
-    flex: 1,
-  },
-  scrollContent: {
-    paddingHorizontal: 20,
-    paddingTop: 8,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    marginBottom: 8,
-  },
-  backBtn: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: Colors.surface,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  backText: {
-    fontSize: 18,
-    fontFamily: Fonts.regular,
-    color: Colors.text,
-  },
-  hero: {
-    alignItems: 'center',
-    marginBottom: 28,
-  },
-  heroIcon: {
-    fontSize: 56,
-    marginBottom: 12,
-  },
-  heroTitle: {
-    fontSize: 26,
-    fontFamily: Fonts.bold,
-    color: Colors.text,
-    textAlign: 'center',
-  },
-  card: {
-    backgroundColor: Colors.surface,
-    borderRadius: 16,
-    padding: 20,
-    marginBottom: 20,
-    borderLeftWidth: 4,
-    borderLeftColor: Colors.accent,
-  },
-  cardLabel: {
-    fontSize: 12,
-    fontFamily: Fonts.bold,
-    color: Colors.textMuted,
-    textTransform: 'uppercase',
-    letterSpacing: 1,
-    marginBottom: 8,
-  },
-  tldrText: {
-    fontSize: 16,
-    fontFamily: Fonts.regular,
-    color: Colors.text,
-    lineHeight: 24,
-  },
-  bodySection: {
-    marginBottom: 24,
-  },
-  bodyText: {
-    fontSize: 15,
-    fontFamily: Fonts.regular,
-    color: Colors.textSecondary,
-    lineHeight: 24,
-  },
-  studiesSection: {
-    marginBottom: 24,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontFamily: Fonts.semiBold,
-    color: Colors.text,
-    marginBottom: 12,
-  },
-  studyCard: {
-    backgroundColor: Colors.surface,
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 10,
-  },
-  studyAuthors: {
-    fontSize: 13,
-    fontFamily: Fonts.semiBold,
-    color: Colors.textSecondary,
-    marginBottom: 4,
-  },
-  studyTitle: {
-    fontSize: 14,
-    fontFamily: Fonts.regular,
-    color: Colors.text,
-    fontStyle: 'italic',
-    marginBottom: 4,
-    lineHeight: 20,
-  },
-  studyJournal: {
-    fontSize: 12,
-    fontFamily: Fonts.regular,
-    color: Colors.textMuted,
-    marginBottom: 4,
-  },
-  studyDoi: {
-    fontSize: 12,
-    fontFamily: Fonts.regular,
-    color: Colors.accent,
-  },
-  recoCard: {
-    borderLeftColor: Colors.success,
-  },
-  recoText: {
-    fontSize: 15,
-    fontFamily: Fonts.regular,
-    color: Colors.text,
-    lineHeight: 24,
-  },
-  errorText: {
-    color: Colors.text,
-    fontSize: 16,
-    fontFamily: Fonts.regular,
-    textAlign: 'center',
-    marginTop: 100,
-  },
-});
+function makeStyles(colors: ColorPalette) {
+  return StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.bg,
+    },
+    scroll: {
+      flex: 1,
+    },
+    scrollContent: {
+      paddingHorizontal: 20,
+      paddingTop: 8,
+    },
+    header: {
+      flexDirection: 'row',
+      justifyContent: 'flex-end',
+      marginBottom: 8,
+    },
+    backBtn: {
+      width: 36,
+      height: 36,
+      borderRadius: 18,
+      backgroundColor: colors.surface,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    backText: {
+      fontSize: 18,
+      fontFamily: Fonts.regular,
+      color: colors.text,
+    },
+    hero: {
+      alignItems: 'center',
+      marginBottom: 28,
+    },
+    heroIcon: {
+      fontSize: 56,
+      marginBottom: 12,
+    },
+    heroTitle: {
+      fontSize: 26,
+      fontFamily: Fonts.bold,
+      color: colors.text,
+      textAlign: 'center',
+    },
+    card: {
+      backgroundColor: colors.surface,
+      borderRadius: 16,
+      padding: 20,
+      marginBottom: 20,
+      borderLeftWidth: 4,
+      borderLeftColor: colors.accent,
+    },
+    cardLabel: {
+      fontSize: 12,
+      fontFamily: Fonts.bold,
+      color: colors.textMuted,
+      textTransform: 'uppercase',
+      letterSpacing: 1,
+      marginBottom: 8,
+    },
+    tldrText: {
+      fontSize: 16,
+      fontFamily: Fonts.regular,
+      color: colors.text,
+      lineHeight: 24,
+    },
+    bodySection: {
+      marginBottom: 24,
+    },
+    bodyText: {
+      fontSize: 15,
+      fontFamily: Fonts.regular,
+      color: colors.textSecondary,
+      lineHeight: 24,
+    },
+    studiesSection: {
+      marginBottom: 24,
+    },
+    sectionTitle: {
+      fontSize: 18,
+      fontFamily: Fonts.semiBold,
+      color: colors.text,
+      marginBottom: 12,
+    },
+    studyCard: {
+      backgroundColor: colors.surface,
+      borderRadius: 12,
+      padding: 16,
+      marginBottom: 10,
+    },
+    studyAuthors: {
+      fontSize: 13,
+      fontFamily: Fonts.semiBold,
+      color: colors.textSecondary,
+      marginBottom: 4,
+    },
+    studyTitle: {
+      fontSize: 14,
+      fontFamily: Fonts.regular,
+      color: colors.text,
+      fontStyle: 'italic',
+      marginBottom: 4,
+      lineHeight: 20,
+    },
+    studyJournal: {
+      fontSize: 12,
+      fontFamily: Fonts.regular,
+      color: colors.textMuted,
+      marginBottom: 4,
+    },
+    studyDoi: {
+      fontSize: 12,
+      fontFamily: Fonts.regular,
+      color: colors.accent,
+    },
+    recoCard: {
+      borderLeftColor: colors.success,
+    },
+    recoText: {
+      fontSize: 15,
+      fontFamily: Fonts.regular,
+      color: colors.text,
+      lineHeight: 24,
+    },
+    errorText: {
+      color: colors.text,
+      fontSize: 16,
+      fontFamily: Fonts.regular,
+      textAlign: 'center',
+      marginTop: 100,
+    },
+  });
+}
