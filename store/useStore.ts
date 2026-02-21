@@ -26,10 +26,15 @@ export interface CustomTask {
   completed: boolean;
 }
 
+export interface CustomHabit {
+  id: string; // 'custom_' + uuid
+  text: string;
+}
+
 export interface DayRecord {
   date: string; // 'YYYY-MM-DD'
-  habits: Partial<Record<HabitId, HabitEntry>>;
-  tasks: CustomTask[];
+  habits: Record<string, HabitEntry>; // accepts both core HabitId keys and 'custom_*' keys
+  tasks: CustomTask[]; // kept for backward compat with persisted data
 }
 
 export interface NotificationSetting {
@@ -43,6 +48,7 @@ export interface UserSettings {
   habitOrder: HabitId[];
   notifications: Partial<Record<HabitId, NotificationSetting>>;
   language: string | null; // null = auto-detect
+  customHabits: CustomHabit[];
 }
 
 // ---------------------------------------------------------------------------
@@ -56,9 +62,9 @@ interface StoreState {
   // Actions
   toggleHabit: (habitId: HabitId) => void;
   updateHabitData: (habitId: HabitId, data: Record<string, unknown>) => void;
-  addTask: (text: string) => void;
-  toggleTask: (taskId: string) => void;
-  deleteTask: (taskId: string) => void;
+  addCustomHabit: (text: string) => void;
+  deleteCustomHabit: (id: string) => void;
+  toggleCustomHabit: (id: string) => void;
   toggleHideHabit: (habitId: HabitId) => void;
   reorderHabits: (order: HabitId[]) => void;
   setLanguage: (lang: string | null) => void;
@@ -82,6 +88,7 @@ const DEFAULT_SETTINGS: UserSettings = {
   habitOrder: DEFAULT_HABIT_ORDER,
   notifications: {},
   language: null,
+  customHabits: [],
 };
 
 // ---------------------------------------------------------------------------
@@ -158,17 +165,18 @@ export function getVisibleHabits(settings: UserSettings): HabitId[] {
 export function getDayScore(
   day: DayRecord | undefined,
   visibleHabits: HabitId[],
+  customHabits: CustomHabit[],
 ): { completed: number; total: number } {
-  if (!day) return { completed: 0, total: 0 };
+  if (!day) return { completed: 0, total: visibleHabits.length + customHabits.length };
 
   let completed = 0;
-  const total = visibleHabits.length + day.tasks.length;
+  const total = visibleHabits.length + customHabits.length;
 
   for (const hid of visibleHabits) {
     if (day.habits[hid]?.completed) completed++;
   }
-  for (const task of day.tasks) {
-    if (task.completed) completed++;
+  for (const ch of customHabits) {
+    if (day.habits[ch.id]?.completed) completed++;
   }
 
   return { completed, total };
@@ -177,6 +185,7 @@ export function getDayScore(
 export function getStreak(
   days: Record<string, DayRecord>,
   visibleHabits: HabitId[],
+  customHabits: CustomHabit[],
 ): number {
   let streak = 0;
   const now = new Date();
@@ -193,8 +202,8 @@ export function getStreak(
     for (const hid of visibleHabits) {
       if (day.habits[hid]?.completed) completed++;
     }
-    for (const task of day.tasks) {
-      if (task.completed) completed++;
+    for (const ch of customHabits) {
+      if (day.habits[ch.id]?.completed) completed++;
     }
 
     if (completed > 0) {
@@ -211,8 +220,8 @@ export function getStreak(
     for (const hid of visibleHabits) {
       if (todayRecord.habits[hid]?.completed) todayCompleted++;
     }
-    for (const task of todayRecord.tasks) {
-      if (task.completed) todayCompleted++;
+    for (const ch of customHabits) {
+      if (todayRecord.habits[ch.id]?.completed) todayCompleted++;
     }
     if (todayCompleted > 0) {
       streak++;
@@ -245,7 +254,7 @@ export const useStore = create<StoreState>()((set) => ({
       const existing = day.habits[habitId];
       const wasCompleted = existing?.completed ?? false;
 
-      const updatedHabits: Partial<Record<HabitId, HabitEntry>> = {
+      const updatedHabits: Record<string, HabitEntry> = {
         ...day.habits,
         [habitId]: {
           ...existing,
@@ -271,19 +280,15 @@ export const useStore = create<StoreState>()((set) => ({
       const day = days[key];
       const existing = day.habits[habitId];
 
-      const updatedHabits: Partial<Record<HabitId, HabitEntry>> = {
+      const updatedHabits: Record<string, HabitEntry> = {
         ...day.habits,
         [habitId]: {
+          ...existing,
           completed: true,
           timestamp: Date.now(),
-          ...existing,
           data: { ...(existing?.data ?? {}), ...data },
         },
       };
-
-      // Ensure completed is true after spread
-      (updatedHabits[habitId] as HabitEntry).completed = true;
-      (updatedHabits[habitId] as HabitEntry).timestamp = Date.now();
 
       return {
         days: {
@@ -294,52 +299,46 @@ export const useStore = create<StoreState>()((set) => ({
     });
   },
 
-  addTask: (text: string) => {
-    const key = getTodayKey();
-    set((state) => {
-      const days = ensureDay(state.days, key);
-      const day = days[key];
-      const newTask: CustomTask = {
-        id: crypto.randomUUID(),
-        text,
-        completed: false,
-      };
-      return {
-        days: {
-          ...days,
-          [key]: { ...day, tasks: [...day.tasks, newTask] },
-        },
-      };
-    });
+  addCustomHabit: (text: string) => {
+    const id = `custom_${crypto.randomUUID()}`;
+    set((state) => ({
+      settings: {
+        ...state.settings,
+        customHabits: [...state.settings.customHabits, { id, text }],
+      },
+    }));
   },
 
-  toggleTask: (taskId: string) => {
-    const key = getTodayKey();
-    set((state) => {
-      const days = ensureDay(state.days, key);
-      const day = days[key];
-      const tasks = day.tasks.map((t) =>
-        t.id === taskId ? { ...t, completed: !t.completed } : t,
-      );
-      return {
-        days: {
-          ...days,
-          [key]: { ...day, tasks },
-        },
-      };
-    });
+  deleteCustomHabit: (id: string) => {
+    set((state) => ({
+      settings: {
+        ...state.settings,
+        customHabits: state.settings.customHabits.filter((h) => h.id !== id),
+      },
+    }));
   },
 
-  deleteTask: (taskId: string) => {
+  toggleCustomHabit: (id: string) => {
     const key = getTodayKey();
     set((state) => {
       const days = ensureDay(state.days, key);
       const day = days[key];
-      const tasks = day.tasks.filter((t) => t.id !== taskId);
+      const existing = day.habits[id];
+      const wasCompleted = existing?.completed ?? false;
+
       return {
         days: {
           ...days,
-          [key]: { ...day, tasks },
+          [key]: {
+            ...day,
+            habits: {
+              ...day.habits,
+              [id]: {
+                completed: !wasCompleted,
+                timestamp: Date.now(),
+              },
+            },
+          },
         },
       };
     });
