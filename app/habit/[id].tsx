@@ -47,6 +47,12 @@ export default function HabitArticleScreen() {
           </Text>
         </View>
 
+        {/* Recommendation (What to do) */}
+        <View style={[styles.card, styles.recoCard]}>
+          <Text style={styles.cardLabel}>{t('article.recommendation')}</Text>
+          <Text style={styles.recoText}>{article.recommendation}</Text>
+        </View>
+
         {/* TL;DR */}
         <View style={[styles.card, { borderLeftColor: meta.color }]}>
           <Text style={styles.cardLabel}>{t('article.tldr')}</Text>
@@ -77,12 +83,6 @@ export default function HabitArticleScreen() {
               <Text style={styles.studyDoi}>DOI: {study.doi} →</Text>
             </Pressable>
           ))}
-        </View>
-
-        {/* Recommendation */}
-        <View style={[styles.card, styles.recoCard]}>
-          <Text style={styles.cardLabel}>{t('article.recommendation')}</Text>
-          <Text style={styles.recoText}>{article.recommendation}</Text>
         </View>
 
         <View style={{ height: 60 }} />
