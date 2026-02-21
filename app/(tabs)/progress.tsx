@@ -26,7 +26,7 @@ export default function ProgressScreen() {
   const settings = useStore((s) => s.settings);
 
   const visibleHabits = useMemo(() => getVisibleHabits(settings), [settings]);
-  const streak = useMemo(() => getStreak(days, visibleHabits), [days, visibleHabits]);
+  const streak = useMemo(() => getStreak(days, visibleHabits, settings.customHabits), [days, visibleHabits, settings.customHabits]);
   const today = new Date();
   const year = today.getFullYear();
 
@@ -40,7 +40,7 @@ export default function ProgressScreen() {
     let current = 0;
     for (const day of allDays) {
       const key = format(day, 'yyyy-MM-dd');
-      const score = getDayScore(days[key], visibleHabits);
+      const score = getDayScore(days[key], visibleHabits, settings.customHabits);
       if (score.completed > 0) {
         current++;
         best = Math.max(best, current);
@@ -49,7 +49,7 @@ export default function ProgressScreen() {
       }
     }
     return best;
-  }, [days, visibleHabits]);
+  }, [days, visibleHabits, settings.customHabits]);
 
   // Heatmap data
   const heatmapData = useMemo(() => {
@@ -60,23 +60,23 @@ export default function ProgressScreen() {
     });
     for (const day of allDays) {
       const key = format(day, 'yyyy-MM-dd');
-      result[key] = getDayScore(days[key], visibleHabits);
+      result[key] = getDayScore(days[key], visibleHabits, settings.customHabits);
     }
     return result;
-  }, [days, visibleHabits]);
+  }, [days, visibleHabits, settings.customHabits]);
 
   // Weekly chart data (last 7 days)
   const weeklyData = useMemo(() => {
     return Array.from({ length: 7 }, (_, i) => {
       const date = subDays(today, 6 - i);
       const key = format(date, 'yyyy-MM-dd');
-      const score = getDayScore(days[key], visibleHabits);
+      const score = getDayScore(days[key], visibleHabits, settings.customHabits);
       return {
         date: key,
         score: score.total > 0 ? score.completed / score.total : 0,
       };
     });
-  }, [days, visibleHabits]);
+  }, [days, visibleHabits, settings.customHabits]);
 
   // Completion rate this week
   const weeklyRate = useMemo(() => {
