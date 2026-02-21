@@ -112,6 +112,22 @@
     "studies": "Nghiên cứu",
     "recommendation": "Nên làm gì"
   },
+  "accessibility": {
+    "close": "Đóng",
+    "settings": "Cài đặt",
+    "deleteHabit": "Xóa {{name}}",
+    "addHabit": "Thêm thói quen",
+    "openLanguagePicker": "Mở bộ chọn ngôn ngữ",
+    "resetAllData": "Đặt lại tất cả dữ liệu",
+    "scoreLabel": "Đã hoàn thành {{completed}} trên {{total}} thói quen",
+    "streakLabel": "Chuỗi {{count}} ngày",
+    "streakZeroLabel": "Chưa có chuỗi nào",
+    "heatmapLabel": "Bản đồ nhiệt hoàn thành thói quen hàng năm",
+    "weeklyChartLabel": "Biểu đồ hoàn thành hàng tuần",
+    "breathingStart": "Bắt đầu bài tập thở",
+    "breathingRound": "Vòng {{current}} / {{total}}",
+    "openStudy": "Mở trong trình duyệt"
+  },
   "common": {
     "done": "Xong",
     "cancel": "Hủy",

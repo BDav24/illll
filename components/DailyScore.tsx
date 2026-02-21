@@ -8,6 +8,8 @@ import Animated, {
   Easing,
 } from 'react-native-reanimated';
 
+import { useTranslation } from 'react-i18next';
+
 import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
 
@@ -28,6 +30,7 @@ export function DailyScore({
 }: DailyScoreProps) {
   const colors = useColors();
   const styles = useMemo(() => makeStyles(colors), [colors]);
+  const { t } = useTranslation();
 
   const radius = (size - STROKE_WIDTH) / 2;
   const circumference = 2 * Math.PI * radius;
@@ -50,10 +53,10 @@ export function DailyScore({
     <View
       style={[styles.container, { width: size, height: size }]}
       accessibilityRole="progressbar"
-      accessibilityLabel={`${completed} of ${total} habits completed`}
+      accessibilityLabel={t('accessibility.scoreLabel', { completed, total })}
       accessibilityValue={{ min: 0, max: total, now: completed }}
     >
-      <Svg width={size} height={size}>
+      <Svg width={size} height={size} importantForAccessibility="no">
         {/* Background ring */}
         <Circle
           cx={size / 2}
@@ -77,7 +80,7 @@ export function DailyScore({
           transform={`rotate(-90 ${size / 2} ${size / 2})`}
         />
       </Svg>
-      <View style={styles.labelContainer}>
+      <View style={styles.labelContainer} importantForAccessibility="no">
         <Animated.Text style={styles.labelText}>
           {completed}/{total}
         </Animated.Text>

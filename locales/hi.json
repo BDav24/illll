@@ -112,6 +112,22 @@
     "studies": "अध्ययन",
     "recommendation": "क्या करें"
   },
+  "accessibility": {
+    "close": "बंद करें",
+    "settings": "सेटिंग्स",
+    "deleteHabit": "{{name}} हटाएँ",
+    "addHabit": "आदत जोड़ें",
+    "openLanguagePicker": "भाषा चयनकर्ता खोलें",
+    "resetAllData": "सभी डेटा रीसेट करें",
+    "scoreLabel": "{{total}} में से {{completed}} आदतें पूरी हुईं",
+    "streakLabel": "{{count}} दिन की लय",
+    "streakZeroLabel": "अभी तक कोई लय नहीं",
+    "heatmapLabel": "वार्षिक आदत पूर्णता हीटमैप",
+    "weeklyChartLabel": "साप्ताहिक पूर्णता चार्ट",
+    "breathingStart": "श्वास अभ्यास शुरू करें",
+    "breathingRound": "राउंड {{current}} / {{total}}",
+    "openStudy": "ब्राउज़र में खुलता है"
+  },
   "common": {
     "done": "हो गया",
     "cancel": "रद्द करें",

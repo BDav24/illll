@@ -112,6 +112,22 @@
     "studies": "গবেষণা",
     "recommendation": "কী করবেন"
   },
+  "accessibility": {
+    "close": "বন্ধ করুন",
+    "settings": "সেটিংস",
+    "deleteHabit": "{{name}} মুছুন",
+    "addHabit": "অভ্যাস যোগ করুন",
+    "openLanguagePicker": "ভাষা নির্বাচক খুলুন",
+    "resetAllData": "সমস্ত ডেটা রিসেট করুন",
+    "scoreLabel": "{{total}} টির মধ্যে {{completed}} টি অভ্যাস সম্পন্ন",
+    "streakLabel": "{{count}} দিনের ধারা",
+    "streakZeroLabel": "এখনো কোনো ধারা নেই",
+    "heatmapLabel": "বার্ষিক অভ্যাস সম্পন্নতার হিটম্যাপ",
+    "weeklyChartLabel": "সাপ্তাহিক সম্পন্নতার চার্ট",
+    "breathingStart": "শ্বাস ব্যায়াম শুরু করুন",
+    "breathingRound": "রাউন্ড {{current}} / {{total}}",
+    "openStudy": "ব্রাউজারে খোলে"
+  },
   "common": {
     "done": "হয়ে গেছে",
     "cancel": "বাতিল",

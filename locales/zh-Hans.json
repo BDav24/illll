@@ -112,6 +112,22 @@
     "studies": "研究",
     "recommendation": "怎么做"
   },
+  "accessibility": {
+    "close": "关闭",
+    "settings": "设置",
+    "deleteHabit": "删除{{name}}",
+    "addHabit": "添加习惯",
+    "openLanguagePicker": "打开语言选择器",
+    "resetAllData": "重置所有数据",
+    "scoreLabel": "已完成{{completed}}/{{total}}个习惯",
+    "streakLabel": "连续{{count}}天",
+    "streakZeroLabel": "暂无连续记录",
+    "heatmapLabel": "年度习惯完成热力图",
+    "weeklyChartLabel": "每周完成图表",
+    "breathingStart": "开始呼吸练习",
+    "breathingRound": "第{{current}}轮，共{{total}}轮",
+    "openStudy": "在浏览器中打开"
+  },
   "common": {
     "done": "完成",
     "cancel": "取消",

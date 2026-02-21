@@ -16,7 +16,7 @@ export function StreakBadge({ count }: StreakBadgeProps) {
 
   if (count === 0) {
     return (
-      <View style={styles.container}>
+      <View style={styles.container} accessible={true} accessibilityLabel={t('accessibility.streakZeroLabel')}>
         <Text style={[styles.emoji, styles.dimmed]}>🔥</Text>
         <Text style={[styles.text, styles.dimmed]}>
           {t('hub.streakZero')}
@@ -26,7 +26,7 @@ export function StreakBadge({ count }: StreakBadgeProps) {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} accessible={true} accessibilityLabel={t('accessibility.streakLabel', { count })}>
       <Text style={styles.emoji}>🔥</Text>
       <Text style={styles.count}>{count}</Text>
       <Text style={styles.text}>{t('hub.streak', { count })}</Text>

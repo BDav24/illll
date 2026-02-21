@@ -1,5 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import * as Haptics from 'expo-haptics';
 import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
@@ -13,6 +14,7 @@ interface CustomHabitCardProps {
 export function CustomHabitCard({ text, completed, onPress }: CustomHabitCardProps) {
   const colors = useColors();
   const styles = useMemo(() => makeStyles(colors), [colors]);
+  const { t } = useTranslation();
 
   const handlePress = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -25,6 +27,7 @@ export function CustomHabitCard({ text, completed, onPress }: CustomHabitCardPro
       accessibilityRole="checkbox"
       accessibilityState={{ checked: completed }}
       accessibilityLabel={text}
+      accessibilityHint={completed ? t('hub.tapToUndo') : t('hub.tapToComplete')}
       style={({ pressed }) => [
         styles.card,
         completed && styles.cardCompleted,

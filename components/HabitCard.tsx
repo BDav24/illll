@@ -51,7 +51,7 @@ export function HabitCard({
       ]}
     >
       {/* Icon */}
-      <View style={styles.iconContainer}>
+      <View style={styles.iconContainer} importantForAccessibility="no">
         <Text style={styles.icon}>{habit.icon}</Text>
       </View>
 
@@ -85,7 +85,7 @@ export function HabitCard({
       {/* Checkbox */}
       <Pressable
         onPress={handleCheckbox}
-        hitSlop={6}
+        hitSlop={10}
         accessibilityRole="checkbox"
         accessibilityState={{ checked: completed }}
         accessibilityLabel={t(`${habit.i18nKey}.name`)}
@@ -96,6 +96,7 @@ export function HabitCard({
             styles.checkbox,
             completed && [styles.checkboxCompleted, { backgroundColor: habit.color }],
           ]}
+          importantForAccessibility="no"
         >
           {completed && <Text style={styles.checkmark}>✓</Text>}
         </View>

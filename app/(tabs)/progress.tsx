@@ -95,18 +95,18 @@ export default function ProgressScreen() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <Text style={styles.title}>{t('progress.title')}</Text>
+        <Text style={styles.title} accessibilityRole="header">{t('progress.title')}</Text>
 
         {/* Streak Cards */}
         <View style={styles.streakRow}>
-          <View style={styles.streakCard}>
+          <View style={styles.streakCard} accessible={true} accessibilityLabel={`${streak} ${t('progress.currentStreak')} ${t('progress.days')}`}>
             <Text style={styles.streakNumber}>{streak}</Text>
             <Text style={styles.streakLabel}>
               {t('progress.currentStreak')}
             </Text>
             <Text style={styles.streakUnit}>{t('progress.days')}</Text>
           </View>
-          <View style={styles.streakCard}>
+          <View style={styles.streakCard} accessible={true} accessibilityLabel={`${bestStreak} ${t('progress.bestStreak')} ${t('progress.days')}`}>
             <Text style={styles.streakNumber}>{bestStreak}</Text>
             <Text style={styles.streakLabel}>{t('progress.bestStreak')}</Text>
             <Text style={styles.streakUnit}>{t('progress.days')}</Text>
@@ -116,7 +116,7 @@ export default function ProgressScreen() {
         {/* Weekly Chart */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>{t('progress.thisWeek')}</Text>
+            <Text style={styles.sectionTitle} accessibilityRole="header">{t('progress.thisWeek')}</Text>
             <Text style={styles.sectionSubtitle}>
               {t('progress.completionRate', { rate: weeklyRate })}
             </Text>
@@ -126,7 +126,7 @@ export default function ProgressScreen() {
 
         {/* Annual Heatmap */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>
+          <Text style={styles.sectionTitle} accessibilityRole="header">
             {t('progress.thisYear')} {year}
           </Text>
           <Heatmap data={heatmapData} year={year} />

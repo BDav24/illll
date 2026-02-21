@@ -112,6 +112,22 @@
     "studies": "Studies",
     "recommendation": "What to do"
   },
+  "accessibility": {
+    "close": "Close",
+    "settings": "Settings",
+    "deleteHabit": "Delete {{name}}",
+    "addHabit": "Add habit",
+    "openLanguagePicker": "Open language picker",
+    "resetAllData": "Reset all data",
+    "scoreLabel": "{{completed}} of {{total}} habits completed",
+    "streakLabel": "{{count}} day streak",
+    "streakZeroLabel": "No streak yet",
+    "heatmapLabel": "Annual habit completion heatmap",
+    "weeklyChartLabel": "Weekly completion chart",
+    "breathingStart": "Start breathing exercise",
+    "breathingRound": "Round {{current}} of {{total}}",
+    "openStudy": "Opens in browser"
+  },
   "common": {
     "done": "Done",
     "cancel": "Cancel",

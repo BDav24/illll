@@ -120,7 +120,7 @@ export default function DailyHub() {
         {/* Header */}
         <View style={styles.header}>
           <View style={styles.headerLeft}>
-            <Text style={styles.greeting}>{greeting}</Text>
+            <Text style={styles.greeting} accessibilityRole="header">{greeting}</Text>
             <Text style={styles.date}>{dateStr}</Text>
           </View>
           <View style={styles.headerRight}>
@@ -138,8 +138,10 @@ export default function DailyHub() {
           <Pressable
             onPress={() => router.push('/settings')}
             style={styles.settingsBtn}
+            accessibilityRole="button"
+            accessibilityLabel={t('accessibility.settings')}
           >
-            <Svg width={22} height={22} viewBox="0 0 24 24" fill="none">
+            <Svg width={22} height={22} viewBox="0 0 24 24" fill="none" importantForAccessibility="no">
               <Path
                 d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
                 stroke={colors.textSecondary}
@@ -196,7 +198,7 @@ export default function DailyHub() {
 
         {/* All done message */}
         {score.total > 0 && score.completed === score.total && (
-          <View style={styles.allDone}>
+          <View style={styles.allDone} accessibilityRole="alert" accessibilityLiveRegion="polite">
             <Text style={styles.allDoneText}>{t('hub.allDone')}</Text>
           </View>
         )}
@@ -218,10 +220,10 @@ export default function DailyHub() {
           {activeHabit && (
             <>
               <View style={styles.sheetHeader}>
-                <Text style={styles.sheetIcon}>
+                <Text style={styles.sheetIcon} importantForAccessibility="no">
                   {HABIT_MAP[activeHabit].icon}
                 </Text>
-                <Text style={styles.sheetTitle}>
+                <Text style={styles.sheetTitle} accessibilityRole="header">
                   {t(`habits.${activeHabit}.name`)}
                 </Text>
               </View>
@@ -237,6 +239,7 @@ export default function DailyHub() {
                   </Text>
                   <Pressable
                     style={styles.sheetActionBtn}
+                    accessibilityRole="button"
                     onPress={() => {
                       toggleHabit(activeHabit);
                       bottomSheetRef.current?.close();
@@ -251,6 +254,7 @@ export default function DailyHub() {
 
               <Pressable
                 style={styles.whyBtn}
+                accessibilityRole="link"
                 onPress={() => {
                   bottomSheetRef.current?.close();
                   router.push(`/habit/${activeHabit}`);
@@ -314,7 +318,7 @@ function makeStyles(colors: ColorPalette) {
       marginTop: 8,
     },
     settingsBtn: {
-      padding: 8,
+      padding: 11,
     },
     welcomeHint: {
       color: colors.textMuted,

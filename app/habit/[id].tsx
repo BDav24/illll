@@ -38,28 +38,28 @@ export default function HabitArticleScreen() {
       >
         {/* Header */}
         <View style={styles.header}>
-          <Pressable onPress={() => router.back()} style={styles.backBtn}>
+          <Pressable onPress={() => router.back()} style={styles.backBtn} accessibilityRole="button" accessibilityLabel={t('accessibility.close')} hitSlop={4}>
             <Text style={styles.backText}>✕</Text>
           </Pressable>
         </View>
 
         {/* Hero */}
         <View style={styles.hero}>
-          <Text style={styles.heroIcon}>{meta.icon}</Text>
-          <Text style={styles.heroTitle}>
+          <Text style={styles.heroIcon} importantForAccessibility="no">{meta.icon}</Text>
+          <Text style={styles.heroTitle} accessibilityRole="header">
             {t('article.whyTitle', { habit: t(`habits.${habitId}.name`) })}
           </Text>
         </View>
 
         {/* Recommendation (What to do) */}
         <View style={[styles.card, styles.recoCard]}>
-          <Text style={styles.cardLabel}>{t('article.recommendation')}</Text>
+          <Text style={styles.cardLabel} accessibilityRole="header">{t('article.recommendation')}</Text>
           <Text style={styles.recoText}>{t(`habits.${habitId}.recommendation`)}</Text>
         </View>
 
         {/* TL;DR */}
         <View style={[styles.card, { borderLeftColor: meta.color }]}>
-          <Text style={styles.cardLabel}>{t('article.tldr')}</Text>
+          <Text style={styles.cardLabel} accessibilityRole="header">{t('article.tldr')}</Text>
           <Text style={styles.tldrText}>{t(`habits.${habitId}.tldr`)}</Text>
         </View>
 
@@ -70,11 +70,13 @@ export default function HabitArticleScreen() {
 
         {/* Studies */}
         <View style={styles.studiesSection}>
-          <Text style={styles.sectionTitle}>{t('article.studies')}</Text>
+          <Text style={styles.sectionTitle} accessibilityRole="header">{t('article.studies')}</Text>
           {article.studies.map((study, i) => (
             <Pressable
               key={i}
               style={styles.studyCard}
+              accessibilityRole="link"
+              accessibilityHint={t('accessibility.openStudy')}
               onPress={() =>
                 Linking.openURL(`https://doi.org/${study.doi}`)
               }

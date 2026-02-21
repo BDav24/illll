@@ -112,6 +112,22 @@
     "studies": "الدراسات",
     "recommendation": "ماذا تفعل"
   },
+  "accessibility": {
+    "close": "إغلاق",
+    "settings": "الإعدادات",
+    "deleteHabit": "حذف {{name}}",
+    "addHabit": "إضافة عادة",
+    "openLanguagePicker": "فتح اختيار اللغة",
+    "resetAllData": "إعادة تعيين جميع البيانات",
+    "scoreLabel": "{{completed}} من {{total}} عادات مكتملة",
+    "streakLabel": "سلسلة {{count}} يوم",
+    "streakZeroLabel": "لا توجد سلسلة بعد",
+    "heatmapLabel": "خريطة حرارية سنوية لإكمال العادات",
+    "weeklyChartLabel": "مخطط الإكمال الأسبوعي",
+    "breathingStart": "بدء تمرين التنفّس",
+    "breathingRound": "الجولة {{current}} من {{total}}",
+    "openStudy": "يُفتح في المتصفح"
+  },
   "common": {
     "done": "تم",
     "cancel": "إلغاء",

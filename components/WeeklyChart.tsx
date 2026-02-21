@@ -74,7 +74,7 @@ export function WeeklyChart({ data }: WeeklyChartProps) {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} accessible={true} accessibilityRole="image" accessibilityLabel={t('accessibility.weeklyChartLabel')}>
       {/* SVG Chart */}
       <View style={styles.chartWrapper}>
         <Svg width={svgWidth} height={CHART_HEIGHT}>

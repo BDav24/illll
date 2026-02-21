@@ -112,6 +112,22 @@
     "studies": "Studien",
     "recommendation": "Was tun"
   },
+  "accessibility": {
+    "close": "Schließen",
+    "settings": "Einstellungen",
+    "deleteHabit": "{{name}} löschen",
+    "addHabit": "Gewohnheit hinzufügen",
+    "openLanguagePicker": "Sprachauswahl öffnen",
+    "resetAllData": "Alle Daten zurücksetzen",
+    "scoreLabel": "{{completed}} von {{total}} Gewohnheiten erledigt",
+    "streakLabel": "{{count}} Tage in Folge",
+    "streakZeroLabel": "Noch keine Serie",
+    "heatmapLabel": "Jährliche Heatmap der Gewohnheiten",
+    "weeklyChartLabel": "Wöchentliches Abschlussdiagramm",
+    "breathingStart": "Atemübung starten",
+    "breathingRound": "Runde {{current}} von {{total}}",
+    "openStudy": "Öffnet im Browser"
+  },
   "common": {
     "done": "Fertig",
     "cancel": "Abbrechen",

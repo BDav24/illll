@@ -112,6 +112,22 @@
     "studies": "Çalışmalar",
     "recommendation": "Ne yapmalı"
   },
+  "accessibility": {
+    "close": "Kapat",
+    "settings": "Ayarlar",
+    "deleteHabit": "{{name}} sil",
+    "addHabit": "Alışkanlık ekle",
+    "openLanguagePicker": "Dil seçiciyi aç",
+    "resetAllData": "Tüm verileri sıfırla",
+    "scoreLabel": "{{total}} alışkanlıktan {{completed}} tanesi tamamlandı",
+    "streakLabel": "{{count}} gün üst üste",
+    "streakZeroLabel": "Henüz seri yok",
+    "heatmapLabel": "Yıllık alışkanlık tamamlama ısı haritası",
+    "weeklyChartLabel": "Haftalık tamamlama grafiği",
+    "breathingStart": "Nefes egzersizine başla",
+    "breathingRound": "Tur {{current}} / {{total}}",
+    "openStudy": "Tarayıcıda açılır"
+  },
   "common": {
     "done": "Tamam",
     "cancel": "İptal",

@@ -112,6 +112,22 @@
     "studies": "研究",
     "recommendation": "何をすべきか"
   },
+  "accessibility": {
+    "close": "閉じる",
+    "settings": "設定",
+    "deleteHabit": "{{name}}を削除",
+    "addHabit": "習慣を追加",
+    "openLanguagePicker": "言語選択を開く",
+    "resetAllData": "すべてのデータをリセット",
+    "scoreLabel": "{{total}}個中{{completed}}個の習慣を達成",
+    "streakLabel": "{{count}}日連続",
+    "streakZeroLabel": "まだ連続記録なし",
+    "heatmapLabel": "年間習慣達成ヒートマップ",
+    "weeklyChartLabel": "週間達成チャート",
+    "breathingStart": "呼吸エクササイズを開始",
+    "breathingRound": "ラウンド{{current}}/{{total}}",
+    "openStudy": "ブラウザで開きます"
+  },
   "common": {
     "done": "完了",
     "cancel": "キャンセル",

@@ -109,20 +109,20 @@ export default function SettingsScreen() {
       >
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.title}>{t('settings.title')}</Text>
-          <Pressable onPress={handleClose} style={styles.closeBtn}>
+          <Text style={styles.title} accessibilityRole="header">{t('settings.title')}</Text>
+          <Pressable onPress={handleClose} style={styles.closeBtn} accessibilityRole="button" accessibilityLabel={t('accessibility.close')} hitSlop={4}>
             <Text style={styles.closeText}>✕</Text>
           </Pressable>
         </View>
 
         {/* Habits Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>{t('settings.habits')}</Text>
+          <Text style={styles.sectionTitle} accessibilityRole="header">{t('settings.habits')}</Text>
           {HABITS.map((habit) => {
             const isHidden = settings.hiddenHabits.includes(habit.id);
             return (
               <View key={habit.id} style={styles.habitRow}>
-                <Text style={styles.habitIcon}>{habit.icon}</Text>
+                <Text style={styles.habitIcon} importantForAccessibility="no">{habit.icon}</Text>
                 <Text style={styles.habitName}>
                   {t(`habits.${habit.id}.name`)}
                 </Text>
@@ -134,6 +134,7 @@ export default function SettingsScreen() {
                     true: habit.color + '80',
                   }}
                   thumbColor={isHidden ? colors.textMuted : habit.color}
+                  accessibilityLabel={t(`habits.${habit.id}.name`)}
                 />
               </View>
             );
@@ -142,7 +143,7 @@ export default function SettingsScreen() {
 
         {/* Custom Habits Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>{t('settings.myHabits')}</Text>
+          <Text style={styles.sectionTitle} accessibilityRole="header">{t('settings.myHabits')}</Text>
           {settings.customHabits.map((ch) => (
             <View key={ch.id} style={styles.customHabitRow}>
               <Text style={styles.habitName}>{ch.text}</Text>
@@ -153,7 +154,7 @@ export default function SettingsScreen() {
                   () => deleteCustomHabit(ch.id),
                   { cancel: t('common.cancel'), confirm: t('common.delete') },
                 );
-              }} hitSlop={8}>
+              }} hitSlop={8} accessibilityRole="button" accessibilityLabel={t('accessibility.deleteHabit', { name: ch.text })}>
                 <Text style={styles.deleteIcon}>✕</Text>
               </Pressable>
             </View>
@@ -167,8 +168,9 @@ export default function SettingsScreen() {
               onChangeText={setNewHabitText}
               onSubmitEditing={handleAddHabit}
               returnKeyType="done"
+              accessibilityLabel={t('settings.addHabit')}
             />
-            <Pressable onPress={handleAddHabit} style={styles.addHabitBtn}>
+            <Pressable onPress={handleAddHabit} style={styles.addHabitBtn} accessibilityRole="button" accessibilityLabel={t('accessibility.addHabit')} hitSlop={4}>
               <Text style={styles.addHabitBtnText}>+</Text>
             </Pressable>
           </View>
@@ -176,12 +178,13 @@ export default function SettingsScreen() {
 
         {/* Language Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>{t('settings.language')}</Text>
+          <Text style={styles.sectionTitle} accessibilityRole="header">{t('settings.language')}</Text>
 
           {!showLangPicker ? (
             <Pressable
               style={styles.langButton}
               onPress={() => setShowLangPicker(true)}
+              accessibilityRole="button"
             >
               <Text style={styles.langCurrent}>
                 {settings.language === null
@@ -200,6 +203,8 @@ export default function SettingsScreen() {
                   settings.language === null && styles.langOptionActive,
                 ]}
                 onPress={() => handleLanguageChange(null)}
+                accessibilityRole="radio"
+                accessibilityState={{ selected: settings.language === null }}
               >
                 <Text
                   style={[
@@ -219,6 +224,8 @@ export default function SettingsScreen() {
                     currentLang === locale.code && styles.langOptionActive,
                   ]}
                   onPress={() => handleLanguageChange(locale.code)}
+                  accessibilityRole="radio"
+                  accessibilityState={{ selected: currentLang === locale.code }}
                 >
                   <Text
                     style={[
@@ -240,7 +247,7 @@ export default function SettingsScreen() {
 
         {/* Color Scheme Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>{t('settings.theme')}</Text>
+          <Text style={styles.sectionTitle} accessibilityRole="header">{t('settings.theme')}</Text>
           <View style={styles.langList}>
             {COLOR_SCHEME_OPTIONS.map((option) => (
               <Pressable
@@ -250,6 +257,8 @@ export default function SettingsScreen() {
                   settings.colorScheme === option.value && styles.langOptionActive,
                 ]}
                 onPress={() => setColorScheme(option.value)}
+                accessibilityRole="radio"
+                accessibilityState={{ selected: settings.colorScheme === option.value }}
               >
                 <Text
                   style={[
@@ -266,14 +275,14 @@ export default function SettingsScreen() {
 
         {/* About */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>{t('settings.about')}</Text>
+          <Text style={styles.sectionTitle} accessibilityRole="header">{t('settings.about')}</Text>
           <Text style={styles.versionText}>
             {t('settings.version', { version: '1.0.0' })}
           </Text>
         </View>
 
         {/* Reset */}
-        <Pressable style={styles.resetBtn} onPress={handleReset}>
+        <Pressable style={styles.resetBtn} onPress={handleReset} accessibilityRole="button">
           <Text style={styles.resetText}>{t('settings.resetData')}</Text>
         </Pressable>
 
@@ -447,9 +456,9 @@ function makeStyles(colors: ColorPalette) {
       paddingVertical: 10,
     },
     addHabitBtn: {
-      width: 28,
-      height: 28,
-      borderRadius: 14,
+      width: 36,
+      height: 36,
+      borderRadius: 18,
       backgroundColor: colors.surfaceLight,
       alignItems: 'center',
       justifyContent: 'center',

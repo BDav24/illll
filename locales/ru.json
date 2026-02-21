@@ -112,6 +112,22 @@
     "studies": "Исследования",
     "recommendation": "Что делать"
   },
+  "accessibility": {
+    "close": "Закрыть",
+    "settings": "Настройки",
+    "deleteHabit": "Удалить {{name}}",
+    "addHabit": "Добавить привычку",
+    "openLanguagePicker": "Открыть выбор языка",
+    "resetAllData": "Сбросить все данные",
+    "scoreLabel": "{{completed}} из {{total}} привычек выполнено",
+    "streakLabel": "Серия {{count}} дней",
+    "streakZeroLabel": "Серии пока нет",
+    "heatmapLabel": "Годовая тепловая карта выполнения привычек",
+    "weeklyChartLabel": "Недельный график выполнения",
+    "breathingStart": "Начать дыхательное упражнение",
+    "breathingRound": "Раунд {{current}} из {{total}}",
+    "openStudy": "Откроется в браузере"
+  },
   "common": {
     "done": "Готово",
     "cancel": "Отмена",

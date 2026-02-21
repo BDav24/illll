@@ -8,6 +8,8 @@ import {
   getDaysInMonth,
 } from 'date-fns';
 
+import { useTranslation } from 'react-i18next';
+
 import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
 import { useDateLocale } from '../lib/dateFnsLocale';
@@ -35,6 +37,7 @@ export function Heatmap({ data, year }: HeatmapProps) {
   const colors = useColors();
   const dateLocale = useDateLocale();
   const styles = useMemo(() => makeStyles(colors), [colors]);
+  const { t } = useTranslation();
 
   const targetYear = year ?? new Date().getFullYear();
   const { width: screenWidth } = useWindowDimensions();
@@ -73,7 +76,7 @@ export function Heatmap({ data, year }: HeatmapProps) {
   }, [data, targetYear, colors.heatmap, dateLocale]);
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} accessible={true} accessibilityRole="image" accessibilityLabel={t('accessibility.heatmapLabel')}>
       {months.map((month, idx) => (
         <View key={idx} style={styles.monthRow}>
           <View style={styles.monthLabelCell}>

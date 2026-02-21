@@ -112,6 +112,22 @@
     "studies": "งานวิจัย",
     "recommendation": "ควรทำอะไร"
   },
+  "accessibility": {
+    "close": "ปิด",
+    "settings": "การตั้งค่า",
+    "deleteHabit": "ลบ {{name}}",
+    "addHabit": "เพิ่มนิสัย",
+    "openLanguagePicker": "เปิดตัวเลือกภาษา",
+    "resetAllData": "รีเซ็ตข้อมูลทั้งหมด",
+    "scoreLabel": "ทำสำเร็จ {{completed}} จาก {{total}} นิสัย",
+    "streakLabel": "ต่อเนื่อง {{count}} วัน",
+    "streakZeroLabel": "ยังไม่มีสถิติต่อเนื่อง",
+    "heatmapLabel": "แผนที่ความร้อนการทำนิสัยรายปี",
+    "weeklyChartLabel": "กราฟการทำสำเร็จรายสัปดาห์",
+    "breathingStart": "เริ่มฝึกหายใจ",
+    "breathingRound": "รอบที่ {{current}} จาก {{total}}",
+    "openStudy": "เปิดในเบราว์เซอร์"
+  },
   "common": {
     "done": "เสร็จ",
     "cancel": "ยกเลิก",

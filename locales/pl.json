@@ -112,6 +112,22 @@
     "studies": "Badania",
     "recommendation": "Co robić"
   },
+  "accessibility": {
+    "close": "Zamknij",
+    "settings": "Ustawienia",
+    "deleteHabit": "Usuń {{name}}",
+    "addHabit": "Dodaj nawyk",
+    "openLanguagePicker": "Otwórz wybór języka",
+    "resetAllData": "Zresetuj wszystkie dane",
+    "scoreLabel": "{{completed}} z {{total}} nawyków ukończonych",
+    "streakLabel": "{{count}} dni z rzędu",
+    "streakZeroLabel": "Brak serii",
+    "heatmapLabel": "Roczna mapa cieplna realizacji nawyków",
+    "weeklyChartLabel": "Tygodniowy wykres realizacji",
+    "breathingStart": "Rozpocznij ćwiczenie oddechowe",
+    "breathingRound": "Runda {{current}} z {{total}}",
+    "openStudy": "Otwiera się w przeglądarce"
+  },
   "common": {
     "done": "Gotowe",
     "cancel": "Anuluj",

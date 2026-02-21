@@ -112,6 +112,22 @@
     "studies": "Onderzoeken",
     "recommendation": "Wat te doen"
   },
+  "accessibility": {
+    "close": "Sluiten",
+    "settings": "Instellingen",
+    "deleteHabit": "{{name}} verwijderen",
+    "addHabit": "Gewoonte toevoegen",
+    "openLanguagePicker": "Taalkeuze openen",
+    "resetAllData": "Alle gegevens resetten",
+    "scoreLabel": "{{completed}} van {{total}} gewoontes voltooid",
+    "streakLabel": "{{count}} dagen op rij",
+    "streakZeroLabel": "Nog geen reeks",
+    "heatmapLabel": "Jaarlijkse heatmap van gewoontes",
+    "weeklyChartLabel": "Wekelijkse voltooiingsgrafiek",
+    "breathingStart": "Ademhalingsoefening starten",
+    "breathingRound": "Ronde {{current}} van {{total}}",
+    "openStudy": "Opent in browser"
+  },
   "common": {
     "done": "Klaar",
     "cancel": "Annuleren",

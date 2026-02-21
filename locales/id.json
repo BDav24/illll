@@ -112,6 +112,22 @@
     "studies": "Studi",
     "recommendation": "Apa yang harus dilakukan"
   },
+  "accessibility": {
+    "close": "Tutup",
+    "settings": "Pengaturan",
+    "deleteHabit": "Hapus {{name}}",
+    "addHabit": "Tambah kebiasaan",
+    "openLanguagePicker": "Buka pemilih bahasa",
+    "resetAllData": "Reset semua data",
+    "scoreLabel": "{{completed}} dari {{total}} kebiasaan selesai",
+    "streakLabel": "Rangkaian {{count}} hari",
+    "streakZeroLabel": "Belum ada rangkaian",
+    "heatmapLabel": "Peta panas penyelesaian kebiasaan tahunan",
+    "weeklyChartLabel": "Grafik penyelesaian mingguan",
+    "breathingStart": "Mulai latihan pernapasan",
+    "breathingRound": "Putaran {{current}} dari {{total}}",
+    "openStudy": "Dibuka di browser"
+  },
   "common": {
     "done": "Selesai",
     "cancel": "Batal",

@@ -180,14 +180,14 @@ export function BreathingTimer({ onComplete }: BreathingTimerProps) {
 
   return (
     <View style={styles.container}>
-      <Pressable onPress={handleStart} style={styles.pressArea}>
-        <Animated.View style={[styles.circle, animatedCircleStyle]} />
-        <View style={styles.centerContent}>
+      <Pressable onPress={handleStart} style={styles.pressArea} accessibilityRole="button" accessibilityLabel={isRunning ? getPhaseLabel() : t('accessibility.breathingStart')} accessibilityState={{ disabled: isRunning }}>
+        <Animated.View style={[styles.circle, animatedCircleStyle]} importantForAccessibility="no" />
+        <View style={styles.centerContent} accessibilityLiveRegion="assertive">
           {isRunning ? (
             <>
               <Text style={styles.countdown}>{countdown}</Text>
               <Text style={styles.phaseLabel}>{getPhaseLabel()}</Text>
-              <Text style={styles.roundLabel}>
+              <Text style={styles.roundLabel} accessibilityLabel={t('accessibility.breathingRound', { current: currentRound + 1, total: TOTAL_ROUNDS })}>
                 {currentRound + 1} / {TOTAL_ROUNDS}
               </Text>
             </>

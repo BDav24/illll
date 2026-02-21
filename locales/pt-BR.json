@@ -112,6 +112,22 @@
     "studies": "Estudos",
     "recommendation": "O que fazer"
   },
+  "accessibility": {
+    "close": "Fechar",
+    "settings": "Configurações",
+    "deleteHabit": "Excluir {{name}}",
+    "addHabit": "Adicionar hábito",
+    "openLanguagePicker": "Abrir seletor de idioma",
+    "resetAllData": "Redefinir todos os dados",
+    "scoreLabel": "{{completed}} de {{total}} hábitos concluídos",
+    "streakLabel": "Sequência de {{count}} dias",
+    "streakZeroLabel": "Nenhuma sequência ainda",
+    "heatmapLabel": "Mapa de calor anual de conclusão de hábitos",
+    "weeklyChartLabel": "Gráfico de conclusão semanal",
+    "breathingStart": "Iniciar exercício de respiração",
+    "breathingRound": "Rodada {{current}} de {{total}}",
+    "openStudy": "Abre no navegador"
+  },
   "common": {
     "done": "Pronto",
     "cancel": "Cancelar",
