@@ -1,12 +1,11 @@
 import React, { useMemo } from 'react';
 import { View, Text, StyleSheet, useWindowDimensions } from 'react-native';
 import {
-  startOfYear,
-  endOfYear,
+  startOfMonth,
+  endOfMonth,
   eachDayOfInterval,
-  getDay,
   format,
-  getWeek,
+  getDaysInMonth,
 } from 'date-fns';
 
 import { Colors } from '../constants/colors';
@@ -17,11 +16,11 @@ interface HeatmapProps {
 }
 
 const GAP = 2;
-const MONTH_LABEL_WIDTH = 22;
-const PARENT_HORIZONTAL_PADDING = 40; // 20px each side in progress screen
+const MONTH_LABEL_WIDTH = 28;
+const PARENT_HORIZONTAL_PADDING = 40;
+const MAX_DAYS = 31;
 
-const MONTH_LABELS = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
-const DAY_LABELS = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+const MONTH_LABELS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 function getHeatmapColor(completed: number, total: number): string {
   if (total === 0 || completed === 0) return Colors.heatmap[0];
@@ -38,113 +37,53 @@ export function Heatmap({ data, year }: HeatmapProps) {
 
   const cellSize = useMemo(() => {
     const gridWidth = screenWidth - PARENT_HORIZONTAL_PADDING - MONTH_LABEL_WIDTH;
-    return Math.floor((gridWidth - 6 * GAP) / 7);
+    return Math.floor((gridWidth - (MAX_DAYS - 1) * GAP) / MAX_DAYS);
   }, [screenWidth]);
 
-  const { rows, monthRows } = useMemo(() => {
-    const start = startOfYear(new Date(targetYear, 0, 1));
-    const end = endOfYear(new Date(targetYear, 0, 1));
-    const days = eachDayOfInterval({ start, end });
+  const months = useMemo(() => {
+    return Array.from({ length: 12 }, (_, monthIdx) => {
+      const monthStart = startOfMonth(new Date(targetYear, monthIdx, 1));
+      const monthEnd = endOfMonth(monthStart);
+      const daysInMonth = getDaysInMonth(monthStart);
+      const days = eachDayOfInterval({ start: monthStart, end: monthEnd });
 
-    // Build rows: each row is a week (Mon-Sun), going top to bottom
-    const weeks: Map<number, { day: number; dateKey: string; color: string }[]> =
-      new Map();
-    const monthFirstRow: Map<number, number> = new Map();
+      const cells = days.map((d) => {
+        const dateKey = format(d, 'yyyy-MM-dd');
+        const entry = data[dateKey];
+        const color = entry
+          ? getHeatmapColor(entry.completed, entry.total)
+          : Colors.heatmap[0];
+        return { dateKey, color };
+      });
 
-    let rowIndex = 0;
-    let prevWeek = -1;
-
-    for (const d of days) {
-      const jsDay = getDay(d);
-      const colIndex = jsDay === 0 ? 6 : jsDay - 1; // Mon=0..Sun=6
-      const weekNum = getWeek(d, { weekStartsOn: 1 });
-      const month = d.getMonth();
-
-      if (weekNum !== prevWeek) {
-        rowIndex = weeks.size;
-        prevWeek = weekNum;
-      }
-
-      if (!weeks.has(rowIndex)) {
-        weeks.set(rowIndex, []);
-      }
-
-      const dateKey = format(d, 'yyyy-MM-dd');
-      const entry = data[dateKey];
-      const color = entry
-        ? getHeatmapColor(entry.completed, entry.total)
-        : Colors.heatmap[0];
-
-      weeks.get(rowIndex)!.push({ day: colIndex, dateKey, color });
-
-      if (!monthFirstRow.has(month)) {
-        monthFirstRow.set(month, rowIndex);
-      }
-    }
-
-    const rowArr: { day: number; color: string }[][] = [];
-    for (let r = 0; r < weeks.size; r++) {
-      rowArr.push(weeks.get(r) ?? []);
-    }
-
-    return { rows: rowArr, monthRows: monthFirstRow };
+      return { label: MONTH_LABELS[monthIdx], cells, daysInMonth };
+    });
   }, [data, targetYear]);
-
-  const totalCell = cellSize + GAP;
 
   return (
     <View style={styles.container}>
-      {/* Day labels header: M T W T F S S */}
-      <View style={styles.headerRow}>
-        <View style={{ width: MONTH_LABEL_WIDTH }} />
-        {DAY_LABELS.map((label, idx) => (
-          <View key={idx} style={{ width: cellSize, marginRight: idx < 6 ? GAP : 0 }}>
-            <Text style={styles.dayLabel}>{label}</Text>
+      {months.map((month, idx) => (
+        <View key={idx} style={styles.monthRow}>
+          <View style={styles.monthLabelCell}>
+            <Text style={styles.monthLabel}>{month.label}</Text>
           </View>
-        ))}
-      </View>
-
-      {/* Grid rows (one per week) */}
-      {rows.map((week, rowIdx) => {
-        // Check if this row is the first row of a month
-        let monthLabel: string | null = null;
-        for (const [month, firstRow] of monthRows) {
-          if (firstRow === rowIdx) {
-            monthLabel = MONTH_LABELS[month];
-            break;
-          }
-        }
-
-        return (
-          <View key={rowIdx} style={styles.weekRow}>
-            {/* Month label */}
-            <View style={styles.monthLabelCell}>
-              {monthLabel && (
-                <Text style={styles.monthLabel}>{monthLabel}</Text>
-              )}
-            </View>
-
-            {/* 7 day cells */}
-            {[0, 1, 2, 3, 4, 5, 6].map((colIdx) => {
-              const cell = week.find((c) => c.day === colIdx);
-              return (
-                <View
-                  key={colIdx}
-                  style={[
-                    styles.cell,
-                    {
-                      width: cellSize,
-                      height: cellSize,
-                      marginRight: colIdx < 6 ? GAP : 0,
-                      backgroundColor: cell ? cell.color : 'transparent',
-                    },
-                  ]}
-                />
-              );
-            })}
+          <View style={styles.cellRow}>
+            {month.cells.map((cell, dayIdx) => (
+              <View
+                key={dayIdx}
+                style={[
+                  styles.cell,
+                  {
+                    width: cellSize,
+                    height: cellSize,
+                    backgroundColor: cell.color,
+                  },
+                ]}
+              />
+            ))}
           </View>
-        );
-      })}
+        </View>
+      ))}
     </View>
   );
 }
@@ -153,16 +92,7 @@ const styles = StyleSheet.create({
   container: {
     gap: GAP,
   },
-  headerRow: {
-    flexDirection: 'row',
-    marginBottom: 2,
-  },
-  dayLabel: {
-    color: Colors.textMuted,
-    fontSize: 10,
-    textAlign: 'center',
-  },
-  weekRow: {
+  monthRow: {
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -172,7 +102,11 @@ const styles = StyleSheet.create({
   },
   monthLabel: {
     color: Colors.textMuted,
-    fontSize: 10,
+    fontSize: 9,
+  },
+  cellRow: {
+    flexDirection: 'row',
+    gap: GAP,
   },
   cell: {
     borderRadius: 2,
