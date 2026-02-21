@@ -16,7 +16,10 @@
     "streak": "{{count}} दिन की लगातार लय",
     "streakZero": "अपनी लय शुरू करें!",
     "allDone": "आज का सब काम हो गया!",
-    "tasksTitle": "मेरे कार्य"
+    "tasksTitle": "मेरे कार्य",
+    "welcomeHint": "आदत पर टैप करें!",
+    "tapToComplete": "पूरा करने के लिए टैप करें",
+    "tapToUndo": "पूर्ववत करने के लिए टैप करें"
   },
   "habits": {
     "breathing": {

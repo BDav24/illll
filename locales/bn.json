@@ -16,7 +16,10 @@
     "streak": "{{count}} দিন ধারাবাহিক",
     "streakZero": "আপনার ধারা শুরু করুন!",
     "allDone": "আজকের সব কাজ শেষ!",
-    "tasksTitle": "আমার কাজ"
+    "tasksTitle": "আমার কাজ",
+    "welcomeHint": "একটি অভ্যাসে ট্যাপ করুন!",
+    "tapToComplete": "সম্পূর্ণ করতে ট্যাপ করুন",
+    "tapToUndo": "পূর্বাবস্থায় ফেরাতে ট্যাপ করুন"
   },
   "habits": {
     "breathing": {

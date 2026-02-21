@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import {
   View,
   Text,
@@ -26,6 +26,14 @@ export default function SettingsScreen() {
   const setLanguage = useStore((s) => s.setLanguage);
 
   const [showLangPicker, setShowLangPicker] = useState(false);
+
+  const handleClose = useCallback(() => {
+    if (router.canGoBack()) {
+      router.back();
+    } else {
+      router.replace('/');
+    }
+  }, [router]);
 
   const handleLanguageChange = async (code: string | null) => {
     setLanguage(code);
@@ -66,7 +74,7 @@ export default function SettingsScreen() {
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.title}>{t('settings.title')}</Text>
-          <Pressable onPress={() => router.back()} style={styles.closeBtn}>
+          <Pressable onPress={handleClose} style={styles.closeBtn}>
             <Text style={styles.closeText}>✕</Text>
           </Pressable>
         </View>

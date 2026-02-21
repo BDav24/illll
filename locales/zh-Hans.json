@@ -16,7 +16,10 @@
     "streak": "连续 {{count}} 天",
     "streakZero": "开始你的连续记录！",
     "allDone": "今天全部完成！",
-    "tasksTitle": "我的任务"
+    "tasksTitle": "我的任务",
+    "welcomeHint": "点击习惯来标记完成！",
+    "tapToComplete": "点击完成",
+    "tapToUndo": "点击撤销"
   },
   "habits": {
     "breathing": {

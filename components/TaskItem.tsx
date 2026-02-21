@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 
 import { Colors } from '../constants/colors';
@@ -11,10 +11,25 @@ interface TaskItemProps {
 }
 
 export function TaskItem({ task, onToggle, onDelete }: TaskItemProps) {
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+
+  const handleDelete = useCallback(() => {
+    if (confirmDelete) {
+      if (timerRef.current) clearTimeout(timerRef.current);
+      onDelete();
+    } else {
+      setConfirmDelete(true);
+      timerRef.current = setTimeout(() => setConfirmDelete(false), 2000);
+    }
+  }, [confirmDelete, onDelete]);
+
+  useEffect(() => () => { if (timerRef.current) clearTimeout(timerRef.current); }, []);
+
   return (
     <View style={styles.container}>
       {/* Checkbox */}
-      <Pressable onPress={onToggle} hitSlop={6} style={styles.checkboxHit}>
+      <Pressable onPress={onToggle} style={({ pressed }) => [styles.checkboxHit, pressed && { opacity: 0.5 }]}>
         <View
           style={[
             styles.checkbox,
@@ -34,8 +49,8 @@ export function TaskItem({ task, onToggle, onDelete }: TaskItemProps) {
       </Text>
 
       {/* Delete button */}
-      <Pressable onPress={onDelete} hitSlop={8} style={styles.deleteButton}>
-        <Text style={styles.deleteIcon}>✕</Text>
+      <Pressable onPress={handleDelete} style={({ pressed }) => [styles.deleteButton, pressed && { opacity: 0.5 }]}>
+        <Text style={[styles.deleteIcon, confirmDelete && { color: Colors.danger }]}>✕</Text>
       </Pressable>
     </View>
   );
@@ -50,7 +65,10 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   checkboxHit: {
-    padding: 2,
+    minWidth: 44,
+    minHeight: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   checkbox: {
     width: 22,
@@ -81,8 +99,8 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
   deleteButton: {
-    width: 24,
-    height: 24,
+    width: 44,
+    height: 44,
     borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',

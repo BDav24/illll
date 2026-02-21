@@ -38,6 +38,7 @@ export function BreathingTimer({ onComplete }: BreathingTimerProps) {
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const phaseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const roundRef = useRef(0);
+  const startPhaseRef = useRef<(phase: Phase, round: number) => void>(() => {});
 
   const clearTimers = useCallback(() => {
     if (timerRef.current) {
@@ -134,11 +135,13 @@ export function BreathingTimer({ onComplete }: BreathingTimerProps) {
             return;
         }
 
-        startPhase(nextPhase, nextRound);
+        startPhaseRef.current(nextPhase, nextRound);
       }, PHASE_DURATION);
     },
     [scale, opacity, onComplete],
   );
+
+  startPhaseRef.current = startPhase;
 
   const handleStart = useCallback(() => {
     if (isRunning) return;

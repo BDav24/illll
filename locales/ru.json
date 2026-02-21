@@ -16,7 +16,10 @@
     "streak": "{{count}} дней подряд",
     "streakZero": "Начните свою серию!",
     "allDone": "На сегодня всё сделано!",
-    "tasksTitle": "Мои задачи"
+    "tasksTitle": "Мои задачи",
+    "welcomeHint": "Нажмите на привычку, чтобы отметить!",
+    "tapToComplete": "Нажмите чтобы отметить",
+    "tapToUndo": "Нажмите чтобы отменить"
   },
   "habits": {
     "breathing": {

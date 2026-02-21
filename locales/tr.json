@@ -16,7 +16,10 @@
     "streak": "{{count}} gün üst üste",
     "streakZero": "Serini başlat!",
     "allDone": "Bugünlük her şey tamam!",
-    "tasksTitle": "Görevlerim"
+    "tasksTitle": "Görevlerim",
+    "welcomeHint": "Bir alışkanlığa dokun ve tamamla!",
+    "tapToComplete": "Tamamlamak için dokun",
+    "tapToUndo": "Geri almak için dokun"
   },
   "habits": {
     "breathing": {
