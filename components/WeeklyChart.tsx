@@ -104,7 +104,7 @@ export function WeeklyChart({ data }: WeeklyChartProps) {
             key={i}
             style={[styles.labelCell, { width: svgWidth / displayData.length }]}
           >
-            <Text style={styles.scoreLabel}>{pt.score}</Text>
+            <Text style={styles.scoreLabel}>{Math.round(pt.score * 100)}%</Text>
           </View>
         ))}
       </View>
