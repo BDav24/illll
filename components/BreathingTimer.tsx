@@ -12,6 +12,7 @@ import Animated, {
 import { useTranslation } from 'react-i18next';
 
 import { Colors } from '../constants/colors';
+import { Fonts } from '../constants/fonts';
 
 interface BreathingTimerProps {
   onComplete: (rounds: number) => void;
@@ -223,17 +224,17 @@ const styles = StyleSheet.create({
   countdown: {
     color: Colors.text,
     fontSize: 40,
-    fontWeight: '700',
+    fontFamily: Fonts.bold,
   },
   phaseLabel: {
     color: Colors.text,
     fontSize: 16,
-    fontWeight: '600',
+    fontFamily: Fonts.semiBold,
   },
   roundLabel: {
     color: Colors.text,
     fontSize: 12,
-    fontWeight: '400',
+    fontFamily: Fonts.regular,
     opacity: 0.7,
   },
 });

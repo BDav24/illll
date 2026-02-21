@@ -9,6 +9,7 @@ import {
 } from 'date-fns';
 
 import { Colors } from '../constants/colors';
+import { Fonts } from '../constants/fonts';
 
 interface HeatmapProps {
   data: Record<string, { completed: number; total: number }>;
@@ -103,6 +104,7 @@ const styles = StyleSheet.create({
   monthLabel: {
     color: Colors.textMuted,
     fontSize: 9,
+    fontFamily: Fonts.regular,
   },
   cellRow: {
     flexDirection: 'row',

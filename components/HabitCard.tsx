@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import * as Haptics from 'expo-haptics';
 
 import { Colors } from '../constants/colors';
+import { Fonts } from '../constants/fonts';
 import { HABIT_MAP } from '../constants/habits';
 import type { HabitId } from '../store/useStore';
 
@@ -134,11 +135,12 @@ const styles = StyleSheet.create({
   name: {
     color: Colors.text,
     fontSize: 16,
-    fontWeight: '600',
+    fontFamily: Fonts.semiBold,
   },
   oneLiner: {
     color: Colors.textSecondary,
     fontSize: 13,
+    fontFamily: Fonts.regular,
   },
   textCompleted: {
     opacity: 0.6,
@@ -155,7 +157,7 @@ const styles = StyleSheet.create({
   infoText: {
     color: Colors.textMuted,
     fontSize: 16,
-    fontWeight: '700',
+    fontFamily: Fonts.bold,
   },
   checkbox: {
     width: 28,
@@ -172,6 +174,6 @@ const styles = StyleSheet.create({
   checkmark: {
     color: Colors.bg,
     fontSize: 14,
-    fontWeight: '800',
+    fontFamily: Fonts.bold,
   },
 });

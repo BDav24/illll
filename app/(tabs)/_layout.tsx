@@ -2,6 +2,7 @@ import { Tabs } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { Text, StyleSheet } from 'react-native';
 import { Colors } from '../../constants/colors';
+import { Fonts } from '../../constants/fonts';
 
 export default function TabLayout() {
   const { t } = useTranslation();
@@ -51,6 +52,6 @@ const styles = StyleSheet.create({
   },
   tabLabel: {
     fontSize: 12,
-    fontWeight: '600',
+    fontFamily: Fonts.semiBold,
   },
 });

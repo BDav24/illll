@@ -4,6 +4,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
 import { Colors } from '../../constants/colors';
+import { Fonts } from '../../constants/fonts';
 import { HABIT_MAP } from '../../constants/habits';
 import { ARTICLES } from '../../constants/articles';
 import type { HabitId } from '../../store/useStore';
@@ -118,6 +119,7 @@ const styles = StyleSheet.create({
   },
   backText: {
     fontSize: 18,
+    fontFamily: Fonts.regular,
     color: Colors.text,
   },
   hero: {
@@ -130,7 +132,7 @@ const styles = StyleSheet.create({
   },
   heroTitle: {
     fontSize: 26,
-    fontWeight: '700',
+    fontFamily: Fonts.bold,
     color: Colors.text,
     textAlign: 'center',
   },
@@ -144,7 +146,7 @@ const styles = StyleSheet.create({
   },
   cardLabel: {
     fontSize: 12,
-    fontWeight: '700',
+    fontFamily: Fonts.bold,
     color: Colors.textMuted,
     textTransform: 'uppercase',
     letterSpacing: 1,
@@ -152,6 +154,7 @@ const styles = StyleSheet.create({
   },
   tldrText: {
     fontSize: 16,
+    fontFamily: Fonts.regular,
     color: Colors.text,
     lineHeight: 24,
   },
@@ -160,6 +163,7 @@ const styles = StyleSheet.create({
   },
   bodyText: {
     fontSize: 15,
+    fontFamily: Fonts.regular,
     color: Colors.textSecondary,
     lineHeight: 24,
   },
@@ -168,7 +172,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: '600',
+    fontFamily: Fonts.semiBold,
     color: Colors.text,
     marginBottom: 12,
   },
@@ -180,12 +184,13 @@ const styles = StyleSheet.create({
   },
   studyAuthors: {
     fontSize: 13,
-    fontWeight: '600',
+    fontFamily: Fonts.semiBold,
     color: Colors.textSecondary,
     marginBottom: 4,
   },
   studyTitle: {
     fontSize: 14,
+    fontFamily: Fonts.regular,
     color: Colors.text,
     fontStyle: 'italic',
     marginBottom: 4,
@@ -193,11 +198,13 @@ const styles = StyleSheet.create({
   },
   studyJournal: {
     fontSize: 12,
+    fontFamily: Fonts.regular,
     color: Colors.textMuted,
     marginBottom: 4,
   },
   studyDoi: {
     fontSize: 12,
+    fontFamily: Fonts.regular,
     color: Colors.accent,
   },
   recoCard: {
@@ -205,12 +212,14 @@ const styles = StyleSheet.create({
   },
   recoText: {
     fontSize: 15,
+    fontFamily: Fonts.regular,
     color: Colors.text,
     lineHeight: 24,
   },
   errorText: {
     color: Colors.text,
     fontSize: 16,
+    fontFamily: Fonts.regular,
     textAlign: 'center',
     marginTop: 100,
   },

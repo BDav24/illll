@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Colors } from '../constants/colors';
+import { Fonts } from '../constants/fonts';
 
 interface StreakBadgeProps {
   count: number;
@@ -43,11 +44,12 @@ const styles = StyleSheet.create({
   count: {
     color: Colors.text,
     fontSize: 16,
-    fontWeight: '700',
+    fontFamily: Fonts.bold,
   },
   text: {
     color: Colors.textSecondary,
     fontSize: 14,
+    fontFamily: Fonts.regular,
   },
   dimmed: {
     opacity: 0.4,

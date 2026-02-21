@@ -13,6 +13,7 @@ import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
 import { format } from 'date-fns';
 
 import { Colors } from '../../constants/colors';
+import { Fonts } from '../../constants/fonts';
 import { HABIT_MAP } from '../../constants/habits';
 import {
   useStore,
@@ -272,11 +273,12 @@ const styles = StyleSheet.create({
   },
   greeting: {
     fontSize: 28,
-    fontWeight: '700',
+    fontFamily: Fonts.bold,
     color: Colors.text,
   },
   date: {
     fontSize: 15,
+    fontFamily: Fonts.regular,
     color: Colors.textSecondary,
     marginTop: 2,
   },
@@ -296,6 +298,7 @@ const styles = StyleSheet.create({
   welcomeHint: {
     color: Colors.textMuted,
     fontSize: 14,
+    fontFamily: Fonts.regular,
     textAlign: 'center',
     marginBottom: 16,
   },
@@ -309,7 +312,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: '600',
+    fontFamily: Fonts.semiBold,
     color: Colors.text,
     marginBottom: 12,
   },
@@ -319,7 +322,7 @@ const styles = StyleSheet.create({
   },
   allDoneText: {
     fontSize: 18,
-    fontWeight: '600',
+    fontFamily: Fonts.semiBold,
     color: Colors.success,
   },
   sheetBg: {
@@ -344,7 +347,7 @@ const styles = StyleSheet.create({
   },
   sheetTitle: {
     fontSize: 24,
-    fontWeight: '700',
+    fontFamily: Fonts.bold,
     color: Colors.text,
   },
   sheetBody: {
@@ -352,6 +355,7 @@ const styles = StyleSheet.create({
   },
   sheetOneLiner: {
     fontSize: 16,
+    fontFamily: Fonts.regular,
     color: Colors.textSecondary,
     lineHeight: 24,
   },
@@ -365,7 +369,7 @@ const styles = StyleSheet.create({
   sheetActionText: {
     color: Colors.text,
     fontSize: 16,
-    fontWeight: '600',
+    fontFamily: Fonts.semiBold,
   },
   whyBtn: {
     marginTop: 20,
@@ -375,6 +379,6 @@ const styles = StyleSheet.create({
   whyBtnText: {
     color: Colors.accent,
     fontSize: 15,
-    fontWeight: '500',
+    fontFamily: Fonts.medium,
   },
 });

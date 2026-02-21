@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import * as Haptics from 'expo-haptics';
 import { Colors } from '../constants/colors';
+import { Fonts } from '../constants/fonts';
 
 interface CustomHabitCardProps {
   text: string;
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
     flex: 1,
     color: Colors.text,
     fontSize: 16,
-    fontWeight: '600',
+    fontFamily: Fonts.semiBold,
   },
   textCompleted: {
     opacity: 0.6,
@@ -86,6 +87,6 @@ const styles = StyleSheet.create({
   checkmark: {
     color: Colors.bg,
     fontSize: 14,
-    fontWeight: '800',
+    fontFamily: Fonts.bold,
   },
 });

@@ -9,6 +9,7 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import { Colors } from '../constants/colors';
+import { Fonts } from '../constants/fonts';
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
@@ -95,6 +96,6 @@ const styles = StyleSheet.create({
   labelText: {
     color: Colors.text,
     fontSize: 16,
-    fontWeight: '700',
+    fontFamily: Fonts.bold,
   },
 });

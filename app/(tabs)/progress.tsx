@@ -11,6 +11,7 @@ import {
 } from 'date-fns';
 
 import { Colors } from '../../constants/colors';
+import { Fonts } from '../../constants/fonts';
 import {
   useStore,
   getVisibleHabits,
@@ -148,7 +149,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    fontWeight: '700',
+    fontFamily: Fonts.bold,
     color: Colors.text,
     marginBottom: 20,
   },
@@ -166,16 +167,18 @@ const styles = StyleSheet.create({
   },
   streakNumber: {
     fontSize: 40,
-    fontWeight: '800',
+    fontFamily: Fonts.bold,
     color: Colors.accent,
   },
   streakLabel: {
     fontSize: 13,
+    fontFamily: Fonts.regular,
     color: Colors.textSecondary,
     marginTop: 4,
   },
   streakUnit: {
     fontSize: 12,
+    fontFamily: Fonts.regular,
     color: Colors.textMuted,
     marginTop: 2,
   },
@@ -190,12 +193,13 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: '600',
+    fontFamily: Fonts.semiBold,
     color: Colors.text,
     marginBottom: 12,
   },
   sectionSubtitle: {
     fontSize: 13,
+    fontFamily: Fonts.regular,
     color: Colors.textSecondary,
   },
 });

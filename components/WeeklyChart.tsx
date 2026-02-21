@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import Svg, { Polyline, Circle as SvgCircle } from 'react-native-svg';
 
 import { Colors } from '../constants/colors';
+import { Fonts } from '../constants/fonts';
 
 interface WeeklyChartProps {
   data: { date: string; score: number }[];
@@ -135,6 +136,7 @@ const styles = StyleSheet.create({
   emptyText: {
     color: Colors.textMuted,
     fontSize: 14,
+    fontFamily: Fonts.regular,
   },
   chartWrapper: {
     alignItems: 'center',
@@ -149,11 +151,12 @@ const styles = StyleSheet.create({
   scoreLabel: {
     color: Colors.textSecondary,
     fontSize: 11,
-    fontWeight: '600',
+    fontFamily: Fonts.semiBold,
   },
   dayLabel: {
     color: Colors.textMuted,
     fontSize: 10,
+    fontFamily: Fonts.regular,
     marginTop: 2,
   },
 });

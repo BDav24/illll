@@ -14,6 +14,7 @@ import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
 import { Colors } from '../constants/colors';
+import { Fonts } from '../constants/fonts';
 import { HABITS } from '../constants/habits';
 import { useStore, type HabitId } from '../store/useStore';
 import { SUPPORTED_LOCALES, loadLanguage } from '../lib/i18n';
@@ -245,7 +246,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    fontWeight: '700',
+    fontFamily: Fonts.bold,
     color: Colors.text,
   },
   closeBtn: {
@@ -258,6 +259,7 @@ const styles = StyleSheet.create({
   },
   closeText: {
     fontSize: 18,
+    fontFamily: Fonts.regular,
     color: Colors.text,
   },
   section: {
@@ -265,7 +267,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 16,
-    fontWeight: '600',
+    fontFamily: Fonts.semiBold,
     color: Colors.textSecondary,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
@@ -286,6 +288,7 @@ const styles = StyleSheet.create({
   habitName: {
     flex: 1,
     fontSize: 16,
+    fontFamily: Fonts.regular,
     color: Colors.text,
   },
   langButton: {
@@ -298,10 +301,12 @@ const styles = StyleSheet.create({
   },
   langCurrent: {
     fontSize: 16,
+    fontFamily: Fonts.regular,
     color: Colors.text,
   },
   langArrow: {
     fontSize: 22,
+    fontFamily: Fonts.regular,
     color: Colors.textMuted,
   },
   langList: {
@@ -322,18 +327,21 @@ const styles = StyleSheet.create({
   },
   langOptionText: {
     fontSize: 15,
+    fontFamily: Fonts.regular,
     color: Colors.text,
   },
   langOptionTextActive: {
     color: Colors.accent,
-    fontWeight: '600',
+    fontFamily: Fonts.semiBold,
   },
   langOptionSub: {
     fontSize: 12,
+    fontFamily: Fonts.regular,
     color: Colors.textMuted,
   },
   versionText: {
     fontSize: 14,
+    fontFamily: Fonts.regular,
     color: Colors.textMuted,
   },
   resetBtn: {
@@ -347,11 +355,12 @@ const styles = StyleSheet.create({
   resetText: {
     fontSize: 15,
     color: Colors.danger,
-    fontWeight: '600',
+    fontFamily: Fonts.semiBold,
   },
   deleteIcon: {
     color: Colors.textMuted,
     fontSize: 16,
+    fontFamily: Fonts.regular,
     padding: 8,
   },
   addHabitRow: {
@@ -367,6 +376,7 @@ const styles = StyleSheet.create({
     flex: 1,
     color: Colors.text,
     fontSize: 15,
+    fontFamily: Fonts.regular,
     paddingVertical: 10,
   },
   addHabitBtn: {
@@ -380,7 +390,7 @@ const styles = StyleSheet.create({
   addHabitBtnText: {
     color: Colors.textSecondary,
     fontSize: 20,
-    fontWeight: '600',
+    fontFamily: Fonts.semiBold,
     lineHeight: 22,
   },
 });
