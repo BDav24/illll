@@ -56,6 +56,8 @@ function makeStyles(colors: ColorPalette) {
       alignItems: 'center',
       backgroundColor: colors.surface,
       borderRadius: 16,
+      borderLeftWidth: 4,
+      borderLeftColor: colors.accent,
       paddingVertical: 14,
       paddingHorizontal: 14,
       gap: 12,

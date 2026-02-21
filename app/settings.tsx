@@ -129,9 +129,14 @@ export default function SettingsScreen() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>{t('settings.myHabits')}</Text>
           {settings.customHabits.map((ch) => (
-            <View key={ch.id} style={styles.habitRow}>
+            <View key={ch.id} style={styles.customHabitRow}>
               <Text style={styles.habitName}>{ch.text}</Text>
-              <Pressable onPress={() => deleteCustomHabit(ch.id)} hitSlop={8}>
+              <Pressable onPress={() => {
+                Alert.alert(t('common.delete'), ch.text, [
+                  { text: t('common.cancel'), style: 'cancel' },
+                  { text: t('common.delete'), style: 'destructive', onPress: () => deleteCustomHabit(ch.id) },
+                ]);
+              }} hitSlop={8}>
                 <Text style={styles.deleteIcon}>✕</Text>
               </Pressable>
             </View>
@@ -316,6 +321,15 @@ function makeStyles(colors: ColorPalette) {
       borderRadius: 12,
       padding: 16,
       marginBottom: 8,
+    },
+    customHabitRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: colors.surface,
+      borderRadius: 10,
+      paddingVertical: 10,
+      paddingHorizontal: 14,
+      marginBottom: 6,
     },
     habitIcon: {
       fontSize: 20,

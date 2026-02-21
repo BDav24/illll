@@ -133,7 +133,7 @@ export default function DailyHub() {
             onPress={() => router.push('/settings')}
             style={styles.settingsBtn}
           >
-            <Text style={styles.settingsIcon}>⚙️</Text>
+            <Text style={styles.settingsIcon}>☰</Text>
           </Pressable>
         </View>
 
