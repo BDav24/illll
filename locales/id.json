@@ -82,7 +82,7 @@
     "currentStreak": "Rangkaian Saat Ini",
     "bestStreak": "Rangkaian Terbaik",
     "days": "hari",
-    "thisWeek": "Minggu Ini",
+    "thisWeek": "7 Hari Terakhir",
     "thisYear": "Tahun Ini",
     "completionRate": "{{rate}}% selesai",
     "noData": "Belum ada data"

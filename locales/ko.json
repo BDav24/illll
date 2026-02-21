@@ -82,7 +82,7 @@
     "currentStreak": "현재 연속 일수",
     "bestStreak": "최고 연속 일수",
     "days": "일",
-    "thisWeek": "이번 주",
+    "thisWeek": "최근 7일",
     "thisYear": "올해",
     "completionRate": "달성률 {{rate}}%",
     "noData": "아직 데이터가 없습니다"

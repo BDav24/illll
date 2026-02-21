@@ -82,7 +82,7 @@
     "currentStreak": "Chuỗi hiện tại",
     "bestStreak": "Chuỗi tốt nhất",
     "days": "ngày",
-    "thisWeek": "Tuần này",
+    "thisWeek": "7 ngày qua",
     "thisYear": "Năm nay",
     "completionRate": "Hoàn thành {{rate}}%",
     "noData": "Chưa có dữ liệu"

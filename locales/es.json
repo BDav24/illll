@@ -82,7 +82,7 @@
     "currentStreak": "Racha actual",
     "bestStreak": "Mejor racha",
     "days": "días",
-    "thisWeek": "Esta semana",
+    "thisWeek": "Últimos 7 días",
     "thisYear": "Este año",
     "completionRate": "{{rate}}% completado",
     "noData": "Aún no hay datos"

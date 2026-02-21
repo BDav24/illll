@@ -82,7 +82,7 @@
     "currentStreak": "Mevcut Seri",
     "bestStreak": "En İyi Seri",
     "days": "gün",
-    "thisWeek": "Bu Hafta",
+    "thisWeek": "Son 7 Gün",
     "thisYear": "Bu Yıl",
     "completionRate": "%{{rate}} tamamlandı",
     "noData": "Henüz veri yok"

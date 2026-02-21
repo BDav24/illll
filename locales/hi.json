@@ -82,7 +82,7 @@
     "currentStreak": "वर्तमान लय",
     "bestStreak": "सर्वश्रेष्ठ लय",
     "days": "दिन",
-    "thisWeek": "इस सप्ताह",
+    "thisWeek": "पिछले 7 दिन",
     "thisYear": "इस वर्ष",
     "completionRate": "{{rate}}% पूर्ण",
     "noData": "अभी कोई डेटा नहीं"

@@ -82,7 +82,7 @@
     "currentStreak": "Huidige reeks",
     "bestStreak": "Beste reeks",
     "days": "dagen",
-    "thisWeek": "Deze week",
+    "thisWeek": "Laatste 7 dagen",
     "thisYear": "Dit jaar",
     "completionRate": "{{rate}}% voltooid",
     "noData": "Nog geen gegevens"

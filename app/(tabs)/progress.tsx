@@ -4,15 +4,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import {
   format,
-  addDays,
+  subDays,
   eachDayOfInterval,
   startOfYear,
   endOfYear,
-  startOfWeek,
 } from 'date-fns';
 
 import { useColors, type ColorPalette } from '../../constants/colors';
-import { useDateLocale } from '../../lib/dateFnsLocale';
 import { Fonts } from '../../constants/fonts';
 import {
   useStore,
@@ -26,7 +24,6 @@ import { WeeklyChart } from '../../components/WeeklyChart';
 export default function ProgressScreen() {
   const { t } = useTranslation();
   const colors = useColors();
-  const dateLocale = useDateLocale();
   const styles = useMemo(() => makeStyles(colors), [colors]);
 
   const days = useStore((s) => s.days);
@@ -72,11 +69,10 @@ export default function ProgressScreen() {
     return result;
   }, [days, visibleHabits, settings.customHabits]);
 
-  // Weekly chart data (current week, locale-aware start day)
+  // Weekly chart data (last 7 days)
   const weeklyData = useMemo(() => {
-    const weekStart = startOfWeek(today, { locale: dateLocale });
     return Array.from({ length: 7 }, (_, i) => {
-      const date = addDays(weekStart, i);
+      const date = subDays(today, 6 - i);
       const key = format(date, 'yyyy-MM-dd');
       const score = getDayScore(days[key], visibleHabits, settings.customHabits);
       return {
@@ -84,7 +80,7 @@ export default function ProgressScreen() {
         score: score.total > 0 ? score.completed / score.total : 0,
       };
     });
-  }, [days, visibleHabits, settings.customHabits, dateLocale]);
+  }, [days, visibleHabits, settings.customHabits]);
 
   // Completion rate this week
   const weeklyRate = useMemo(() => {

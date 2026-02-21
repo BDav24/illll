@@ -82,7 +82,7 @@
     "currentStreak": "現在の連続日数",
     "bestStreak": "最高連続日数",
     "days": "日",
-    "thisWeek": "今週",
+    "thisWeek": "過去7日間",
     "thisYear": "今年",
     "completionRate": "達成率 {{rate}}%",
     "noData": "データはまだありません"

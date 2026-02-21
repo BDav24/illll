@@ -82,7 +82,7 @@
     "currentStreak": "Текущая серия",
     "bestStreak": "Лучшая серия",
     "days": "дней",
-    "thisWeek": "Эта неделя",
+    "thisWeek": "Последние 7 дней",
     "thisYear": "Этот год",
     "completionRate": "{{rate}}% выполнено",
     "noData": "Данных пока нет"

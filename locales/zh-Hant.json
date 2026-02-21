@@ -82,7 +82,7 @@
     "currentStreak": "目前連續天數",
     "bestStreak": "最佳連續天數",
     "days": "天",
-    "thisWeek": "本週",
+    "thisWeek": "近7天",
     "thisYear": "今年",
     "completionRate": "完成率 {{rate}}%",
     "noData": "尚無資料"

@@ -70,7 +70,10 @@ export default function DailyHub() {
         ? t('hub.goodAfternoon')
         : t('hub.goodEvening');
 
-  const dateStr = format(new Date(), 'PPPP', { locale: dateLocale });
+  const rawDate = format(new Date(), 'PPPP', { locale: dateLocale })
+    .replace(/[,\s]*\d{4}[年년]?[,\s]*/g, ' ')
+    .trim();
+  const dateStr = rawDate.charAt(0).toUpperCase() + rawDate.slice(1);
 
   const handleHabitPress = useCallback(
     (id: HabitId) => {

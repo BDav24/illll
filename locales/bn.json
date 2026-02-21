@@ -82,7 +82,7 @@
     "currentStreak": "বর্তমান ধারা",
     "bestStreak": "সেরা ধারা",
     "days": "দিন",
-    "thisWeek": "এই সপ্তাহ",
+    "thisWeek": "গত ৭ দিন",
     "thisYear": "এই বছর",
     "completionRate": "{{rate}}% সম্পন্ন",
     "noData": "এখনো কোনো ডেটা নেই"

@@ -82,7 +82,7 @@
     "currentStreak": "Current Streak",
     "bestStreak": "Best Streak",
     "days": "days",
-    "thisWeek": "This Week",
+    "thisWeek": "Last 7 Days",
     "thisYear": "This Year",
     "completionRate": "{{rate}}% completion",
     "noData": "No data yet"

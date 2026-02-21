@@ -82,7 +82,7 @@
     "currentStreak": "Obecna seria",
     "bestStreak": "Najlepsza seria",
     "days": "dni",
-    "thisWeek": "Ten tydzień",
+    "thisWeek": "Ostatnie 7 dni",
     "thisYear": "Ten rok",
     "completionRate": "{{rate}}% ukończono",
     "noData": "Brak danych"

@@ -82,7 +82,7 @@
     "currentStreak": "السلسلة الحالية",
     "bestStreak": "أفضل سلسلة",
     "days": "أيام",
-    "thisWeek": "هذا الأسبوع",
+    "thisWeek": "آخر 7 أيام",
     "thisYear": "هذا العام",
     "completionRate": "نسبة الإنجاز {{rate}}%",
     "noData": "لا توجد بيانات بعد"

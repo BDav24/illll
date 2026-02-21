@@ -82,7 +82,7 @@
     "currentStreak": "สถิติต่อเนื่องปัจจุบัน",
     "bestStreak": "สถิติต่อเนื่องที่ดีที่สุด",
     "days": "วัน",
-    "thisWeek": "สัปดาห์นี้",
+    "thisWeek": "7 วันที่ผ่านมา",
     "thisYear": "ปีนี้",
     "completionRate": "สำเร็จ {{rate}}%",
     "noData": "ยังไม่มีข้อมูล"
