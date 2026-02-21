@@ -26,8 +26,7 @@ import {
 import { DailyScore } from '../../components/DailyScore';
 import { StreakBadge } from '../../components/StreakBadge';
 import { HabitCard } from '../../components/HabitCard';
-import { TaskInput } from '../../components/TaskInput';
-import { TaskItem } from '../../components/TaskItem';
+import { CustomHabitCard } from '../../components/CustomHabitCard';
 import { BreathingTimer } from '../../components/BreathingTimer';
 
 export default function DailyHub() {
@@ -51,12 +50,10 @@ export default function DailyHub() {
   const settings = useStore((s) => s.settings);
   const today = days[todayKey] ?? emptyDayRecord(todayKey);
   const visibleHabits = useMemo(() => getVisibleHabits(settings), [settings]);
-  const score = useMemo(() => getDayScore(days[todayKey], visibleHabits), [days, todayKey, visibleHabits]);
-  const streak = useMemo(() => getStreak(days, visibleHabits), [days, visibleHabits]);
+  const score = useMemo(() => getDayScore(days[todayKey], visibleHabits, settings.customHabits), [days, todayKey, visibleHabits, settings.customHabits]);
+  const streak = useMemo(() => getStreak(days, visibleHabits, settings.customHabits), [days, visibleHabits, settings.customHabits]);
   const toggleHabit = useStore((s) => s.toggleHabit);
-  const addTask = useStore((s) => s.addTask);
-  const toggleTask = useStore((s) => s.toggleTask);
-  const deleteTask = useStore((s) => s.deleteTask);
+  const toggleCustomHabit = useStore((s) => s.toggleCustomHabit);
   const updateHabitData = useStore((s) => s.updateHabitData);
 
   const hour = new Date().getHours();
@@ -110,7 +107,6 @@ export default function DailyHub() {
   const snapPoints = useMemo(() => ['50%', '75%'], []);
 
   const habitEntries = today.habits;
-  const tasks = today.tasks;
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -166,19 +162,20 @@ export default function DailyHub() {
           })}
         </View>
 
-        {/* Custom Tasks */}
-        <View style={styles.tasksSection}>
-          <Text style={styles.sectionTitle}>{t('hub.tasksTitle')}</Text>
-          {tasks.map((task) => (
-            <TaskItem
-              key={task.id}
-              task={task}
-              onToggle={() => toggleTask(task.id)}
-              onDelete={() => deleteTask(task.id)}
-            />
-          ))}
-          <TaskInput onSubmit={addTask} />
-        </View>
+        {/* Custom Habits */}
+        {settings.customHabits.length > 0 && (
+          <View style={styles.customHabitsSection}>
+            <Text style={styles.sectionTitle}>{t('hub.myHabits')}</Text>
+            {settings.customHabits.map((ch) => (
+              <CustomHabitCard
+                key={ch.id}
+                text={ch.text}
+                completed={today.habits[ch.id]?.completed ?? false}
+                onPress={() => toggleCustomHabit(ch.id)}
+              />
+            ))}
+          </View>
+        )}
 
         {/* All done message */}
         {score.total > 0 && score.completed === score.total && (
@@ -310,7 +307,8 @@ const styles = StyleSheet.create({
     gap: 12,
     marginBottom: 28,
   },
-  tasksSection: {
+  customHabitsSection: {
+    gap: 12,
     marginBottom: 16,
   },
   sectionTitle: {
