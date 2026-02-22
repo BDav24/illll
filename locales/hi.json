@@ -85,7 +85,9 @@
     "thisWeek": "पिछले 7 दिन",
     "thisYear": "इस वर्ष",
     "completionRate": "{{rate}}% पूर्ण",
-    "noData": "अभी कोई डेटा नहीं"
+    "noData": "अभी कोई डेटा नहीं",
+    "currentStreakAccessibility": "वर्तमान लय: {{count}} दिन",
+    "bestStreakAccessibility": "सर्वश्रेष्ठ लय: {{count}} दिन"
   },
   "settings": {
     "title": "सेटिंग्स",
@@ -132,7 +134,15 @@
     "weeklyChartLabel": "साप्ताहिक पूर्णता चार्ट",
     "breathingStart": "श्वास अभ्यास शुरू करें",
     "breathingRound": "राउंड {{current}} / {{total}}",
-    "openStudy": "ब्राउज़र में खुलता है"
+    "openStudy": "ब्राउज़र में खुलता है",
+    "decreaseHour": "घंटा घटाएं",
+    "increaseHour": "घंटा बढ़ाएं",
+    "decreaseMinute": "मिनट घटाएं",
+    "increaseMinute": "मिनट बढ़ाएं",
+    "decreaseHours": "घंटे घटाएं",
+    "increaseHours": "घंटे बढ़ाएं",
+    "decreaseMinutes": "मिनट घटाएं",
+    "increaseMinutes": "मिनट बढ़ाएं"
   },
   "notifications": {
     "title": "रिमाइंडर",

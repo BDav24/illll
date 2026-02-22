@@ -85,7 +85,9 @@
     "thisWeek": "최근 7일",
     "thisYear": "올해",
     "completionRate": "달성률 {{rate}}%",
-    "noData": "아직 데이터가 없습니다"
+    "noData": "아직 데이터가 없습니다",
+    "currentStreakAccessibility": "현재 연속 기록: {{count}}일",
+    "bestStreakAccessibility": "최고 연속 기록: {{count}}일"
   },
   "settings": {
     "title": "설정",
@@ -132,7 +134,15 @@
     "weeklyChartLabel": "주간 달성 차트",
     "breathingStart": "호흡 운동 시작",
     "breathingRound": "라운드 {{current}}/{{total}}",
-    "openStudy": "브라우저에서 열기"
+    "openStudy": "브라우저에서 열기",
+    "decreaseHour": "시간 줄이기",
+    "increaseHour": "시간 늘리기",
+    "decreaseMinute": "분 줄이기",
+    "increaseMinute": "분 늘리기",
+    "decreaseHours": "시간 줄이기",
+    "increaseHours": "시간 늘리기",
+    "decreaseMinutes": "분 줄이기",
+    "increaseMinutes": "분 늘리기"
   },
   "notifications": {
     "title": "알림",

@@ -103,14 +103,14 @@ export default function ProgressScreen() {
 
         {/* Streak Cards */}
         <View style={styles.streakRow}>
-          <View style={styles.streakCard} accessible={true} accessibilityLabel={`${streak} ${t('progress.currentStreak')} ${t('progress.days')}`}>
+          <View style={styles.streakCard} accessible={true} accessibilityLabel={t('progress.currentStreakAccessibility', { count: streak })}>
             <Text style={styles.streakNumber}>{streak}</Text>
             <Text style={styles.streakLabel}>
               {t('progress.currentStreak')}
             </Text>
             <Text style={styles.streakUnit}>{t('progress.days')}</Text>
           </View>
-          <View style={styles.streakCard} accessible={true} accessibilityLabel={`${bestStreak} ${t('progress.bestStreak')} ${t('progress.days')}`}>
+          <View style={styles.streakCard} accessible={true} accessibilityLabel={t('progress.bestStreakAccessibility', { count: bestStreak })}>
             <Text style={styles.streakNumber}>{bestStreak}</Text>
             <Text style={styles.streakLabel}>{t('progress.bestStreak')}</Text>
             <Text style={styles.streakUnit}>{t('progress.days')}</Text>

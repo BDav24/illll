@@ -85,7 +85,9 @@
     "thisWeek": "Ultimi 7 giorni",
     "thisYear": "Quest'anno",
     "completionRate": "{{rate}}% completato",
-    "noData": "Nessun dato ancora"
+    "noData": "Nessun dato ancora",
+    "currentStreakAccessibility": "Serie attuale: {{count}} giorni",
+    "bestStreakAccessibility": "Miglior serie: {{count}} giorni"
   },
   "settings": {
     "title": "Impostazioni",
@@ -132,7 +134,15 @@
     "weeklyChartLabel": "Grafico di completamento settimanale",
     "breathingStart": "Inizia esercizio di respirazione",
     "breathingRound": "Round {{current}} di {{total}}",
-    "openStudy": "Si apre nel browser"
+    "openStudy": "Si apre nel browser",
+    "decreaseHour": "Diminuisci ora",
+    "increaseHour": "Aumenta ora",
+    "decreaseMinute": "Diminuisci minuto",
+    "increaseMinute": "Aumenta minuto",
+    "decreaseHours": "Diminuisci ore",
+    "increaseHours": "Aumenta ore",
+    "decreaseMinutes": "Diminuisci minuti",
+    "increaseMinutes": "Aumenta minuti"
   },
   "notifications": {
     "title": "Promemoria",

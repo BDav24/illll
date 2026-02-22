@@ -71,11 +71,6 @@
       "criterion": "Tulis 3 hal spesifik"
     }
   },
-  "criteria": {
-    "myGoal": "Tujuan saya",
-    "placeholder": "Tetapkan tujuan Anda...",
-    "reset": "Atur ulang ke default"
-  },
   "breathing": {
     "inhale": "Tarik napas",
     "hold": "Tahan",
@@ -90,7 +85,9 @@
     "thisWeek": "7 Hari Terakhir",
     "thisYear": "Tahun Ini",
     "completionRate": "{{rate}}% selesai",
-    "noData": "Belum ada data"
+    "noData": "Belum ada data",
+    "currentStreakAccessibility": "Rangkaian saat ini: {{count}} hari",
+    "bestStreakAccessibility": "Rangkaian terbaik: {{count}} hari"
   },
   "settings": {
     "title": "Pengaturan",
@@ -112,6 +109,11 @@
     "reminders": "Pengingat",
     "manageReminders": "Kelola pengingat harian Anda"
   },
+  "criteria": {
+    "myGoal": "Tujuan saya",
+    "placeholder": "Tetapkan tujuan Anda...",
+    "reset": "Atur ulang ke default"
+  },
   "article": {
     "whyTitle": "Mengapa {{habit}}?",
     "tldr": "Ringkasan",
@@ -132,7 +134,15 @@
     "weeklyChartLabel": "Grafik penyelesaian mingguan",
     "breathingStart": "Mulai latihan pernapasan",
     "breathingRound": "Putaran {{current}} dari {{total}}",
-    "openStudy": "Dibuka di browser"
+    "openStudy": "Dibuka di browser",
+    "decreaseHour": "Kurangi jam",
+    "increaseHour": "Tambah jam",
+    "decreaseMinute": "Kurangi menit",
+    "increaseMinute": "Tambah menit",
+    "decreaseHours": "Kurangi jam",
+    "increaseHours": "Tambah jam",
+    "decreaseMinutes": "Kurangi menit",
+    "increaseMinutes": "Tambah menit"
   },
   "notifications": {
     "title": "Pengingat",

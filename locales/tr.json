@@ -71,11 +71,6 @@
       "criterion": "3 somut şey yaz"
     }
   },
-  "criteria": {
-    "myGoal": "Hedefim",
-    "placeholder": "Hedefinizi belirleyin...",
-    "reset": "Varsayılana sıfırla"
-  },
   "breathing": {
     "inhale": "Nefes al",
     "hold": "Tut",
@@ -90,7 +85,9 @@
     "thisWeek": "Son 7 Gün",
     "thisYear": "Bu Yıl",
     "completionRate": "%{{rate}} tamamlandı",
-    "noData": "Henüz veri yok"
+    "noData": "Henüz veri yok",
+    "currentStreakAccessibility": "Mevcut seri: {{count}} gün",
+    "bestStreakAccessibility": "En iyi seri: {{count}} gün"
   },
   "settings": {
     "title": "Ayarlar",
@@ -112,6 +109,11 @@
     "reminders": "Hatırlatıcılar",
     "manageReminders": "Günlük hatırlatıcılarınızı yönetin"
   },
+  "criteria": {
+    "myGoal": "Hedefim",
+    "placeholder": "Hedefinizi belirleyin...",
+    "reset": "Varsayılana sıfırla"
+  },
   "article": {
     "whyTitle": "Neden {{habit}}?",
     "tldr": "Özet",
@@ -132,7 +134,15 @@
     "weeklyChartLabel": "Haftalık tamamlama grafiği",
     "breathingStart": "Nefes egzersizine başla",
     "breathingRound": "Tur {{current}} / {{total}}",
-    "openStudy": "Tarayıcıda açılır"
+    "openStudy": "Tarayıcıda açılır",
+    "decreaseHour": "Saati azalt",
+    "increaseHour": "Saati artır",
+    "decreaseMinute": "Dakikayı azalt",
+    "increaseMinute": "Dakikayı artır",
+    "decreaseHours": "Saatleri azalt",
+    "increaseHours": "Saatleri artır",
+    "decreaseMinutes": "Dakikaları azalt",
+    "increaseMinutes": "Dakikaları artır"
   },
   "notifications": {
     "title": "Hatırlatıcılar",

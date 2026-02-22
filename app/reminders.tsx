@@ -14,6 +14,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
+import i18n from '../lib/i18n';
 
 import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
@@ -45,8 +46,8 @@ function confirmAlert(
     }
   } else {
     Alert.alert(title, message, [
-      { text: buttons?.cancel ?? 'Cancel', style: 'cancel' },
-      { text: buttons?.confirm ?? 'OK', style: 'destructive', onPress: onConfirm },
+      { text: buttons?.cancel ?? i18n.t('common.cancel'), style: 'cancel' },
+      { text: buttons?.confirm ?? i18n.t('common.ok'), style: 'destructive', onPress: onConfirm },
     ]);
   }
 }
@@ -198,7 +199,7 @@ function ReminderEditor({ notification, onSave, onCancel, colors, styles }: Edit
               <Pressable
                 style={styles.stepperBtn}
                 onPress={() => setHour((h) => (h > 0 ? h - 1 : 23))}
-                accessibilityLabel="Decrease hour"
+                accessibilityLabel={t('accessibility.decreaseHour')}
                 hitSlop={4}
               >
                 <Text style={styles.stepperText}>-</Text>
@@ -207,7 +208,7 @@ function ReminderEditor({ notification, onSave, onCancel, colors, styles }: Edit
               <Pressable
                 style={styles.stepperBtn}
                 onPress={() => setHour((h) => (h < 23 ? h + 1 : 0))}
-                accessibilityLabel="Increase hour"
+                accessibilityLabel={t('accessibility.increaseHour')}
                 hitSlop={4}
               >
                 <Text style={styles.stepperText}>+</Text>
@@ -223,7 +224,7 @@ function ReminderEditor({ notification, onSave, onCancel, colors, styles }: Edit
               <Pressable
                 style={styles.stepperBtn}
                 onPress={() => setMinute((m) => (m > 0 ? m - 5 : 55))}
-                accessibilityLabel="Decrease minute"
+                accessibilityLabel={t('accessibility.decreaseMinute')}
                 hitSlop={4}
               >
                 <Text style={styles.stepperText}>-</Text>
@@ -232,7 +233,7 @@ function ReminderEditor({ notification, onSave, onCancel, colors, styles }: Edit
               <Pressable
                 style={styles.stepperBtn}
                 onPress={() => setMinute((m) => (m < 55 ? m + 5 : 0))}
-                accessibilityLabel="Increase minute"
+                accessibilityLabel={t('accessibility.increaseMinute')}
                 hitSlop={4}
               >
                 <Text style={styles.stepperText}>+</Text>
@@ -248,7 +249,7 @@ function ReminderEditor({ notification, onSave, onCancel, colors, styles }: Edit
               <Pressable
                 style={styles.stepperBtn}
                 onPress={() => setIntervalHours((h) => Math.max(0, h - 1))}
-                accessibilityLabel="Decrease hours"
+                accessibilityLabel={t('accessibility.decreaseHours')}
                 hitSlop={4}
               >
                 <Text style={styles.stepperText}>-</Text>
@@ -257,7 +258,7 @@ function ReminderEditor({ notification, onSave, onCancel, colors, styles }: Edit
               <Pressable
                 style={styles.stepperBtn}
                 onPress={() => setIntervalHours((h) => Math.min(24, h + 1))}
-                accessibilityLabel="Increase hours"
+                accessibilityLabel={t('accessibility.increaseHours')}
                 hitSlop={4}
               >
                 <Text style={styles.stepperText}>+</Text>
@@ -273,7 +274,7 @@ function ReminderEditor({ notification, onSave, onCancel, colors, styles }: Edit
                 onPress={() =>
                   setIntervalMinutes((m) => (m > 0 ? m - 15 : 45))
                 }
-                accessibilityLabel="Decrease minutes"
+                accessibilityLabel={t('accessibility.decreaseMinutes')}
                 hitSlop={4}
               >
                 <Text style={styles.stepperText}>-</Text>
@@ -284,7 +285,7 @@ function ReminderEditor({ notification, onSave, onCancel, colors, styles }: Edit
                 onPress={() =>
                   setIntervalMinutes((m) => (m < 45 ? m + 15 : 0))
                 }
-                accessibilityLabel="Increase minutes"
+                accessibilityLabel={t('accessibility.increaseMinutes')}
                 hitSlop={4}
               >
                 <Text style={styles.stepperText}>+</Text>
@@ -649,7 +650,7 @@ function makeStyles(colors: ColorPalette) {
     },
     cardInfo: {
       flex: 1,
-      marginRight: 12,
+      marginEnd: 12,
     },
     cardTitle: {
       fontSize: 16,

@@ -85,7 +85,9 @@
     "thisWeek": "過去7日間",
     "thisYear": "今年",
     "completionRate": "達成率 {{rate}}%",
-    "noData": "データはまだありません"
+    "noData": "データはまだありません",
+    "currentStreakAccessibility": "現在の連続記録: {{count}}日",
+    "bestStreakAccessibility": "最高の連続記録: {{count}}日"
   },
   "settings": {
     "title": "設定",
@@ -132,7 +134,15 @@
     "weeklyChartLabel": "週間達成チャート",
     "breathingStart": "呼吸エクササイズを開始",
     "breathingRound": "ラウンド{{current}}/{{total}}",
-    "openStudy": "ブラウザで開きます"
+    "openStudy": "ブラウザで開きます",
+    "decreaseHour": "時間を減らす",
+    "increaseHour": "時間を増やす",
+    "decreaseMinute": "分を減らす",
+    "increaseMinute": "分を増やす",
+    "decreaseHours": "時間を減らす",
+    "increaseHours": "時間を増やす",
+    "decreaseMinutes": "分を減らす",
+    "increaseMinutes": "分を増やす"
   },
   "notifications": {
     "title": "リマインダー",

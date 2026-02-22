@@ -13,7 +13,9 @@
     "allDone": "All done for today!",
     "welcomeHint": "Tap a habit to mark it done!",
     "tapToComplete": "Tap to mark as done",
-    "tapToUndo": "Tap to undo"
+    "tapToUndo": "Tap to undo",
+    "streak_one": "{{count}} day streak",
+    "streak_other": "{{count}} day streak"
   },
   "habits": {
     "breathing": {
@@ -85,7 +87,9 @@
     "thisWeek": "Last 7 Days",
     "thisYear": "This Year",
     "completionRate": "{{rate}}% completion",
-    "noData": "No data yet"
+    "noData": "No data yet",
+    "currentStreakAccessibility": "Current streak: {{count}} days",
+    "bestStreakAccessibility": "Best streak: {{count}} days"
   },
   "settings": {
     "title": "Settings",
@@ -132,7 +136,17 @@
     "weeklyChartLabel": "Weekly completion chart",
     "breathingStart": "Start breathing exercise",
     "breathingRound": "Round {{current}} of {{total}}",
-    "openStudy": "Opens in browser"
+    "openStudy": "Opens in browser",
+    "decreaseHour": "Decrease hour",
+    "increaseHour": "Increase hour",
+    "decreaseMinute": "Decrease minute",
+    "increaseMinute": "Increase minute",
+    "decreaseHours": "Decrease hours",
+    "increaseHours": "Increase hours",
+    "decreaseMinutes": "Decrease minutes",
+    "increaseMinutes": "Increase minutes",
+    "streakLabel_one": "{{count}} day streak",
+    "streakLabel_other": "{{count}} day streak"
   },
   "notifications": {
     "title": "Reminders",

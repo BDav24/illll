@@ -13,7 +13,11 @@
     "allDone": "На сегодня всё сделано!",
     "welcomeHint": "Нажмите на привычку, чтобы отметить!",
     "tapToComplete": "Нажмите чтобы отметить",
-    "tapToUndo": "Нажмите чтобы отменить"
+    "tapToUndo": "Нажмите чтобы отменить",
+    "streak_one": "{{count}} день подряд",
+    "streak_few": "{{count}} дня подряд",
+    "streak_many": "{{count}} дней подряд",
+    "streak_other": "{{count}} дней подряд"
   },
   "habits": {
     "breathing": {
@@ -71,11 +75,6 @@
       "criterion": "Написать 3 конкретные вещи"
     }
   },
-  "criteria": {
-    "myGoal": "Моя цель",
-    "placeholder": "Установите свою цель...",
-    "reset": "Сбросить по умолчанию"
-  },
   "breathing": {
     "inhale": "Вдох",
     "hold": "Задержка",
@@ -90,7 +89,9 @@
     "thisWeek": "Последние 7 дней",
     "thisYear": "Этот год",
     "completionRate": "{{rate}}% выполнено",
-    "noData": "Данных пока нет"
+    "noData": "Данных пока нет",
+    "currentStreakAccessibility": "Текущая серия: {{count}} дней",
+    "bestStreakAccessibility": "Лучшая серия: {{count}} дней"
   },
   "settings": {
     "title": "Настройки",
@@ -112,6 +113,11 @@
     "reminders": "Напоминания",
     "manageReminders": "Управляйте ежедневными напоминаниями"
   },
+  "criteria": {
+    "myGoal": "Моя цель",
+    "placeholder": "Установите свою цель...",
+    "reset": "Сбросить по умолчанию"
+  },
   "article": {
     "whyTitle": "Зачем {{habit}}?",
     "tldr": "Кратко",
@@ -132,7 +138,19 @@
     "weeklyChartLabel": "Недельный график выполнения",
     "breathingStart": "Начать дыхательное упражнение",
     "breathingRound": "Раунд {{current}} из {{total}}",
-    "openStudy": "Откроется в браузере"
+    "openStudy": "Откроется в браузере",
+    "decreaseHour": "Уменьшить час",
+    "increaseHour": "Увеличить час",
+    "decreaseMinute": "Уменьшить минуту",
+    "increaseMinute": "Увеличить минуту",
+    "decreaseHours": "Уменьшить часы",
+    "increaseHours": "Увеличить часы",
+    "decreaseMinutes": "Уменьшить минуты",
+    "increaseMinutes": "Увеличить минуты",
+    "streakLabel_one": "Серия {{count}} день",
+    "streakLabel_few": "Серия {{count}} дня",
+    "streakLabel_many": "Серия {{count}} дней",
+    "streakLabel_other": "Серия {{count}} дней"
   },
   "notifications": {
     "title": "Напоминания",

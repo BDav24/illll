@@ -85,7 +85,9 @@
     "thisWeek": "Laatste 7 dagen",
     "thisYear": "Dit jaar",
     "completionRate": "{{rate}}% voltooid",
-    "noData": "Nog geen gegevens"
+    "noData": "Nog geen gegevens",
+    "currentStreakAccessibility": "Huidige reeks: {{count}} dagen",
+    "bestStreakAccessibility": "Beste reeks: {{count}} dagen"
   },
   "settings": {
     "title": "Instellingen",
@@ -132,7 +134,15 @@
     "weeklyChartLabel": "Wekelijkse voltooiingsgrafiek",
     "breathingStart": "Ademhalingsoefening starten",
     "breathingRound": "Ronde {{current}} van {{total}}",
-    "openStudy": "Opent in browser"
+    "openStudy": "Opent in browser",
+    "decreaseHour": "Uur verlagen",
+    "increaseHour": "Uur verhogen",
+    "decreaseMinute": "Minuut verlagen",
+    "increaseMinute": "Minuut verhogen",
+    "decreaseHours": "Uren verlagen",
+    "increaseHours": "Uren verhogen",
+    "decreaseMinutes": "Minuten verlagen",
+    "increaseMinutes": "Minuten verhogen"
   },
   "notifications": {
     "title": "Herinneringen",

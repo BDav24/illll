@@ -13,7 +13,13 @@
     "allDone": "أنجزت كل شيء اليوم!",
     "welcomeHint": "اضغط على عادة لتحديدها!",
     "tapToComplete": "اضغط للتحديد",
-    "tapToUndo": "اضغط للتراجع"
+    "tapToUndo": "اضغط للتراجع",
+    "streak_zero": "بدون أيام متتالية",
+    "streak_one": "يوم واحد متتالي",
+    "streak_two": "يومان متتاليان",
+    "streak_few": "{{count}} أيام متتالية",
+    "streak_many": "{{count}} يوماً متتالياً",
+    "streak_other": "{{count}} يوم متتالي"
   },
   "habits": {
     "breathing": {
@@ -85,7 +91,9 @@
     "thisWeek": "آخر 7 أيام",
     "thisYear": "هذا العام",
     "completionRate": "نسبة الإنجاز {{rate}}%",
-    "noData": "لا توجد بيانات بعد"
+    "noData": "لا توجد بيانات بعد",
+    "currentStreakAccessibility": "السلسلة الحالية: {{count}} أيام",
+    "bestStreakAccessibility": "أفضل سلسلة: {{count}} أيام"
   },
   "settings": {
     "title": "الإعدادات",
@@ -132,7 +140,21 @@
     "weeklyChartLabel": "مخطط الإكمال الأسبوعي",
     "breathingStart": "بدء تمرين التنفّس",
     "breathingRound": "الجولة {{current}} من {{total}}",
-    "openStudy": "يُفتح في المتصفح"
+    "openStudy": "يُفتح في المتصفح",
+    "decreaseHour": "تقليل الساعة",
+    "increaseHour": "زيادة الساعة",
+    "decreaseMinute": "تقليل الدقيقة",
+    "increaseMinute": "زيادة الدقيقة",
+    "decreaseHours": "تقليل الساعات",
+    "increaseHours": "زيادة الساعات",
+    "decreaseMinutes": "تقليل الدقائق",
+    "increaseMinutes": "زيادة الدقائق",
+    "streakLabel_zero": "بدون أيام متتالية",
+    "streakLabel_one": "يوم واحد متتالي",
+    "streakLabel_two": "يومان متتاليان",
+    "streakLabel_few": "سلسلة {{count}} أيام",
+    "streakLabel_many": "سلسلة {{count}} يوماً",
+    "streakLabel_other": "سلسلة {{count}} يوم"
   },
   "notifications": {
     "title": "التذكيرات",
