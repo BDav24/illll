@@ -295,7 +295,6 @@ export const useStore = create<StoreState>()((set) => ({
       const updatedHabits: Record<string, HabitEntry> = {
         ...day.habits,
         [habitId]: {
-          ...existing,
           completed: true,
           timestamp: Date.now(),
           data: { ...(existing?.data ?? {}), ...data },
@@ -326,7 +325,18 @@ export const useStore = create<StoreState>()((set) => ({
   deleteCustomHabit: (id: string) => {
     set((state) => {
       const { [id]: _, ...remainingCriteria } = state.settings.habitCriteria;
+      // Clean up orphaned entries from day records
+      const cleanedDays: Record<string, DayRecord> = {};
+      for (const [key, day] of Object.entries(state.days)) {
+        if (day.habits[id]) {
+          const { [id]: _removed, ...remainingHabits } = day.habits;
+          cleanedDays[key] = { ...day, habits: remainingHabits };
+        } else {
+          cleanedDays[key] = day;
+        }
+      }
       return {
+        days: cleanedDays,
         settings: {
           ...state.settings,
           customHabits: state.settings.customHabits.filter((h) => h.id !== id),
