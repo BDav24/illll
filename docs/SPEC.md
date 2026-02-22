@@ -326,6 +326,66 @@ UI updates (haptic feedback, animation)
 - **Bottom Sheet**: Modal interactions
 - **expo-notifications**: Local notification scheduling (native only)
 
+### EAS (Expo Application Services)
+
+The app uses EAS for building, submitting, and over-the-air updates.
+
+**Build Commands**:
+
+```bash
+# Development build (with dev client, for local testing)
+eas build --profile development --platform android
+eas build --profile development --platform ios
+
+# Preview build (internal distribution for testers)
+eas build --profile preview --platform android
+eas build --profile preview --platform ios
+
+# Production build (for store submission)
+eas build --profile production --platform android
+eas build --profile production --platform ios
+
+# Build for all platforms at once
+eas build --profile preview --platform all
+```
+
+**OTA Updates**:
+
+```bash
+# Push an update to a branch
+eas update --branch production --message "description of changes"
+
+# Push update for a specific platform
+eas update --branch production --platform android --message "fix Android crash"
+
+# List recent updates
+eas update:list
+```
+
+**Store Submission**:
+
+```bash
+# Submit latest build to App Store / Play Store
+eas submit --platform ios
+eas submit --platform android
+
+# Submit a specific build
+eas submit --platform ios --id <build-id>
+```
+
+**Other Useful Commands**:
+
+```bash
+# Check build status
+eas build:list
+
+# View project info
+eas project:info
+
+# View credentials
+eas credentials
+```
+
 ## Performance Requirements
 
 - **Launch Time**: < 2 seconds on mid-range devices
