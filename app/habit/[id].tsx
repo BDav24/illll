@@ -51,12 +51,6 @@ export default function HabitArticleScreen() {
           </Text>
         </View>
 
-        {/* Recommendation (What to do) */}
-        <View style={[styles.card, styles.recoCard]}>
-          <Text style={styles.cardLabel} accessibilityRole="header">{t('article.recommendation')}</Text>
-          <Text style={styles.recoText}>{t(`habits.${habitId}.recommendation`)}</Text>
-        </View>
-
         {/* TL;DR */}
         <View style={[styles.card, { borderLeftColor: meta.color }]}>
           <Text style={styles.cardLabel} accessibilityRole="header">{t('article.tldr')}</Text>
@@ -212,15 +206,6 @@ function makeStyles(colors: ColorPalette) {
       fontSize: 12,
       fontFamily: Fonts.regular,
       color: colors.accent,
-    },
-    recoCard: {
-      borderLeftColor: colors.success,
-    },
-    recoText: {
-      fontSize: 15,
-      fontFamily: Fonts.regular,
-      color: colors.text,
-      lineHeight: 24,
     },
     errorText: {
       color: colors.text,

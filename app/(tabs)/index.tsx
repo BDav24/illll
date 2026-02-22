@@ -246,6 +246,13 @@ export default function DailyHub() {
                 </Text>
               </View>
 
+              <View style={styles.sheetRecoCard}>
+                <Text style={styles.sheetRecoLabel}>{t('article.recommendation')}</Text>
+                <Text style={styles.sheetRecoText}>
+                  {t(`habits.${activeHabit}.recommendation`)}
+                </Text>
+              </View>
+
               {activeHabit === 'breathing' && (
                 <BreathingTimer onComplete={handleBreathingComplete} />
               )}
@@ -395,6 +402,28 @@ function makeStyles(colors: ColorPalette) {
     },
     sheetBody: {
       gap: 16,
+    },
+    sheetRecoCard: {
+      backgroundColor: colors.bg,
+      borderRadius: 12,
+      padding: 16,
+      borderLeftWidth: 3,
+      borderLeftColor: colors.success,
+      marginBottom: 12,
+    },
+    sheetRecoLabel: {
+      fontSize: 11,
+      fontFamily: Fonts.bold,
+      color: colors.textMuted,
+      textTransform: 'uppercase',
+      letterSpacing: 1,
+      marginBottom: 6,
+    },
+    sheetRecoText: {
+      fontSize: 14,
+      fontFamily: Fonts.regular,
+      color: colors.text,
+      lineHeight: 21,
     },
     sheetOneLiner: {
       fontSize: 16,
