@@ -2,14 +2,19 @@ import { useCallback, useRef, useMemo, useState, useEffect } from 'react';
 import {
   View,
   Text,
+  TextInput,
   ScrollView,
   StyleSheet,
   Pressable,
+  Platform,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import BottomSheet, { BottomSheetView, BottomSheetTextInput } from '@gorhom/bottom-sheet';
+
+// BottomSheetTextInput crashes on web (RNTextInput.State.currentlyFocusedInput missing)
+const CriterionInput = Platform.OS === 'web' ? TextInput : BottomSheetTextInput;
 import { format } from 'date-fns';
 import Svg, { Path } from 'react-native-svg';
 
@@ -322,7 +327,7 @@ export default function DailyHub() {
               {isEditingCriterion ? (
                 <View style={styles.criterionCard}>
                   <Text style={styles.sheetRecoLabel}>{t('criteria.myGoal')}</Text>
-                  <BottomSheetTextInput
+                  <CriterionInput
                     style={styles.criterionInput}
                     value={criterionDraft}
                     onChangeText={setCriterionDraft}
@@ -412,7 +417,7 @@ export default function DailyHub() {
                 {isEditingCriterion ? (
                   <View style={styles.criterionCard}>
                     <Text style={styles.sheetRecoLabel}>{t('criteria.myGoal')}</Text>
-                    <BottomSheetTextInput
+                    <CriterionInput
                       style={styles.criterionInput}
                       value={criterionDraft}
                       onChangeText={setCriterionDraft}
