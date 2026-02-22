@@ -85,7 +85,9 @@
     "thisWeek": "近7天",
     "thisYear": "今年",
     "completionRate": "完成率 {{rate}}%",
-    "noData": "尚無資料"
+    "noData": "尚無資料",
+    "currentStreakAccessibility": "目前連續記錄：{{count}}天",
+    "bestStreakAccessibility": "最佳連續記錄：{{count}}天"
   },
   "settings": {
     "title": "設定",
@@ -132,7 +134,15 @@
     "weeklyChartLabel": "每週完成圖表",
     "breathingStart": "開始呼吸練習",
     "breathingRound": "第{{current}}輪，共{{total}}輪",
-    "openStudy": "在瀏覽器中開啟"
+    "openStudy": "在瀏覽器中開啟",
+    "decreaseHour": "減少小時",
+    "increaseHour": "增加小時",
+    "decreaseMinute": "減少分鐘",
+    "increaseMinute": "增加分鐘",
+    "decreaseHours": "減少小時",
+    "increaseHours": "增加小時",
+    "decreaseMinutes": "減少分鐘",
+    "increaseMinutes": "增加分鐘"
   },
   "notifications": {
     "title": "提醒",

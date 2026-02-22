@@ -19,7 +19,7 @@ import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
 import { HABITS } from '../constants/habits';
 import { useStore, type ColorScheme } from '../store/useStore';
-import { SUPPORTED_LOCALES, loadLanguage, getDeviceLocale } from '../lib/i18n';
+import i18n, { SUPPORTED_LOCALES, loadLanguage, getDeviceLocale } from '../lib/i18n';
 import { retranslateDefaults } from '../constants/notifications';
 import { cancelAll, syncNotifications } from '../lib/notifications';
 
@@ -35,8 +35,8 @@ function confirmAlert(
     }
   } else {
     Alert.alert(title, message, [
-      { text: buttons?.cancel ?? 'Cancel', style: 'cancel' },
-      { text: buttons?.confirm ?? 'OK', style: 'destructive', onPress: onConfirm },
+      { text: buttons?.cancel ?? i18n.t('common.cancel'), style: 'cancel' },
+      { text: buttons?.confirm ?? i18n.t('common.ok'), style: 'destructive', onPress: onConfirm },
     ]);
   }
 }
@@ -396,7 +396,7 @@ function makeStyles(colors: ColorPalette) {
     },
     habitIcon: {
       fontSize: 20,
-      marginRight: 12,
+      marginEnd: 12,
     },
     habitName: {
       flex: 1,

@@ -71,11 +71,6 @@
       "criterion": "Viết 3 điều cụ thể"
     }
   },
-  "criteria": {
-    "myGoal": "Mục tiêu của tôi",
-    "placeholder": "Đặt mục tiêu của bạn...",
-    "reset": "Đặt lại mặc định"
-  },
   "breathing": {
     "inhale": "Hít vào",
     "hold": "Giữ",
@@ -90,7 +85,9 @@
     "thisWeek": "7 ngày qua",
     "thisYear": "Năm nay",
     "completionRate": "Hoàn thành {{rate}}%",
-    "noData": "Chưa có dữ liệu"
+    "noData": "Chưa có dữ liệu",
+    "currentStreakAccessibility": "Chuỗi hiện tại: {{count}} ngày",
+    "bestStreakAccessibility": "Chuỗi tốt nhất: {{count}} ngày"
   },
   "settings": {
     "title": "Cài đặt",
@@ -112,6 +109,11 @@
     "reminders": "Nhắc nhở",
     "manageReminders": "Quản lý nhắc nhở hàng ngày"
   },
+  "criteria": {
+    "myGoal": "Mục tiêu của tôi",
+    "placeholder": "Đặt mục tiêu của bạn...",
+    "reset": "Đặt lại mặc định"
+  },
   "article": {
     "whyTitle": "Tại sao {{habit}}?",
     "tldr": "Tóm tắt",
@@ -132,7 +134,15 @@
     "weeklyChartLabel": "Biểu đồ hoàn thành hàng tuần",
     "breathingStart": "Bắt đầu bài tập thở",
     "breathingRound": "Vòng {{current}} / {{total}}",
-    "openStudy": "Mở trong trình duyệt"
+    "openStudy": "Mở trong trình duyệt",
+    "decreaseHour": "Giảm giờ",
+    "increaseHour": "Tăng giờ",
+    "decreaseMinute": "Giảm phút",
+    "increaseMinute": "Tăng phút",
+    "decreaseHours": "Giảm giờ",
+    "increaseHours": "Tăng giờ",
+    "decreaseMinutes": "Giảm phút",
+    "increaseMinutes": "Tăng phút"
   },
   "notifications": {
     "title": "Nhắc nhở",

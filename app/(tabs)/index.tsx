@@ -495,7 +495,7 @@ function makeStyles(colors: ColorPalette) {
       flex: 1,
     },
     headerRight: {
-      marginLeft: 16,
+      marginStart: 16,
     },
     greeting: {
       fontSize: 28,
@@ -574,16 +574,16 @@ function makeStyles(colors: ColorPalette) {
       backgroundColor: colors.bg,
       borderRadius: 12,
       padding: 16,
-      borderLeftWidth: 3,
-      borderLeftColor: colors.success,
+      borderStartWidth: 3,
+      borderStartColor: colors.success,
       marginBottom: 12,
     },
     criterionCard: {
       backgroundColor: colors.bg,
       borderRadius: 12,
       padding: 16,
-      borderLeftWidth: 3,
-      borderLeftColor: colors.accent,
+      borderStartWidth: 3,
+      borderStartColor: colors.accent,
       marginBottom: 12,
     },
     criterionHeader: {

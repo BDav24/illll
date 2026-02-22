@@ -85,7 +85,9 @@
     "thisWeek": "গত ৭ দিন",
     "thisYear": "এই বছর",
     "completionRate": "{{rate}}% সম্পন্ন",
-    "noData": "এখনো কোনো ডেটা নেই"
+    "noData": "এখনো কোনো ডেটা নেই",
+    "currentStreakAccessibility": "বর্তমান ধারা: {{count}} দিন",
+    "bestStreakAccessibility": "সেরা ধারা: {{count}} দিন"
   },
   "settings": {
     "title": "সেটিংস",
@@ -132,7 +134,15 @@
     "weeklyChartLabel": "সাপ্তাহিক সম্পন্নতার চার্ট",
     "breathingStart": "শ্বাস ব্যায়াম শুরু করুন",
     "breathingRound": "রাউন্ড {{current}} / {{total}}",
-    "openStudy": "ব্রাউজারে খোলে"
+    "openStudy": "ব্রাউজারে খোলে",
+    "decreaseHour": "ঘণ্টা কমান",
+    "increaseHour": "ঘণ্টা বাড়ান",
+    "decreaseMinute": "মিনিট কমান",
+    "increaseMinute": "মিনিট বাড়ান",
+    "decreaseHours": "ঘণ্টা কমান",
+    "increaseHours": "ঘণ্টা বাড়ান",
+    "decreaseMinutes": "মিনিট কমান",
+    "increaseMinutes": "মিনিট বাড়ান"
   },
   "notifications": {
     "title": "রিমাইন্ডার",

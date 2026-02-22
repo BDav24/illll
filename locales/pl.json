@@ -13,7 +13,11 @@
     "allDone": "Wszystko zrobione na dziś!",
     "welcomeHint": "Dotknij nawyk, aby go oznaczyć!",
     "tapToComplete": "Dotknij aby oznaczyć",
-    "tapToUndo": "Dotknij aby cofnąć"
+    "tapToUndo": "Dotknij aby cofnąć",
+    "streak_one": "{{count}} dzień z rzędu",
+    "streak_few": "{{count}} dni z rzędu",
+    "streak_many": "{{count}} dni z rzędu",
+    "streak_other": "{{count}} dni z rzędu"
   },
   "habits": {
     "breathing": {
@@ -85,7 +89,9 @@
     "thisWeek": "Ostatnie 7 dni",
     "thisYear": "Ten rok",
     "completionRate": "{{rate}}% ukończono",
-    "noData": "Brak danych"
+    "noData": "Brak danych",
+    "currentStreakAccessibility": "Obecna seria: {{count}} dni",
+    "bestStreakAccessibility": "Najlepsza seria: {{count}} dni"
   },
   "settings": {
     "title": "Ustawienia",
@@ -132,7 +138,19 @@
     "weeklyChartLabel": "Tygodniowy wykres realizacji",
     "breathingStart": "Rozpocznij ćwiczenie oddechowe",
     "breathingRound": "Runda {{current}} z {{total}}",
-    "openStudy": "Otwiera się w przeglądarce"
+    "openStudy": "Otwiera się w przeglądarce",
+    "decreaseHour": "Zmniejsz godzinę",
+    "increaseHour": "Zwiększ godzinę",
+    "decreaseMinute": "Zmniejsz minutę",
+    "increaseMinute": "Zwiększ minutę",
+    "decreaseHours": "Zmniejsz godziny",
+    "increaseHours": "Zwiększ godziny",
+    "decreaseMinutes": "Zmniejsz minuty",
+    "increaseMinutes": "Zwiększ minuty",
+    "streakLabel_one": "{{count}} dzień z rzędu",
+    "streakLabel_few": "{{count}} dni z rzędu",
+    "streakLabel_many": "{{count}} dni z rzędu",
+    "streakLabel_other": "{{count}} dni z rzędu"
   },
   "notifications": {
     "title": "Przypomnienia",

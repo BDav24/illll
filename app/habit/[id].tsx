@@ -52,7 +52,7 @@ export default function HabitArticleScreen() {
         </View>
 
         {/* TL;DR */}
-        <View style={[styles.card, { borderLeftColor: colors[habitId] }]}>
+        <View style={[styles.card, { borderStartColor: colors[habitId] }]}>
           <Text style={styles.cardLabel} accessibilityRole="header">{t('article.tldr')}</Text>
           <Text style={styles.tldrText}>{t(`habits.${habitId}.tldr`)}</Text>
         </View>
@@ -141,8 +141,8 @@ function makeStyles(colors: ColorPalette) {
       borderRadius: 16,
       padding: 20,
       marginBottom: 20,
-      borderLeftWidth: 4,
-      borderLeftColor: colors.accent,
+      borderStartWidth: 4,
+      borderStartColor: colors.accent,
     },
     cardLabel: {
       fontSize: 12,

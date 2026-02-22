@@ -82,7 +82,7 @@ export const DailyScore = React.memo(function DailyScore({
       </Svg>
       <View style={styles.labelContainer} importantForAccessibility="no">
         <Text style={styles.labelText}>
-          {completed}/{total}
+          {t('hub.score', { completed, total })}
         </Text>
       </View>
     </View>

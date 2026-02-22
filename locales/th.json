@@ -71,11 +71,6 @@
       "criterion": "เขียน 3 สิ่งที่เจาะจง"
     }
   },
-  "criteria": {
-    "myGoal": "เป้าหมายของฉัน",
-    "placeholder": "ตั้งเป้าหมายของคุณ...",
-    "reset": "รีเซ็ตเป็นค่าเริ่มต้น"
-  },
   "breathing": {
     "inhale": "หายใจเข้า",
     "hold": "กลั้น",
@@ -90,7 +85,9 @@
     "thisWeek": "7 วันที่ผ่านมา",
     "thisYear": "ปีนี้",
     "completionRate": "สำเร็จ {{rate}}%",
-    "noData": "ยังไม่มีข้อมูล"
+    "noData": "ยังไม่มีข้อมูล",
+    "currentStreakAccessibility": "สถิติต่อเนื่องปัจจุบัน: {{count}} วัน",
+    "bestStreakAccessibility": "สถิติต่อเนื่องที่ดีที่สุด: {{count}} วัน"
   },
   "settings": {
     "title": "การตั้งค่า",
@@ -112,6 +109,11 @@
     "reminders": "การแจ้งเตือน",
     "manageReminders": "จัดการการแจ้งเตือนประจำวัน"
   },
+  "criteria": {
+    "myGoal": "เป้าหมายของฉัน",
+    "placeholder": "ตั้งเป้าหมายของคุณ...",
+    "reset": "รีเซ็ตเป็นค่าเริ่มต้น"
+  },
   "article": {
     "whyTitle": "ทำไมต้อง{{habit}}?",
     "tldr": "สรุป",
@@ -132,7 +134,15 @@
     "weeklyChartLabel": "กราฟการทำสำเร็จรายสัปดาห์",
     "breathingStart": "เริ่มฝึกหายใจ",
     "breathingRound": "รอบที่ {{current}} จาก {{total}}",
-    "openStudy": "เปิดในเบราว์เซอร์"
+    "openStudy": "เปิดในเบราว์เซอร์",
+    "decreaseHour": "ลดชั่วโมง",
+    "increaseHour": "เพิ่มชั่วโมง",
+    "decreaseMinute": "ลดนาที",
+    "increaseMinute": "เพิ่มนาที",
+    "decreaseHours": "ลดชั่วโมง",
+    "increaseHours": "เพิ่มชั่วโมง",
+    "decreaseMinutes": "ลดนาที",
+    "increaseMinutes": "เพิ่มนาที"
   },
   "notifications": {
     "title": "การแจ้งเตือน",

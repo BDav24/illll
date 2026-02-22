@@ -49,7 +49,7 @@ export const HabitCard = React.memo(function HabitCard({
       accessibilityLabel={t(`habits.${habitId}.name`)}
       style={({ pressed }) => [
         styles.card,
-        { borderLeftColor: colors[habitId] },
+        { borderStartColor: colors[habitId] },
         completed && styles.cardCompleted,
         pressed && styles.cardPressed,
       ]}
@@ -116,7 +116,7 @@ function makeStyles(colors: ColorPalette) {
       alignItems: 'center',
       backgroundColor: colors.surface,
       borderRadius: 16,
-      borderLeftWidth: 4,
+      borderStartWidth: 4,
       paddingVertical: 14,
       paddingHorizontal: 14,
       gap: 12,
