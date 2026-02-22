@@ -13,7 +13,8 @@
     "allDone": "Semua selesai untuk hari ini!",
     "welcomeHint": "Ketuk kebiasaan untuk menandainya!",
     "tapToComplete": "Ketuk untuk menandai",
-    "tapToUndo": "Ketuk untuk membatalkan"
+    "tapToUndo": "Ketuk untuk membatalkan",
+    "objectiveReached": "Tujuan tercapai"
   },
   "habits": {
     "breathing": {

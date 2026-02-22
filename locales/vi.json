@@ -13,7 +13,8 @@
     "allDone": "Hoàn thành tất cả cho hôm nay!",
     "welcomeHint": "Nhấn vào thói quen để đánh dấu!",
     "tapToComplete": "Nhấn để hoàn thành",
-    "tapToUndo": "Nhấn để hoàn tác"
+    "tapToUndo": "Nhấn để hoàn tác",
+    "objectiveReached": "Đã đạt mục tiêu"
   },
   "habits": {
     "breathing": {

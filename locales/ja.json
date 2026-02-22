@@ -13,7 +13,8 @@
     "allDone": "今日はすべて完了！",
     "welcomeHint": "習慣をタップして完了にしましょう！",
     "tapToComplete": "タップして完了",
-    "tapToUndo": "タップして取り消し"
+    "tapToUndo": "タップして取り消し",
+    "objectiveReached": "目標達成"
   },
   "habits": {
     "breathing": {

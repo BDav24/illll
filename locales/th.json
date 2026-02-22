@@ -13,7 +13,8 @@
     "allDone": "ทำเสร็จหมดแล้ววันนี้!",
     "welcomeHint": "แตะนิสัยเพื่อทำเครื่องหมาย!",
     "tapToComplete": "แตะเพื่อทำเครื่องหมาย",
-    "tapToUndo": "แตะเพื่อยกเลิก"
+    "tapToUndo": "แตะเพื่อยกเลิก",
+    "objectiveReached": "บรรลุเป้าหมาย"
   },
   "habits": {
     "breathing": {

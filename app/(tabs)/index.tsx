@@ -372,15 +372,23 @@ export default function DailyHub() {
                     {t(`habits.${activeHabit}.oneLiner`)}
                   </Text>
                   <Pressable
-                    style={styles.sheetActionBtn}
-                    accessibilityRole="button"
-                    onPress={() => {
-                      toggleHabit(activeHabit);
-                      bottomSheetRef.current?.close();
-                    }}
+                    style={styles.sheetCheckboxRow}
+                    accessibilityRole="checkbox"
+                    accessibilityState={{ checked: habitEntries[activeHabit]?.completed ?? false }}
+                    accessibilityLabel={t(`habits.${activeHabit}.name`)}
+                    accessibilityHint={habitEntries[activeHabit]?.completed ? t('hub.tapToUndo') : t('hub.tapToComplete')}
+                    onPress={() => toggleHabit(activeHabit)}
                   >
-                    <Text style={styles.sheetActionText}>
-                      {t(`habits.${activeHabit}.action`)}
+                    <View
+                      style={[
+                        styles.sheetCheckbox,
+                        habitEntries[activeHabit]?.completed && [styles.sheetCheckboxCompleted, { backgroundColor: colors[activeHabit] }],
+                      ]}
+                    >
+                      {habitEntries[activeHabit]?.completed && <Text style={styles.sheetCheckmark}>✓</Text>}
+                    </View>
+                    <Text style={styles.sheetCheckboxLabel}>
+                      {habitEntries[activeHabit]?.completed ? t('hub.objectiveReached') : t(`habits.${activeHabit}.action`)}
                     </Text>
                   </Pressable>
                 </View>
@@ -454,17 +462,23 @@ export default function DailyHub() {
 
                 <View style={styles.sheetBody}>
                   <Pressable
-                    style={styles.sheetActionBtn}
-                    accessibilityRole="button"
-                    onPress={() => {
-                      toggleCustomHabit(activeCustomHabit);
-                      bottomSheetRef.current?.close();
-                    }}
+                    style={styles.sheetCheckboxRow}
+                    accessibilityRole="checkbox"
+                    accessibilityState={{ checked: today.habits[activeCustomHabit]?.completed ?? false }}
+                    accessibilityLabel={ch.text}
+                    accessibilityHint={today.habits[activeCustomHabit]?.completed ? t('hub.tapToUndo') : t('hub.tapToComplete')}
+                    onPress={() => toggleCustomHabit(activeCustomHabit)}
                   >
-                    <Text style={styles.sheetActionText}>
-                      {today.habits[activeCustomHabit]?.completed
-                        ? t('hub.tapToUndo')
-                        : t('hub.tapToComplete')}
+                    <View
+                      style={[
+                        styles.sheetCheckbox,
+                        today.habits[activeCustomHabit]?.completed && styles.sheetCheckboxCompleted,
+                      ]}
+                    >
+                      {today.habits[activeCustomHabit]?.completed && <Text style={styles.sheetCheckmark}>✓</Text>}
+                    </View>
+                    <Text style={styles.sheetCheckboxLabel}>
+                      {today.habits[activeCustomHabit]?.completed ? t('hub.objectiveReached') : t('hub.tapToComplete')}
                     </Text>
                   </Pressable>
                 </View>
@@ -636,17 +650,35 @@ function makeStyles(colors: ColorPalette) {
       color: colors.textSecondary,
       lineHeight: 24,
     },
-    sheetActionBtn: {
-      backgroundColor: colors.accent,
-      paddingVertical: 14,
-      paddingHorizontal: 24,
-      borderRadius: 12,
+    sheetCheckboxRow: {
+      flexDirection: 'row',
       alignItems: 'center',
+      justifyContent: 'center',
+      gap: 12,
+      paddingVertical: 8,
     },
-    sheetActionText: {
+    sheetCheckbox: {
+      width: 28,
+      height: 28,
+      borderRadius: 14,
+      borderWidth: 2,
+      borderColor: colors.border,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    sheetCheckboxCompleted: {
+      borderWidth: 0,
+      backgroundColor: colors.accent,
+    },
+    sheetCheckmark: {
       color: colors.checkmark,
-      fontSize: 16,
-      fontFamily: Fonts.semiBold,
+      fontSize: 14,
+      fontFamily: Fonts.bold,
+    },
+    sheetCheckboxLabel: {
+      fontSize: 15,
+      fontFamily: Fonts.medium,
+      color: colors.textSecondary,
     },
     whyBtn: {
       marginTop: 20,

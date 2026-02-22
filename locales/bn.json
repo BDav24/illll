@@ -13,7 +13,8 @@
     "allDone": "আজকের সব কাজ শেষ!",
     "welcomeHint": "একটি অভ্যাসে ট্যাপ করুন!",
     "tapToComplete": "সম্পূর্ণ করতে ট্যাপ করুন",
-    "tapToUndo": "পূর্বাবস্থায় ফেরাতে ট্যাপ করুন"
+    "tapToUndo": "পূর্বাবস্থায় ফেরাতে ট্যাপ করুন",
+    "objectiveReached": "লক্ষ্য অর্জিত"
   },
   "habits": {
     "breathing": {

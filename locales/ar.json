@@ -19,7 +19,8 @@
     "streak_two": "يومان متتاليان",
     "streak_few": "{{count}} أيام متتالية",
     "streak_many": "{{count}} يوماً متتالياً",
-    "streak_other": "{{count}} يوم متتالي"
+    "streak_other": "{{count}} يوم متتالي",
+    "objectiveReached": "تم تحقيق الهدف"
   },
   "habits": {
     "breathing": {

@@ -13,7 +13,8 @@
     "allDone": "今天全部完成！",
     "welcomeHint": "點擊習慣來標記完成！",
     "tapToComplete": "點擊完成",
-    "tapToUndo": "點擊撤銷"
+    "tapToUndo": "點擊撤銷",
+    "objectiveReached": "目標達成"
   },
   "habits": {
     "breathing": {

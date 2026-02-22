@@ -13,7 +13,8 @@
     "allDone": "오늘 할 일 모두 완료!",
     "welcomeHint": "습관을 탭하여 완료하세요!",
     "tapToComplete": "탭하여 완료",
-    "tapToUndo": "탭하여 취소"
+    "tapToUndo": "탭하여 취소",
+    "objectiveReached": "목표 달성"
   },
   "habits": {
     "breathing": {

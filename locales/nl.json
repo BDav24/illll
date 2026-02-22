@@ -13,7 +13,8 @@
     "allDone": "Alles gedaan voor vandaag!",
     "welcomeHint": "Tik op een gewoonte om het af te vinken!",
     "tapToComplete": "Tik om af te vinken",
-    "tapToUndo": "Tik om ongedaan te maken"
+    "tapToUndo": "Tik om ongedaan te maken",
+    "objectiveReached": "Doel bereikt"
   },
   "habits": {
     "breathing": {

@@ -13,7 +13,8 @@
     "allDone": "Tout est fait pour aujourd'hui !",
     "welcomeHint": "Appuyez sur une habitude pour la valider !",
     "tapToComplete": "Appuyez pour valider",
-    "tapToUndo": "Appuyez pour annuler"
+    "tapToUndo": "Appuyez pour annuler",
+    "objectiveReached": "Objectif atteint"
   },
   "habits": {
     "breathing": {

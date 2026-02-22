@@ -13,7 +13,8 @@
     "allDone": "¡Todo listo por hoy!",
     "welcomeHint": "¡Toca un hábito para marcarlo!",
     "tapToComplete": "Toca para completar",
-    "tapToUndo": "Toca para deshacer"
+    "tapToUndo": "Toca para deshacer",
+    "objectiveReached": "Objetivo alcanzado"
   },
   "habits": {
     "breathing": {

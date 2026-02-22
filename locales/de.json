@@ -13,7 +13,8 @@
     "allDone": "Alles erledigt für heute!",
     "welcomeHint": "Tippe auf eine Gewohnheit, um sie abzuhaken!",
     "tapToComplete": "Tippen zum Abhaken",
-    "tapToUndo": "Tippen zum Rückgängig"
+    "tapToUndo": "Tippen zum Rückgängig",
+    "objectiveReached": "Ziel erreicht"
   },
   "habits": {
     "breathing": {
