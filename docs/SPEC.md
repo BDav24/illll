@@ -150,23 +150,17 @@ Each habit represents a fundamental longevity practice:
 - Focus on practical application
 - Avoid medical claims, stick to general wellness
 
-### 5. Custom Tasks
+### 5. Custom Habits
 
-**Purpose**: Allow users to track personal daily goals beyond the core habits.
+**Purpose**: Allow users to track personal daily goals beyond the core 6 habits.
 
 **Features**:
 
-- Add unlimited tasks
-- Mark complete/incomplete
-- Delete tasks
-- Tasks reset each day (not recurring yet)
-
-**Use Cases**:
-
-- "Drink 8 glasses of water"
-- "Read 30 minutes"
-- "Call mom"
-- "Meditate 10 minutes"
+- Add unlimited custom habits (via Settings > My Habits)
+- Mark complete/incomplete on the Daily Hub
+- Delete habits (with confirmation)
+- Custom success criteria per habit
+- Included in daily score and streak calculations
 
 ### 6. Settings
 
@@ -174,11 +168,16 @@ Each habit represents a fundamental longevity practice:
 
 **Options**:
 
-- **Habits**: Show/hide individual habits
-- **Notifications**: Enable/disable reminders (future)
+- **Habits**: Show/hide individual core habits
+- **My Habits**: Add/delete custom user-defined habits
+- **Reminders**: Manage notification reminders (native only, hidden on web)
+  - 3 defaults provided (morning, evening, movement), all disabled by default
+  - Daily at specific time or repeating interval schedules
+  - Unedited defaults re-translate on language change
 - **Language**: Choose from 20+ languages or auto-detect
+- **Theme**: Light, Dark, or Auto (follows system)
 - **About**: Version info, credits
-- **Reset Data**: Nuclear option to start fresh (with confirmation)
+- **Reset Data**: Nuclear option to start fresh (with confirmation, cancels notifications)
 
 ## Data Model
 
@@ -192,43 +191,31 @@ Each habit represents a fundamental longevity practice:
 ```typescript
 // Store state
 {
-  // User preferences
-  preferences: {
-    language: 'en' | 'es' | ... | 'auto',
-    hiddenHabits: string[], // habit IDs to hide
+  // User settings
+  settings: {
+    hiddenHabits: HabitId[],
+    habitOrder: HabitId[],
+    language: string | null,         // null = auto-detect
+    customHabits: CustomHabit[],     // { id, text }
+    colorScheme: 'light' | 'dark' | 'auto',
+    habitCriteria: Record<string, string>,  // custom success criteria per habit
+    notifications: UserNotification[],       // reminder schedules
   },
 
   // Daily entries, keyed by YYYY-MM-DD
-  dailyEntries: {
+  days: {
     '2024-01-15': {
       date: '2024-01-15',
       habits: {
         breathing: {
           completed: true,
+          timestamp: 1705312800000,
           data: { duration: 48, rounds: 3 }
         },
-        light: { completed: true },
-        food: {
-          completed: true,
-          data: { description: 'Salmon salad' }
-        },
-        sleep: {
-          completed: false,
-          data: { bedtime: '23:00', wakeTime: '07:00' }
-        },
-        exercise: {
-          completed: true,
-          data: { activity: 'Running', duration: 30 }
-        },
-        gratitude: {
-          completed: true,
-          data: { text: 'Grateful for...' }
-        }
-      },
-      tasks: [
-        { id: 'uuid', text: 'Drink water', completed: true },
-        { id: 'uuid', text: 'Call mom', completed: false }
-      ]
+        light: { completed: true, timestamp: 1705312800000 },
+        'custom_uuid': { completed: true, timestamp: 1705312800000 },
+        // ...
+      }
     }
   }
 }
@@ -306,7 +293,8 @@ Expo Router (_layout.tsx)
 │   ├─ index.tsx               → Daily Hub
 │   └─ progress.tsx            → Progress Screen
 ├─ habit/[id].tsx              → Habit Article (modal)
-└─ settings.tsx                → Settings Screen
+├─ settings.tsx                → Settings Screen (modal)
+└─ reminders.tsx               → Reminders Screen (modal, native only)
 ```
 
 ### State Flow
@@ -336,6 +324,7 @@ UI updates (haptic feedback, animation)
 - **date-fns**: Date manipulation
 - **Reanimated**: Animations
 - **Bottom Sheet**: Modal interactions
+- **expo-notifications**: Local notification scheduling (native only)
 
 ## Performance Requirements
 
@@ -388,7 +377,9 @@ UI updates (haptic feedback, animation)
 
 ### V1.1 - Insights & Habits
 
-- [ ] Notifications for daily reminders
+- [x] Notifications for daily reminders
+- [x] Custom habits with success criteria
+- [x] Theme selection (light/dark/auto)
 - [ ] Allow updating past entries (e.g., forgot to log yesterday)
 - [ ] Insights based on patterns ("You complete exercise 80% more when you do morning light!")
 
@@ -412,6 +403,7 @@ UI updates (haptic feedback, animation)
 
 ### Long-term Ideas
 
+- [ ] Create an external website to go deeper into each habit
 - [ ] Wearable integration (Apple Watch, etc.)
 - [ ] Journaling features
 - [ ] Meditation timer
@@ -445,7 +437,7 @@ UI updates (haptic feedback, animation)
 ### Visual Design
 
 - **Minimalist**: Clean, uncluttered interface
-- **Dark Mode First**: Optimized for evening use
+- **Light Mode Default**: With dark and auto (system) options
 - **Vibrant Accents**: Each habit has a distinct, pleasant color
 - **Smooth Animations**: Micro-interactions that delight
 - **Typography**: Clear hierarchy, readable fonts
@@ -532,6 +524,6 @@ UI updates (haptic feedback, animation)
 
 ---
 
-**Document Version**: 1.0
-**Last Updated**: 2024-01-15
+**Document Version**: 1.1
+**Last Updated**: 2026-02-22
 **Status**: Living Document (subject to change)
