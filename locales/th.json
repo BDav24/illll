@@ -1,8 +1,4 @@
 {
-  "app": {
-    "name": "ILLLL",
-    "tagline": "ฉันจะมีชีวิตยืนยาว"
-  },
   "tabs": {
     "today": "วันนี้",
     "progress": "ความก้าวหน้า"
@@ -74,8 +70,7 @@
     "hold": "กลั้น",
     "exhale": "หายใจออก",
     "tapToStart": "แตะเพื่อเริ่ม",
-    "sessionComplete": "เสร็จสิ้นเซสชัน",
-    "rounds": "{{count}} รอบ"
+
   },
   "progress": {
     "title": "ความก้าวหน้า",
@@ -92,7 +87,7 @@
     "habits": "นิสัย",
     "hideHabit": "ซ่อนนิสัย",
     "showHabit": "แสดงนิสัย",
-    "notifications": "การแจ้งเตือน",
+
     "language": "ภาษา",
     "autoDetect": "ตรวจจับอัตโนมัติ",
     "theme": "ธีม",
@@ -101,8 +96,8 @@
     "themeAuto": "อัตโนมัติ",
     "about": "เกี่ยวกับ",
     "version": "เวอร์ชัน {{version}}",
-    "myHabits": "My Habits",
-    "addHabit": "Add a habit...",
+    "myHabits": "นิสัยของฉัน",
+    "addHabit": "เพิ่มนิสัย...",
     "resetData": "รีเซ็ตข้อมูลทั้งหมด",
     "resetConfirm": "การดำเนินการนี้จะลบข้อมูลทั้งหมดของคุณ คุณแน่ใจหรือไม่?"
   },

@@ -21,7 +21,6 @@ import {
   useStore,
   getTodayKey,
   emptyDayRecord,
-  getVisibleHabits,
   getDayScore,
   getStreak,
   type HabitId,
@@ -52,8 +51,7 @@ export default function DailyHub() {
     return () => clearInterval(interval);
   }, []);
 
-  const todayKey = currentDateKey;
-  const todayRecord = useStore((s) => s.days[todayKey]) as DayRecord | undefined;
+  const todayRecord = useStore((s) => s.days[currentDateKey]) as DayRecord | undefined;
   const hiddenHabits = useStore((s) => s.settings.hiddenHabits);
   const habitOrder = useStore((s) => s.settings.habitOrder);
   const customHabits = useStore((s) => s.settings.customHabits);
@@ -62,8 +60,8 @@ export default function DailyHub() {
   const updateHabitData = useStore((s) => s.updateHabitData);
 
   const today = useMemo(
-    () => todayRecord ?? emptyDayRecord(todayKey),
-    [todayRecord, todayKey],
+    () => todayRecord ?? emptyDayRecord(currentDateKey),
+    [todayRecord, currentDateKey],
   );
   const visibleHabits = useMemo(
     () => habitOrder.filter((id) => !hiddenHabits.includes(id)),
@@ -73,8 +71,10 @@ export default function DailyHub() {
     () => getDayScore(todayRecord, visibleHabits, customHabits),
     [todayRecord, visibleHabits, customHabits],
   );
-  const streak = useStore(
-    (s) => getStreak(s.days, getVisibleHabits(s.settings), s.settings.customHabits),
+  const days = useStore((s) => s.days);
+  const streak = useMemo(
+    () => getStreak(days, visibleHabits, customHabits),
+    [days, visibleHabits, customHabits],
   );
 
   const { greeting, dateStr } = useMemo(() => {
@@ -359,12 +359,6 @@ function makeStyles(colors: ColorPalette) {
     customHabitsSection: {
       gap: 12,
       marginBottom: 16,
-    },
-    sectionTitle: {
-      fontSize: 18,
-      fontFamily: Fonts.semiBold,
-      color: colors.text,
-      marginBottom: 12,
     },
     allDone: {
       alignItems: 'center',

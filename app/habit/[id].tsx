@@ -52,7 +52,7 @@ export default function HabitArticleScreen() {
         </View>
 
         {/* TL;DR */}
-        <View style={[styles.card, { borderLeftColor: meta.color }]}>
+        <View style={[styles.card, { borderLeftColor: colors[habitId] }]}>
           <Text style={styles.cardLabel} accessibilityRole="header">{t('article.tldr')}</Text>
           <Text style={styles.tldrText}>{t(`habits.${habitId}.tldr`)}</Text>
         </View>

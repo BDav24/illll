@@ -1,8 +1,4 @@
 {
-  "app": {
-    "name": "ILLLL",
-    "tagline": "もっと長く生きる"
-  },
   "tabs": {
     "today": "今日",
     "progress": "進捗"
@@ -74,8 +70,7 @@
     "hold": "止める",
     "exhale": "吐く",
     "tapToStart": "タップして開始",
-    "sessionComplete": "セッション完了",
-    "rounds": "{{count}}ラウンド"
+
   },
   "progress": {
     "title": "進捗",
@@ -92,7 +87,7 @@
     "habits": "習慣",
     "hideHabit": "習慣を非表示",
     "showHabit": "習慣を表示",
-    "notifications": "通知",
+
     "language": "言語",
     "autoDetect": "自動検出",
     "theme": "テーマ",
@@ -101,8 +96,8 @@
     "themeAuto": "自動",
     "about": "このアプリについて",
     "version": "バージョン {{version}}",
-    "myHabits": "My Habits",
-    "addHabit": "Add a habit...",
+    "myHabits": "マイ習慣",
+    "addHabit": "習慣を追加...",
     "resetData": "すべてのデータをリセット",
     "resetConfirm": "すべてのデータが削除されます。よろしいですか？"
   },

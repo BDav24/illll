@@ -1,8 +1,4 @@
 {
-  "app": {
-    "name": "ILLLL",
-    "tagline": "Daha uzun yaşayacağım"
-  },
   "tabs": {
     "today": "Bugün",
     "progress": "İlerleme"
@@ -73,9 +69,7 @@
     "inhale": "Nefes al",
     "hold": "Tut",
     "exhale": "Nefes ver",
-    "tapToStart": "Başlamak için dokun",
-    "sessionComplete": "Oturum tamamlandı",
-    "rounds": "{{count}} tur"
+    "tapToStart": "Başlamak için dokun"
   },
   "progress": {
     "title": "İlerleme",
@@ -92,7 +86,6 @@
     "habits": "Alışkanlıklar",
     "hideHabit": "Alışkanlığı gizle",
     "showHabit": "Alışkanlığı göster",
-    "notifications": "Bildirimler",
     "language": "Dil",
     "autoDetect": "Otomatik algıla",
     "theme": "Tema",
@@ -101,8 +94,8 @@
     "themeAuto": "Otomatik",
     "about": "Hakkında",
     "version": "Sürüm {{version}}",
-    "myHabits": "My Habits",
-    "addHabit": "Add a habit...",
+    "myHabits": "Alışkanlıklarım",
+    "addHabit": "Alışkanlık ekle...",
     "resetData": "Tüm Verileri Sıfırla",
     "resetConfirm": "Bu, tüm verilerini silecek. Emin misin?"
   },

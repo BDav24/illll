@@ -1,8 +1,4 @@
 {
-  "app": {
-    "name": "ILLLL",
-    "tagline": "Ik zal langer leven"
-  },
   "tabs": {
     "today": "Vandaag",
     "progress": "Voortgang"
@@ -73,9 +69,7 @@
     "inhale": "Inademen",
     "hold": "Vasthouden",
     "exhale": "Uitademen",
-    "tapToStart": "Tik om te starten",
-    "sessionComplete": "Sessie voltooid",
-    "rounds": "{{count}} rondes"
+    "tapToStart": "Tik om te starten"
   },
   "progress": {
     "title": "Voortgang",
@@ -92,7 +86,6 @@
     "habits": "Gewoontes",
     "hideHabit": "Gewoonte verbergen",
     "showHabit": "Gewoonte tonen",
-    "notifications": "Meldingen",
     "language": "Taal",
     "autoDetect": "Automatisch detecteren",
     "theme": "Thema",
@@ -101,8 +94,8 @@
     "themeAuto": "Automatisch",
     "about": "Over",
     "version": "Versie {{version}}",
-    "myHabits": "My Habits",
-    "addHabit": "Add a habit...",
+    "myHabits": "Mijn Gewoontes",
+    "addHabit": "Voeg een gewoonte toe...",
     "resetData": "Alle gegevens wissen",
     "resetConfirm": "Dit verwijdert al je gegevens. Weet je het zeker?"
   },

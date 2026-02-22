@@ -20,12 +20,6 @@ export interface HabitEntry {
   data?: Record<string, unknown>;
 }
 
-export interface CustomTask {
-  id: string;
-  text: string;
-  completed: boolean;
-}
-
 export interface CustomHabit {
   id: string; // 'custom_' + uuid
   text: string;
@@ -34,13 +28,6 @@ export interface CustomHabit {
 export interface DayRecord {
   date: string; // 'YYYY-MM-DD'
   habits: Record<string, HabitEntry>; // accepts both core HabitId keys and 'custom_*' keys
-  tasks: CustomTask[]; // kept for backward compat with persisted data
-}
-
-export interface NotificationSetting {
-  enabled: boolean;
-  hour: number;
-  minute: number;
 }
 
 export type ColorScheme = 'light' | 'dark' | 'auto';
@@ -48,7 +35,6 @@ export type ColorScheme = 'light' | 'dark' | 'auto';
 export interface UserSettings {
   hiddenHabits: HabitId[];
   habitOrder: HabitId[];
-  notifications: Partial<Record<HabitId, NotificationSetting>>;
   language: string | null; // null = auto-detect
   customHabits: CustomHabit[];
   colorScheme: ColorScheme;
@@ -69,7 +55,6 @@ interface StoreState {
   deleteCustomHabit: (id: string) => void;
   toggleCustomHabit: (id: string) => void;
   toggleHideHabit: (habitId: HabitId) => void;
-  reorderHabits: (order: HabitId[]) => void;
   setLanguage: (lang: string | null) => void;
   setColorScheme: (scheme: ColorScheme) => void;
   resetAll: () => void;
@@ -91,10 +76,9 @@ const DEFAULT_HABIT_ORDER: HabitId[] = [
 const DEFAULT_SETTINGS: UserSettings = {
   hiddenHabits: [],
   habitOrder: DEFAULT_HABIT_ORDER,
-  notifications: {},
   language: null,
   customHabits: [],
-  colorScheme: 'light' as ColorScheme,
+  colorScheme: 'light',
 };
 
 // ---------------------------------------------------------------------------
@@ -140,7 +124,7 @@ export function getTodayKey(): string {
 }
 
 export function emptyDayRecord(date: string): DayRecord {
-  return { date, habits: {}, tasks: [] };
+  return { date, habits: {} };
 }
 
 function ensureDay(
@@ -148,7 +132,7 @@ function ensureDay(
   date: string,
 ): Record<string, DayRecord> {
   if (days[date]) return days;
-  return { ...days, [date]: { date, habits: {}, tasks: [] } };
+  return { ...days, [date]: { date, habits: {} } };
 }
 
 // ---------------------------------------------------------------------------
@@ -236,6 +220,8 @@ export function getStreak(
 
 const persisted = loadState();
 
+let persistTimeout: ReturnType<typeof setTimeout> | null = null;
+
 export const useStore = create<StoreState>()((set) => ({
   days: persisted.days ?? {},
   settings: {
@@ -256,7 +242,6 @@ export const useStore = create<StoreState>()((set) => ({
       const updatedHabits: Record<string, HabitEntry> = {
         ...day.habits,
         [habitId]: {
-          ...existing,
           completed: !wasCompleted,
           timestamp: Date.now(),
           data: existing?.data,
@@ -360,12 +345,6 @@ export const useStore = create<StoreState>()((set) => ({
     });
   },
 
-  reorderHabits: (order: HabitId[]) => {
-    set((state) => ({
-      settings: { ...state.settings, habitOrder: order },
-    }));
-  },
-
   setLanguage: (lang: string | null) => {
     set((state) => ({
       settings: { ...state.settings, language: lang },
@@ -379,6 +358,10 @@ export const useStore = create<StoreState>()((set) => ({
   },
 
   resetAll: () => {
+    if (persistTimeout) {
+      clearTimeout(persistTimeout);
+      persistTimeout = null;
+    }
     storage.clearAll();
     set({ days: {}, settings: { ...DEFAULT_SETTINGS } });
   },
@@ -390,7 +373,6 @@ export const useStore = create<StoreState>()((set) => ({
 
 let prevDays = useStore.getState().days;
 let prevSettings = useStore.getState().settings;
-let persistTimeout: ReturnType<typeof setTimeout> | null = null;
 
 useStore.subscribe((state) => {
   if (state.days !== prevDays || state.settings !== prevSettings) {

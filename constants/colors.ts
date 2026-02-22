@@ -67,6 +67,3 @@ export function useColors(): ColorPalette {
   const resolved = colorScheme === 'auto' ? (systemScheme ?? 'light') : colorScheme;
   return resolved === 'dark' ? DarkColors : LightColors;
 }
-
-// Static fallback for non-component code (e.g., _layout.tsx initial render)
-export const Colors = LightColors;

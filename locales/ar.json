@@ -1,8 +1,4 @@
 {
-  "app": {
-    "name": "ILLLL",
-    "tagline": "سأعيش أطول"
-  },
   "tabs": {
     "today": "اليوم",
     "progress": "التقدّم"
@@ -74,8 +70,7 @@
     "hold": "احبس",
     "exhale": "زفير",
     "tapToStart": "اضغط للبدء",
-    "sessionComplete": "اكتملت الجلسة",
-    "rounds": "{{count}} جولات"
+
   },
   "progress": {
     "title": "التقدّم",
@@ -92,7 +87,7 @@
     "habits": "العادات",
     "hideHabit": "إخفاء العادة",
     "showHabit": "إظهار العادة",
-    "notifications": "الإشعارات",
+
     "language": "اللغة",
     "autoDetect": "اكتشاف تلقائي",
     "theme": "المظهر",
@@ -101,8 +96,8 @@
     "themeAuto": "تلقائي",
     "about": "حول التطبيق",
     "version": "الإصدار {{version}}",
-    "myHabits": "My Habits",
-    "addHabit": "Add a habit...",
+    "myHabits": "عاداتي",
+    "addHabit": "أضف عادة...",
     "resetData": "إعادة تعيين جميع البيانات",
     "resetConfirm": "سيؤدي هذا إلى حذف جميع بياناتك. هل أنت متأكد؟"
   },

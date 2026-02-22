@@ -51,13 +51,20 @@ export const SUPPORTED_LOCALES = [
   { code: 'zh-Hant', englishName: 'Chinese (Traditional)', nativeName: '繁體中文' },
 ] as const;
 
-function getDeviceLocale(): string {
+export function getDeviceLocale(): string {
   const locales = getLocales();
   if (!locales.length) return 'en';
   const tag = locales[0].languageTag; // e.g. 'en-US', 'zh-Hans-CN'
-  // Try exact match first, then language part
+  // Try exact match first
   if (LOCALE_IMPORTS[tag] || tag === 'en') return tag;
-  const lang = tag.split('-')[0];
+  // Try two-segment match (e.g. 'zh-Hans' from 'zh-Hans-CN')
+  const segments = tag.split('-');
+  if (segments.length >= 2) {
+    const twoSegment = `${segments[0]}-${segments[1]}`;
+    if (LOCALE_IMPORTS[twoSegment] || twoSegment === 'en') return twoSegment;
+  }
+  // Fall back to single-segment language code
+  const lang = segments[0];
   const match = SUPPORTED_LOCALES.find(l => l.code === lang || l.code.startsWith(lang));
   return match?.code ?? 'en';
 }
@@ -72,6 +79,8 @@ export async function loadLanguage(code: string) {
     const mod = await loader();
     i18n.addResourceBundle(code, 'translation', mod.default ?? mod);
     await i18n.changeLanguage(code);
+  } else {
+    await i18n.changeLanguage('en');
   }
 }
 

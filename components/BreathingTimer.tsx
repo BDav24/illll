@@ -4,10 +4,7 @@ import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
-  withSequence,
-  withDelay,
   Easing,
-  runOnJS,
 } from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
 
@@ -26,7 +23,7 @@ const CIRCLE_SIZE = 200;
 const CIRCLE_MIN_SCALE = 0.5;
 const CIRCLE_MAX_SCALE = 1.0;
 
-export function BreathingTimer({ onComplete }: BreathingTimerProps) {
+export const BreathingTimer = React.memo(function BreathingTimer({ onComplete }: BreathingTimerProps) {
   const { t } = useTranslation();
   const colors = useColors();
   const styles = useMemo(() => makeStyles(colors), [colors]);
@@ -42,6 +39,7 @@ export function BreathingTimer({ onComplete }: BreathingTimerProps) {
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const phaseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const roundRef = useRef(0);
+  const isRunningRef = useRef(false);
   const startPhaseRef = useRef<(phase: Phase, round: number) => void>(() => {});
 
   const clearTimers = useCallback(() => {
@@ -128,6 +126,7 @@ export function BreathingTimer({ onComplete }: BreathingTimerProps) {
               // Complete
               setPhase('idle');
               setIsRunning(false);
+              isRunningRef.current = false;
               scale.value = withTiming(CIRCLE_MIN_SCALE, { duration: 500 });
               opacity.value = withTiming(0.4, { duration: 500 });
               onComplete(nextRound);
@@ -148,19 +147,21 @@ export function BreathingTimer({ onComplete }: BreathingTimerProps) {
   startPhaseRef.current = startPhase;
 
   const handleStart = useCallback(() => {
-    if (isRunning) return;
+    if (isRunningRef.current) return;
+    isRunningRef.current = true;
     setIsRunning(true);
     setCurrentRound(0);
     roundRef.current = 0;
     scale.value = CIRCLE_MIN_SCALE;
     opacity.value = 0.4;
     startPhase('inhale', 0);
-  }, [isRunning, startPhase, scale, opacity]);
+  }, [startPhase, scale, opacity]);
 
   // Cleanup on unmount
   useEffect(() => {
     return () => {
       clearTimers();
+      isRunningRef.current = false;
     };
   }, [clearTimers]);
 
@@ -182,7 +183,7 @@ export function BreathingTimer({ onComplete }: BreathingTimerProps) {
     <View style={styles.container}>
       <Pressable onPress={handleStart} style={styles.pressArea} accessibilityRole="button" accessibilityLabel={isRunning ? getPhaseLabel() : t('accessibility.breathingStart')} accessibilityState={{ disabled: isRunning }}>
         <Animated.View style={[styles.circle, animatedCircleStyle]} importantForAccessibility="no" />
-        <View style={styles.centerContent} accessibilityLiveRegion="assertive">
+        <View style={styles.centerContent} accessibilityLiveRegion="polite">
           {isRunning ? (
             <>
               <Text style={styles.countdown}>{countdown}</Text>
@@ -198,7 +199,7 @@ export function BreathingTimer({ onComplete }: BreathingTimerProps) {
       </Pressable>
     </View>
   );
-}
+});
 
 function makeStyles(colors: ColorPalette) {
   return StyleSheet.create({

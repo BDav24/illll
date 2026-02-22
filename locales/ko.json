@@ -1,8 +1,4 @@
 {
-  "app": {
-    "name": "ILLLL",
-    "tagline": "더 오래 살 거야"
-  },
   "tabs": {
     "today": "오늘",
     "progress": "진행"
@@ -74,8 +70,7 @@
     "hold": "멈추기",
     "exhale": "내쉬기",
     "tapToStart": "탭하여 시작",
-    "sessionComplete": "세션 완료",
-    "rounds": "{{count}}라운드"
+
   },
   "progress": {
     "title": "진행",
@@ -92,7 +87,7 @@
     "habits": "습관",
     "hideHabit": "습관 숨기기",
     "showHabit": "습관 표시",
-    "notifications": "알림",
+
     "language": "언어",
     "autoDetect": "자동 감지",
     "theme": "테마",
@@ -101,8 +96,8 @@
     "themeAuto": "자동",
     "about": "앱 정보",
     "version": "버전 {{version}}",
-    "myHabits": "My Habits",
-    "addHabit": "Add a habit...",
+    "myHabits": "내 습관",
+    "addHabit": "습관 추가...",
     "resetData": "모든 데이터 초기화",
     "resetConfirm": "모든 데이터가 삭제됩니다. 계속하시겠습니까?"
   },

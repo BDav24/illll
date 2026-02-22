@@ -46,10 +46,10 @@ export const HabitCard = React.memo(function HabitCard({
     <Pressable
       onPress={handlePress}
       accessibilityRole="button"
-      accessibilityLabel={t(`${habit.i18nKey}.name`)}
+      accessibilityLabel={t(`habits.${habitId}.name`)}
       style={({ pressed }) => [
         styles.card,
-        { borderLeftColor: habit.color },
+        { borderLeftColor: colors[habitId] },
         completed && styles.cardCompleted,
         pressed && styles.cardPressed,
       ]}
@@ -65,13 +65,13 @@ export const HabitCard = React.memo(function HabitCard({
           style={[styles.name, completed && styles.textCompleted]}
           numberOfLines={1}
         >
-          {t(`${habit.i18nKey}.name`)}
+          {t(`habits.${habitId}.name`)}
         </Text>
         <Text
           style={[styles.oneLiner, completed && styles.textCompleted]}
           numberOfLines={1}
         >
-          {t(`${habit.i18nKey}.oneLiner`)}
+          {t(`habits.${habitId}.oneLiner`)}
         </Text>
       </View>
 
@@ -81,7 +81,7 @@ export const HabitCard = React.memo(function HabitCard({
         hitSlop={8}
         style={styles.infoButton}
         accessibilityRole="button"
-        accessibilityLabel={t('article.whyTitle', { habit: t(`${habit.i18nKey}.name`) })}
+        accessibilityLabel={t('article.whyTitle', { habit: t(`habits.${habitId}.name`) })}
       >
         <Text style={styles.infoText}>?</Text>
       </Pressable>
@@ -92,13 +92,13 @@ export const HabitCard = React.memo(function HabitCard({
         hitSlop={10}
         accessibilityRole="checkbox"
         accessibilityState={{ checked: completed }}
-        accessibilityLabel={t(`${habit.i18nKey}.name`)}
+        accessibilityLabel={t(`habits.${habitId}.name`)}
         accessibilityHint={completed ? t('hub.tapToUndo') : t('hub.tapToComplete')}
       >
         <View
           style={[
             styles.checkbox,
-            completed && [styles.checkboxCompleted, { backgroundColor: habit.color }],
+            completed && [styles.checkboxCompleted, { backgroundColor: colors[habitId] }],
           ]}
           importantForAccessibility="no"
         >

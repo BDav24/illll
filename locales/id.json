@@ -1,8 +1,4 @@
 {
-  "app": {
-    "name": "ILLLL",
-    "tagline": "Aku akan hidup lebih lama"
-  },
   "tabs": {
     "today": "Hari Ini",
     "progress": "Kemajuan"
@@ -74,8 +70,7 @@
     "hold": "Tahan",
     "exhale": "Buang napas",
     "tapToStart": "Ketuk untuk mulai",
-    "sessionComplete": "Sesi selesai",
-    "rounds": "{{count}} putaran"
+
   },
   "progress": {
     "title": "Kemajuan",
@@ -92,7 +87,7 @@
     "habits": "Kebiasaan",
     "hideHabit": "Sembunyikan kebiasaan",
     "showHabit": "Tampilkan kebiasaan",
-    "notifications": "Notifikasi",
+
     "language": "Bahasa",
     "autoDetect": "Deteksi otomatis",
     "theme": "Tema",
@@ -101,8 +96,8 @@
     "themeAuto": "Otomatis",
     "about": "Tentang",
     "version": "Versi {{version}}",
-    "myHabits": "My Habits",
-    "addHabit": "Add a habit...",
+    "myHabits": "Kebiasaan Saya",
+    "addHabit": "Tambah kebiasaan...",
     "resetData": "Atur Ulang Semua Data",
     "resetConfirm": "Ini akan menghapus semua datamu. Apakah kamu yakin?"
   },

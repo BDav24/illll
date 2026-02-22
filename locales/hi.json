@@ -1,8 +1,4 @@
 {
-  "app": {
-    "name": "ILLLL",
-    "tagline": "मैं लंबा जीऊँगा"
-  },
   "tabs": {
     "today": "आज",
     "progress": "प्रगति"
@@ -74,8 +70,7 @@
     "hold": "रोकें",
     "exhale": "साँस छोड़ें",
     "tapToStart": "शुरू करने के लिए टैप करें",
-    "sessionComplete": "सत्र पूरा हुआ",
-    "rounds": "{{count}} चक्र"
+
   },
   "progress": {
     "title": "प्रगति",
@@ -92,7 +87,7 @@
     "habits": "आदतें",
     "hideHabit": "आदत छुपाएँ",
     "showHabit": "आदत दिखाएँ",
-    "notifications": "सूचनाएँ",
+
     "language": "भाषा",
     "autoDetect": "स्वतः पहचान",
     "theme": "थीम",
@@ -101,8 +96,8 @@
     "themeAuto": "स्वचालित",
     "about": "ऐप के बारे में",
     "version": "संस्करण {{version}}",
-    "myHabits": "My Habits",
-    "addHabit": "Add a habit...",
+    "myHabits": "मेरी आदतें",
+    "addHabit": "आदत जोड़ें...",
     "resetData": "सभी डेटा रीसेट करें",
     "resetConfirm": "इससे आपका सारा डेटा मिट जाएगा। क्या आप सुनिश्चित हैं?"
   },

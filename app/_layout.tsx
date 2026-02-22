@@ -1,8 +1,8 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, useColorScheme } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import {
   useFonts,
@@ -12,6 +12,8 @@ import {
   Quicksand_700Bold,
 } from '@expo-google-fonts/quicksand';
 import '../lib/i18n';
+import { useColors } from '../constants/colors';
+import { useStore } from '../store/useStore';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -22,6 +24,19 @@ export default function RootLayout() {
     Quicksand_600SemiBold,
     Quicksand_700Bold,
   });
+
+  const colors = useColors();
+  const colorScheme = useStore((s) => s.settings.colorScheme);
+  const systemScheme = useColorScheme();
+  const resolved = colorScheme === 'auto' ? (systemScheme ?? 'light') : colorScheme;
+
+  const styles = useMemo(
+    () =>
+      StyleSheet.create({
+        root: { flex: 1, backgroundColor: colors.bg },
+      }),
+    [colors.bg],
+  );
 
   const onLayoutRootView = useCallback(() => {
     if (fontsLoaded) {
@@ -35,11 +50,11 @@ export default function RootLayout() {
 
   return (
     <GestureHandlerRootView style={styles.root} onLayout={onLayoutRootView}>
-      <StatusBar style="dark" />
+      <StatusBar style={resolved === 'dark' ? 'light' : 'dark'} />
       <Stack
         screenOptions={{
           headerShown: false,
-          contentStyle: { backgroundColor: '#FFFFFF' },
+          contentStyle: { backgroundColor: colors.bg },
           animation: 'slide_from_right',
         }}
       >
@@ -62,10 +77,3 @@ export default function RootLayout() {
     </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: '#FFFFFF',
-  },
-});

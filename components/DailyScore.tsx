@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 import Animated, {
   useSharedValue,
@@ -81,9 +81,9 @@ export const DailyScore = React.memo(function DailyScore({
         />
       </Svg>
       <View style={styles.labelContainer} importantForAccessibility="no">
-        <Animated.Text style={styles.labelText}>
+        <Text style={styles.labelText}>
           {completed}/{total}
-        </Animated.Text>
+        </Text>
       </View>
     </View>
   );

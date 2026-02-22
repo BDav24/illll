@@ -18,7 +18,7 @@ import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
 import { HABITS } from '../constants/habits';
 import { useStore, type HabitId, type ColorScheme } from '../store/useStore';
-import { SUPPORTED_LOCALES, loadLanguage } from '../lib/i18n';
+import { SUPPORTED_LOCALES, loadLanguage, getDeviceLocale } from '../lib/i18n';
 
 function confirmAlert(
   title: string,
@@ -81,7 +81,7 @@ export default function SettingsScreen() {
 
   const handleLanguageChange = async (code: string | null) => {
     setLanguage(code);
-    const lang = code ?? 'en';
+    const lang = code ?? getDeviceLocale();
     await loadLanguage(lang);
     setShowLangPicker(false);
   };
@@ -134,9 +134,9 @@ export default function SettingsScreen() {
                   onValueChange={() => toggleHideHabit(habit.id)}
                   trackColor={{
                     false: colors.border,
-                    true: habit.color + '80',
+                    true: colors[habit.id] + '80',
                   }}
-                  thumbColor={isHidden ? colors.textMuted : habit.color}
+                  thumbColor={isHidden ? colors.textMuted : colors[habit.id]}
                   accessibilityLabel={t(`habits.${habit.id}.name`)}
                 />
               </View>
@@ -181,7 +181,7 @@ export default function SettingsScreen() {
 
         {/* Language Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle} accessibilityRole="header">{t('language')}</Text>
+          <Text style={styles.sectionTitle} accessibilityRole="header">{t('settings.language')}</Text>
 
           {!showLangPicker ? (
             <Pressable

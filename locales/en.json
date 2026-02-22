@@ -1,8 +1,4 @@
 {
-  "app": {
-    "name": "ILLLL",
-    "tagline": "I'll Live Longer"
-  },
   "tabs": {
     "today": "Today",
     "progress": "Progress"
@@ -73,9 +69,7 @@
     "inhale": "Inhale",
     "hold": "Hold",
     "exhale": "Exhale",
-    "tapToStart": "Tap to start",
-    "sessionComplete": "Session complete",
-    "rounds": "{{count}} rounds"
+    "tapToStart": "Tap to start"
   },
   "progress": {
     "title": "Progress",
@@ -92,7 +86,6 @@
     "habits": "Habits",
     "hideHabit": "Hide habit",
     "showHabit": "Show habit",
-    "notifications": "Notifications",
     "language": "Language",
     "autoDetect": "Auto-detect",
     "theme": "Theme",

@@ -1,8 +1,4 @@
 {
-  "app": {
-    "name": "ILLLL",
-    "tagline": "活得更久"
-  },
   "tabs": {
     "today": "今天",
     "progress": "进度"
@@ -74,8 +70,7 @@
     "hold": "屏息",
     "exhale": "呼气",
     "tapToStart": "点击开始",
-    "sessionComplete": "练习完成",
-    "rounds": "{{count}} 轮"
+
   },
   "progress": {
     "title": "进度",
@@ -92,7 +87,7 @@
     "habits": "习惯",
     "hideHabit": "隐藏习惯",
     "showHabit": "显示习惯",
-    "notifications": "通知",
+
     "language": "语言",
     "autoDetect": "自动检测",
     "theme": "主题",
@@ -101,8 +96,8 @@
     "themeAuto": "自动",
     "about": "关于",
     "version": "版本 {{version}}",
-    "myHabits": "My Habits",
-    "addHabit": "Add a habit...",
+    "myHabits": "我的习惯",
+    "addHabit": "添加习惯...",
     "resetData": "重置所有数据",
     "resetConfirm": "这将删除你的所有数据。确定要继续吗？"
   },

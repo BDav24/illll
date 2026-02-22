@@ -1,8 +1,4 @@
 {
-  "app": {
-    "name": "ILLLL",
-    "tagline": "Tôi sẽ sống lâu hơn"
-  },
   "tabs": {
     "today": "Hôm nay",
     "progress": "Tiến trình"
@@ -74,8 +70,7 @@
     "hold": "Giữ",
     "exhale": "Thở ra",
     "tapToStart": "Chạm để bắt đầu",
-    "sessionComplete": "Hoàn thành phiên",
-    "rounds": "{{count}} vòng"
+
   },
   "progress": {
     "title": "Tiến trình",
@@ -92,7 +87,7 @@
     "habits": "Thói quen",
     "hideHabit": "Ẩn thói quen",
     "showHabit": "Hiện thói quen",
-    "notifications": "Thông báo",
+
     "language": "Ngôn ngữ",
     "autoDetect": "Tự động nhận diện",
     "theme": "Giao diện",
@@ -101,8 +96,8 @@
     "themeAuto": "Tự động",
     "about": "Giới thiệu",
     "version": "Phiên bản {{version}}",
-    "myHabits": "My Habits",
-    "addHabit": "Add a habit...",
+    "myHabits": "Thói quen của tôi",
+    "addHabit": "Thêm thói quen...",
     "resetData": "Đặt lại tất cả dữ liệu",
     "resetConfirm": "Thao tác này sẽ xóa tất cả dữ liệu của bạn. Bạn có chắc không?"
   },

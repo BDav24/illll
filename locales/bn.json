@@ -1,8 +1,4 @@
 {
-  "app": {
-    "name": "ILLLL",
-    "tagline": "আমি আরও বেশিদিন বাঁচব"
-  },
   "tabs": {
     "today": "আজ",
     "progress": "অগ্রগতি"
@@ -74,8 +70,7 @@
     "hold": "ধরে রাখুন",
     "exhale": "শ্বাস ছাড়ুন",
     "tapToStart": "শুরু করতে ট্যাপ করুন",
-    "sessionComplete": "সেশন সম্পন্ন",
-    "rounds": "{{count}} রাউন্ড"
+
   },
   "progress": {
     "title": "অগ্রগতি",
@@ -92,7 +87,7 @@
     "habits": "অভ্যাস",
     "hideHabit": "অভ্যাস লুকান",
     "showHabit": "অভ্যাস দেখান",
-    "notifications": "বিজ্ঞপ্তি",
+
     "language": "ভাষা",
     "autoDetect": "স্বয়ংক্রিয় সনাক্তকরণ",
     "theme": "থিম",
@@ -101,8 +96,8 @@
     "themeAuto": "স্বয়ংক্রিয়",
     "about": "সম্পর্কে",
     "version": "সংস্করণ {{version}}",
-    "myHabits": "My Habits",
-    "addHabit": "Add a habit...",
+    "myHabits": "আমার অভ্যাস",
+    "addHabit": "অভ্যাস যোগ করুন...",
     "resetData": "সমস্ত ডেটা রিসেট করুন",
     "resetConfirm": "এটি আপনার সমস্ত ডেটা মুছে ফেলবে। আপনি কি নিশ্চিত?"
   },

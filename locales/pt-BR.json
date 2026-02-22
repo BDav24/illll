@@ -1,8 +1,4 @@
 {
-  "app": {
-    "name": "ILLLL",
-    "tagline": "Vou viver mais"
-  },
   "tabs": {
     "today": "Hoje",
     "progress": "Progresso"
@@ -73,9 +69,7 @@
     "inhale": "Inspire",
     "hold": "Segure",
     "exhale": "Expire",
-    "tapToStart": "Toque para começar",
-    "sessionComplete": "Sessão concluída",
-    "rounds": "{{count}} rodadas"
+    "tapToStart": "Toque para começar"
   },
   "progress": {
     "title": "Progresso",
@@ -92,7 +86,6 @@
     "habits": "Hábitos",
     "hideHabit": "Ocultar hábito",
     "showHabit": "Mostrar hábito",
-    "notifications": "Notificações",
     "language": "Idioma",
     "autoDetect": "Detectar automaticamente",
     "theme": "Tema",
@@ -101,8 +94,8 @@
     "themeAuto": "Automático",
     "about": "Sobre",
     "version": "Versão {{version}}",
-    "myHabits": "My Habits",
-    "addHabit": "Add a habit...",
+    "myHabits": "Meus Hábitos",
+    "addHabit": "Adicionar um hábito...",
     "resetData": "Redefinir todos os dados",
     "resetConfirm": "Isso excluirá todos os seus dados. Tem certeza?"
   },

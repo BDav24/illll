@@ -1,8 +1,4 @@
 {
-  "app": {
-    "name": "ILLLL",
-    "tagline": "Я проживу дольше"
-  },
   "tabs": {
     "today": "Сегодня",
     "progress": "Прогресс"
@@ -73,9 +69,7 @@
     "inhale": "Вдох",
     "hold": "Задержка",
     "exhale": "Выдох",
-    "tapToStart": "Нажмите, чтобы начать",
-    "sessionComplete": "Сеанс завершён",
-    "rounds": "{{count}} раундов"
+    "tapToStart": "Нажмите, чтобы начать"
   },
   "progress": {
     "title": "Прогресс",
@@ -92,7 +86,6 @@
     "habits": "Привычки",
     "hideHabit": "Скрыть привычку",
     "showHabit": "Показать привычку",
-    "notifications": "Уведомления",
     "language": "Язык",
     "autoDetect": "Автоопределение",
     "theme": "Тема",
@@ -101,8 +94,8 @@
     "themeAuto": "Авто",
     "about": "О приложении",
     "version": "Версия {{version}}",
-    "myHabits": "My Habits",
-    "addHabit": "Add a habit...",
+    "myHabits": "Мои Привычки",
+    "addHabit": "Добавить привычку...",
     "resetData": "Сбросить все данные",
     "resetConfirm": "Это удалит все ваши данные. Вы уверены?"
   },
