@@ -24,7 +24,7 @@ Codzienne zapisywanie 3 konkretnych rzeczy przebudowuje kore przedczolowa. 10-25
 
 DLACZEGO ILLLL
 
-→ Calkowicie bezplatne. Bez subskrypcji. Bez zakupow w aplikacji. Nigdy.
+→ Open-source i calkowicie bezplatne. Bez subskrypcji. Bez zakupow w aplikacji. Nigdy.
 → Twoje dane nigdy nie opuszczaja urzadzenia. Zero analityki. Zero sledzenia.
 → Bez konta. Otworz aplikacje i zacznij.
 → Kazdy nawyk poparty recenzowanymi badaniami z pelnym dostepem do artykulow.

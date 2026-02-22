@@ -41,13 +41,13 @@
 - **Caption position:** Top, white text, semi-bold
 - **Purpose:** Shows educational depth, research-backed credibility
 
-### Screenshot 5: Settings & Languages
+### Screenshot 5: Settings & Customization
 
-- **Screen:** Settings screen with language picker open, dark mode
-- **State:** Language list visible showing multiple languages
-- **Caption overlay:** "20+ languages. Zero accounts."
+- **Screen:** Settings screen, dark mode
+- **State:** Custom goals and notification settings visible
+- **Caption overlay:** "Custom goals. Custom reminders."
 - **Caption position:** Top, white text, semi-bold
-- **Purpose:** Shows global reach and privacy (no account section visible)
+- **Purpose:** Shows customization options — personal goals and notifications
 
 ### Screenshot 6: Breathing Timer
 
