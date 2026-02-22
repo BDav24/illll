@@ -174,7 +174,7 @@ export default function DailyHub() {
     [updateHabitData],
   );
 
-  const handleCustomHabitLongPress = useCallback(
+  const handleCustomHabitPress = useCallback(
     (id: string) => {
       setActiveHabit(null);
       setActiveCustomHabit(id);
@@ -269,8 +269,8 @@ export default function DailyHub() {
                 id={ch.id}
                 text={ch.text}
                 completed={today.habits[ch.id]?.completed ?? false}
-                onPress={toggleCustomHabit}
-                onLongPress={handleCustomHabitLongPress}
+                onPress={handleCustomHabitPress}
+                onCheckboxPress={toggleCustomHabit}
                 criterion={habitCriteria[ch.id]}
               />
             ))}
