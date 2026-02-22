@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { format } from 'date-fns';
+import { randomUUID } from 'expo-crypto';
 import { storage } from './mmkv';
 
 // ---------------------------------------------------------------------------
@@ -313,7 +314,7 @@ export const useStore = create<StoreState>()((set) => ({
   addCustomHabit: (text: string) => {
     const trimmed = text.trim();
     if (!trimmed) return;
-    const id = `custom_${crypto.randomUUID()}`;
+    const id = `custom_${randomUUID()}`;
     set((state) => ({
       settings: {
         ...state.settings,
