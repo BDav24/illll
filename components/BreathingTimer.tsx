@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 
 import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
+import { useStore } from '../store/useStore';
 
 interface BreathingTimerProps {
   onComplete: (rounds: number) => void;
@@ -19,7 +20,6 @@ type Phase = 'idle' | 'inhale' | 'holdIn' | 'exhale' | 'holdOut';
 
 const PHASE_DURATION = 4000; // 4 seconds per phase
 const SECONDS_PER_ROUND = 16; // 4 phases × 4 seconds
-const DEFAULT_ROUNDS = 12;
 const MIN_ROUNDS = 1;
 const MAX_ROUNDS = 99;
 const CIRCLE_SIZE = 200;
@@ -35,7 +35,8 @@ export const BreathingTimer = React.memo(function BreathingTimer({ onComplete }:
   const [countdown, setCountdown] = useState(4);
   const [currentRound, setCurrentRound] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
-  const [selectedRounds, setSelectedRounds] = useState(DEFAULT_ROUNDS);
+  const selectedRounds = useStore((s) => s.settings.breathingRounds);
+  const setBreathingRounds = useStore((s) => s.setBreathingRounds);
 
   const totalSeconds = selectedRounds * SECONDS_PER_ROUND;
   const displayMinutes = Math.floor(totalSeconds / 60);
@@ -193,12 +194,12 @@ export const BreathingTimer = React.memo(function BreathingTimer({ onComplete }:
   };
 
   const handleDecreaseRounds = useCallback(() => {
-    setSelectedRounds((r) => Math.max(MIN_ROUNDS, r - 1));
-  }, []);
+    setBreathingRounds(Math.max(MIN_ROUNDS, selectedRounds - 1));
+  }, [selectedRounds, setBreathingRounds]);
 
   const handleIncreaseRounds = useCallback(() => {
-    setSelectedRounds((r) => Math.min(MAX_ROUNDS, r + 1));
-  }, []);
+    setBreathingRounds(Math.min(MAX_ROUNDS, selectedRounds + 1));
+  }, [selectedRounds, setBreathingRounds]);
 
   return (
     <View style={styles.container}>
