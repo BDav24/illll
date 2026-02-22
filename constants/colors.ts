@@ -2,8 +2,8 @@ import { useColorScheme } from 'react-native';
 import { useStore } from '../store/useStore';
 
 const LightColors = {
-  bg: '#FFFFFF',
-  surface: '#F5F5F5',
+  bg: '#F2F2F7',
+  surface: '#FFFFFF',
   surfaceLight: '#EBEBEB',
   border: '#E0E0E0',
   text: '#1A1A1A',
