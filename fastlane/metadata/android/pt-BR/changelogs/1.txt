@@ -1,0 +1,11 @@
+Primeira versao do ILLLL — rastreie 6 habitos de longevidade baseados em evidencias.
+
+• 6 habitos cientificos: respiracao, luz, alimentacao, sono, exercicio, gratidao
+• Temporizador de respiracao integrado com exercicios guiados
+• Sequencias, graficos de progresso e mapa de calor anual
+• Artigos de pesquisa completos para cada habito
+• Suporte a habitos personalizados
+• Mais de 20 idiomas
+• Modos escuro e claro
+• Lembretes diarios
+• 100% gratis, 100% privado

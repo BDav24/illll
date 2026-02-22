@@ -1,0 +1,1 @@
+levensduur,gewoontes,gezondheid,tracker,ademhaling,slaap,beweging,dankbaarheid,welzijn
