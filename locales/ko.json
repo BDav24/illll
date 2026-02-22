@@ -92,7 +92,6 @@
     "habits": "습관",
     "hideHabit": "습관 숨기기",
     "showHabit": "습관 표시",
-
     "language": "언어",
     "autoDetect": "자동 감지",
     "theme": "테마",
@@ -104,7 +103,9 @@
     "myHabits": "내 습관",
     "addHabit": "습관 추가...",
     "resetData": "모든 데이터 초기화",
-    "resetConfirm": "모든 데이터가 삭제됩니다. 계속하시겠습니까?"
+    "resetConfirm": "모든 데이터가 삭제됩니다. 계속하시겠습니까?",
+    "reminders": "알림",
+    "manageReminders": "일일 알림 관리"
   },
   "criteria": {
     "myGoal": "나의 목표",
@@ -132,6 +133,39 @@
     "breathingStart": "호흡 운동 시작",
     "breathingRound": "라운드 {{current}}/{{total}}",
     "openStudy": "브라우저에서 열기"
+  },
+  "notifications": {
+    "title": "알림",
+    "addReminder": "알림 추가",
+    "scheduleDaily": "매일 {{hour}}:{{minute}}",
+    "scheduleInterval": "{{hours}}시간 {{minutes}}분마다",
+    "hours": "시간",
+    "minutes": "분",
+    "editReminder": "알림 편집",
+    "deleteReminder": "알림 삭제",
+    "deleteConfirm": "이 알림을 삭제하시겠습니까?",
+    "titlePlaceholder": "알림 제목...",
+    "bodyPlaceholder": "알림 메시지...",
+    "permissionRequired": "알림 권한",
+    "permissionDenied": "알림을 받으려면 기기 설정에서 알림을 활성화해 주세요.",
+    "hour": "시",
+    "minute": "분",
+    "daily": "매일",
+    "interval": "간격",
+    "defaults": {
+      "morning": {
+        "title": "모닝 루틴",
+        "body": "건강한 습관을 시작할 시간이에요!"
+      },
+      "evening": {
+        "title": "저녁 휴식",
+        "body": "하루를 돌아보며 편안히 쉬세요."
+      },
+      "move": {
+        "title": "움직일 시간",
+        "body": "잠시 쉬고 몸을 움직이세요!"
+      }
+    }
   },
   "common": {
     "done": "완료",

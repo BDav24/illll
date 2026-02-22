@@ -92,7 +92,6 @@
     "habits": "習慣",
     "hideHabit": "隱藏習慣",
     "showHabit": "顯示習慣",
-
     "language": "語言",
     "autoDetect": "自動偵測",
     "theme": "主題",
@@ -104,7 +103,9 @@
     "myHabits": "我的習慣",
     "addHabit": "新增習慣...",
     "resetData": "重設所有資料",
-    "resetConfirm": "這將刪除你的所有資料。確定要繼續嗎？"
+    "resetConfirm": "這將刪除你的所有資料。確定要繼續嗎？",
+    "reminders": "提醒",
+    "manageReminders": "管理你的每日提醒"
   },
   "criteria": {
     "myGoal": "我的目標",
@@ -132,6 +133,39 @@
     "breathingStart": "開始呼吸練習",
     "breathingRound": "第{{current}}輪，共{{total}}輪",
     "openStudy": "在瀏覽器中開啟"
+  },
+  "notifications": {
+    "title": "提醒",
+    "addReminder": "新增提醒",
+    "scheduleDaily": "每天 {{hour}}:{{minute}}",
+    "scheduleInterval": "每 {{hours}}小時 {{minutes}}分鐘",
+    "hours": "小時",
+    "minutes": "分鐘",
+    "editReminder": "編輯提醒",
+    "deleteReminder": "刪除提醒",
+    "deleteConfirm": "刪除此提醒？",
+    "titlePlaceholder": "提醒標題...",
+    "bodyPlaceholder": "提醒內容...",
+    "permissionRequired": "通知權限",
+    "permissionDenied": "請在裝置設定中啟用通知以接收提醒。",
+    "hour": "時",
+    "minute": "分",
+    "daily": "每日",
+    "interval": "間隔",
+    "defaults": {
+      "morning": {
+        "title": "晨間習慣",
+        "body": "是時候開始你的健康習慣了！"
+      },
+      "evening": {
+        "title": "晚間放鬆",
+        "body": "放鬆身心，回顧你的一天。"
+      },
+      "move": {
+        "title": "該動一動了",
+        "body": "休息一下，活動活動！"
+      }
+    }
   },
   "common": {
     "done": "完成",

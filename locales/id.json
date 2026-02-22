@@ -97,7 +97,6 @@
     "habits": "Kebiasaan",
     "hideHabit": "Sembunyikan kebiasaan",
     "showHabit": "Tampilkan kebiasaan",
-
     "language": "Bahasa",
     "autoDetect": "Deteksi otomatis",
     "theme": "Tema",
@@ -109,7 +108,9 @@
     "myHabits": "Kebiasaan Saya",
     "addHabit": "Tambah kebiasaan...",
     "resetData": "Atur Ulang Semua Data",
-    "resetConfirm": "Ini akan menghapus semua datamu. Apakah kamu yakin?"
+    "resetConfirm": "Ini akan menghapus semua datamu. Apakah kamu yakin?",
+    "reminders": "Pengingat",
+    "manageReminders": "Kelola pengingat harian Anda"
   },
   "article": {
     "whyTitle": "Mengapa {{habit}}?",
@@ -132,6 +133,39 @@
     "breathingStart": "Mulai latihan pernapasan",
     "breathingRound": "Putaran {{current}} dari {{total}}",
     "openStudy": "Dibuka di browser"
+  },
+  "notifications": {
+    "title": "Pengingat",
+    "addReminder": "Tambah pengingat",
+    "scheduleDaily": "Setiap hari pukul {{hour}}:{{minute}}",
+    "scheduleInterval": "Setiap {{hours}}j {{minutes}}m",
+    "hours": "Jam",
+    "minutes": "Menit",
+    "editReminder": "Edit pengingat",
+    "deleteReminder": "Hapus pengingat",
+    "deleteConfirm": "Hapus pengingat ini?",
+    "titlePlaceholder": "Judul pengingat...",
+    "bodyPlaceholder": "Pesan pengingat...",
+    "permissionRequired": "Izin Notifikasi",
+    "permissionDenied": "Aktifkan notifikasi di pengaturan perangkat untuk menerima pengingat.",
+    "hour": "Jam",
+    "minute": "Menit",
+    "daily": "Harian",
+    "interval": "Interval",
+    "defaults": {
+      "morning": {
+        "title": "Rutinitas Pagi",
+        "body": "Saatnya memulai kebiasaan sehatmu!"
+      },
+      "evening": {
+        "title": "Relaksasi Malam",
+        "body": "Bersantai dan refleksikan harimu."
+      },
+      "move": {
+        "title": "Saatnya Bergerak",
+        "body": "Istirahat sejenak dan bergeraklah!"
+      }
+    }
   },
   "common": {
     "done": "Selesai",

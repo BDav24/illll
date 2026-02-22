@@ -103,7 +103,9 @@
     "myHabits": "Mijn Gewoontes",
     "addHabit": "Voeg een gewoonte toe...",
     "resetData": "Alle gegevens wissen",
-    "resetConfirm": "Dit verwijdert al je gegevens. Weet je het zeker?"
+    "resetConfirm": "Dit verwijdert al je gegevens. Weet je het zeker?",
+    "reminders": "Herinneringen",
+    "manageReminders": "Beheer je dagelijkse herinneringen"
   },
   "criteria": {
     "myGoal": "Mijn doel",
@@ -131,6 +133,39 @@
     "breathingStart": "Ademhalingsoefening starten",
     "breathingRound": "Ronde {{current}} van {{total}}",
     "openStudy": "Opent in browser"
+  },
+  "notifications": {
+    "title": "Herinneringen",
+    "addReminder": "Herinnering toevoegen",
+    "scheduleDaily": "Dagelijks om {{hour}}:{{minute}}",
+    "scheduleInterval": "Elke {{hours}}u {{minutes}}m",
+    "hours": "Uren",
+    "minutes": "Minuten",
+    "editReminder": "Herinnering bewerken",
+    "deleteReminder": "Herinnering verwijderen",
+    "deleteConfirm": "Deze herinnering verwijderen?",
+    "titlePlaceholder": "Titel van herinnering...",
+    "bodyPlaceholder": "Bericht van herinnering...",
+    "permissionRequired": "Meldingstoestemming",
+    "permissionDenied": "Schakel meldingen in via je apparaatinstellingen om herinneringen te ontvangen.",
+    "hour": "Uur",
+    "minute": "Minuut",
+    "daily": "Dagelijks",
+    "interval": "Interval",
+    "defaults": {
+      "morning": {
+        "title": "Ochtendroutine",
+        "body": "Tijd om je gezonde gewoontes te starten!"
+      },
+      "evening": {
+        "title": "Avondontspanning",
+        "body": "Ontspan en reflecteer op je dag."
+      },
+      "move": {
+        "title": "Tijd om te bewegen",
+        "body": "Neem een pauze en beweeg even!"
+      }
+    }
   },
   "common": {
     "done": "Klaar",

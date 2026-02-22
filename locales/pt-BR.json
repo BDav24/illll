@@ -103,7 +103,9 @@
     "myHabits": "Meus Hábitos",
     "addHabit": "Adicionar um hábito...",
     "resetData": "Redefinir todos os dados",
-    "resetConfirm": "Isso excluirá todos os seus dados. Tem certeza?"
+    "resetConfirm": "Isso excluirá todos os seus dados. Tem certeza?",
+    "reminders": "Lembretes",
+    "manageReminders": "Gerencie seus lembretes diários"
   },
   "criteria": {
     "myGoal": "Minha meta",
@@ -131,6 +133,39 @@
     "breathingStart": "Iniciar exercício de respiração",
     "breathingRound": "Rodada {{current}} de {{total}}",
     "openStudy": "Abre no navegador"
+  },
+  "notifications": {
+    "title": "Lembretes",
+    "addReminder": "Adicionar lembrete",
+    "scheduleDaily": "Diariamente às {{hour}}:{{minute}}",
+    "scheduleInterval": "A cada {{hours}}h {{minutes}}m",
+    "hours": "Horas",
+    "minutes": "Minutos",
+    "editReminder": "Editar lembrete",
+    "deleteReminder": "Excluir lembrete",
+    "deleteConfirm": "Excluir este lembrete?",
+    "titlePlaceholder": "Título do lembrete...",
+    "bodyPlaceholder": "Mensagem do lembrete...",
+    "permissionRequired": "Permissão de notificação",
+    "permissionDenied": "Ative as notificações nas configurações do dispositivo para receber lembretes.",
+    "hour": "Hora",
+    "minute": "Minuto",
+    "daily": "Diário",
+    "interval": "Intervalo",
+    "defaults": {
+      "morning": {
+        "title": "Rotina matinal",
+        "body": "Hora de começar seus hábitos saudáveis!"
+      },
+      "evening": {
+        "title": "Relaxamento noturno",
+        "body": "Relaxe e reflita sobre o seu dia."
+      },
+      "move": {
+        "title": "Hora de se mover",
+        "body": "Faça uma pausa e movimente-se!"
+      }
+    }
   },
   "common": {
     "done": "Pronto",

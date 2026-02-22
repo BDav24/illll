@@ -103,7 +103,9 @@
     "myHabits": "Mes Habitudes",
     "addHabit": "Ajouter une habitude...",
     "resetData": "Réinitialiser toutes les données",
-    "resetConfirm": "Cela supprimera toutes vos données. Êtes-vous sûr ?"
+    "resetConfirm": "Cela supprimera toutes vos données. Êtes-vous sûr ?",
+    "reminders": "Rappels",
+    "manageReminders": "Gérez vos rappels quotidiens"
   },
   "criteria": {
     "myGoal": "Mon objectif",
@@ -131,6 +133,39 @@
     "breathingStart": "Commencer l'exercice de respiration",
     "breathingRound": "Tour {{current}} sur {{total}}",
     "openStudy": "S'ouvre dans le navigateur"
+  },
+  "notifications": {
+    "title": "Rappels",
+    "addReminder": "Ajouter un rappel",
+    "scheduleDaily": "Tous les jours à {{hour}}:{{minute}}",
+    "scheduleInterval": "Toutes les {{hours}}h {{minutes}}m",
+    "hours": "Heures",
+    "minutes": "Minutes",
+    "editReminder": "Modifier le rappel",
+    "deleteReminder": "Supprimer le rappel",
+    "deleteConfirm": "Supprimer ce rappel ?",
+    "titlePlaceholder": "Titre du rappel...",
+    "bodyPlaceholder": "Message du rappel...",
+    "permissionRequired": "Autorisation de notification",
+    "permissionDenied": "Veuillez activer les notifications dans les paramètres de votre appareil pour recevoir des rappels.",
+    "hour": "Heure",
+    "minute": "Minute",
+    "daily": "Quotidien",
+    "interval": "Intervalle",
+    "defaults": {
+      "morning": {
+        "title": "Routine matinale",
+        "body": "C'est l'heure de commencer vos habitudes saines !"
+      },
+      "evening": {
+        "title": "Détente du soir",
+        "body": "Détendez-vous et réfléchissez à votre journée."
+      },
+      "move": {
+        "title": "C'est l'heure de bouger",
+        "body": "Faites une pause et bougez un peu !"
+      }
+    }
   },
   "common": {
     "done": "Terminé",

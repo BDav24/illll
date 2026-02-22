@@ -92,7 +92,6 @@
     "habits": "習慣",
     "hideHabit": "習慣を非表示",
     "showHabit": "習慣を表示",
-
     "language": "言語",
     "autoDetect": "自動検出",
     "theme": "テーマ",
@@ -104,7 +103,9 @@
     "myHabits": "マイ習慣",
     "addHabit": "習慣を追加...",
     "resetData": "すべてのデータをリセット",
-    "resetConfirm": "すべてのデータが削除されます。よろしいですか？"
+    "resetConfirm": "すべてのデータが削除されます。よろしいですか？",
+    "reminders": "リマインダー",
+    "manageReminders": "毎日のリマインダーを管理"
   },
   "criteria": {
     "myGoal": "目標",
@@ -132,6 +133,39 @@
     "breathingStart": "呼吸エクササイズを開始",
     "breathingRound": "ラウンド{{current}}/{{total}}",
     "openStudy": "ブラウザで開きます"
+  },
+  "notifications": {
+    "title": "リマインダー",
+    "addReminder": "リマインダーを追加",
+    "scheduleDaily": "毎日 {{hour}}:{{minute}}",
+    "scheduleInterval": "{{hours}}時間{{minutes}}分ごと",
+    "hours": "時間",
+    "minutes": "分",
+    "editReminder": "リマインダーを編集",
+    "deleteReminder": "リマインダーを削除",
+    "deleteConfirm": "このリマインダーを削除しますか？",
+    "titlePlaceholder": "リマインダーのタイトル...",
+    "bodyPlaceholder": "リマインダーのメッセージ...",
+    "permissionRequired": "通知の許可",
+    "permissionDenied": "リマインダーを受け取るには、デバイスの設定で通知を有効にしてください。",
+    "hour": "時",
+    "minute": "分",
+    "daily": "毎日",
+    "interval": "インターバル",
+    "defaults": {
+      "morning": {
+        "title": "モーニングルーティン",
+        "body": "健康的な習慣を始めましょう！"
+      },
+      "evening": {
+        "title": "イブニングリラックス",
+        "body": "一日を振り返りリラックスしましょう。"
+      },
+      "move": {
+        "title": "動く時間です",
+        "body": "休憩して体を動かしましょう！"
+      }
+    }
   },
   "common": {
     "done": "完了",

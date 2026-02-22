@@ -92,7 +92,6 @@
     "habits": "आदतें",
     "hideHabit": "आदत छुपाएँ",
     "showHabit": "आदत दिखाएँ",
-
     "language": "भाषा",
     "autoDetect": "स्वतः पहचान",
     "theme": "थीम",
@@ -104,7 +103,9 @@
     "myHabits": "मेरी आदतें",
     "addHabit": "आदत जोड़ें...",
     "resetData": "सभी डेटा रीसेट करें",
-    "resetConfirm": "इससे आपका सारा डेटा मिट जाएगा। क्या आप सुनिश्चित हैं?"
+    "resetConfirm": "इससे आपका सारा डेटा मिट जाएगा। क्या आप सुनिश्चित हैं?",
+    "reminders": "रिमाइंडर",
+    "manageReminders": "अपने दैनिक रिमाइंडर प्रबंधित करें"
   },
   "criteria": {
     "myGoal": "मेरा लक्ष्य",
@@ -132,6 +133,39 @@
     "breathingStart": "श्वास अभ्यास शुरू करें",
     "breathingRound": "राउंड {{current}} / {{total}}",
     "openStudy": "ब्राउज़र में खुलता है"
+  },
+  "notifications": {
+    "title": "रिमाइंडर",
+    "addReminder": "रिमाइंडर जोड़ें",
+    "scheduleDaily": "रोज़ {{hour}}:{{minute}} बजे",
+    "scheduleInterval": "हर {{hours}} घंटे {{minutes}} मिनट",
+    "hours": "घंटे",
+    "minutes": "मिनट",
+    "editReminder": "रिमाइंडर संपादित करें",
+    "deleteReminder": "रिमाइंडर हटाएँ",
+    "deleteConfirm": "यह रिमाइंडर हटाएँ?",
+    "titlePlaceholder": "रिमाइंडर का शीर्षक...",
+    "bodyPlaceholder": "रिमाइंडर का संदेश...",
+    "permissionRequired": "सूचना अनुमति",
+    "permissionDenied": "रिमाइंडर प्राप्त करने के लिए कृपया अपने डिवाइस सेटिंग्स में सूचनाएँ सक्षम करें।",
+    "hour": "घंटा",
+    "minute": "मिनट",
+    "daily": "दैनिक",
+    "interval": "अंतराल",
+    "defaults": {
+      "morning": {
+        "title": "सुबह की दिनचर्या",
+        "body": "अपनी स्वस्थ आदतें शुरू करने का समय!"
+      },
+      "evening": {
+        "title": "शाम का विश्राम",
+        "body": "आराम करें और अपने दिन पर विचार करें।"
+      },
+      "move": {
+        "title": "चलने का समय",
+        "body": "ब्रेक लें और थोड़ा चलें-फिरें!"
+      }
+    }
   },
   "common": {
     "done": "हो गया",

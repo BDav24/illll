@@ -103,7 +103,9 @@
     "myHabits": "Le mie Abitudini",
     "addHabit": "Aggiungi un'abitudine...",
     "resetData": "Reimposta tutti i dati",
-    "resetConfirm": "Questo cancellerà tutti i tuoi dati. Sei sicuro?"
+    "resetConfirm": "Questo cancellerà tutti i tuoi dati. Sei sicuro?",
+    "reminders": "Promemoria",
+    "manageReminders": "Gestisci i tuoi promemoria giornalieri"
   },
   "criteria": {
     "myGoal": "Il mio obiettivo",
@@ -131,6 +133,39 @@
     "breathingStart": "Inizia esercizio di respirazione",
     "breathingRound": "Round {{current}} di {{total}}",
     "openStudy": "Si apre nel browser"
+  },
+  "notifications": {
+    "title": "Promemoria",
+    "addReminder": "Aggiungi promemoria",
+    "scheduleDaily": "Ogni giorno alle {{hour}}:{{minute}}",
+    "scheduleInterval": "Ogni {{hours}}h {{minutes}}m",
+    "hours": "Ore",
+    "minutes": "Minuti",
+    "editReminder": "Modifica promemoria",
+    "deleteReminder": "Elimina promemoria",
+    "deleteConfirm": "Eliminare questo promemoria?",
+    "titlePlaceholder": "Titolo del promemoria...",
+    "bodyPlaceholder": "Messaggio del promemoria...",
+    "permissionRequired": "Permesso notifiche",
+    "permissionDenied": "Abilita le notifiche nelle impostazioni del dispositivo per ricevere i promemoria.",
+    "hour": "Ora",
+    "minute": "Minuto",
+    "daily": "Giornaliero",
+    "interval": "Intervallo",
+    "defaults": {
+      "morning": {
+        "title": "Routine mattutina",
+        "body": "È ora di iniziare le tue abitudini salutari!"
+      },
+      "evening": {
+        "title": "Relax serale",
+        "body": "Rilassati e rifletti sulla tua giornata."
+      },
+      "move": {
+        "title": "È ora di muoversi",
+        "body": "Fai una pausa e muoviti un po!"
+      }
+    }
   },
   "common": {
     "done": "Fatto",

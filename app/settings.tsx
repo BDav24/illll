@@ -17,8 +17,10 @@ import { useTranslation } from 'react-i18next';
 import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
 import { HABITS } from '../constants/habits';
-import { useStore, type HabitId, type ColorScheme } from '../store/useStore';
+import { useStore, type ColorScheme } from '../store/useStore';
 import { SUPPORTED_LOCALES, loadLanguage, getDeviceLocale } from '../lib/i18n';
+import { retranslateDefaults } from '../constants/notifications';
+import { cancelAll, syncNotifications } from '../lib/notifications';
 
 function confirmAlert(
   title: string,
@@ -59,6 +61,8 @@ export default function SettingsScreen() {
   const setColorScheme = useStore((s) => s.setColorScheme);
   const addCustomHabit = useStore((s) => s.addCustomHabit);
   const deleteCustomHabit = useStore((s) => s.deleteCustomHabit);
+  const notifications = useStore((s) => s.settings.notifications) ?? [];
+  const setNotifications = useStore((s) => s.setNotifications);
   const resetAll = useStore((s) => s.resetAll);
 
   const [showLangPicker, setShowLangPicker] = useState(false);
@@ -84,6 +88,13 @@ export default function SettingsScreen() {
     const lang = code ?? getDeviceLocale();
     await loadLanguage(lang);
     setShowLangPicker(false);
+
+    // Re-translate unedited default reminders
+    if (notifications.length > 0) {
+      const updated = retranslateDefaults(notifications, t);
+      setNotifications(updated);
+      syncNotifications(updated);
+    }
   };
 
   const handleReset = () => {
@@ -91,6 +102,7 @@ export default function SettingsScreen() {
       t('settings.resetData'),
       t('settings.resetConfirm'),
       () => {
+        cancelAll();
         resetAll();
         router.replace('/');
       },
@@ -178,6 +190,21 @@ export default function SettingsScreen() {
             </Pressable>
           </View>
         </View>
+
+        {/* Reminders (native only) */}
+        {Platform.OS !== 'web' && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle} accessibilityRole="header">{t('settings.reminders')}</Text>
+            <Pressable
+              style={styles.langButton}
+              onPress={() => router.push('/reminders')}
+              accessibilityRole="button"
+            >
+              <Text style={styles.langCurrent}>{t('settings.manageReminders')}</Text>
+              <Text style={styles.langArrow}>{'\u203A'}</Text>
+            </Pressable>
+          </View>
+        )}
 
         {/* Language Section */}
         <View style={styles.section}>

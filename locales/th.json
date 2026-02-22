@@ -97,7 +97,6 @@
     "habits": "นิสัย",
     "hideHabit": "ซ่อนนิสัย",
     "showHabit": "แสดงนิสัย",
-
     "language": "ภาษา",
     "autoDetect": "ตรวจจับอัตโนมัติ",
     "theme": "ธีม",
@@ -109,7 +108,9 @@
     "myHabits": "นิสัยของฉัน",
     "addHabit": "เพิ่มนิสัย...",
     "resetData": "รีเซ็ตข้อมูลทั้งหมด",
-    "resetConfirm": "การดำเนินการนี้จะลบข้อมูลทั้งหมดของคุณ คุณแน่ใจหรือไม่?"
+    "resetConfirm": "การดำเนินการนี้จะลบข้อมูลทั้งหมดของคุณ คุณแน่ใจหรือไม่?",
+    "reminders": "การแจ้งเตือน",
+    "manageReminders": "จัดการการแจ้งเตือนประจำวัน"
   },
   "article": {
     "whyTitle": "ทำไมต้อง{{habit}}?",
@@ -132,6 +133,39 @@
     "breathingStart": "เริ่มฝึกหายใจ",
     "breathingRound": "รอบที่ {{current}} จาก {{total}}",
     "openStudy": "เปิดในเบราว์เซอร์"
+  },
+  "notifications": {
+    "title": "การแจ้งเตือน",
+    "addReminder": "เพิ่มการแจ้งเตือน",
+    "scheduleDaily": "ทุกวัน เวลา {{hour}}:{{minute}}",
+    "scheduleInterval": "ทุก {{hours}} ชม. {{minutes}} น.",
+    "hours": "ชั่วโมง",
+    "minutes": "นาที",
+    "editReminder": "แก้ไขการแจ้งเตือน",
+    "deleteReminder": "ลบการแจ้งเตือน",
+    "deleteConfirm": "ลบการแจ้งเตือนนี้?",
+    "titlePlaceholder": "หัวข้อการแจ้งเตือน...",
+    "bodyPlaceholder": "ข้อความแจ้งเตือน...",
+    "permissionRequired": "สิทธิ์การแจ้งเตือน",
+    "permissionDenied": "กรุณาเปิดการแจ้งเตือนในการตั้งค่าอุปกรณ์เพื่อรับการแจ้งเตือน",
+    "hour": "ชั่วโมง",
+    "minute": "นาที",
+    "daily": "รายวัน",
+    "interval": "ช่วงเวลา",
+    "defaults": {
+      "morning": {
+        "title": "กิจวัตรเช้า",
+        "body": "ถึงเวลาเริ่มนิสัยดีๆ ของคุณ!"
+      },
+      "evening": {
+        "title": "ผ่อนคลายยามเย็น",
+        "body": "ผ่อนคลายและทบทวนวันของคุณ"
+      },
+      "move": {
+        "title": "ถึงเวลาขยับร่างกาย",
+        "body": "พักสักครู่แล้วขยับร่างกาย!"
+      }
+    }
   },
   "common": {
     "done": "เสร็จ",

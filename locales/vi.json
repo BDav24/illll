@@ -97,7 +97,6 @@
     "habits": "Thói quen",
     "hideHabit": "Ẩn thói quen",
     "showHabit": "Hiện thói quen",
-
     "language": "Ngôn ngữ",
     "autoDetect": "Tự động nhận diện",
     "theme": "Giao diện",
@@ -109,7 +108,9 @@
     "myHabits": "Thói quen của tôi",
     "addHabit": "Thêm thói quen...",
     "resetData": "Đặt lại tất cả dữ liệu",
-    "resetConfirm": "Thao tác này sẽ xóa tất cả dữ liệu của bạn. Bạn có chắc không?"
+    "resetConfirm": "Thao tác này sẽ xóa tất cả dữ liệu của bạn. Bạn có chắc không?",
+    "reminders": "Nhắc nhở",
+    "manageReminders": "Quản lý nhắc nhở hàng ngày"
   },
   "article": {
     "whyTitle": "Tại sao {{habit}}?",
@@ -132,6 +133,39 @@
     "breathingStart": "Bắt đầu bài tập thở",
     "breathingRound": "Vòng {{current}} / {{total}}",
     "openStudy": "Mở trong trình duyệt"
+  },
+  "notifications": {
+    "title": "Nhắc nhở",
+    "addReminder": "Thêm nhắc nhở",
+    "scheduleDaily": "Hàng ngày lúc {{hour}}:{{minute}}",
+    "scheduleInterval": "Mỗi {{hours}}g {{minutes}}p",
+    "hours": "Giờ",
+    "minutes": "Phút",
+    "editReminder": "Sửa nhắc nhở",
+    "deleteReminder": "Xóa nhắc nhở",
+    "deleteConfirm": "Xóa nhắc nhở này?",
+    "titlePlaceholder": "Tiêu đề nhắc nhở...",
+    "bodyPlaceholder": "Nội dung nhắc nhở...",
+    "permissionRequired": "Quyền thông báo",
+    "permissionDenied": "Vui lòng bật thông báo trong cài đặt thiết bị để nhận nhắc nhở.",
+    "hour": "Giờ",
+    "minute": "Phút",
+    "daily": "Hàng ngày",
+    "interval": "Lặp lại",
+    "defaults": {
+      "morning": {
+        "title": "Thói quen buổi sáng",
+        "body": "Đã đến lúc bắt đầu thói quen lành mạnh!"
+      },
+      "evening": {
+        "title": "Thư giãn buổi tối",
+        "body": "Thư giãn và nhìn lại ngày của bạn."
+      },
+      "move": {
+        "title": "Đến lúc vận động",
+        "body": "Nghỉ ngơi và vận động một chút!"
+      }
+    }
   },
   "common": {
     "done": "Xong",

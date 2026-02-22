@@ -92,7 +92,6 @@
     "habits": "العادات",
     "hideHabit": "إخفاء العادة",
     "showHabit": "إظهار العادة",
-
     "language": "اللغة",
     "autoDetect": "اكتشاف تلقائي",
     "theme": "المظهر",
@@ -104,7 +103,9 @@
     "myHabits": "عاداتي",
     "addHabit": "أضف عادة...",
     "resetData": "إعادة تعيين جميع البيانات",
-    "resetConfirm": "سيؤدي هذا إلى حذف جميع بياناتك. هل أنت متأكد؟"
+    "resetConfirm": "سيؤدي هذا إلى حذف جميع بياناتك. هل أنت متأكد؟",
+    "reminders": "التذكيرات",
+    "manageReminders": "إدارة تذكيراتك اليومية"
   },
   "criteria": {
     "myGoal": "هدفي",
@@ -132,6 +133,39 @@
     "breathingStart": "بدء تمرين التنفّس",
     "breathingRound": "الجولة {{current}} من {{total}}",
     "openStudy": "يُفتح في المتصفح"
+  },
+  "notifications": {
+    "title": "التذكيرات",
+    "addReminder": "إضافة تذكير",
+    "scheduleDaily": "يومياً الساعة {{hour}}:{{minute}}",
+    "scheduleInterval": "كل {{hours}}س {{minutes}}د",
+    "hours": "ساعات",
+    "minutes": "دقائق",
+    "editReminder": "تعديل التذكير",
+    "deleteReminder": "حذف التذكير",
+    "deleteConfirm": "حذف هذا التذكير؟",
+    "titlePlaceholder": "عنوان التذكير...",
+    "bodyPlaceholder": "رسالة التذكير...",
+    "permissionRequired": "إذن الإشعارات",
+    "permissionDenied": "يرجى تفعيل الإشعارات في إعدادات جهازك لتلقي التذكيرات.",
+    "hour": "ساعة",
+    "minute": "دقيقة",
+    "daily": "يومي",
+    "interval": "متكرر",
+    "defaults": {
+      "morning": {
+        "title": "الروتين الصباحي",
+        "body": "حان وقت بدء عاداتك الصحية!"
+      },
+      "evening": {
+        "title": "استرخاء المساء",
+        "body": "استرخِ وتأمّل في يومك."
+      },
+      "move": {
+        "title": "حان وقت الحركة",
+        "body": "خذ استراحة وتحرّك قليلاً!"
+      }
+    }
   },
   "common": {
     "done": "تم",

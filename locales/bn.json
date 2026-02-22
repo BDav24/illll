@@ -92,7 +92,6 @@
     "habits": "অভ্যাস",
     "hideHabit": "অভ্যাস লুকান",
     "showHabit": "অভ্যাস দেখান",
-
     "language": "ভাষা",
     "autoDetect": "স্বয়ংক্রিয় সনাক্তকরণ",
     "theme": "থিম",
@@ -104,7 +103,9 @@
     "myHabits": "আমার অভ্যাস",
     "addHabit": "অভ্যাস যোগ করুন...",
     "resetData": "সমস্ত ডেটা রিসেট করুন",
-    "resetConfirm": "এটি আপনার সমস্ত ডেটা মুছে ফেলবে। আপনি কি নিশ্চিত?"
+    "resetConfirm": "এটি আপনার সমস্ত ডেটা মুছে ফেলবে। আপনি কি নিশ্চিত?",
+    "reminders": "রিমাইন্ডার",
+    "manageReminders": "আপনার দৈনিক রিমাইন্ডার পরিচালনা করুন"
   },
   "criteria": {
     "myGoal": "আমার লক্ষ্য",
@@ -132,6 +133,39 @@
     "breathingStart": "শ্বাস ব্যায়াম শুরু করুন",
     "breathingRound": "রাউন্ড {{current}} / {{total}}",
     "openStudy": "ব্রাউজারে খোলে"
+  },
+  "notifications": {
+    "title": "রিমাইন্ডার",
+    "addReminder": "রিমাইন্ডার যোগ করুন",
+    "scheduleDaily": "প্রতিদিন {{hour}}:{{minute}} এ",
+    "scheduleInterval": "প্রতি {{hours}} ঘণ্টা {{minutes}} মিনিটে",
+    "hours": "ঘণ্টা",
+    "minutes": "মিনিট",
+    "editReminder": "রিমাইন্ডার সম্পাদনা",
+    "deleteReminder": "রিমাইন্ডার মুছুন",
+    "deleteConfirm": "এই রিমাইন্ডারটি মুছবেন?",
+    "titlePlaceholder": "রিমাইন্ডারের শিরোনাম...",
+    "bodyPlaceholder": "রিমাইন্ডারের বার্তা...",
+    "permissionRequired": "বিজ্ঞপ্তির অনুমতি",
+    "permissionDenied": "রিমাইন্ডার পেতে আপনার ডিভাইস সেটিংসে বিজ্ঞপ্তি সক্ষম করুন।",
+    "hour": "ঘণ্টা",
+    "minute": "মিনিট",
+    "daily": "দৈনিক",
+    "interval": "ব্যবধান",
+    "defaults": {
+      "morning": {
+        "title": "সকালের রুটিন",
+        "body": "আপনার স্বাস্থ্যকর অভ্যাস শুরু করার সময়!"
+      },
+      "evening": {
+        "title": "সন্ধ্যার বিশ্রাম",
+        "body": "বিশ্রাম নিন এবং আপনার দিনটি পর্যালোচনা করুন।"
+      },
+      "move": {
+        "title": "নড়াচড়ার সময়",
+        "body": "বিরতি নিন এবং একটু নড়াচড়া করুন!"
+      }
+    }
   },
   "common": {
     "done": "হয়ে গেছে",

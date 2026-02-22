@@ -92,7 +92,6 @@
     "habits": "习惯",
     "hideHabit": "隐藏习惯",
     "showHabit": "显示习惯",
-
     "language": "语言",
     "autoDetect": "自动检测",
     "theme": "主题",
@@ -104,7 +103,9 @@
     "myHabits": "我的习惯",
     "addHabit": "添加习惯...",
     "resetData": "重置所有数据",
-    "resetConfirm": "这将删除你的所有数据。确定要继续吗？"
+    "resetConfirm": "这将删除你的所有数据。确定要继续吗？",
+    "reminders": "提醒",
+    "manageReminders": "管理你的每日提醒"
   },
   "criteria": {
     "myGoal": "我的目标",
@@ -132,6 +133,39 @@
     "breathingStart": "开始呼吸练习",
     "breathingRound": "第{{current}}轮，共{{total}}轮",
     "openStudy": "在浏览器中打开"
+  },
+  "notifications": {
+    "title": "提醒",
+    "addReminder": "添加提醒",
+    "scheduleDaily": "每天 {{hour}}:{{minute}}",
+    "scheduleInterval": "每 {{hours}}小时 {{minutes}}分钟",
+    "hours": "小时",
+    "minutes": "分钟",
+    "editReminder": "编辑提醒",
+    "deleteReminder": "删除提醒",
+    "deleteConfirm": "删除此提醒？",
+    "titlePlaceholder": "提醒标题...",
+    "bodyPlaceholder": "提醒内容...",
+    "permissionRequired": "通知权限",
+    "permissionDenied": "请在设备设置中启用通知以接收提醒。",
+    "hour": "时",
+    "minute": "分",
+    "daily": "每日",
+    "interval": "间隔",
+    "defaults": {
+      "morning": {
+        "title": "晨间习惯",
+        "body": "是时候开始你的健康习惯了！"
+      },
+      "evening": {
+        "title": "晚间放松",
+        "body": "放松身心，回顾你的一天。"
+      },
+      "move": {
+        "title": "该动一动了",
+        "body": "休息一下，活动活动！"
+      }
+    }
   },
   "common": {
     "done": "完成",

@@ -32,6 +32,20 @@ export interface DayRecord {
 
 export type ColorScheme = 'light' | 'dark' | 'auto';
 
+export type NotificationSchedule =
+  | { type: 'daily'; hour: number; minute: number }
+  | { type: 'interval'; hours: number; minutes: number };
+
+export interface UserNotification {
+  id: string;
+  title: string;
+  body: string;
+  schedule: NotificationSchedule;
+  enabled: boolean;
+  isDefault: boolean;
+  defaultKey?: string;
+}
+
 export interface UserSettings {
   hiddenHabits: HabitId[];
   habitOrder: HabitId[];
@@ -39,6 +53,7 @@ export interface UserSettings {
   customHabits: CustomHabit[];
   colorScheme: ColorScheme;
   habitCriteria: Record<string, string>;
+  notifications: UserNotification[];
 }
 
 // ---------------------------------------------------------------------------
@@ -59,6 +74,11 @@ interface StoreState {
   setLanguage: (lang: string | null) => void;
   setHabitCriterion: (habitId: string, criterion: string) => void;
   setColorScheme: (scheme: ColorScheme) => void;
+  setNotifications: (notifications: UserNotification[]) => void;
+  updateNotification: (id: string, updates: Partial<Omit<UserNotification, 'id'>>) => void;
+  addNotification: (notification: UserNotification) => void;
+  deleteNotification: (id: string) => void;
+  toggleNotification: (id: string) => void;
   resetAll: () => void;
 }
 
@@ -82,6 +102,7 @@ const DEFAULT_SETTINGS: UserSettings = {
   customHabits: [],
   colorScheme: 'light',
   habitCriteria: {},
+  notifications: [],
 };
 
 // ---------------------------------------------------------------------------
@@ -230,6 +251,9 @@ export const useStore = create<StoreState>()((set) => ({
   settings: {
     ...DEFAULT_SETTINGS,
     ...(persisted.settings ?? {}),
+    notifications: Array.isArray(persisted.settings?.notifications)
+      ? persisted.settings.notifications
+      : [],
   },
 
   // ----- mutations -----
@@ -375,6 +399,52 @@ export const useStore = create<StoreState>()((set) => ({
   setColorScheme: (scheme: ColorScheme) => {
     set((state) => ({
       settings: { ...state.settings, colorScheme: scheme },
+    }));
+  },
+
+  setNotifications: (notifications: UserNotification[]) => {
+    set((state) => ({
+      settings: { ...state.settings, notifications },
+    }));
+  },
+
+  updateNotification: (id: string, updates: Partial<Omit<UserNotification, 'id'>>) => {
+    set((state) => ({
+      settings: {
+        ...state.settings,
+        notifications: state.settings.notifications.map((n) =>
+          n.id === id ? { ...n, ...updates, isDefault: false } : n,
+        ),
+      },
+    }));
+  },
+
+  addNotification: (notification: UserNotification) => {
+    set((state) => ({
+      settings: {
+        ...state.settings,
+        notifications: [...state.settings.notifications, notification],
+      },
+    }));
+  },
+
+  deleteNotification: (id: string) => {
+    set((state) => ({
+      settings: {
+        ...state.settings,
+        notifications: state.settings.notifications.filter((n) => n.id !== id),
+      },
+    }));
+  },
+
+  toggleNotification: (id: string) => {
+    set((state) => ({
+      settings: {
+        ...state.settings,
+        notifications: state.settings.notifications.map((n) =>
+          n.id === id ? { ...n, enabled: !n.enabled } : n,
+        ),
+      },
     }));
   },
 

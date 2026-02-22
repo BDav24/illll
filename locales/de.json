@@ -103,7 +103,9 @@
     "myHabits": "Meine Gewohnheiten",
     "addHabit": "Gewohnheit hinzufügen...",
     "resetData": "Alle Daten zurücksetzen",
-    "resetConfirm": "Dadurch werden alle deine Daten gelöscht. Bist du sicher?"
+    "resetConfirm": "Dadurch werden alle deine Daten gelöscht. Bist du sicher?",
+    "reminders": "Erinnerungen",
+    "manageReminders": "Tägliche Erinnerungen verwalten"
   },
   "criteria": {
     "myGoal": "Mein Ziel",
@@ -131,6 +133,39 @@
     "breathingStart": "Atemübung starten",
     "breathingRound": "Runde {{current}} von {{total}}",
     "openStudy": "Öffnet im Browser"
+  },
+  "notifications": {
+    "title": "Erinnerungen",
+    "addReminder": "Erinnerung hinzufügen",
+    "scheduleDaily": "Täglich um {{hour}}:{{minute}}",
+    "scheduleInterval": "Alle {{hours}}h {{minutes}}m",
+    "hours": "Stunden",
+    "minutes": "Minuten",
+    "editReminder": "Erinnerung bearbeiten",
+    "deleteReminder": "Erinnerung löschen",
+    "deleteConfirm": "Diese Erinnerung löschen?",
+    "titlePlaceholder": "Titel der Erinnerung...",
+    "bodyPlaceholder": "Nachricht der Erinnerung...",
+    "permissionRequired": "Benachrichtigungserlaubnis",
+    "permissionDenied": "Bitte aktiviere Benachrichtigungen in deinen Geräteeinstellungen, um Erinnerungen zu erhalten.",
+    "hour": "Stunde",
+    "minute": "Minute",
+    "daily": "Täglich",
+    "interval": "Intervall",
+    "defaults": {
+      "morning": {
+        "title": "Morgenroutine",
+        "body": "Zeit, deine gesunden Gewohnheiten zu starten!"
+      },
+      "evening": {
+        "title": "Abendentspannung",
+        "body": "Entspanne und reflektiere deinen Tag."
+      },
+      "move": {
+        "title": "Zeit für Bewegung",
+        "body": "Mach eine Pause und beweg dich!"
+      }
+    }
   },
   "common": {
     "done": "Fertig",

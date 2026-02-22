@@ -108,7 +108,9 @@
     "myHabits": "Alışkanlıklarım",
     "addHabit": "Alışkanlık ekle...",
     "resetData": "Tüm Verileri Sıfırla",
-    "resetConfirm": "Bu, tüm verilerini silecek. Emin misin?"
+    "resetConfirm": "Bu, tüm verilerini silecek. Emin misin?",
+    "reminders": "Hatırlatıcılar",
+    "manageReminders": "Günlük hatırlatıcılarınızı yönetin"
   },
   "article": {
     "whyTitle": "Neden {{habit}}?",
@@ -131,6 +133,39 @@
     "breathingStart": "Nefes egzersizine başla",
     "breathingRound": "Tur {{current}} / {{total}}",
     "openStudy": "Tarayıcıda açılır"
+  },
+  "notifications": {
+    "title": "Hatırlatıcılar",
+    "addReminder": "Hatırlatıcı ekle",
+    "scheduleDaily": "Her gün saat {{hour}}:{{minute}}",
+    "scheduleInterval": "Her {{hours}}s {{minutes}}d",
+    "hours": "Saat",
+    "minutes": "Dakika",
+    "editReminder": "Hatırlatıcıyı düzenle",
+    "deleteReminder": "Hatırlatıcıyı sil",
+    "deleteConfirm": "Bu hatırlatıcı silinsin mi?",
+    "titlePlaceholder": "Hatırlatıcı başlığı...",
+    "bodyPlaceholder": "Hatırlatıcı mesajı...",
+    "permissionRequired": "Bildirim İzni",
+    "permissionDenied": "Hatırlatıcı almak için cihaz ayarlarından bildirimleri etkinleştirin.",
+    "hour": "Saat",
+    "minute": "Dakika",
+    "daily": "Günlük",
+    "interval": "Aralık",
+    "defaults": {
+      "morning": {
+        "title": "Sabah Rutini",
+        "body": "Sağlıklı alışkanlıklarına başlama zamanı!"
+      },
+      "evening": {
+        "title": "Akşam Rahatlama",
+        "body": "Rahatla ve gününü değerlendir."
+      },
+      "move": {
+        "title": "Hareket Zamanı",
+        "body": "Bir mola ver ve hareket et!"
+      }
+    }
   },
   "common": {
     "done": "Tamam",

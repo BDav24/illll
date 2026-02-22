@@ -103,7 +103,9 @@
     "myHabits": "Moje Nawyki",
     "addHabit": "Dodaj nawyk...",
     "resetData": "Resetuj wszystkie dane",
-    "resetConfirm": "Spowoduje to usunięcie wszystkich danych. Czy na pewno?"
+    "resetConfirm": "Spowoduje to usunięcie wszystkich danych. Czy na pewno?",
+    "reminders": "Przypomnienia",
+    "manageReminders": "Zarządzaj codziennymi przypomnieniami"
   },
   "criteria": {
     "myGoal": "Mój cel",
@@ -131,6 +133,39 @@
     "breathingStart": "Rozpocznij ćwiczenie oddechowe",
     "breathingRound": "Runda {{current}} z {{total}}",
     "openStudy": "Otwiera się w przeglądarce"
+  },
+  "notifications": {
+    "title": "Przypomnienia",
+    "addReminder": "Dodaj przypomnienie",
+    "scheduleDaily": "Codziennie o {{hour}}:{{minute}}",
+    "scheduleInterval": "Co {{hours}}g {{minutes}}m",
+    "hours": "Godziny",
+    "minutes": "Minuty",
+    "editReminder": "Edytuj przypomnienie",
+    "deleteReminder": "Usuń przypomnienie",
+    "deleteConfirm": "Usunąć to przypomnienie?",
+    "titlePlaceholder": "Tytuł przypomnienia...",
+    "bodyPlaceholder": "Treść przypomnienia...",
+    "permissionRequired": "Uprawnienia do powiadomień",
+    "permissionDenied": "Włącz powiadomienia w ustawieniach urządzenia, aby otrzymywać przypomnienia.",
+    "hour": "Godzina",
+    "minute": "Minuta",
+    "daily": "Codziennie",
+    "interval": "Interwał",
+    "defaults": {
+      "morning": {
+        "title": "Poranny rytuał",
+        "body": "Czas rozpocząć zdrowe nawyki!"
+      },
+      "evening": {
+        "title": "Wieczorny relaks",
+        "body": "Zrelaksuj się i podsumuj swój dzień."
+      },
+      "move": {
+        "title": "Czas na ruch",
+        "body": "Zrób przerwę i się poruszaj!"
+      }
+    }
   },
   "common": {
     "done": "Gotowe",

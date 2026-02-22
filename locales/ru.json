@@ -108,7 +108,9 @@
     "myHabits": "Мои Привычки",
     "addHabit": "Добавить привычку...",
     "resetData": "Сбросить все данные",
-    "resetConfirm": "Это удалит все ваши данные. Вы уверены?"
+    "resetConfirm": "Это удалит все ваши данные. Вы уверены?",
+    "reminders": "Напоминания",
+    "manageReminders": "Управляйте ежедневными напоминаниями"
   },
   "article": {
     "whyTitle": "Зачем {{habit}}?",
@@ -131,6 +133,39 @@
     "breathingStart": "Начать дыхательное упражнение",
     "breathingRound": "Раунд {{current}} из {{total}}",
     "openStudy": "Откроется в браузере"
+  },
+  "notifications": {
+    "title": "Напоминания",
+    "addReminder": "Добавить напоминание",
+    "scheduleDaily": "Ежедневно в {{hour}}:{{minute}}",
+    "scheduleInterval": "Каждые {{hours}}ч {{minutes}}м",
+    "hours": "Часы",
+    "minutes": "Минуты",
+    "editReminder": "Редактировать напоминание",
+    "deleteReminder": "Удалить напоминание",
+    "deleteConfirm": "Удалить это напоминание?",
+    "titlePlaceholder": "Заголовок напоминания...",
+    "bodyPlaceholder": "Текст напоминания...",
+    "permissionRequired": "Разрешение на уведомления",
+    "permissionDenied": "Включите уведомления в настройках устройства для получения напоминаний.",
+    "hour": "Час",
+    "minute": "Минута",
+    "daily": "Ежедневно",
+    "interval": "Интервал",
+    "defaults": {
+      "morning": {
+        "title": "Утренний ритуал",
+        "body": "Пора начать здоровые привычки!"
+      },
+      "evening": {
+        "title": "Вечернее расслабление",
+        "body": "Расслабьтесь и подведите итоги дня."
+      },
+      "move": {
+        "title": "Пора двигаться",
+        "body": "Сделайте перерыв и подвигайтесь!"
+      }
+    }
   },
   "common": {
     "done": "Готово",

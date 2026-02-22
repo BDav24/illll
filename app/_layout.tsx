@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -14,6 +14,7 @@ import {
 import '../lib/i18n';
 import { useColors } from '../constants/colors';
 import { useStore } from '../store/useStore';
+import { syncNotifications } from '../lib/notifications';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -27,8 +28,14 @@ export default function RootLayout() {
 
   const colors = useColors();
   const colorScheme = useStore((s) => s.settings.colorScheme);
+  const notifications = useStore((s) => s.settings.notifications) ?? [];
   const systemScheme = useColorScheme();
   const resolved = colorScheme === 'auto' ? (systemScheme ?? 'light') : colorScheme;
+
+  // Sync scheduled OS notifications whenever the user's list changes
+  useEffect(() => {
+    syncNotifications(notifications);
+  }, [notifications]);
 
   const styles = useMemo(
     () =>
@@ -68,6 +75,13 @@ export default function RootLayout() {
         />
         <Stack.Screen
           name="settings"
+          options={{
+            presentation: 'modal',
+            animation: 'slide_from_bottom',
+          }}
+        />
+        <Stack.Screen
+          name="reminders"
           options={{
             presentation: 'modal',
             animation: 'slide_from_bottom',

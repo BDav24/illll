@@ -103,7 +103,9 @@
     "myHabits": "My Habits",
     "addHabit": "Add a habit...",
     "resetData": "Reset All Data",
-    "resetConfirm": "This will delete all your data. Are you sure?"
+    "resetConfirm": "This will delete all your data. Are you sure?",
+    "reminders": "Reminders",
+    "manageReminders": "Manage your daily reminders"
   },
   "criteria": {
     "myGoal": "My goal",
@@ -131,6 +133,39 @@
     "breathingStart": "Start breathing exercise",
     "breathingRound": "Round {{current}} of {{total}}",
     "openStudy": "Opens in browser"
+  },
+  "notifications": {
+    "title": "Reminders",
+    "addReminder": "Add reminder",
+    "scheduleDaily": "Daily at {{hour}}:{{minute}}",
+    "scheduleInterval": "Every {{hours}}h {{minutes}}m",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "editReminder": "Edit reminder",
+    "deleteReminder": "Delete reminder",
+    "deleteConfirm": "Delete this reminder?",
+    "titlePlaceholder": "Reminder title...",
+    "bodyPlaceholder": "Reminder message...",
+    "permissionRequired": "Notification Permission",
+    "permissionDenied": "Please enable notifications in your device settings to receive reminders.",
+    "hour": "Hour",
+    "minute": "Minute",
+    "daily": "Daily",
+    "interval": "Interval",
+    "defaults": {
+      "morning": {
+        "title": "Morning Routine",
+        "body": "Time to start your healthy habits!"
+      },
+      "evening": {
+        "title": "Evening Wind-Down",
+        "body": "Wind down and reflect on your day."
+      },
+      "move": {
+        "title": "Time to Move",
+        "body": "Take a break and get some movement in!"
+      }
+    }
   },
   "common": {
     "done": "Done",
