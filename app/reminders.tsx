@@ -94,6 +94,7 @@ function ReminderEditor({ notification, onSave, onCancel, colors, styles }: Edit
     const trimTitle = title.trim();
     const trimBody = body.trim();
     if (!trimTitle) return;
+    if (scheduleType === 'interval' && intervalHours === 0 && intervalMinutes === 0) return;
 
     const schedule: NotificationSchedule =
       scheduleType === 'daily'
@@ -299,9 +300,9 @@ function ReminderEditor({ notification, onSave, onCancel, colors, styles }: Edit
           <Text style={styles.cancelBtnText}>{t('common.cancel')}</Text>
         </Pressable>
         <Pressable
-          style={[styles.saveBtn, !title.trim() && styles.saveBtnDisabled]}
+          style={[styles.saveBtn, (!title.trim() || (scheduleType === 'interval' && intervalHours === 0 && intervalMinutes === 0)) && styles.saveBtnDisabled]}
           onPress={handleSave}
-          disabled={!title.trim()}
+          disabled={!title.trim() || (scheduleType === 'interval' && intervalHours === 0 && intervalMinutes === 0)}
           accessibilityRole="button"
         >
           <Text style={styles.saveBtnText}>{t('common.save')}</Text>

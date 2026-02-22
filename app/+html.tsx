@@ -21,9 +21,13 @@ export default function Root({ children }: PropsWithChildren) {
 
 const bodyCss = `
 body {
-  /* Must match Colors.bg from constants/colors.ts */
-  background-color: #FFFFFF;
+  background-color: #F2F2F7;
   overflow: hidden;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0F0F0F;
+  }
 }
 #root {
   display: flex;
