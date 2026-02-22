@@ -70,7 +70,10 @@
     "inhale": "吸气",
     "hold": "屏息",
     "exhale": "呼气",
-    "tapToStart": "点击开始"
+    "tapToStart": "点击开始",
+    "rounds": "轮次",
+    "duration": "~{{minutes}} min {{seconds}} s",
+    "durationSeconds": "~{{seconds}} s"
   },
   "progress": {
     "title": "进度",
@@ -129,6 +132,8 @@
     "weeklyChartLabel": "每周完成图表",
     "breathingStart": "开始呼吸练习",
     "breathingRound": "第{{current}}轮，共{{total}}轮",
+    "decreaseRounds": "减少轮次",
+    "increaseRounds": "增加轮次",
     "openStudy": "在浏览器中打开",
     "decreaseHour": "减少小时",
     "increaseHour": "增加小时",

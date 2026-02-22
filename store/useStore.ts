@@ -55,6 +55,7 @@ export interface UserSettings {
   colorScheme: ColorScheme;
   habitCriteria: Record<string, string>;
   notifications: UserNotification[];
+  breathingRounds: number;
 }
 
 // ---------------------------------------------------------------------------
@@ -80,6 +81,7 @@ interface StoreState {
   addNotification: (notification: UserNotification) => void;
   deleteNotification: (id: string) => void;
   toggleNotification: (id: string) => void;
+  setBreathingRounds: (rounds: number) => void;
   resetAll: () => void;
 }
 
@@ -104,6 +106,7 @@ const DEFAULT_SETTINGS: UserSettings = {
   colorScheme: 'light',
   habitCriteria: {},
   notifications: [],
+  breathingRounds: 12,
 };
 
 // ---------------------------------------------------------------------------
@@ -456,6 +459,12 @@ export const useStore = create<StoreState>()((set) => ({
           n.id === id ? { ...n, enabled: !n.enabled } : n,
         ),
       },
+    }));
+  },
+
+  setBreathingRounds: (rounds: number) => {
+    set((state) => ({
+      settings: { ...state.settings, breathingRounds: rounds },
     }));
   },
 

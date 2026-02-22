@@ -70,7 +70,10 @@
     "inhale": "Inademen",
     "hold": "Vasthouden",
     "exhale": "Uitademen",
-    "tapToStart": "Tik om te starten"
+    "tapToStart": "Tik om te starten",
+    "rounds": "Rondes",
+    "duration": "~{{minutes}} min {{seconds}} s",
+    "durationSeconds": "~{{seconds}} s"
   },
   "progress": {
     "title": "Voortgang",
@@ -129,6 +132,8 @@
     "weeklyChartLabel": "Wekelijkse voltooiingsgrafiek",
     "breathingStart": "Ademhalingsoefening starten",
     "breathingRound": "Ronde {{current}} van {{total}}",
+    "decreaseRounds": "Rondes verlagen",
+    "increaseRounds": "Rondes verhogen",
     "openStudy": "Opent in browser",
     "decreaseHour": "Uur verlagen",
     "increaseHour": "Uur verhogen",

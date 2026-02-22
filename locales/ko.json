@@ -70,7 +70,10 @@
     "inhale": "들이쉬기",
     "hold": "멈추기",
     "exhale": "내쉬기",
-    "tapToStart": "탭하여 시작"
+    "tapToStart": "탭하여 시작",
+    "rounds": "라운드",
+    "duration": "~{{minutes}} min {{seconds}} s",
+    "durationSeconds": "~{{seconds}} s"
   },
   "progress": {
     "title": "진행",
@@ -129,6 +132,8 @@
     "weeklyChartLabel": "주간 달성 차트",
     "breathingStart": "호흡 운동 시작",
     "breathingRound": "라운드 {{current}}/{{total}}",
+    "decreaseRounds": "라운드 감소",
+    "increaseRounds": "라운드 증가",
     "openStudy": "브라우저에서 열기",
     "decreaseHour": "시간 줄이기",
     "increaseHour": "시간 늘리기",

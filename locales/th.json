@@ -70,7 +70,10 @@
     "inhale": "หายใจเข้า",
     "hold": "กลั้น",
     "exhale": "หายใจออก",
-    "tapToStart": "แตะเพื่อเริ่ม"
+    "tapToStart": "แตะเพื่อเริ่ม",
+    "rounds": "รอบ",
+    "duration": "~{{minutes}} min {{seconds}} s",
+    "durationSeconds": "~{{seconds}} s"
   },
   "progress": {
     "title": "ความก้าวหน้า",
@@ -129,6 +132,8 @@
     "weeklyChartLabel": "กราฟการทำสำเร็จรายสัปดาห์",
     "breathingStart": "เริ่มฝึกหายใจ",
     "breathingRound": "รอบที่ {{current}} จาก {{total}}",
+    "decreaseRounds": "ลดจำนวนรอบ",
+    "increaseRounds": "เพิ่มจำนวนรอบ",
     "openStudy": "เปิดในเบราว์เซอร์",
     "decreaseHour": "ลดชั่วโมง",
     "increaseHour": "เพิ่มชั่วโมง",

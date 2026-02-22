@@ -70,7 +70,10 @@
     "inhale": "শ্বাস নিন",
     "hold": "ধরে রাখুন",
     "exhale": "শ্বাস ছাড়ুন",
-    "tapToStart": "শুরু করতে ট্যাপ করুন"
+    "tapToStart": "শুরু করতে ট্যাপ করুন",
+    "rounds": "রাউন্ড",
+    "duration": "~{{minutes}} min {{seconds}} s",
+    "durationSeconds": "~{{seconds}} s"
   },
   "progress": {
     "title": "অগ্রগতি",
@@ -129,6 +132,8 @@
     "weeklyChartLabel": "সাপ্তাহিক সম্পন্নতার চার্ট",
     "breathingStart": "শ্বাস ব্যায়াম শুরু করুন",
     "breathingRound": "রাউন্ড {{current}} / {{total}}",
+    "decreaseRounds": "রাউন্ড কমান",
+    "increaseRounds": "রাউন্ড বাড়ান",
     "openStudy": "ব্রাউজারে খোলে",
     "decreaseHour": "ঘণ্টা কমান",
     "increaseHour": "ঘণ্টা বাড়ান",

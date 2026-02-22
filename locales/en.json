@@ -72,7 +72,10 @@
     "inhale": "Inhale",
     "hold": "Hold",
     "exhale": "Exhale",
-    "tapToStart": "Tap to start"
+    "tapToStart": "Tap to start",
+    "rounds": "Rounds",
+    "duration": "~{{minutes}} min {{seconds}} s",
+    "durationSeconds": "~{{seconds}} s"
   },
   "progress": {
     "title": "Progress",
@@ -131,6 +134,8 @@
     "weeklyChartLabel": "Weekly completion chart",
     "breathingStart": "Start breathing exercise",
     "breathingRound": "Round {{current}} of {{total}}",
+    "decreaseRounds": "Decrease rounds",
+    "increaseRounds": "Increase rounds",
     "openStudy": "Opens in browser",
     "decreaseHour": "Decrease hour",
     "increaseHour": "Increase hour",

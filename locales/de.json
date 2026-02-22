@@ -70,7 +70,10 @@
     "inhale": "Einatmen",
     "hold": "Halten",
     "exhale": "Ausatmen",
-    "tapToStart": "Tippen zum Starten"
+    "tapToStart": "Tippen zum Starten",
+    "rounds": "Runden",
+    "duration": "~{{minutes}} min {{seconds}} s",
+    "durationSeconds": "~{{seconds}} s"
   },
   "progress": {
     "title": "Fortschritt",
@@ -129,6 +132,8 @@
     "weeklyChartLabel": "Wöchentliches Abschlussdiagramm",
     "breathingStart": "Atemübung starten",
     "breathingRound": "Runde {{current}} von {{total}}",
+    "decreaseRounds": "Runden verringern",
+    "increaseRounds": "Runden erhöhen",
     "openStudy": "Öffnet im Browser",
     "decreaseHour": "Stunde verringern",
     "increaseHour": "Stunde erhöhen",

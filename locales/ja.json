@@ -70,7 +70,10 @@
     "inhale": "吸う",
     "hold": "止める",
     "exhale": "吐く",
-    "tapToStart": "タップして開始"
+    "tapToStart": "タップして開始",
+    "rounds": "ラウンド",
+    "duration": "~{{minutes}} min {{seconds}} s",
+    "durationSeconds": "~{{seconds}} s"
   },
   "progress": {
     "title": "進捗",
@@ -129,6 +132,8 @@
     "weeklyChartLabel": "週間達成チャート",
     "breathingStart": "呼吸エクササイズを開始",
     "breathingRound": "ラウンド{{current}}/{{total}}",
+    "decreaseRounds": "ラウンドを減らす",
+    "increaseRounds": "ラウンドを増やす",
     "openStudy": "ブラウザで開きます",
     "decreaseHour": "時間を減らす",
     "increaseHour": "時間を増やす",

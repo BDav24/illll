@@ -70,7 +70,10 @@
     "inhale": "Tarik napas",
     "hold": "Tahan",
     "exhale": "Buang napas",
-    "tapToStart": "Ketuk untuk mulai"
+    "tapToStart": "Ketuk untuk mulai",
+    "rounds": "Putaran",
+    "duration": "~{{minutes}} min {{seconds}} s",
+    "durationSeconds": "~{{seconds}} s"
   },
   "progress": {
     "title": "Kemajuan",
@@ -129,6 +132,8 @@
     "weeklyChartLabel": "Grafik penyelesaian mingguan",
     "breathingStart": "Mulai latihan pernapasan",
     "breathingRound": "Putaran {{current}} dari {{total}}",
+    "decreaseRounds": "Kurangi putaran",
+    "increaseRounds": "Tambah putaran",
     "openStudy": "Dibuka di browser",
     "decreaseHour": "Kurangi jam",
     "increaseHour": "Tambah jam",

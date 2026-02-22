@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 
 import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
+import { useStore } from '../store/useStore';
 
 interface BreathingTimerProps {
   onComplete: (rounds: number) => void;
@@ -18,7 +19,9 @@ interface BreathingTimerProps {
 type Phase = 'idle' | 'inhale' | 'holdIn' | 'exhale' | 'holdOut';
 
 const PHASE_DURATION = 4000; // 4 seconds per phase
-const TOTAL_ROUNDS = 4;
+const SECONDS_PER_ROUND = 16; // 4 phases × 4 seconds
+const MIN_ROUNDS = 1;
+const MAX_ROUNDS = 99;
 const CIRCLE_SIZE = 200;
 const CIRCLE_MIN_SCALE = 0.5;
 const CIRCLE_MAX_SCALE = 1.0;
@@ -32,6 +35,15 @@ export const BreathingTimer = React.memo(function BreathingTimer({ onComplete }:
   const [countdown, setCountdown] = useState(4);
   const [currentRound, setCurrentRound] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
+  const selectedRounds = useStore((s) => s.settings.breathingRounds);
+  const setBreathingRounds = useStore((s) => s.setBreathingRounds);
+
+  const totalSeconds = selectedRounds * SECONDS_PER_ROUND;
+  const displayMinutes = Math.floor(totalSeconds / 60);
+  const displaySeconds = totalSeconds % 60;
+  const durationLabel = displayMinutes > 0
+    ? t('breathing.duration', { minutes: displayMinutes, seconds: displaySeconds })
+    : t('breathing.durationSeconds', { seconds: displaySeconds });
 
   const scale = useSharedValue(CIRCLE_MIN_SCALE);
   const opacity = useSharedValue(0.4);
@@ -40,6 +52,8 @@ export const BreathingTimer = React.memo(function BreathingTimer({ onComplete }:
   const phaseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const roundRef = useRef(0);
   const isRunningRef = useRef(false);
+  const selectedRoundsRef = useRef(selectedRounds);
+  selectedRoundsRef.current = selectedRounds;
   const startPhaseRef = useRef<(phase: Phase, round: number) => void>(() => {});
 
   const clearTimers = useCallback(() => {
@@ -122,7 +136,7 @@ export const BreathingTimer = React.memo(function BreathingTimer({ onComplete }:
             nextRound = round + 1;
             roundRef.current = nextRound;
             setCurrentRound(nextRound);
-            if (nextRound >= TOTAL_ROUNDS) {
+            if (nextRound >= selectedRoundsRef.current) {
               // Complete
               setPhase('idle');
               setIsRunning(false);
@@ -179,8 +193,43 @@ export const BreathingTimer = React.memo(function BreathingTimer({ onComplete }:
     }
   };
 
+  const handleDecreaseRounds = useCallback(() => {
+    setBreathingRounds(Math.max(MIN_ROUNDS, selectedRounds - 1));
+  }, [selectedRounds, setBreathingRounds]);
+
+  const handleIncreaseRounds = useCallback(() => {
+    setBreathingRounds(Math.min(MAX_ROUNDS, selectedRounds + 1));
+  }, [selectedRounds, setBreathingRounds]);
+
   return (
     <View style={styles.container}>
+      {!isRunning && (
+        <View style={styles.roundsSelector}>
+          <Text style={styles.roundsLabel}>{t('breathing.rounds')}</Text>
+          <View style={styles.stepperRow}>
+            <Pressable
+              style={[styles.stepperBtn, selectedRounds <= MIN_ROUNDS && styles.stepperBtnDisabled]}
+              onPress={handleDecreaseRounds}
+              disabled={selectedRounds <= MIN_ROUNDS}
+              accessibilityLabel={t('accessibility.decreaseRounds')}
+              hitSlop={4}
+            >
+              <Text style={[styles.stepperText, selectedRounds <= MIN_ROUNDS && styles.stepperTextDisabled]}>-</Text>
+            </Pressable>
+            <Text style={styles.roundsValue}>{selectedRounds}</Text>
+            <Pressable
+              style={[styles.stepperBtn, selectedRounds >= MAX_ROUNDS && styles.stepperBtnDisabled]}
+              onPress={handleIncreaseRounds}
+              disabled={selectedRounds >= MAX_ROUNDS}
+              accessibilityLabel={t('accessibility.increaseRounds')}
+              hitSlop={4}
+            >
+              <Text style={[styles.stepperText, selectedRounds >= MAX_ROUNDS && styles.stepperTextDisabled]}>+</Text>
+            </Pressable>
+          </View>
+          <Text style={styles.durationLabel}>{durationLabel}</Text>
+        </View>
+      )}
       <Pressable onPress={handleStart} style={styles.pressArea} accessibilityRole="button" accessibilityLabel={isRunning ? getPhaseLabel() : t('accessibility.breathingStart')} accessibilityState={{ disabled: isRunning }}>
         <Animated.View style={[styles.circle, animatedCircleStyle]} importantForAccessibility="no" />
         <View style={styles.centerContent} accessibilityLiveRegion="polite">
@@ -188,8 +237,8 @@ export const BreathingTimer = React.memo(function BreathingTimer({ onComplete }:
             <>
               <Text style={styles.countdown}>{countdown}</Text>
               <Text style={styles.phaseLabel}>{getPhaseLabel()}</Text>
-              <Text style={styles.roundLabel} accessibilityLabel={t('accessibility.breathingRound', { current: currentRound + 1, total: TOTAL_ROUNDS })}>
-                {currentRound + 1} / {TOTAL_ROUNDS}
+              <Text style={styles.roundLabel} accessibilityLabel={t('accessibility.breathingRound', { current: currentRound + 1, total: selectedRounds })}>
+                {currentRound + 1} / {selectedRounds}
               </Text>
             </>
           ) : (
@@ -220,6 +269,55 @@ function makeStyles(colors: ColorPalette) {
       height: CIRCLE_SIZE,
       borderRadius: CIRCLE_SIZE / 2,
       backgroundColor: colors.breathing,
+    },
+    roundsSelector: {
+      alignItems: 'center',
+      marginBottom: 8,
+      gap: 8,
+    },
+    roundsLabel: {
+      fontSize: 12,
+      fontFamily: Fonts.medium,
+      color: colors.textMuted,
+      textTransform: 'uppercase',
+      letterSpacing: 0.5,
+    },
+    stepperRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 16,
+    },
+    stepperBtn: {
+      width: 36,
+      height: 36,
+      borderRadius: 18,
+      backgroundColor: colors.surface,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    stepperBtnDisabled: {
+      opacity: 0.3,
+    },
+    stepperText: {
+      fontSize: 20,
+      fontFamily: Fonts.semiBold,
+      color: colors.text,
+      lineHeight: 22,
+    },
+    stepperTextDisabled: {
+      color: colors.textMuted,
+    },
+    roundsValue: {
+      fontSize: 24,
+      fontFamily: Fonts.bold,
+      color: colors.text,
+      minWidth: 36,
+      textAlign: 'center',
+    },
+    durationLabel: {
+      fontSize: 13,
+      fontFamily: Fonts.regular,
+      color: colors.textMuted,
     },
     centerContent: {
       alignItems: 'center',

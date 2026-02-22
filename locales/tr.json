@@ -70,7 +70,10 @@
     "inhale": "Nefes al",
     "hold": "Tut",
     "exhale": "Nefes ver",
-    "tapToStart": "Başlamak için dokun"
+    "tapToStart": "Başlamak için dokun",
+    "rounds": "Turlar",
+    "duration": "~{{minutes}} min {{seconds}} s",
+    "durationSeconds": "~{{seconds}} s"
   },
   "progress": {
     "title": "İlerleme",
@@ -129,6 +132,8 @@
     "weeklyChartLabel": "Haftalık tamamlama grafiği",
     "breathingStart": "Nefes egzersizine başla",
     "breathingRound": "Tur {{current}} / {{total}}",
+    "decreaseRounds": "Tur sayısını azalt",
+    "increaseRounds": "Tur sayısını artır",
     "openStudy": "Tarayıcıda açılır",
     "decreaseHour": "Saati azalt",
     "increaseHour": "Saati artır",

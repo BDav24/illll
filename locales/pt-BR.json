@@ -70,7 +70,10 @@
     "inhale": "Inspire",
     "hold": "Segure",
     "exhale": "Expire",
-    "tapToStart": "Toque para começar"
+    "tapToStart": "Toque para começar",
+    "rounds": "Repetições",
+    "duration": "~{{minutes}} min {{seconds}} s",
+    "durationSeconds": "~{{seconds}} s"
   },
   "progress": {
     "title": "Progresso",
@@ -129,6 +132,8 @@
     "weeklyChartLabel": "Gráfico de conclusão semanal",
     "breathingStart": "Iniciar exercício de respiração",
     "breathingRound": "Rodada {{current}} de {{total}}",
+    "decreaseRounds": "Diminuir repetições",
+    "increaseRounds": "Aumentar repetições",
     "openStudy": "Abre no navegador",
     "decreaseHour": "Diminuir hora",
     "increaseHour": "Aumentar hora",
