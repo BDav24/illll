@@ -366,34 +366,6 @@ export default function DailyHub() {
                 <BreathingTimer onComplete={handleBreathingComplete} />
               )}
 
-              {activeHabit !== 'breathing' && (
-                <View style={styles.sheetBody}>
-                  <Text style={styles.sheetOneLiner}>
-                    {t(`habits.${activeHabit}.oneLiner`)}
-                  </Text>
-                  <Pressable
-                    style={styles.sheetCheckboxRow}
-                    accessibilityRole="checkbox"
-                    accessibilityState={{ checked: habitEntries[activeHabit]?.completed ?? false }}
-                    accessibilityLabel={t(`habits.${activeHabit}.name`)}
-                    accessibilityHint={habitEntries[activeHabit]?.completed ? t('hub.tapToUndo') : t('hub.tapToComplete')}
-                    onPress={() => toggleHabit(activeHabit)}
-                  >
-                    <View
-                      style={[
-                        styles.sheetCheckbox,
-                        habitEntries[activeHabit]?.completed && [styles.sheetCheckboxCompleted, { backgroundColor: colors[activeHabit] }],
-                      ]}
-                    >
-                      {habitEntries[activeHabit]?.completed && <Text style={styles.sheetCheckmark}>✓</Text>}
-                    </View>
-                    <Text style={styles.sheetCheckboxLabel}>
-                      {habitEntries[activeHabit]?.completed ? t('hub.objectiveReached') : t(`habits.${activeHabit}.action`)}
-                    </Text>
-                  </Pressable>
-                </View>
-              )}
-
               <Pressable
                 style={styles.whyBtn}
                 accessibilityRole="link"
@@ -643,12 +615,6 @@ function makeStyles(colors: ColorPalette) {
       fontFamily: Fonts.regular,
       color: colors.text,
       lineHeight: 21,
-    },
-    sheetOneLiner: {
-      fontSize: 16,
-      fontFamily: Fonts.regular,
-      color: colors.textSecondary,
-      lineHeight: 24,
     },
     sheetCheckboxRow: {
       flexDirection: 'row',
