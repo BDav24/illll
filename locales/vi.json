@@ -22,7 +22,8 @@
       "action": "Bắt đầu bài tập thở",
       "tldr": "Hít thở chậm, có cấu trúc giúp giảm cortisol, hạ huyết áp và cải thiện biến thiên nhịp tim chỉ trong vài phút. Chỉ 5 phút mỗi ngày đã giảm lo âu một cách đáng kể.",
       "body": "Hệ thần kinh tự chủ của bạn có hai nhánh: giao cảm (\"chiến đấu hoặc bỏ chạy\") và phó giao cảm (\"nghỉ ngơi và tiêu hóa\"). Hít thở chậm, có chủ đích kích hoạt trực tiếp nhánh phó giao cảm thông qua dây thần kinh phế vị.\n\nKhi bạn thở ra chậm, các thụ thể áp suất ở cung động mạch chủ phát hiện sự thay đổi áp suất và gửi tín hiệu đến thân não để làm chậm nhịp tim. Đây là lý do các kỹ thuật với nhịp thở ra kéo dài (như cyclic sighing) đặc biệt hiệu quả.\n\nMột nghiên cứu của Stanford năm 2023 phát hiện rằng chỉ 5 phút tập thở có cấu trúc mỗi ngày — cụ thể là cyclic sighing — hiệu quả hơn thiền chánh niệm trong việc giảm lo âu và cải thiện tâm trạng. Hiệu quả đo được ngay từ buổi tập đầu tiên và tích lũy trong 28 ngày.\n\nBiến thiên nhịp tim (HRV), một chỉ số quan trọng về khả năng chống chịu stress, cải thiện đáng kể khi luyện tập thở thường xuyên. HRV cao hơn liên quan đến khả năng điều tiết cảm xúc tốt hơn, tính linh hoạt nhận thức và sức khỏe tim mạch.\n\nĐiểm đẹp của bài tập thở là tính dễ tiếp cận: không cần thiết bị, không cần không gian đặc biệt, và có thể thực hiện ở bất cứ đâu. Thậm chí chỉ một phút thở chậm trước một sự kiện căng thẳng cũng giảm phản ứng cortisol một cách rõ rệt.",
-      "recommendation": "2-5 phút thở chậm mỗi ngày. Box breathing (4-4-4-4) hoặc cyclic sighing."
+      "recommendation": "2-5 phút thở chậm mỗi ngày. Box breathing (4-4-4-4) hoặc cyclic sighing.",
+      "criterion": "3 phút thở chậm"
     },
     "light": {
       "name": "Tiếp xúc ánh sáng",
@@ -30,7 +31,8 @@
       "action": "Ghi nhận ánh nắng",
       "tldr": "10-30 phút tiếp xúc ánh sáng mạnh giúp điều hòa nhịp sinh học, cải thiện chất lượng giấc ngủ, tăng sự tỉnh táo và có tác dụng chống trầm cảm.",
       "body": "Cơ thể bạn vận hành theo một đồng hồ chủ — nhân trên chéo thị giác (SCN) trong vùng dưới đồi. Đồng hồ này kiểm soát khi nào bạn buồn ngủ, khi nào cortisol đạt đỉnh, khi nào nhiệt độ cơ thể tăng, và hàng trăm quá trình nhịp nhàng khác. Tín hiệu chính đồng bộ hóa đồng hồ này là ánh sáng chiếu vào các tế bào đặc biệt ở võng mạc gọi là intrinsically photosensitive retinal ganglion cells (ipRGCs).\n\nTiếp xúc ánh sáng buổi sáng kích hoạt một chuỗi phản ứng: ức chế sản xuất melatonin, tăng cortisol (đợt tăng buổi sáng lành mạnh), tăng tổng hợp serotonin, và đặt hẹn giờ cho việc giải phóng melatonin khoảng 14-16 giờ sau đó. Đây là lý do ánh sáng buổi sáng cải thiện cả sự tỉnh táo ban ngày VÀ giấc ngủ ban đêm.\n\nMột thử nghiệm lâm sàng quan trọng trên JAMA Psychiatry năm 2016 phát hiện rằng liệu pháp ánh sáng mạnh có hiệu quả tương đương fluoxetine (Prozac) cho trầm cảm nặng không theo mùa — và sự kết hợp cả hai hiệu quả hơn đáng kể so với từng liệu pháp riêng lẻ. Mức độ hiệu quả có ý nghĩa lâm sàng và nhanh chóng.\n\nMột nghiên cứu năm 2023 trên Nature Mental Health phân tích dữ liệu từ hơn 85.000 người tham gia UK Biobank cho thấy tiếp xúc ánh sáng ban ngày nhiều hơn liên quan đến giảm nguy cơ trầm cảm, tâm trạng tốt hơn, dễ thức dậy buổi sáng hơn, và ít mệt mỏi hơn. Đáng chú ý, tiếp xúc ánh sáng ban đêm có tác dụng ngược lại.\n\nĐiều cốt lõi: không chỉ là việc nhận ánh sáng — mà là nhận đúng ánh sáng vào đúng thời điểm. Ánh sáng ngoài trời buổi sáng khác biệt sâu sắc so với ánh sáng nhân tạo trong nhà. Ngay cả vào ngày nhiều mây, ánh sáng ngoài trời thường sáng gấp 10-50 lần so với ánh sáng trong nhà.",
-      "recommendation": "Ra ngoài trong vòng 1 giờ sau khi thức dậy. 10 phút khi trời nắng, 20-30 phút khi trời nhiều mây."
+      "recommendation": "Ra ngoài trong vòng 1 giờ sau khi thức dậy. 10 phút khi trời nắng, 20-30 phút khi trời nhiều mây.",
+      "criterion": "10 phút nắng buổi sáng"
     },
     "food": {
       "name": "Ăn uống lành mạnh",
@@ -38,7 +40,8 @@
       "action": "Ghi nhận bữa ăn lành mạnh",
       "tldr": "Chế độ ăn kiểu Địa Trung Hải giảm nguy cơ trầm cảm khoảng 33%, bệnh tim mạch khoảng 30%, và tỷ lệ tử vong do mọi nguyên nhân.",
       "body": "Mối liên hệ giữa chế độ ăn và sức khỏe tâm thần hiện được hỗ trợ bởi bằng chứng can thiệp vững chắc, không chỉ là tương quan quan sát. Lĩnh vực \"tâm thần học dinh dưỡng\" đã bùng nổ trong thập kỷ qua.\n\nThử nghiệm SMILES trial mang tính bước ngoặt (2017) là thử nghiệm đối chứng ngẫu nhiên đầu tiên kiểm tra trực tiếp liệu cải thiện chế độ ăn có thể điều trị trầm cảm lâm sàng không. Những người tham gia bị trầm cảm nặng được tư vấn chế độ ăn kiểu Địa Trung Hải cho thấy cải thiện đáng kể hơn nhiều so với nhóm nhận hỗ trợ xã hội. Sau 12 tuần, 32% nhóm ăn kiêng đạt thuyên giảm so với 8% ở nhóm đối chứng.\n\nPREDIMED trial, một trong những nghiên cứu can thiệp chế độ ăn lớn nhất từng được thực hiện (7.447 người tham gia), chứng minh rằng chế độ ăn Địa Trung Hải bổ sung dầu ô liu nguyên chất hoặc các loại hạt giảm các biến cố tim mạch khoảng 30% so với chế độ ăn đối chứng. Kết quả quá có ý nghĩa nên thử nghiệm được dừng sớm vì lý do đạo đức.\n\nCác cơ chế rất đa dạng: tác dụng chống viêm (viêm mãn tính liên quan đến trầm cảm), đa dạng hệ vi sinh đường ruột (ruột sản xuất khoảng 95% serotonin của bạn), điều hòa đường huyết tốt hơn (đỉnh glucose làm suy giảm chức năng nhận thức), và cung cấp tốt hơn các dưỡng chất quan trọng cho tổng hợp chất dẫn truyền thần kinh (omega-3, vitamin B, kẽm, magiê).\n\nBạn không cần thay đổi toàn bộ chế độ ăn trong một đêm. Nghiên cứu liên tục cho thấy những cải thiện từng bước mang lại lợi ích đáng kể. Thêm rau, giảm thực phẩm siêu chế biến, và ăn nhiều thực phẩm nguyên chất tạo ra vòng phản hồi tích cực — dinh dưỡng tốt hơn cải thiện tâm trạng, từ đó cải thiện lựa chọn thực phẩm.",
-      "recommendation": "Thêm một phần rau, thay đồ ăn vặt chế biến bằng trái cây/hạt."
+      "recommendation": "Thêm một phần rau, thay đồ ăn vặt chế biến bằng trái cây/hạt.",
+      "criterion": "50% rau, không thực phẩm siêu chế biến"
     },
     "sleep": {
       "name": "Giấc ngủ",
@@ -46,7 +49,8 @@
       "action": "Ghi nhận giờ ngủ",
       "tldr": "Trong giấc ngủ sâu, hệ thống glymphatic của não loại bỏ chất thải. Ngủ dưới 7 tiếng tăng tỷ lệ tử vong 13%. Một đêm thiếu ngủ giảm khả năng điều tiết cảm xúc khoảng 60%.",
       "body": "Giấc ngủ không phải là trạng thái vô thức thụ động — mà là một quá trình chủ động, được tổ chức chặt chẽ và thiết yếu cho sự sống còn. Trong giấc ngủ sâu (sóng chậm), hệ thống glymphatic của não tăng lưu lượng dịch não tủy lên 60%, loại bỏ các sản phẩm chất thải trao đổi chất bao gồm beta-amyloid, protein liên quan đến bệnh Alzheimer.\n\nMột bài báo đột phá năm 2013 trên tạp chí Science của Xie và cộng sự phát hiện rằng khoảng trống giữa các tế bào não mở rộng 60% trong khi ngủ, cho phép quá trình \"rửa não\" này diễn ra. Điều này có nghĩa thiếu ngủ mãn tính có thể thực sự khiến chất thải độc hại tích tụ trong não bạn.\n\nDữ liệu tử vong rất rõ ràng: một phân tích tổng hợp trên 1,3 triệu người tham gia cho thấy ngủ dưới 7 tiếng mỗi đêm liên quan đến tăng 13% nguy cơ tử vong do mọi nguyên nhân. Nhưng không chỉ về thời lượng — chất lượng giấc ngủ cũng vô cùng quan trọng.\n\nCó lẽ điều liên quan trực tiếp nhất: một đêm thiếu ngủ gây tăng 60% phản ứng của hạch hạnh nhân đối với kích thích tiêu cực, thực tế là ngắt kết nối vỏ não trước trán (não lý trí) khỏi các trung tâm cảm xúc của bạn. Đây là lý do tại sao mọi thứ cảm thấy tệ hơn sau một đêm ngủ kém — khả năng điều tiết cảm xúc của não bạn bị suy giảm về mặt sinh lý.\n\nGiấc ngủ cũng củng cố trí nhớ, điều hòa hormone (hormone tăng trưởng chủ yếu được giải phóng trong giấc ngủ sâu), duy trì chức năng miễn dịch (hiệu quả tế bào T giảm đáng kể chỉ sau một đêm ngủ kém), và điều hòa hormone thèm ăn (thiếu ngủ tăng ghrelin và giảm leptin, khiến bạn đói hơn).\n\nHai điều có tác động lớn nhất bạn có thể làm cho giấc ngủ là sự nhất quán (giờ ngủ/thức dậy cố định) và tiếp xúc ánh sáng buổi sáng (thiết lập hẹn giờ melatonin cho buổi tối).",
-      "recommendation": "7-9 tiếng. Giờ ngủ và thức dậy nhất quán."
+      "recommendation": "7-9 tiếng. Giờ ngủ và thức dậy nhất quán.",
+      "criterion": "Ngủ 7 tiếng"
     },
     "exercise": {
       "name": "Tập thể dục",
@@ -54,7 +58,8 @@
       "action": "Ghi nhận tập thể dục",
       "tldr": "Giảm tỷ lệ tử vong do mọi nguyên nhân 30-35%, hiệu quả như SSRI cho trầm cảm, thúc đẩy tái tạo thần kinh. 11 phút đi bộ nhanh đã có ích.",
       "body": "Tập thể dục là thứ gần nhất với thuốc thần kỳ mà chúng ta có. Một phân tích tổng hợp BMJ năm 2024 trên hơn 200 nghiên cứu cho thấy tập thể dục hiệu quả gấp 1,5 lần tư vấn tâm lý hoặc các loại thuốc hàng đầu trong việc giảm triệu chứng trầm cảm, lo âu và căng thẳng tâm lý. Đi bộ hoặc chạy bộ, yoga và tập tạ nằm trong số các phương pháp hiệu quả nhất.\n\nĐường cong liều lượng-đáp ứng của tập thể dục tập trung đáng kể ở giai đoạn đầu: một nghiên cứu năm 2023 trên British Journal of Sports Medicine phân tích dữ liệu từ 196 nghiên cứu cho thấy chỉ 11 phút đi bộ nhanh mỗi ngày (75 phút/tuần) liên quan đến giảm 23% nguy cơ tử vong sớm. Chuyển từ không vận động sang vận động tối thiểu mang lại lợi ích biên lớn nhất.\n\nVề mặt thần kinh, một nghiên cứu quan trọng năm 2011 trên PNAS cho thấy một năm tập aerobic vừa phải tăng thể tích hồi hải mã lên 2%, thực tế đảo ngược 1-2 năm co rút do lão hóa. Hồi hải mã rất quan trọng cho trí nhớ và là một trong những cấu trúc đầu tiên bị ảnh hưởng trong bệnh Alzheimer. Tập thể dục thúc đẩy tái tạo thần kinh (sự ra đời của tế bào não mới) thông qua tăng BDNF (brain-derived neurotrophic factor).\n\nTập thể dục cũng cải thiện chất lượng giấc ngủ, giảm viêm, cải thiện độ nhạy insulin, tăng cường xương, giảm nguy cơ ung thư, cải thiện chức năng nhận thức và nâng cao hiệu quả bản thân. Các cơ chế đa dạng đến mức không một loại thuốc đơn lẻ nào có thể tái tạo tất cả lợi ích của hoạt động thể chất đều đặn.\n\nPhát hiện quan trọng từ nghiên cứu hiện đại: lợi ích sức khỏe lớn nhất đến từ việc chuyển từ không làm gì sang làm một chút. Bạn không cần chạy marathon. Đi bộ 10 phút có lợi hơn vô hạn so với không đi bộ. Hãy bắt đầu từ rất nhỏ và xây dựng tính nhất quán trước khi tăng cường độ.",
-      "recommendation": "Mọi vận động đều có ích. 10 phút đi bộ tốt hơn vô hạn so với không đi."
+      "recommendation": "Mọi vận động đều có ích. 10 phút đi bộ tốt hơn vô hạn so với không đi.",
+      "criterion": "Vận động 10 phút"
     },
     "gratitude": {
       "name": "Biết ơn",
@@ -62,15 +67,20 @@
       "action": "Viết lời biết ơn",
       "tldr": "Viết lời biết ơn tăng hạnh phúc 10-25%, cải thiện giấc ngủ, giảm trầm cảm, và tạo ra thay đổi thần kinh lâu dài.",
       "body": "Thực hành biết ơn là một trong những phương pháp can thiệp tâm lý tích cực được nghiên cứu nhiều nhất, với bằng chứng vững chắc trải dài hơn hai thập kỷ. Tác dụng không chỉ mang tính chủ quan — thực hành biết ơn tạo ra những thay đổi có thể đo lường được trong cấu trúc và chức năng não.\n\nNghiên cứu nền tảng năm 2003 của Emmons và McCullough xác nhận rằng những người viết hàng tuần về những điều họ biết ơn tập thể dục nhiều hơn, ít phàn nàn về sức khỏe hơn, và cảm thấy tốt hơn về cuộc sống so với những người viết về phiền toái hoặc sự kiện trung tính. Mức độ hiệu quả rất đáng kể: cải thiện 10-25% các chỉ số hạnh phúc.\n\nMột nghiên cứu fMRI năm 2016 của Kini và cộng sự phát hiện rằng thực hành biết ơn tạo ra thay đổi lâu dài trong cách não xử lý thông tin. Những người viết thư biết ơn cho thấy độ nhạy thần kinh lớn hơn đáng kể đối với trải nghiệm biết ơn nhiều tháng sau — ngay cả khi không còn tích cực thực hành. Vỏ não trước trán giữa, liên quan đến học tập và ra quyết định, cho thấy những thay đổi đáng kể nhất. Điều này cho thấy thực hành biết ơn thực sự tái lập trình cách xử lý cơ bản của não bạn.\n\nMối liên hệ với giấc ngủ đặc biệt thú vị: Wood và cộng sự (2009) phát hiện rằng lòng biết ơn liên quan đến chất lượng giấc ngủ tốt hơn chủ yếu thông qua cơ chế suy nghĩ trước khi ngủ. Những người biết ơn có nhiều suy nghĩ tích cực hơn và ít suy nghĩ tiêu cực hơn trước khi ngủ, dẫn đến dễ ngủ hơn và chất lượng giấc ngủ tốt hơn.\n\nChìa khóa của thực hành biết ơn hiệu quả là sự cụ thể. \"Tôi biết ơn vì sức khỏe\" có tác động ít hơn nhiều so với \"Tôi biết ơn vì đôi chân đã đưa tôi đi dạo trong công viên sáng nay và tôi nhận ra hoa anh đào đang nở.\" Lòng biết ơn cụ thể buộc bạn sống lại trải nghiệm tích cực, khuếch đại tác động cảm xúc và huấn luyện não bạn chú ý đến các chi tiết tích cực.",
-      "recommendation": "1-3 điều cụ thể mỗi ngày. Hãy cụ thể, đừng chung chung."
+      "recommendation": "1-3 điều cụ thể mỗi ngày. Hãy cụ thể, đừng chung chung.",
+      "criterion": "Viết 3 điều cụ thể"
     }
+  },
+  "criteria": {
+    "myGoal": "Mục tiêu của tôi",
+    "placeholder": "Đặt mục tiêu của bạn...",
+    "reset": "Đặt lại mặc định"
   },
   "breathing": {
     "inhale": "Hít vào",
     "hold": "Giữ",
     "exhale": "Thở ra",
-    "tapToStart": "Chạm để bắt đầu",
-
+    "tapToStart": "Chạm để bắt đầu"
   },
   "progress": {
     "title": "Tiến trình",

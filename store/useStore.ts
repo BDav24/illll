@@ -38,6 +38,7 @@ export interface UserSettings {
   language: string | null; // null = auto-detect
   customHabits: CustomHabit[];
   colorScheme: ColorScheme;
+  habitCriteria: Record<string, string>;
 }
 
 // ---------------------------------------------------------------------------
@@ -56,6 +57,7 @@ interface StoreState {
   toggleCustomHabit: (id: string) => void;
   toggleHideHabit: (habitId: HabitId) => void;
   setLanguage: (lang: string | null) => void;
+  setHabitCriterion: (habitId: string, criterion: string) => void;
   setColorScheme: (scheme: ColorScheme) => void;
   resetAll: () => void;
 }
@@ -79,6 +81,7 @@ const DEFAULT_SETTINGS: UserSettings = {
   language: null,
   customHabits: [],
   colorScheme: 'light',
+  habitCriteria: {},
 };
 
 // ---------------------------------------------------------------------------
@@ -296,12 +299,16 @@ export const useStore = create<StoreState>()((set) => ({
   },
 
   deleteCustomHabit: (id: string) => {
-    set((state) => ({
-      settings: {
-        ...state.settings,
-        customHabits: state.settings.customHabits.filter((h) => h.id !== id),
-      },
-    }));
+    set((state) => {
+      const { [id]: _, ...remainingCriteria } = state.settings.habitCriteria;
+      return {
+        settings: {
+          ...state.settings,
+          customHabits: state.settings.customHabits.filter((h) => h.id !== id),
+          habitCriteria: remainingCriteria,
+        },
+      };
+    });
   },
 
   toggleCustomHabit: (id: string) => {
@@ -349,6 +356,20 @@ export const useStore = create<StoreState>()((set) => ({
     set((state) => ({
       settings: { ...state.settings, language: lang },
     }));
+  },
+
+  setHabitCriterion: (habitId: string, criterion: string) => {
+    set((state) => {
+      const updated = { ...state.settings.habitCriteria };
+      if (criterion) {
+        updated[habitId] = criterion;
+      } else {
+        delete updated[habitId];
+      }
+      return {
+        settings: { ...state.settings, habitCriteria: updated },
+      };
+    });
   },
 
   setColorScheme: (scheme: ColorScheme) => {

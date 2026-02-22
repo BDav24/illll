@@ -10,9 +10,11 @@ interface CustomHabitCardProps {
   text: string;
   completed: boolean;
   onPress: (id: string) => void;
+  onLongPress?: (id: string) => void;
+  criterion?: string;
 }
 
-export const CustomHabitCard = React.memo(function CustomHabitCard({ id, text, completed, onPress }: CustomHabitCardProps) {
+export const CustomHabitCard = React.memo(function CustomHabitCard({ id, text, completed, onPress, onLongPress, criterion }: CustomHabitCardProps) {
   const colors = useColors();
   const styles = useMemo(() => makeStyles(colors), [colors]);
   const { t } = useTranslation();
@@ -22,9 +24,17 @@ export const CustomHabitCard = React.memo(function CustomHabitCard({ id, text, c
     onPress(id);
   }, [onPress, id]);
 
+  const handleLongPress = useCallback(() => {
+    if (onLongPress) {
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+      onLongPress(id);
+    }
+  }, [onLongPress, id]);
+
   return (
     <Pressable
       onPress={handlePress}
+      onLongPress={handleLongPress}
       accessibilityRole="checkbox"
       accessibilityState={{ checked: completed }}
       accessibilityLabel={text}
@@ -35,12 +45,17 @@ export const CustomHabitCard = React.memo(function CustomHabitCard({ id, text, c
         pressed && styles.cardPressed,
       ]}
     >
-      <Text
-        style={[styles.text, completed && styles.textCompleted]}
-        numberOfLines={1}
-      >
-        {text}
-      </Text>
+      <View style={styles.textContainer}>
+        <Text
+          style={[styles.text, completed && styles.textCompleted]}
+          numberOfLines={1}
+        >
+          {text}
+        </Text>
+        {criterion ? (
+          <Text style={styles.criterion} numberOfLines={1}>{criterion}</Text>
+        ) : null}
+      </View>
       <View
         style={[
           styles.checkbox,
@@ -72,14 +87,22 @@ function makeStyles(colors: ColorPalette) {
     cardPressed: {
       opacity: 0.8,
     },
-    text: {
+    textContainer: {
       flex: 1,
+    },
+    text: {
       color: colors.text,
       fontSize: 16,
       fontFamily: Fonts.semiBold,
     },
     textCompleted: {
       opacity: 0.6,
+    },
+    criterion: {
+      color: colors.textMuted,
+      fontSize: 13,
+      fontFamily: Fonts.regular,
+      marginTop: 2,
     },
     checkbox: {
       width: 28,

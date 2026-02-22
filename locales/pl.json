@@ -22,7 +22,8 @@
       "action": "Rozpocznij ćwiczenie oddechowe",
       "tldr": "Wolne, ustrukturyzowane oddychanie obniża kortyzol, ciśnienie krwi i poprawia zmienność rytmu serca w ciągu kilku minut. Już 5 minut dziennie mierzalnie redukuje lęk.",
       "body": "Twój autonomiczny układ nerwowy składa się z dwóch gałęzi: współczulnej (\"walcz lub uciekaj\") i przywspółczulnej (\"odpoczywaj i traw\"). Powolne, świadome oddychanie bezpośrednio aktywuje gałąź przywspółczulną przez nerw błędny.\n\nGdy wydychasz powoli, baroreceptory w łuku aorty wykrywają zmianę ciśnienia i sygnalizują pniowi mózgu, by zwolnił tętno. Dlatego techniki z wydłużonym wydechem (jak cykliczne westchnienia) są szczególnie skuteczne.\n\nBadanie Stanforda z 2023 roku wykazało, że zaledwie 5 minut dziennie ustrukturyzowanego oddychania — konkretnie cyklicznych westchnień — było skuteczniejsze niż medytacja mindfulness w redukcji lęku i poprawie nastroju. Efekt był mierzalny już po pierwszej sesji i narastał przez 28 dni.\n\nHRV (zmienność rytmu serca), kluczowy wskaźnik odporności na stres, znacząco się poprawia przy regularnej praktyce oddechowej. Wyższe HRV wiąże się z lepszą regulacją emocji, elastycznością poznawczą i zdrowiem sercowo-naczyniowym.\n\nPiękno ćwiczeń oddechowych polega na ich dostępności: nie wymagają żadnego sprzętu, specjalnego miejsca i można je wykonywać wszędzie. Nawet minuta wolnego oddychania przed stresującym wydarzeniem mierzalnie obniża reakcję kortyzolową.",
-      "recommendation": "2-5 minut wolnego oddychania dziennie. Oddychanie pudełkowe (4-4-4-4) lub cykliczne westchnienia."
+      "recommendation": "2-5 minut wolnego oddychania dziennie. Oddychanie pudełkowe (4-4-4-4) lub cykliczne westchnienia.",
+      "criterion": "3 min wolnego oddychania"
     },
     "light": {
       "name": "Ekspozycja na światło",
@@ -30,7 +31,8 @@
       "action": "Zapisz ekspozycję na słońce",
       "tldr": "10-30 minut ekspozycji na jasne światło reguluje rytm dobowy, poprawia jakość snu, zwiększa czujność i działa przeciwdepresyjnie.",
       "body": "Twój organizm działa w oparciu o zegar główny — jądro nadskrzyżowaniowe (SCN) w podwzgórzu. Ten zegar kontroluje, kiedy czujesz senność, kiedy kortyzol osiąga szczyt, kiedy temperatura ciała rośnie i setki innych rytmicznych procesów. Głównym sygnałem synchronizującym ten zegar jest światło trafiające na wyspecjalizowane komórki siatkówki zwane wewnętrznie światłoczułymi komórkami zwojowymi siatkówki (ipRGCs).\n\nPoranna ekspozycja na światło uruchamia kaskadę reakcji: tłumi produkcję melatoniny, podnosi poziom kortyzolu (zdrowy poranny skok), zwiększa syntezę serotoniny i ustawia timer uwalniania melatoniny mniej więcej 14-16 godzin później. Dlatego poranne światło poprawia zarówno dzienną czujność, JAK I nocny sen.\n\nPrzełomowe badanie JAMA Psychiatry z 2016 roku wykazało, że terapia jasnym światłem była równie skuteczna jak fluoksetyna (Prozac) w leczeniu pozasezonowej depresji — a połączenie obu metod było znacząco skuteczniejsze niż każda z nich osobno. Wielkość efektu była klinicznie istotna i szybka.\n\nBadanie opublikowane w Nature Mental Health w 2023 roku, analizujące dane ponad 85 000 uczestników UK Biobank, wykazało, że większa ekspozycja na światło dzienne wiąże się z mniejszym ryzykiem depresji, lepszym samopoczuciem, łatwiejszym wstawaniem rano i rzadszym uczuciem zmęczenia. Co istotne, ekspozycja na światło nocne miała efekt odwrotny.\n\nKluczowy wniosek: nie chodzi tylko o to, żeby mieć dostęp do światła — chodzi o odpowiednie światło o odpowiedniej porze. Jasne, naturalne światło rano jest fundamentalnie różne od sztucznego oświetlenia wnętrz. Nawet w pochmurny dzień światło na zewnątrz jest zazwyczaj 10-50 razy jaśniejsze niż oświetlenie wewnętrzne.",
-      "recommendation": "Wyjdź na zewnątrz w ciągu 1 godziny od przebudzenia. 10 min w słońcu, 20-30 min w pochmurny dzień."
+      "recommendation": "Wyjdź na zewnątrz w ciągu 1 godziny od przebudzenia. 10 min w słońcu, 20-30 min w pochmurny dzień.",
+      "criterion": "10 min porannego słońca"
     },
     "food": {
       "name": "Zdrowe jedzenie",
@@ -38,7 +40,8 @@
       "action": "Zapisz zdrowy posiłek",
       "tldr": "Dieta śródziemnomorska zmniejsza ryzyko depresji o ~33%, chorób sercowo-naczyniowych o ~30% oraz śmiertelność ogólną.",
       "body": "Związek między dietą a zdrowiem psychicznym jest dziś poparty solidnymi dowodami z badań interwencyjnych, nie tylko obserwacyjnymi korelacjami. Dziedzina \"psychiatrii żywieniowej\" przeżywa ogromny rozwój w ostatniej dekadzie.\n\nPrzełomowe badanie SMILES trial (2017) było pierwszym randomizowanym badaniem kontrolowanym, które bezpośrednio sprawdziło, czy poprawa diety może leczyć depresję kliniczną. Uczestnicy z ciężką depresją, którzy otrzymali poradnictwo dietetyczne w kierunku diety śródziemnomorskiej, wykazali znacząco większą poprawę niż ci, którzy otrzymali wsparcie społeczne. Po 12 tygodniach 32% grupy dietetycznej osiągnęło remisję wobec 8% w grupie kontrolnej.\n\nPREDIMED trial, jedno z największych badań interwencji dietetycznej w historii (7 447 uczestników), wykazało, że dieta śródziemnomorska wzbogacona oliwą z oliwek extra virgin lub orzechami zmniejszyła częstość zdarzeń sercowo-naczyniowych o około 30% w porównaniu z dietą kontrolną. Wynik był na tyle istotny, że badanie przerwano wcześniej ze względów etycznych.\n\nMechanizmy działania są wieloaspektowe: efekty przeciwzapalne (przewlekły stan zapalny jest powiązany z depresją), różnorodność mikrobiomu jelitowego (jelita produkują ~95% serotoniny), lepsza regulacja poziomu cukru we krwi (skoki glukozy upośledzają funkcje poznawcze) oraz lepsze zaopatrzenie w składniki odżywcze kluczowe dla syntezy neuroprzekaźników (omega-3, witaminy z grupy B, cynk, magnez).\n\nNie musisz zmieniać całej diety z dnia na dzień. Badania konsekwentnie pokazują, że stopniowe zmiany przynoszą wymierne korzyści. Dodanie warzyw, ograniczenie żywności ultraprzetworzonej i jedzenie więcej pełnowartościowych produktów tworzy pozytywne sprzężenie zwrotne — lepsza dieta poprawia nastrój, co poprawia wybory żywieniowe.",
-      "recommendation": "Dodaj jedną dodatkową porcję warzyw, zamień przetworzoną przekąskę na owoce/orzechy."
+      "recommendation": "Dodaj jedną dodatkową porcję warzyw, zamień przetworzoną przekąskę na owoce/orzechy.",
+      "criterion": "50% warzyw, bez ultra-przetworzonych"
     },
     "sleep": {
       "name": "Sen",
@@ -46,7 +49,8 @@
       "action": "Zapisz godziny snu",
       "tldr": "Podczas głębokiego snu układ glimfatyczny mózgu oczyszcza go z toksyn. Mniej niż 7 godzin snu zwiększa śmiertelność o 13%. Jedna noc bez snu obniża regulację emocji o ~60%.",
       "body": "Sen to nie bierna utrata przytomności — to aktywny, niezwykle zorganizowany proces niezbędny do przeżycia. Podczas głębokiego (wolnofalowego) snu układ glimfatyczny mózgu zwiększa przepływ płynu mózgowo-rdzeniowego o 60%, usuwając produkty przemiany materii, w tym beta-amyloid — białko powiązane z chorobą Alzheimera.\n\nPrzełomowa praca opublikowana w Science w 2013 roku przez Xie i współpracowników odkryła, że przestrzeń między komórkami mózgu powiększa się o 60% podczas snu, umożliwiając to \"mycie mózgu\". Oznacza to, że przewlekły niedobór snu może dosłownie powodować gromadzenie się toksycznych odpadów w mózgu.\n\nDane dotyczące śmiertelności są jednoznaczne: metaanaliza obejmująca 1,3 miliona uczestników wykazała, że spanie mniej niż 7 godzin na dobę wiąże się z 13% wyższym ryzykiem śmierci z dowolnej przyczyny. Ale nie chodzi tylko o długość — jakość snu ma ogromne znaczenie.\n\nNajbardziej bezpośrednio odczuwalny efekt: jedna noc bez snu powoduje 60% wzrost reaktywności ciała migdałowatego na negatywne bodźce, skutecznie odcinając korę przedczołową (racjonalny mózg) od ośrodków emocjonalnych. Dlatego po złej nocy wszystko wydaje się gorsze — zdolność mózgu do regulacji emocji jest fizjologicznie upośledzona.\n\nSen konsoliduje też pamięć, reguluje hormony (hormon wzrostu jest uwalniany głównie podczas głębokiego snu), utrzymuje funkcję odpornościową (skuteczność limfocytów T spada znacząco po jednej nocy złego snu) i reguluje hormony apetytu (niedobór snu zwiększa grelinę i obniża leptynę, przez co jesteś głodniejszy).\n\nDwie najskuteczniejsze rzeczy, które możesz zrobić dla snu, to regularność (stałe godziny zasypiania i budzenia się) oraz poranna ekspozycja na światło (która ustawia timer melatoniny na wieczór).",
-      "recommendation": "7-9 godzin. Stałe godziny zasypiania i budzenia."
+      "recommendation": "7-9 godzin. Stałe godziny zasypiania i budzenia.",
+      "criterion": "Spać 7 godzin"
     },
     "exercise": {
       "name": "Ćwiczenia",
@@ -54,7 +58,8 @@
       "action": "Zapisz ćwiczenia",
       "tldr": "Zmniejsza śmiertelność ogólną o 30-35%, jest tak samo skuteczne jak SSRI w leczeniu depresji, wspiera neurogenezę. Nawet 11 minut szybkiego marszu pomaga.",
       "body": "Ćwiczenia to najbliższy odpowiednik cudownego leku, jaki mamy. Metaanaliza BMJ z 2024 roku obejmująca ponad 200 badań wykazała, że ćwiczenia są 1,5 razy skuteczniejsze niż poradnictwo psychologiczne czy wiodące leki w redukcji objawów depresji, lęku i stresu psychicznego. Chodzenie lub jogging, joga i trening siłowy należały do najskuteczniejszych form aktywności.\n\nKrzywa zależności dawka-odpowiedź dla ćwiczeń jest niezwykle stroma na początku: badanie z 2023 roku opublikowane w British Journal of Sports Medicine, analizujące dane z 196 badań, wykazało, że zaledwie 11 minut dziennego szybkiego marszu (75 minut tygodniowo) wiązało się z 23% niższym ryzykiem przedwczesnej śmierci. Przejście od zera do nawet minimalnej aktywności daje największą korzyść krańcową.\n\nPod względem neurologicznym, przełomowe badanie PNAS z 2011 roku wykazało, że rok umiarkowanych ćwiczeń aerobowych zwiększył objętość hipokampa o 2%, skutecznie cofając 1-2 lata kurczenia się związanego z wiekiem. Hipokamp jest kluczowy dla pamięci i jest jedną z pierwszych struktur dotkniętych chorobą Alzheimera. Ćwiczenia wspierają neurogenezę (narodziny nowych komórek mózgowych) poprzez zwiększenie poziomu BDNF (czynnika neurotroficznego pochodzenia mózgowego).\n\nĆwiczenia poprawiają też jakość snu, zmniejszają stan zapalny, poprawiają wrażliwość na insulinę, wzmacniają kości, zmniejszają ryzyko raka, poprawiają funkcje poznawcze i wzmacniają poczucie własnej skuteczności. Mechanizmy są tak różnorodne, że żaden pojedynczy lek nie jest w stanie odwzorować wszystkich korzyści regularnej aktywności fizycznej.\n\nKluczowy wniosek z nowoczesnych badań: największy zysk zdrowotny pochodzi z przejścia od niczego do czegoś. Nie musisz biegać maratonów. 10-minutowy spacer jest nieskończenie korzystniejszy niż brak spaceru. Zacznij od absurdalnie małych kroków i buduj regularność przed intensywnością.",
-      "recommendation": "Każdy ruch się liczy. 10-minutowy spacer jest nieskończenie lepszy niż nic."
+      "recommendation": "Każdy ruch się liczy. 10-minutowy spacer jest nieskończenie lepszy niż nic.",
+      "criterion": "Ruszać się 10 minut"
     },
     "gratitude": {
       "name": "Wdzięczność",
@@ -62,7 +67,8 @@
       "action": "Zapisz rzeczy, za które jesteś wdzięczny",
       "tldr": "Zapisywanie wdzięczności zwiększa dobrostan o 10-25%, poprawia sen, zmniejsza depresję i tworzy trwałe zmiany w mózgu.",
       "body": "Praktyka wdzięczności jest jedną z najlepiej przebadanych interwencji psychologii pozytywnej, z solidnymi dowodami obejmującymi ponad dwie dekady badań. Efekty nie są tylko subiektywne — praktyka wdzięczności tworzy mierzalne zmiany w strukturze i funkcjonowaniu mózgu.\n\nPodstawowe badanie Emmonsa i McCullougha z 2003 roku wykazało, że osoby cotygodniowo zapisujące rzeczy, za które są wdzięczne, więcej ćwiczyły, miały mniej dolegliwości fizycznych i lepiej oceniały swoje życie w porównaniu z tymi, którzy pisali o kłopotach lub neutralnych wydarzeniach. Wielkość efektu była znacząca: 10-25% poprawa miar dobrostanu.\n\nBadanie fMRI przeprowadzone przez Kini i współpracowników w 2016 roku wykazało, że praktyka wdzięczności wywoływała trwałe zmiany w sposobie przetwarzania informacji przez mózg. Uczestnicy, którzy pisali listy z podziękowaniami, wykazywali znacząco wyższą wrażliwość neuronalną na doświadczenia wdzięczności miesiące później — nawet gdy nie praktykowali aktywnie. Największe zmiany zaobserwowano w przyśrodkowej korze przedczołowej, zaangażowanej w uczenie się i podejmowanie decyzji. Sugeruje to, że praktyka wdzięczności dosłownie przeprogramowuje podstawowy sposób przetwarzania informacji przez mózg.\n\nSzczególnie przekonujący jest związek ze snem: Wood i współpracownicy (2009) wykazali, że wdzięczność wiązała się z lepszą jakością snu głównie poprzez mechanizm myśli przed zaśnięciem. Wdzięczni ludzie mają więcej pozytywnych i mniej negatywnych myśli przed zaśnięciem, co prowadzi do szybszego zasypiania i lepszej jakości snu.\n\nKluczem do skutecznej praktyki wdzięczności jest szczegółowość. \"Jestem wdzięczny za zdrowie\" jest znacznie mniej skuteczne niż \"Jestem wdzięczny, że moje nogi poniosły mnie na spacer po parku tego ranka i zauważyłem, że kwitnęły wiśnie.\" Konkretna wdzięczność zmusza do ponownego przeżycia pozytywnego doświadczenia, wzmacniając jego emocjonalny wpływ i ucząc mózg dostrzegania pozytywnych szczegółów.",
-      "recommendation": "1-3 konkretne rzeczy dziennie. Bądź konkretny, nie ogólnikowy."
+      "recommendation": "1-3 konkretne rzeczy dziennie. Bądź konkretny, nie ogólnikowy.",
+      "criterion": "Napisać 3 konkretne rzeczy"
     }
   },
   "breathing": {
@@ -98,6 +104,11 @@
     "addHabit": "Dodaj nawyk...",
     "resetData": "Resetuj wszystkie dane",
     "resetConfirm": "Spowoduje to usunięcie wszystkich danych. Czy na pewno?"
+  },
+  "criteria": {
+    "myGoal": "Mój cel",
+    "placeholder": "Ustaw swój cel...",
+    "reset": "Przywróć domyślny"
   },
   "article": {
     "whyTitle": "Dlaczego {{habit}}?",

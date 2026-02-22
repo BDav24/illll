@@ -5,6 +5,7 @@ import {
   ScrollView,
   StyleSheet,
   Pressable,
+  TextInput,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -55,9 +56,16 @@ export default function DailyHub() {
   const hiddenHabits = useStore((s) => s.settings.hiddenHabits);
   const habitOrder = useStore((s) => s.settings.habitOrder);
   const customHabits = useStore((s) => s.settings.customHabits);
+  const habitCriteria = useStore((s) => s.settings.habitCriteria);
   const toggleHabit = useStore((s) => s.toggleHabit);
   const toggleCustomHabit = useStore((s) => s.toggleCustomHabit);
   const updateHabitData = useStore((s) => s.updateHabitData);
+  const setHabitCriterion = useStore((s) => s.setHabitCriterion);
+
+  const [isEditingCriterion, setIsEditingCriterion] = useState(false);
+  const [criterionDraft, setCriterionDraft] = useState('');
+  const [activeCustomHabit, setActiveCustomHabit] = useState<string | null>(null);
+  const didResetCriterion = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const today = useMemo(
     () => todayRecord ?? emptyDayRecord(currentDateKey),
@@ -92,9 +100,52 @@ export default function DailyHub() {
     return { greeting: g, dateStr: d };
   }, [currentDateKey, dateLocale, t]);
 
+  const getDisplayedCriterion = useCallback(
+    (habitId: string) => {
+      return habitCriteria[habitId] || t(`habits.${habitId}.criterion`);
+    },
+    [habitCriteria, t],
+  );
+
+  const handleStartEditCriterion = useCallback(() => {
+    const habitId = activeHabit ?? activeCustomHabit;
+    if (!habitId) return;
+    if (didResetCriterion.current) clearTimeout(didResetCriterion.current);
+    didResetCriterion.current = null;
+    setCriterionDraft(habitCriteria[habitId] || (activeHabit ? t(`habits.${activeHabit}.criterion`) : ''));
+    setIsEditingCriterion(true);
+  }, [activeHabit, activeCustomHabit, habitCriteria, t]);
+
+  const handleSubmitCriterion = useCallback(() => {
+    const habitId = activeHabit ?? activeCustomHabit;
+    if (!habitId) return;
+    const trimmed = criterionDraft.trim();
+    if (trimmed) {
+      setHabitCriterion(habitId, trimmed);
+    }
+    setIsEditingCriterion(false);
+  }, [activeHabit, activeCustomHabit, criterionDraft, setHabitCriterion]);
+
+  const handleBlurCriterion = useCallback(() => {
+    // Delay so a "Reset to default" press can fire before we save
+    didResetCriterion.current = setTimeout(() => {
+      handleSubmitCriterion();
+    }, 150);
+  }, [handleSubmitCriterion]);
+
+  const handleResetCriterion = useCallback(() => {
+    if (didResetCriterion.current) clearTimeout(didResetCriterion.current);
+    const habitId = activeHabit ?? activeCustomHabit;
+    if (!habitId) return;
+    setHabitCriterion(habitId, '');
+    setIsEditingCriterion(false);
+  }, [activeHabit, activeCustomHabit, setHabitCriterion]);
+
   const handleHabitPress = useCallback(
     (id: HabitId) => {
+      setActiveCustomHabit(null);
       setActiveHabit(id);
+      setIsEditingCriterion(false);
       bottomSheetRef.current?.expand();
     },
     [],
@@ -121,6 +172,16 @@ export default function DailyHub() {
       setActiveHabit(null);
     },
     [updateHabitData],
+  );
+
+  const handleCustomHabitLongPress = useCallback(
+    (id: string) => {
+      setActiveHabit(null);
+      setActiveCustomHabit(id);
+      setIsEditingCriterion(false);
+      bottomSheetRef.current?.expand();
+    },
+    [],
   );
 
   const snapPoints = useMemo(() => ['50%', '75%'], []);
@@ -209,6 +270,8 @@ export default function DailyHub() {
                 text={ch.text}
                 completed={today.habits[ch.id]?.completed ?? false}
                 onPress={toggleCustomHabit}
+                onLongPress={handleCustomHabitLongPress}
+                criterion={habitCriteria[ch.id]}
               />
             ))}
           </View>
@@ -232,7 +295,11 @@ export default function DailyHub() {
         enablePanDownToClose
         backgroundStyle={styles.sheetBg}
         handleIndicatorStyle={styles.sheetHandle}
-        onClose={() => setActiveHabit(null)}
+        onClose={() => {
+          setActiveHabit(null);
+          setActiveCustomHabit(null);
+          setIsEditingCriterion(false);
+        }}
       >
         <BottomSheetView style={styles.sheetContent}>
           {activeHabit && (
@@ -252,6 +319,44 @@ export default function DailyHub() {
                   {t(`habits.${activeHabit}.recommendation`)}
                 </Text>
               </View>
+
+              {isEditingCriterion ? (
+                <View style={styles.criterionCard}>
+                  <Text style={styles.sheetRecoLabel}>{t('criteria.myGoal')}</Text>
+                  <TextInput
+                    style={styles.criterionInput}
+                    value={criterionDraft}
+                    onChangeText={setCriterionDraft}
+                    onSubmitEditing={handleSubmitCriterion}
+                    onBlur={handleBlurCriterion}
+                    autoFocus
+                    returnKeyType="done"
+                    placeholder={t('criteria.placeholder')}
+                    placeholderTextColor={colors.textMuted}
+                    accessibilityLabel={t('criteria.placeholder')}
+                  />
+                  <Pressable onPress={handleResetCriterion} accessibilityRole="button">
+                    <Text style={styles.criterionReset}>{t('criteria.reset')}</Text>
+                  </Pressable>
+                </View>
+              ) : (
+                <Pressable
+                  style={styles.criterionCard}
+                  onPress={handleStartEditCriterion}
+                  accessibilityRole="button"
+                  accessibilityLabel={`${t('criteria.myGoal')}: ${getDisplayedCriterion(activeHabit)}`}
+                >
+                  <View style={styles.criterionHeader}>
+                    <Text style={styles.sheetRecoLabel}>{t('criteria.myGoal')}</Text>
+                    <Svg width={14} height={14} viewBox="0 0 24 24" fill="none">
+                      <Path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3Z" stroke={colors.textMuted} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+                    </Svg>
+                  </View>
+                  <Text style={styles.sheetRecoText}>
+                    {getDisplayedCriterion(activeHabit)}
+                  </Text>
+                </Pressable>
+              )}
 
               {activeHabit === 'breathing' && (
                 <BreathingTimer onComplete={handleBreathingComplete} />
@@ -293,6 +398,75 @@ export default function DailyHub() {
               </Pressable>
             </>
           )}
+
+          {activeCustomHabit && (() => {
+            const ch = customHabits.find((c) => c.id === activeCustomHabit);
+            if (!ch) return null;
+            return (
+              <>
+                <View style={styles.sheetHeader}>
+                  <Text style={styles.sheetTitle} accessibilityRole="header">
+                    {ch.text}
+                  </Text>
+                </View>
+
+                {isEditingCriterion ? (
+                  <View style={styles.criterionCard}>
+                    <Text style={styles.sheetRecoLabel}>{t('criteria.myGoal')}</Text>
+                    <TextInput
+                      style={styles.criterionInput}
+                      value={criterionDraft}
+                      onChangeText={setCriterionDraft}
+                      onSubmitEditing={handleSubmitCriterion}
+                      onBlur={handleBlurCriterion}
+                      autoFocus
+                      returnKeyType="done"
+                      placeholder={t('criteria.placeholder')}
+                      placeholderTextColor={colors.textMuted}
+                      accessibilityLabel={t('criteria.placeholder')}
+                    />
+                    <Pressable onPress={handleResetCriterion} accessibilityRole="button">
+                      <Text style={styles.criterionReset}>{t('criteria.reset')}</Text>
+                    </Pressable>
+                  </View>
+                ) : (
+                  <Pressable
+                    style={styles.criterionCard}
+                    onPress={handleStartEditCriterion}
+                    accessibilityRole="button"
+                    accessibilityLabel={`${t('criteria.myGoal')}: ${habitCriteria[activeCustomHabit] || t('criteria.placeholder')}`}
+                  >
+                    <View style={styles.criterionHeader}>
+                      <Text style={styles.sheetRecoLabel}>{t('criteria.myGoal')}</Text>
+                      <Svg width={14} height={14} viewBox="0 0 24 24" fill="none">
+                      <Path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3Z" stroke={colors.textMuted} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+                    </Svg>
+                    </View>
+                    <Text style={[styles.sheetRecoText, !habitCriteria[activeCustomHabit] && styles.criterionPlaceholder]}>
+                      {habitCriteria[activeCustomHabit] || t('criteria.placeholder')}
+                    </Text>
+                  </Pressable>
+                )}
+
+                <View style={styles.sheetBody}>
+                  <Pressable
+                    style={styles.sheetActionBtn}
+                    accessibilityRole="button"
+                    onPress={() => {
+                      toggleCustomHabit(activeCustomHabit);
+                      bottomSheetRef.current?.close();
+                    }}
+                  >
+                    <Text style={styles.sheetActionText}>
+                      {today.habits[activeCustomHabit]?.completed
+                        ? t('hub.tapToUndo')
+                        : t('hub.tapToComplete')}
+                    </Text>
+                  </Pressable>
+                </View>
+              </>
+            );
+          })()}
         </BottomSheetView>
       </BottomSheet>
     </SafeAreaView>
@@ -404,6 +578,39 @@ function makeStyles(colors: ColorPalette) {
       borderLeftWidth: 3,
       borderLeftColor: colors.success,
       marginBottom: 12,
+    },
+    criterionCard: {
+      backgroundColor: colors.bg,
+      borderRadius: 12,
+      padding: 16,
+      borderLeftWidth: 3,
+      borderLeftColor: colors.accent,
+      marginBottom: 12,
+    },
+    criterionHeader: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: 6,
+    },
+    criterionInput: {
+      fontSize: 14,
+      fontFamily: Fonts.regular,
+      color: colors.text,
+      borderBottomWidth: 1,
+      borderBottomColor: colors.accent,
+      paddingVertical: 4,
+      marginBottom: 8,
+    },
+    criterionReset: {
+      fontSize: 13,
+      fontFamily: Fonts.medium,
+      color: colors.accent,
+      textAlign: 'right',
+    },
+    criterionPlaceholder: {
+      color: colors.textMuted,
+      fontStyle: 'italic',
     },
     sheetRecoLabel: {
       fontSize: 11,
