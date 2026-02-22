@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=430, initial-scale=1, user-scalable=no">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 430px;
+    height: 932px;
+    background: #F2F2F7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Quicksand', sans-serif;
+  }
+  #caption {
+    color: #1A1A1A;
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    padding: 36px 32px 20px;
+    line-height: 1.25;
+  }
+  #phone-wrapper {
+    position: relative;
+    flex-shrink: 0;
+  }
+  #phone-frame {
+    width: 380px;
+    height: 842px;
+    border-radius: 48px;
+    border: 3.5px solid #333;
+    overflow: hidden;
+    background: #000;
+    box-shadow:
+      0 0 0 0.5px rgba(255,255,255,0.08),
+      0 30px 80px rgba(0,0,0,0.8),
+      inset 0 0 0 0.5px rgba(255,255,255,0.04);
+  }
+  #phone-inner {
+    padding-top: 18px;
+    background: #0F0F0F;
+    overflow: hidden;
+  }
+  #phone-frame iframe {
+    width: 430px;
+    height: 932px;
+    border: none;
+    zoom: 0.8837;
+    pointer-events: none;
+    display: block;
+  }
+  #subcaption {
+    color: #5A7FCC;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+  <div id="caption"></div>
+  <div id="phone-wrapper">
+    <div id="phone-frame">
+      <div id="phone-inner">
+        <iframe id="app" src="http://localhost:8081"></iframe>
+      </div>
+    </div>
+  </div>
+  <div id="subcaption">ILLLL</div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById('caption').textContent = params.get('caption') || '';
+    const iframe = document.getElementById('app');
+    const path = params.get('path');
+    if (path) iframe.src = 'http://localhost:8081' + path;
+  </script>
+</body>
+</html>
