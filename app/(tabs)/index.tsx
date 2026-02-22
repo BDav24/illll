@@ -5,12 +5,11 @@ import {
   ScrollView,
   StyleSheet,
   Pressable,
-  TextInput,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
-import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
+import BottomSheet, { BottomSheetView, BottomSheetTextInput } from '@gorhom/bottom-sheet';
 import { format } from 'date-fns';
 import Svg, { Path } from 'react-native-svg';
 
@@ -323,7 +322,7 @@ export default function DailyHub() {
               {isEditingCriterion ? (
                 <View style={styles.criterionCard}>
                   <Text style={styles.sheetRecoLabel}>{t('criteria.myGoal')}</Text>
-                  <TextInput
+                  <BottomSheetTextInput
                     style={styles.criterionInput}
                     value={criterionDraft}
                     onChangeText={setCriterionDraft}
@@ -413,7 +412,7 @@ export default function DailyHub() {
                 {isEditingCriterion ? (
                   <View style={styles.criterionCard}>
                     <Text style={styles.sheetRecoLabel}>{t('criteria.myGoal')}</Text>
-                    <TextInput
+                    <BottomSheetTextInput
                       style={styles.criterionInput}
                       value={criterionDraft}
                       onChangeText={setCriterionDraft}
