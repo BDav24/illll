@@ -76,7 +76,10 @@
     "inhale": "Hít vào",
     "hold": "Giữ",
     "exhale": "Thở ra",
-    "tapToStart": "Chạm để bắt đầu"
+    "tapToStart": "Chạm để bắt đầu",
+    "rounds": "Vòng",
+    "duration": "~{{minutes}} min {{seconds}} s",
+    "durationSeconds": "~{{seconds}} s"
   },
   "progress": {
     "title": "Tiến trình",
@@ -135,6 +138,8 @@
     "weeklyChartLabel": "Biểu đồ hoàn thành hàng tuần",
     "breathingStart": "Bắt đầu bài tập thở",
     "breathingRound": "Vòng {{current}} / {{total}}",
+    "decreaseRounds": "Giảm số vòng",
+    "increaseRounds": "Tăng số vòng",
     "openStudy": "Mở trong trình duyệt",
     "decreaseHour": "Giảm giờ",
     "increaseHour": "Tăng giờ",

@@ -80,7 +80,10 @@
     "inhale": "Вдох",
     "hold": "Задержка",
     "exhale": "Выдох",
-    "tapToStart": "Нажмите, чтобы начать"
+    "tapToStart": "Нажмите, чтобы начать",
+    "rounds": "Раунды",
+    "duration": "~{{minutes}} min {{seconds}} s",
+    "durationSeconds": "~{{seconds}} s"
   },
   "progress": {
     "title": "Прогресс",
@@ -139,6 +142,8 @@
     "weeklyChartLabel": "Недельный график выполнения",
     "breathingStart": "Начать дыхательное упражнение",
     "breathingRound": "Раунд {{current}} из {{total}}",
+    "decreaseRounds": "Уменьшить раунды",
+    "increaseRounds": "Увеличить раунды",
     "openStudy": "Откроется в браузере",
     "decreaseHour": "Уменьшить час",
     "increaseHour": "Увеличить час",

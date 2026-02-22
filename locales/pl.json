@@ -80,7 +80,10 @@
     "inhale": "Wdech",
     "hold": "Wstrzymaj",
     "exhale": "Wydech",
-    "tapToStart": "Dotknij, aby zacząć"
+    "tapToStart": "Dotknij, aby zacząć",
+    "rounds": "Rundy",
+    "duration": "~{{minutes}} min {{seconds}} s",
+    "durationSeconds": "~{{seconds}} s"
   },
   "progress": {
     "title": "Postępy",
@@ -139,6 +142,8 @@
     "weeklyChartLabel": "Tygodniowy wykres realizacji",
     "breathingStart": "Rozpocznij ćwiczenie oddechowe",
     "breathingRound": "Runda {{current}} z {{total}}",
+    "decreaseRounds": "Zmniejsz liczbę rund",
+    "increaseRounds": "Zwiększ liczbę rund",
     "openStudy": "Otwiera się w przeglądarce",
     "decreaseHour": "Zmniejsz godzinę",
     "increaseHour": "Zwiększ godzinę",

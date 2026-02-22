@@ -82,7 +82,10 @@
     "inhale": "شهيق",
     "hold": "احبس",
     "exhale": "زفير",
-    "tapToStart": "اضغط للبدء"
+    "tapToStart": "اضغط للبدء",
+    "rounds": "الجولات",
+    "duration": "~{{minutes}} min {{seconds}} s",
+    "durationSeconds": "~{{seconds}} s"
   },
   "progress": {
     "title": "التقدّم",
@@ -141,6 +144,8 @@
     "weeklyChartLabel": "مخطط الإكمال الأسبوعي",
     "breathingStart": "بدء تمرين التنفّس",
     "breathingRound": "الجولة {{current}} من {{total}}",
+    "decreaseRounds": "تقليل الجولات",
+    "increaseRounds": "زيادة الجولات",
     "openStudy": "يُفتح في المتصفح",
     "decreaseHour": "تقليل الساعة",
     "increaseHour": "زيادة الساعة",

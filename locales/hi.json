@@ -76,7 +76,10 @@
     "inhale": "साँस लें",
     "hold": "रोकें",
     "exhale": "साँस छोड़ें",
-    "tapToStart": "शुरू करने के लिए टैप करें"
+    "tapToStart": "शुरू करने के लिए टैप करें",
+    "rounds": "राउंड",
+    "duration": "~{{minutes}} min {{seconds}} s",
+    "durationSeconds": "~{{seconds}} s"
   },
   "progress": {
     "title": "प्रगति",
@@ -135,6 +138,8 @@
     "weeklyChartLabel": "साप्ताहिक पूर्णता चार्ट",
     "breathingStart": "श्वास अभ्यास शुरू करें",
     "breathingRound": "राउंड {{current}} / {{total}}",
+    "decreaseRounds": "राउंड घटाएं",
+    "increaseRounds": "राउंड बढ़ाएं",
     "openStudy": "ब्राउज़र में खुलता है",
     "decreaseHour": "घंटा घटाएं",
     "increaseHour": "घंटा बढ़ाएं",

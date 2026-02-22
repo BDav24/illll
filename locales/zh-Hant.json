@@ -76,7 +76,10 @@
     "inhale": "吸氣",
     "hold": "屏息",
     "exhale": "呼氣",
-    "tapToStart": "點擊開始"
+    "tapToStart": "點擊開始",
+    "rounds": "輪次",
+    "duration": "~{{minutes}} min {{seconds}} s",
+    "durationSeconds": "~{{seconds}} s"
   },
   "progress": {
     "title": "進度",
@@ -135,6 +138,8 @@
     "weeklyChartLabel": "每週完成圖表",
     "breathingStart": "開始呼吸練習",
     "breathingRound": "第{{current}}輪，共{{total}}輪",
+    "decreaseRounds": "減少輪次",
+    "increaseRounds": "增加輪次",
     "openStudy": "在瀏覽器中開啟",
     "decreaseHour": "減少小時",
     "increaseHour": "增加小時",
