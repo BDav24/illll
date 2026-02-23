@@ -209,6 +209,22 @@ export const BreathingTimer = React.memo(function BreathingTimer({ onComplete, a
 
   return (
     <View style={styles.container}>
+      <Pressable onPress={handleStart} style={styles.pressArea} accessibilityRole="button" accessibilityLabel={isRunning ? getPhaseLabel() : t('accessibility.breathingStart')} accessibilityState={{ disabled: isRunning }}>
+        <Animated.View style={[styles.circle, animatedCircleStyle]} importantForAccessibility="no" />
+        <View style={styles.centerContent} accessibilityLiveRegion="polite">
+          {isRunning ? (
+            <>
+              <Text style={styles.countdown}>{countdown}</Text>
+              <Text style={styles.phaseLabel}>{getPhaseLabel()}</Text>
+              <Text style={styles.roundLabel} accessibilityLabel={t('accessibility.breathingRound', { current: currentRound + 1, total: selectedRounds })}>
+                {currentRound + 1} / {selectedRounds}
+              </Text>
+            </>
+          ) : (
+            <Text style={styles.phaseLabel}>{getPhaseLabel()}</Text>
+          )}
+        </View>
+      </Pressable>
       {!isRunning && (
         <View style={styles.roundsSelector}>
           <Text style={styles.roundsLabel}>{t('breathing.rounds')}</Text>
@@ -236,22 +252,6 @@ export const BreathingTimer = React.memo(function BreathingTimer({ onComplete, a
           <Text style={styles.durationLabel}>{durationLabel}</Text>
         </View>
       )}
-      <Pressable onPress={handleStart} style={styles.pressArea} accessibilityRole="button" accessibilityLabel={isRunning ? getPhaseLabel() : t('accessibility.breathingStart')} accessibilityState={{ disabled: isRunning }}>
-        <Animated.View style={[styles.circle, animatedCircleStyle]} importantForAccessibility="no" />
-        <View style={styles.centerContent} accessibilityLiveRegion="polite">
-          {isRunning ? (
-            <>
-              <Text style={styles.countdown}>{countdown}</Text>
-              <Text style={styles.phaseLabel}>{getPhaseLabel()}</Text>
-              <Text style={styles.roundLabel} accessibilityLabel={t('accessibility.breathingRound', { current: currentRound + 1, total: selectedRounds })}>
-                {currentRound + 1} / {selectedRounds}
-              </Text>
-            </>
-          ) : (
-            <Text style={styles.phaseLabel}>{getPhaseLabel()}</Text>
-          )}
-        </View>
-      </Pressable>
     </View>
   );
 });
@@ -278,7 +278,7 @@ function makeStyles(colors: ColorPalette) {
     },
     roundsSelector: {
       alignItems: 'center',
-      marginBottom: 8,
+      marginTop: 8,
       gap: 8,
     },
     roundsLabel: {

@@ -302,8 +302,8 @@ export default function DailyHub() {
         <View style={styles.bottomSpacer} />
       </ScrollView>
 
-      {/* Bottom Sheet for habit quick actions */}
-      <BottomSheet
+      {/* Bottom Sheet for habit quick actions (hidden in screenshot mode unless breathing scene) */}
+      {!(screenshotConfig.enabled && screenshotConfig.scene !== 'breathing') && <BottomSheet
         ref={bottomSheetRef}
         index={-1}
         snapPoints={snapPoints}
@@ -472,7 +472,7 @@ export default function DailyHub() {
             );
           })()}
         </BottomSheetView>
-      </BottomSheet>
+      </BottomSheet>}
     </SafeAreaView>
   );
 }
