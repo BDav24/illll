@@ -11,12 +11,10 @@ import {
   Quicksand_600SemiBold,
   Quicksand_700Bold,
 } from '@expo-google-fonts/quicksand';
-import { format } from 'date-fns';
 import '../lib/i18n';
 import { loadLanguage } from '../lib/i18n';
 import { useColors } from '../constants/colors';
 import { useStore, type HabitId, type HabitEntry, type DayRecord } from '../store/useStore';
-import { syncNotifications } from '../lib/notifications';
 import { screenshotConfig } from '../lib/screenshotMode';
 
 SplashScreen.preventAutoHideAsync();
@@ -30,7 +28,7 @@ function buildScreenshotDays(scene: string): Record<string, DayRecord> {
   for (let i = 1; i <= 36; i++) {
     const d = new Date(now);
     d.setDate(d.getDate() - i);
-    const key = format(d, 'yyyy-MM-dd');
+    const key = d.toISOString().slice(0, 10);
     const habits: Record<string, HabitEntry> = {};
     for (const id of ALL_HABITS) {
       habits[id] = { completed: true, timestamp: d.getTime() };
@@ -39,7 +37,7 @@ function buildScreenshotDays(scene: string): Record<string, DayRecord> {
   }
 
   // Today: 3/6 for hub-progress, 6/6 for everything else
-  const todayKey = format(now, 'yyyy-MM-dd');
+  const todayKey = now.toISOString().slice(0, 10);
   const todayHabits: Record<string, HabitEntry> = {};
   const completedToday = scene === 'hub-progress' ? 3 : ALL_HABITS.length;
   for (let i = 0; i < ALL_HABITS.length; i++) {
@@ -90,7 +88,8 @@ export default function RootLayout() {
 
   // Sync scheduled OS notifications whenever the user's list changes
   useEffect(() => {
-    syncNotifications(notifications);
+    if (notifications.length === 0) return;
+    import('../lib/notifications').then((m) => m.syncNotifications(notifications));
   }, [notifications]);
 
   const styles = useMemo(

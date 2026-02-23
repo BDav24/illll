@@ -1,6 +1,4 @@
 import { create } from 'zustand';
-import { format } from 'date-fns';
-import { randomUUID } from 'expo-crypto';
 import { storage } from './mmkv';
 
 // ---------------------------------------------------------------------------
@@ -148,7 +146,11 @@ function persistState(state: PersistedSlice): void {
 // ---------------------------------------------------------------------------
 
 export function getTodayKey(): string {
-  return format(new Date(), 'yyyy-MM-dd');
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
 }
 
 export function emptyDayRecord(date: string): DayRecord {
@@ -204,7 +206,10 @@ export function getStreak(
   for (let i = 1; ; i++) {
     const d = new Date(now);
     d.setDate(d.getDate() - i);
-    const key = format(d, 'yyyy-MM-dd');
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const dd = String(d.getDate()).padStart(2, '0');
+    const key = `${y}-${m}-${dd}`;
     const day = days[key];
 
     if (!day) break;
@@ -316,7 +321,7 @@ export const useStore = create<StoreState>()((set) => ({
   addCustomHabit: (text: string) => {
     const trimmed = text.trim();
     if (!trimmed) return;
-    const id = `custom_${randomUUID()}`;
+    const id = `custom_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
     set((state) => ({
       settings: {
         ...state.settings,

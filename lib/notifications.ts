@@ -1,20 +1,39 @@
-import * as Notifications from 'expo-notifications';
 import { Platform } from 'react-native';
 import type { UserNotification } from '../store/useStore';
 
 // ---------------------------------------------------------------------------
-// Configuration
+// Lazy loader
 // ---------------------------------------------------------------------------
 
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: false,
-    shouldSetBadge: false,
-    shouldShowBanner: true,
-    shouldShowList: true,
-  }),
-});
+let Notifications: typeof import('expo-notifications') | null = null;
+
+async function getNotifications() {
+  if (!Notifications) {
+    Notifications = await import('expo-notifications');
+  }
+  return Notifications;
+}
+
+// ---------------------------------------------------------------------------
+// Configuration (deferred until first use)
+// ---------------------------------------------------------------------------
+
+let handlerSet = false;
+
+async function ensureHandler() {
+  if (handlerSet) return;
+  const N = await getNotifications();
+  N.setNotificationHandler({
+    handleNotification: async () => ({
+      shouldShowAlert: true,
+      shouldPlaySound: false,
+      shouldSetBadge: false,
+      shouldShowBanner: true,
+      shouldShowList: true,
+    }),
+  });
+  handlerSet = true;
+}
 
 // ---------------------------------------------------------------------------
 // Permissions
@@ -23,16 +42,18 @@ Notifications.setNotificationHandler({
 export async function requestPermissions(): Promise<boolean> {
   if (Platform.OS === 'web') return true;
 
-  const { status: existing } = await Notifications.getPermissionsAsync();
+  const N = await getNotifications();
+  const { status: existing } = await N.getPermissionsAsync();
   if (existing === 'granted') return true;
 
-  const { status } = await Notifications.requestPermissionsAsync();
+  const { status } = await N.requestPermissionsAsync();
   return status === 'granted';
 }
 
 export async function checkPermissions(): Promise<boolean> {
   if (Platform.OS === 'web') return false;
-  const { status } = await Notifications.getPermissionsAsync();
+  const N = await getNotifications();
+  const { status } = await N.getPermissionsAsync();
   return status === 'granted';
 }
 
@@ -49,24 +70,30 @@ export async function syncNotifications(
 ): Promise<void> {
   if (Platform.OS === 'web') return;
 
+  await ensureHandler();
+  const N = await getNotifications();
+
   // Cancel everything first, then re-schedule the enabled ones.
-  await Notifications.cancelAllScheduledNotificationsAsync();
+  await N.cancelAllScheduledNotificationsAsync();
 
   const enabled = notifications.filter((n) => n.enabled);
 
   for (const n of enabled) {
-    await scheduleOne(n);
+    await scheduleOne(N, n);
   }
 }
 
-async function scheduleOne(notification: UserNotification): Promise<string> {
+async function scheduleOne(
+  N: typeof import('expo-notifications'),
+  notification: UserNotification,
+): Promise<string> {
   const { schedule } = notification;
 
-  let trigger: Notifications.NotificationTriggerInput;
+  let trigger: import('expo-notifications').NotificationTriggerInput;
 
   if (schedule.type === 'daily') {
     trigger = {
-      type: Notifications.SchedulableTriggerInputTypes.DAILY,
+      type: N.SchedulableTriggerInputTypes.DAILY,
       hour: schedule.hour,
       minute: schedule.minute,
     };
@@ -74,13 +101,13 @@ async function scheduleOne(notification: UserNotification): Promise<string> {
     // interval – convert to seconds
     const totalSeconds = schedule.hours * 3600 + schedule.minutes * 60;
     trigger = {
-      type: Notifications.SchedulableTriggerInputTypes.TIME_INTERVAL,
+      type: N.SchedulableTriggerInputTypes.TIME_INTERVAL,
       seconds: Math.max(totalSeconds, 60), // minimum 60s
       repeats: true,
     };
   }
 
-  return Notifications.scheduleNotificationAsync({
+  return N.scheduleNotificationAsync({
     content: {
       title: notification.title,
       body: notification.body,
@@ -94,5 +121,6 @@ async function scheduleOne(notification: UserNotification): Promise<string> {
  */
 export async function cancelAll(): Promise<void> {
   if (Platform.OS === 'web') return;
-  await Notifications.cancelAllScheduledNotificationsAsync();
+  const N = await getNotifications();
+  await N.cancelAllScheduledNotificationsAsync();
 }

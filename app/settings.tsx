@@ -21,7 +21,6 @@ import { HABITS } from '../constants/habits';
 import { useStore, type ColorScheme } from '../store/useStore';
 import i18n, { SUPPORTED_LOCALES, loadLanguage, getDeviceLocale } from '../lib/i18n';
 import { retranslateDefaults } from '../constants/notifications';
-import { cancelAll, syncNotifications } from '../lib/notifications';
 import { screenshotConfig } from '../lib/screenshotMode';
 
 function confirmAlert(
@@ -97,7 +96,7 @@ export default function SettingsScreen() {
     if (notifications.length > 0) {
       const updated = retranslateDefaults(notifications, t);
       setNotifications(updated);
-      syncNotifications(updated);
+      import('../lib/notifications').then((m) => m.syncNotifications(updated));
     }
   };
 
@@ -106,7 +105,7 @@ export default function SettingsScreen() {
       t('settings.resetData'),
       t('settings.resetConfirm'),
       () => {
-        cancelAll();
+        import('../lib/notifications').then((m) => m.cancelAll());
         resetAll();
         router.replace('/');
       },

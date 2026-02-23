@@ -24,7 +24,6 @@ import {
   type UserNotification,
   type NotificationSchedule,
 } from '../store/useStore';
-import { requestPermissions } from '../lib/notifications';
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -338,6 +337,7 @@ export default function RemindersScreen() {
     async (id: string) => {
       const n = notifications.find((x) => x.id === id);
       if (n && !n.enabled) {
+        const { requestPermissions } = await import('../lib/notifications');
         const granted = await requestPermissions();
         if (!granted) {
           Alert.alert(
@@ -358,6 +358,7 @@ export default function RemindersScreen() {
   }, [t, setNotifications]);
 
   const handleAdd = useCallback(async () => {
+    const { requestPermissions } = await import('../lib/notifications');
     const granted = await requestPermissions();
     if (!granted) {
       Alert.alert(
