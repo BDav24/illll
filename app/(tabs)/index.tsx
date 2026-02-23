@@ -36,6 +36,7 @@ import { StreakBadge } from '../../components/StreakBadge';
 import { HabitCard } from '../../components/HabitCard';
 import { CustomHabitCard } from '../../components/CustomHabitCard';
 import { BreathingTimer } from '../../components/BreathingTimer';
+import { screenshotConfig } from '../../lib/screenshotMode';
 
 export default function DailyHub() {
   const { t } = useTranslation();
@@ -54,6 +55,16 @@ export default function DailyHub() {
       setCurrentDateKey((prev) => (prev !== newKey ? newKey : prev));
     }, 60000);
     return () => clearInterval(interval);
+  }, []);
+
+  // Screenshot mode: auto-open breathing bottom sheet
+  useEffect(() => {
+    if (!screenshotConfig.enabled || screenshotConfig.scene !== 'breathing') return;
+    const timer = setTimeout(() => {
+      setActiveHabit('breathing');
+      bottomSheetRef.current?.expand();
+    }, 300);
+    return () => clearTimeout(timer);
   }, []);
 
   const todayRecord = useStore((s) => s.days[currentDateKey]) as DayRecord | undefined;
@@ -363,7 +374,10 @@ export default function DailyHub() {
               )}
 
               {activeHabit === 'breathing' && (
-                <BreathingTimer onComplete={handleBreathingComplete} />
+                <BreathingTimer
+                  onComplete={handleBreathingComplete}
+                  autoStart={screenshotConfig.scene === 'breathing'}
+                />
               )}
 
               <Pressable

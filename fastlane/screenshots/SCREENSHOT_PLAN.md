@@ -227,6 +227,6 @@ Screenshots are saved to `fastlane/screenshots/en-US/`:
 2_daily_hub_complete.png
 3_progress_streaks.png
 4_habit_article.png
-5_settings_languages.png
+5_settings_custom.png
 6_breathing_timer.png
 ```

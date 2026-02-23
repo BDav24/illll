@@ -75,10 +75,27 @@
   <div id="subcaption">ILLLL</div>
   <script>
     const params = new URLSearchParams(window.location.search);
-    document.getElementById('caption').textContent = params.get('caption') || '';
+    const caption = params.get('caption') || '';
+    const lang = params.get('lang') || '';
+    const scene = params.get('scene') || '';
+    const screenshot = params.get('screenshot') || '';
+
+    // RTL support for caption
+    const RTL_LANGS = ['ar'];
+    const captionEl = document.getElementById('caption');
+    captionEl.textContent = caption;
+    if (RTL_LANGS.includes(lang)) {
+      captionEl.setAttribute('dir', 'rtl');
+    }
+
+    // Build iframe URL with screenshot params
     const iframe = document.getElementById('app');
-    const path = params.get('path');
-    if (path) iframe.src = 'http://localhost:8081' + path;
+    const path = params.get('path') || '';
+    const appUrl = new URL('http://localhost:8081' + path);
+    if (screenshot) appUrl.searchParams.set('screenshot', screenshot);
+    if (lang) appUrl.searchParams.set('lang', lang);
+    if (scene) appUrl.searchParams.set('scene', scene);
+    iframe.src = appUrl.toString();
   </script>
 </body>
 </html>

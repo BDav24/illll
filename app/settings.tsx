@@ -22,6 +22,7 @@ import { useStore, type ColorScheme } from '../store/useStore';
 import i18n, { SUPPORTED_LOCALES, loadLanguage, getDeviceLocale } from '../lib/i18n';
 import { retranslateDefaults } from '../constants/notifications';
 import { cancelAll, syncNotifications } from '../lib/notifications';
+import { screenshotConfig } from '../lib/screenshotMode';
 
 function confirmAlert(
   title: string,
@@ -66,7 +67,9 @@ export default function SettingsScreen() {
   const setNotifications = useStore((s) => s.setNotifications);
   const resetAll = useStore((s) => s.resetAll);
 
-  const [showLangPicker, setShowLangPicker] = useState(false);
+  const [showLangPicker, setShowLangPicker] = useState(
+    screenshotConfig.enabled && screenshotConfig.scene === 'settings',
+  );
   const [newHabitText, setNewHabitText] = useState('');
 
   const handleClose = useCallback(() => {

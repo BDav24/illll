@@ -14,6 +14,7 @@ import { useStore } from '../store/useStore';
 
 interface BreathingTimerProps {
   onComplete: (rounds: number) => void;
+  autoStart?: boolean;
 }
 
 type Phase = 'idle' | 'inhale' | 'holdIn' | 'exhale' | 'holdOut';
@@ -26,7 +27,7 @@ const CIRCLE_SIZE = 200;
 const CIRCLE_MIN_SCALE = 0.5;
 const CIRCLE_MAX_SCALE = 1.0;
 
-export const BreathingTimer = React.memo(function BreathingTimer({ onComplete }: BreathingTimerProps) {
+export const BreathingTimer = React.memo(function BreathingTimer({ onComplete, autoStart }: BreathingTimerProps) {
   const { t } = useTranslation();
   const colors = useColors();
   const styles = useMemo(() => makeStyles(colors), [colors]);
@@ -178,6 +179,11 @@ export const BreathingTimer = React.memo(function BreathingTimer({ onComplete }:
       isRunningRef.current = false;
     };
   }, [clearTimers]);
+
+  // Auto-start for screenshot mode
+  useEffect(() => {
+    if (autoStart) handleStart();
+  }, [autoStart, handleStart]);
 
   const getPhaseLabel = (): string => {
     switch (phase) {
