@@ -16,6 +16,11 @@
     overflow: hidden;
     font-family: 'Quicksand', sans-serif;
   }
+  /* Tablet mode: fill entire viewport, no phone frame */
+  body.tablet {
+    width: 100vw;
+    height: 100vh;
+  }
   #caption {
     color: #1A1A1A;
     font-size: 26px;
@@ -23,6 +28,10 @@
     text-align: center;
     padding: 36px 32px 20px;
     line-height: 1.25;
+  }
+  body.tablet #caption {
+    font-size: 32px;
+    padding: 48px 40px 24px;
   }
   #phone-wrapper {
     position: relative;
@@ -39,6 +48,33 @@
       0 0 0 0.5px rgba(255,255,255,0.08),
       0 30px 80px rgba(0,0,0,0.8),
       inset 0 0 0 0.5px rgba(255,255,255,0.04);
+  }
+  body.tablet #phone-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 24px 8px;
+  }
+  body.tablet #phone-frame {
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    border: 3px solid #333;
+    box-shadow:
+      0 0 0 0.5px rgba(255,255,255,0.08),
+      0 20px 60px rgba(0,0,0,0.7),
+      inset 0 0 0 0.5px rgba(255,255,255,0.04);
+  }
+  body.tablet #phone-inner {
+    padding-top: 0;
+    height: 100%;
+  }
+  body.tablet #phone-frame iframe {
+    width: 100%;
+    height: 100%;
+    zoom: 1;
   }
   #phone-inner {
     padding-top: 18px;
@@ -61,6 +97,10 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
   }
+  body.tablet #subcaption {
+    padding: 16px 0;
+    font-size: 15px;
+  }
 </style>
 </head>
 <body>
@@ -79,6 +119,9 @@
     const lang = params.get('lang') || '';
     const scene = params.get('scene') || '';
     const screenshot = params.get('screenshot') || '';
+    const tablet = params.get('tablet') === '1';
+
+    if (tablet) document.body.classList.add('tablet');
 
     // RTL support for caption
     const RTL_LANGS = ['ar'];
