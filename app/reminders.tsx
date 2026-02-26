@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useRef } from 'react';
 import {
   View,
   Text,
@@ -19,6 +19,7 @@ import i18n from '../lib/i18n';
 import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
 import { generateDefaultNotifications } from '../constants/notifications';
+import { isInQuietHours } from '../lib/notifications';
 import {
   useStore,
   type UserNotification,
@@ -31,6 +32,18 @@ import {
 
 function pad(n: number): string {
   return n.toString().padStart(2, '0');
+}
+
+/** Format minutes-from-midnight (e.g. 1320 → "22:00") */
+function formatTime(minutesFromMidnight: number): string {
+  const h = Math.floor(minutesFromMidnight / 60) % 24;
+  const m = minutesFromMidnight % 60;
+  return `${pad(h)}:${pad(m)}`;
+}
+
+/** Step minutes-from-midnight by delta (wraps at 24h, snaps to 15-min grid) */
+function stepMinutes(current: number, delta: number): number {
+  return ((current + delta) % (24 * 60) + 24 * 60) % (24 * 60);
 }
 
 function confirmAlert(
@@ -329,8 +342,16 @@ export default function RemindersScreen() {
   const toggleNotification = useStore((s) => s.toggleNotification);
   const setNotifications = useStore((s) => s.setNotifications);
 
+  const quietHoursEnabled = useStore((s) => s.settings.quietHoursEnabled);
+  const quietHoursStart = useStore((s) => s.settings.quietHoursStart);
+  const quietHoursEnd = useStore((s) => s.settings.quietHoursEnd);
+  const setQuietHours = useStore((s) => s.setQuietHours);
+
   const [editingId, setEditingId] = useState<string | null>(null);
   const [isCreating, setIsCreating] = useState(false);
+
+  // Track whether we've already shown the quiet hours nudge this session
+  const nudgeShownRef = useRef(false);
 
   // On first toggle-on, request permission
   const handleToggle = useCallback(
@@ -348,8 +369,31 @@ export default function RemindersScreen() {
         }
       }
       toggleNotification(id);
+
+      // Nudge: when enabling an interval notification and quiet hours are off
+      const notification = notifications.find((x) => x.id === id);
+      if (
+        notification &&
+        !notification.enabled &&
+        notification.schedule.type === 'interval' &&
+        !quietHoursEnabled &&
+        !nudgeShownRef.current
+      ) {
+        nudgeShownRef.current = true;
+        Alert.alert(
+          t('notifications.quietHours'),
+          t('notifications.quietHoursNudge'),
+          [
+            { text: t('common.cancel'), style: 'cancel' },
+            {
+              text: t('notifications.quietHoursEnable'),
+              onPress: () => setQuietHours(true, quietHoursStart, quietHoursEnd),
+            },
+          ],
+        );
+      }
     },
-    [notifications, t, toggleNotification],
+    [notifications, t, toggleNotification, quietHoursEnabled, quietHoursStart, quietHoursEnd, setQuietHours],
   );
 
   // Seed default reminders on first visit (all disabled)
@@ -444,6 +488,83 @@ export default function RemindersScreen() {
           </Pressable>
         </View>
 
+        {/* Quiet Hours section */}
+        <View style={styles.quietSection}>
+          <View style={styles.quietHeader}>
+            <View style={styles.quietInfo}>
+              <Text style={styles.quietTitle}>{t('notifications.quietHours')}</Text>
+              {quietHoursEnabled && (
+                <Text style={styles.quietDesc}>
+                  {t('notifications.quietHoursDesc', {
+                    start: formatTime(quietHoursStart),
+                    end: formatTime(quietHoursEnd),
+                  })}
+                </Text>
+              )}
+            </View>
+            <Switch
+              value={quietHoursEnabled}
+              onValueChange={(val) => setQuietHours(val, quietHoursStart, quietHoursEnd)}
+              trackColor={{
+                false: colors.border,
+                true: colors.accent + '80',
+              }}
+              thumbColor={quietHoursEnabled ? colors.accent : colors.textMuted}
+              accessibilityLabel={t('notifications.quietHours')}
+            />
+          </View>
+
+          {quietHoursEnabled && (
+            <View style={styles.quietTimePickers}>
+              <View style={styles.quietTimeField}>
+                <Text style={styles.timeLabel}>{t('notifications.quietHoursStartLabel', { defaultValue: 'Start' })}</Text>
+                <View style={styles.stepperRow}>
+                  <Pressable
+                    style={styles.stepperBtn}
+                    onPress={() => setQuietHours(true, stepMinutes(quietHoursStart, -15), quietHoursEnd)}
+                    accessibilityLabel={t('accessibility.decreaseHour')}
+                    hitSlop={4}
+                  >
+                    <Text style={styles.stepperText}>-</Text>
+                  </Pressable>
+                  <Text style={styles.timeValue}>{formatTime(quietHoursStart)}</Text>
+                  <Pressable
+                    style={styles.stepperBtn}
+                    onPress={() => setQuietHours(true, stepMinutes(quietHoursStart, 15), quietHoursEnd)}
+                    accessibilityLabel={t('accessibility.increaseHour')}
+                    hitSlop={4}
+                  >
+                    <Text style={styles.stepperText}>+</Text>
+                  </Pressable>
+                </View>
+              </View>
+
+              <View style={styles.quietTimeField}>
+                <Text style={styles.timeLabel}>{t('notifications.quietHoursEndLabel', { defaultValue: 'End' })}</Text>
+                <View style={styles.stepperRow}>
+                  <Pressable
+                    style={styles.stepperBtn}
+                    onPress={() => setQuietHours(true, quietHoursStart, stepMinutes(quietHoursEnd, -15))}
+                    accessibilityLabel={t('accessibility.decreaseHour')}
+                    hitSlop={4}
+                  >
+                    <Text style={styles.stepperText}>-</Text>
+                  </Pressable>
+                  <Text style={styles.timeValue}>{formatTime(quietHoursEnd)}</Text>
+                  <Pressable
+                    style={styles.stepperBtn}
+                    onPress={() => setQuietHours(true, quietHoursStart, stepMinutes(quietHoursEnd, 15))}
+                    accessibilityLabel={t('accessibility.increaseHour')}
+                    hitSlop={4}
+                  >
+                    <Text style={styles.stepperText}>+</Text>
+                  </Pressable>
+                </View>
+              </View>
+            </View>
+          )}
+        </View>
+
         {/* Empty state */}
         {notifications.length === 0 && !isCreating && (
           <View style={styles.emptyState}>
@@ -489,6 +610,12 @@ export default function RemindersScreen() {
                   minutes: pad(n.schedule.minutes),
                 });
 
+          // Show warning if this daily notification falls in quiet hours
+          const showQuietWarning =
+            quietHoursEnabled &&
+            n.schedule.type === 'daily' &&
+            isInQuietHours(n.schedule.hour * 60 + n.schedule.minute, quietHoursStart, quietHoursEnd);
+
           return (
             <View key={n.id} style={styles.card}>
               <View style={styles.cardHeader}>
@@ -500,6 +627,11 @@ export default function RemindersScreen() {
                     </Text>
                   ) : null}
                   <Text style={styles.cardSchedule}>{scheduleLabel}</Text>
+                  {showQuietWarning && (
+                    <Text style={styles.quietWarning}>
+                      {'\u26A0\uFE0F'} {t('notifications.quietHoursWarning')}
+                    </Text>
+                  )}
                 </View>
                 <Switch
                   value={n.enabled}
@@ -608,6 +740,47 @@ function makeStyles(colors: ColorPalette) {
       fontSize: 18,
       fontFamily: Fonts.regular,
       color: colors.text,
+    },
+
+    // Quiet hours
+    quietSection: {
+      backgroundColor: colors.surface,
+      borderRadius: 14,
+      padding: 16,
+      marginBottom: 20,
+    },
+    quietHeader: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    quietInfo: {
+      flex: 1,
+      marginEnd: 12,
+    },
+    quietTitle: {
+      fontSize: 16,
+      fontFamily: Fonts.semiBold,
+      color: colors.text,
+    },
+    quietDesc: {
+      fontSize: 13,
+      fontFamily: Fonts.regular,
+      color: colors.textMuted,
+      marginTop: 2,
+    },
+    quietTimePickers: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      marginTop: 16,
+    },
+    quietTimeField: {
+      alignItems: 'center',
+    },
+    quietWarning: {
+      fontSize: 12,
+      fontFamily: Fonts.medium,
+      color: colors.danger,
+      marginTop: 4,
     },
 
     // Empty state

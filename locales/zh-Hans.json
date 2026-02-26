@@ -162,6 +162,11 @@
     "minute": "分",
     "daily": "每日",
     "interval": "间隔",
+    "quietHours": "免打扰时段",
+    "quietHoursDesc": "{{start}}到{{end}}之间不发送通知",
+    "quietHoursWarning": "此提醒处于免打扰时段内",
+    "quietHoursNudge": "间隔提醒在夜间也会重复。是否启用免打扰时段？",
+    "quietHoursEnable": "启用",
     "defaults": {
       "morning": {
         "title": "晨间习惯",

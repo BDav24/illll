@@ -170,6 +170,11 @@
     "minute": "Minuta",
     "daily": "Codziennie",
     "interval": "Interwał",
+    "quietHours": "Godziny ciszy",
+    "quietHoursDesc": "Brak powiadomień między {{start}} a {{end}}",
+    "quietHoursWarning": "To przypomnienie przypada w godzinach ciszy",
+    "quietHoursNudge": "Przypomnienia interwałowe powtarzają się też w nocy. Włączyć godziny ciszy?",
+    "quietHoursEnable": "Włącz",
     "defaults": {
       "morning": {
         "title": "Poranny rytuał",

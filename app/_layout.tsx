@@ -85,14 +85,23 @@ export default function RootLayout() {
   const colors = useColors();
   const colorScheme = useStore((s) => s.settings.colorScheme);
   const notifications = useStore((s) => s.settings.notifications) ?? [];
+  const quietHoursEnabled = useStore((s) => s.settings.quietHoursEnabled);
+  const quietHoursStart = useStore((s) => s.settings.quietHoursStart);
+  const quietHoursEnd = useStore((s) => s.settings.quietHoursEnd);
   const systemScheme = useColorScheme();
   const resolved = colorScheme === 'auto' ? (systemScheme ?? 'light') : colorScheme;
 
-  // Sync scheduled OS notifications whenever the user's list changes
+  // Sync scheduled OS notifications whenever the user's list or quiet hours change
   useEffect(() => {
     if (notifications.length === 0) return;
-    import('../lib/notifications').then((m) => m.syncNotifications(notifications));
-  }, [notifications]);
+    import('../lib/notifications').then((m) =>
+      m.syncNotifications(notifications, {
+        enabled: quietHoursEnabled,
+        start: quietHoursStart,
+        end: quietHoursEnd,
+      }),
+    );
+  }, [notifications, quietHoursEnabled, quietHoursStart, quietHoursEnd]);
 
   const styles = useMemo(
     () =>

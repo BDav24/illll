@@ -162,6 +162,11 @@
     "minute": "Minute",
     "daily": "Quotidien",
     "interval": "Intervalle",
+    "quietHours": "Heures calmes",
+    "quietHoursDesc": "Pas de notifications entre {{start}} et {{end}}",
+    "quietHoursWarning": "Ce rappel tombe pendant les heures calmes",
+    "quietHoursNudge": "Les rappels d'intervalle se répètent aussi la nuit. Activer les heures calmes ?",
+    "quietHoursEnable": "Activer",
     "defaults": {
       "morning": {
         "title": "Routine matinale",

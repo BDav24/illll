@@ -162,6 +162,11 @@
     "minute": "분",
     "daily": "매일",
     "interval": "간격",
+    "quietHours": "방해 금지 시간",
+    "quietHoursDesc": "{{start}}에서 {{end}} 사이에는 알림 없음",
+    "quietHoursWarning": "이 알림은 방해 금지 시간에 해당합니다",
+    "quietHoursNudge": "간격 알림은 밤에도 반복됩니다. 방해 금지 시간을 활성화할까요?",
+    "quietHoursEnable": "활성화",
     "defaults": {
       "morning": {
         "title": "모닝 루틴",

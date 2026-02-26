@@ -162,6 +162,11 @@
     "minute": "মিনিট",
     "daily": "দৈনিক",
     "interval": "ব্যবধান",
+    "quietHours": "নীরব সময়",
+    "quietHoursDesc": "{{start}} এবং {{end}} এর মধ্যে কোনো বিজ্ঞপ্তি নেই",
+    "quietHoursWarning": "এই রিমাইন্ডারটি নীরব সময়ের মধ্যে পড়ে",
+    "quietHoursNudge": "ব্যবধান রিমাইন্ডারগুলো রাতেও পুনরাবৃত্তি হয়। নীরব সময় সক্ষম করবেন?",
+    "quietHoursEnable": "সক্ষম করুন",
     "defaults": {
       "morning": {
         "title": "সকালের রুটিন",

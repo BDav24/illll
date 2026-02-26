@@ -162,6 +162,11 @@
     "minute": "Phút",
     "daily": "Hàng ngày",
     "interval": "Lặp lại",
+    "quietHours": "Giờ yên tĩnh",
+    "quietHoursDesc": "Không có thông báo từ {{start}} đến {{end}}",
+    "quietHoursWarning": "Nhắc nhở này nằm trong giờ yên tĩnh",
+    "quietHoursNudge": "Nhắc nhở theo khoảng thời gian cũng lặp lại vào ban đêm. Bật giờ yên tĩnh?",
+    "quietHoursEnable": "Bật",
     "defaults": {
       "morning": {
         "title": "Thói quen buổi sáng",

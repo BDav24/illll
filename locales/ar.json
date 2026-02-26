@@ -174,6 +174,11 @@
     "minute": "دقيقة",
     "daily": "يومي",
     "interval": "متكرر",
+    "quietHours": "ساعات الهدوء",
+    "quietHoursDesc": "لا إشعارات بين {{start}} و{{end}}",
+    "quietHoursWarning": "هذا التذكير يقع ضمن ساعات الهدوء",
+    "quietHoursNudge": "التذكيرات المتكررة تتكرر في الليل أيضاً. هل تريد تفعيل ساعات الهدوء؟",
+    "quietHoursEnable": "تفعيل",
     "defaults": {
       "morning": {
         "title": "الروتين الصباحي",

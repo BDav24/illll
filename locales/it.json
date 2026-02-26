@@ -162,6 +162,11 @@
     "minute": "Minuto",
     "daily": "Giornaliero",
     "interval": "Intervallo",
+    "quietHours": "Ore silenziose",
+    "quietHoursDesc": "Nessuna notifica tra {{start}} e {{end}}",
+    "quietHoursWarning": "Questo promemoria cade nelle ore silenziose",
+    "quietHoursNudge": "I promemoria a intervallo si ripetono anche di notte. Attivare le ore silenziose?",
+    "quietHoursEnable": "Attiva",
     "defaults": {
       "morning": {
         "title": "Routine mattutina",

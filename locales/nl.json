@@ -162,6 +162,11 @@
     "minute": "Minuut",
     "daily": "Dagelijks",
     "interval": "Interval",
+    "quietHours": "Stille uren",
+    "quietHoursDesc": "Geen meldingen tussen {{start}} en {{end}}",
+    "quietHoursWarning": "Deze herinnering valt binnen de stille uren",
+    "quietHoursNudge": "Interval-herinneringen herhalen ook 's nachts. Stille uren inschakelen?",
+    "quietHoursEnable": "Inschakelen",
     "defaults": {
       "morning": {
         "title": "Ochtendroutine",

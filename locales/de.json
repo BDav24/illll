@@ -162,6 +162,11 @@
     "minute": "Minute",
     "daily": "Täglich",
     "interval": "Intervall",
+    "quietHours": "Ruhezeiten",
+    "quietHoursDesc": "Keine Benachrichtigungen zwischen {{start}} und {{end}}",
+    "quietHoursWarning": "Diese Erinnerung fällt in die Ruhezeiten",
+    "quietHoursNudge": "Intervall-Erinnerungen wiederholen sich auch nachts. Ruhezeiten aktivieren?",
+    "quietHoursEnable": "Aktivieren",
     "defaults": {
       "morning": {
         "title": "Morgenroutine",

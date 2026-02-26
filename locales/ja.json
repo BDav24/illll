@@ -162,6 +162,11 @@
     "minute": "分",
     "daily": "毎日",
     "interval": "インターバル",
+    "quietHours": "おやすみ時間",
+    "quietHoursDesc": "{{start}}から{{end}}の間は通知しません",
+    "quietHoursWarning": "このリマインダーはおやすみ時間内です",
+    "quietHoursNudge": "インターバルリマインダーは夜間も繰り返されます。おやすみ時間を有効にしますか？",
+    "quietHoursEnable": "有効にする",
     "defaults": {
       "morning": {
         "title": "モーニングルーティン",

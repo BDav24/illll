@@ -64,6 +64,9 @@ export default function SettingsScreen() {
   const deleteCustomHabit = useStore((s) => s.deleteCustomHabit);
   const notifications = useStore((s) => s.settings.notifications) ?? [];
   const setNotifications = useStore((s) => s.setNotifications);
+  const quietHoursEnabled = useStore((s) => s.settings.quietHoursEnabled);
+  const quietHoursStart = useStore((s) => s.settings.quietHoursStart);
+  const quietHoursEnd = useStore((s) => s.settings.quietHoursEnd);
   const resetAll = useStore((s) => s.resetAll);
 
   const [showLangPicker, setShowLangPicker] = useState(
@@ -96,7 +99,13 @@ export default function SettingsScreen() {
     if (notifications.length > 0) {
       const updated = retranslateDefaults(notifications, t);
       setNotifications(updated);
-      import('../lib/notifications').then((m) => m.syncNotifications(updated));
+      import('../lib/notifications').then((m) =>
+        m.syncNotifications(updated, {
+          enabled: quietHoursEnabled,
+          start: quietHoursStart,
+          end: quietHoursEnd,
+        }),
+      );
     }
   };
 

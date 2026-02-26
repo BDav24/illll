@@ -162,6 +162,11 @@
     "minute": "मिनट",
     "daily": "दैनिक",
     "interval": "अंतराल",
+    "quietHours": "शांत समय",
+    "quietHoursDesc": "{{start}} और {{end}} के बीच कोई सूचना नहीं",
+    "quietHoursWarning": "यह रिमाइंडर शांत समय में आता है",
+    "quietHoursNudge": "अंतराल रिमाइंडर रात में भी दोहराए जाते हैं। शांत समय सक्षम करें?",
+    "quietHoursEnable": "सक्षम करें",
     "defaults": {
       "morning": {
         "title": "सुबह की दिनचर्या",

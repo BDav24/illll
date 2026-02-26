@@ -58,6 +58,56 @@ export async function checkPermissions(): Promise<boolean> {
 }
 
 // ---------------------------------------------------------------------------
+// Quiet hours helpers
+// ---------------------------------------------------------------------------
+
+export type QuietHoursSettings = {
+  enabled: boolean;
+  start: number; // minutes from midnight (0-1439)
+  end: number;   // minutes from midnight (0-1439)
+};
+
+/** Check if a given minute-of-day falls within the quiet window. */
+export function isInQuietHours(minuteOfDay: number, start: number, end: number): boolean {
+  if (start === end) return false; // no quiet window
+  if (start < end) {
+    // e.g. 01:00 – 06:00  (60 – 360)
+    return minuteOfDay >= start && minuteOfDay < end;
+  }
+  // wraps midnight, e.g. 22:00 – 08:00  (1320 – 480)
+  return minuteOfDay >= start || minuteOfDay < end;
+}
+
+/**
+ * Convert an interval schedule (e.g. every 2h) into an array of daily
+ * {hour, minute} slots that fall outside the quiet window.
+ * quietStart / quietEnd are minutes from midnight.
+ */
+export function expandIntervalToDailySlots(
+  intervalHours: number,
+  intervalMinutes: number,
+  quietStart: number,
+  quietEnd: number,
+): { hour: number; minute: number }[] {
+  const intervalTotalMinutes = intervalHours * 60 + intervalMinutes;
+  if (intervalTotalMinutes <= 0) return [];
+
+  const slots: { hour: number; minute: number }[] = [];
+
+  // Walk every slot across 24h starting from quietEnd (the first active minute)
+  for (let m = quietEnd; m < quietEnd + 24 * 60; m += intervalTotalMinutes) {
+    const normalised = m % (24 * 60);
+    const hour = Math.floor(normalised / 60);
+    const minute = normalised % 60;
+    if (!isInQuietHours(normalised, quietStart, quietEnd)) {
+      slots.push({ hour, minute });
+    }
+  }
+
+  return slots;
+}
+
+// ---------------------------------------------------------------------------
 // Scheduling
 // ---------------------------------------------------------------------------
 
@@ -67,6 +117,7 @@ export async function checkPermissions(): Promise<boolean> {
  */
 export async function syncNotifications(
   notifications: UserNotification[],
+  quietHours?: QuietHoursSettings,
 ): Promise<void> {
   if (Platform.OS === 'web') return;
 
@@ -79,41 +130,72 @@ export async function syncNotifications(
   const enabled = notifications.filter((n) => n.enabled);
 
   for (const n of enabled) {
-    await scheduleOne(N, n);
+    await scheduleOne(N, n, quietHours);
   }
 }
 
 async function scheduleOne(
   N: typeof import('expo-notifications'),
   notification: UserNotification,
-): Promise<string> {
+  quietHours?: QuietHoursSettings,
+): Promise<void> {
   const { schedule } = notification;
-
-  let trigger: import('expo-notifications').NotificationTriggerInput;
+  const qh = quietHours?.enabled ? quietHours : undefined;
 
   if (schedule.type === 'daily') {
-    trigger = {
-      type: N.SchedulableTriggerInputTypes.DAILY,
-      hour: schedule.hour,
-      minute: schedule.minute,
-    };
-  } else {
-    // interval – convert to seconds
-    const totalSeconds = schedule.hours * 3600 + schedule.minutes * 60;
-    trigger = {
-      type: N.SchedulableTriggerInputTypes.TIME_INTERVAL,
-      seconds: Math.max(totalSeconds, 60), // minimum 60s
-      repeats: true,
-    };
-  }
+    // If this daily notification falls within quiet hours, skip it entirely
+    if (qh && isInQuietHours(schedule.hour * 60 + schedule.minute, qh.start, qh.end)) {
+      return;
+    }
 
-  return N.scheduleNotificationAsync({
-    content: {
-      title: notification.title,
-      body: notification.body,
-    },
-    trigger,
-  });
+    await N.scheduleNotificationAsync({
+      content: {
+        title: notification.title,
+        body: notification.body,
+      },
+      trigger: {
+        type: N.SchedulableTriggerInputTypes.DAILY,
+        hour: schedule.hour,
+        minute: schedule.minute,
+      },
+    });
+  } else if (qh) {
+    // Interval + quiet hours enabled → expand to multiple daily triggers
+    const slots = expandIntervalToDailySlots(
+      schedule.hours,
+      schedule.minutes,
+      qh.start,
+      qh.end,
+    );
+
+    for (const slot of slots) {
+      await N.scheduleNotificationAsync({
+        content: {
+          title: notification.title,
+          body: notification.body,
+        },
+        trigger: {
+          type: N.SchedulableTriggerInputTypes.DAILY,
+          hour: slot.hour,
+          minute: slot.minute,
+        },
+      });
+    }
+  } else {
+    // Interval without quiet hours → use TIME_INTERVAL as before
+    const totalSeconds = schedule.hours * 3600 + schedule.minutes * 60;
+    await N.scheduleNotificationAsync({
+      content: {
+        title: notification.title,
+        body: notification.body,
+      },
+      trigger: {
+        type: N.SchedulableTriggerInputTypes.TIME_INTERVAL,
+        seconds: Math.max(totalSeconds, 60),
+        repeats: true,
+      },
+    });
+  }
 }
 
 /**

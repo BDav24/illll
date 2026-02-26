@@ -162,6 +162,11 @@
     "minute": "Dakika",
     "daily": "Günlük",
     "interval": "Aralık",
+    "quietHours": "Sessiz saatler",
+    "quietHoursDesc": "{{start}} ile {{end}} arasında bildirim yok",
+    "quietHoursWarning": "Bu hatırlatıcı sessiz saatlere denk geliyor",
+    "quietHoursNudge": "Aralıklı hatırlatıcılar gece de tekrarlanır. Sessiz saatleri etkinleştir?",
+    "quietHoursEnable": "Etkinleştir",
     "defaults": {
       "morning": {
         "title": "Sabah Rutini",

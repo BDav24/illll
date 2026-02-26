@@ -166,6 +166,11 @@
     "minute": "Minute",
     "daily": "Daily",
     "interval": "Interval",
+    "quietHours": "Quiet hours",
+    "quietHoursDesc": "No notifications between {{start}} and {{end}}",
+    "quietHoursWarning": "This reminder falls within quiet hours",
+    "quietHoursNudge": "Interval reminders repeat at night too. Enable quiet hours?",
+    "quietHoursEnable": "Enable",
     "defaults": {
       "morning": {
         "title": "Morning Routine",

@@ -55,6 +55,9 @@ export interface UserSettings {
   notifications: UserNotification[];
   breathingRounds: number;
   hasSeenOnboarding: boolean;
+  quietHoursEnabled: boolean;
+  quietHoursStart: number; // minutes from midnight, 0-1425 (step 15)
+  quietHoursEnd: number;   // minutes from midnight, 0-1425 (step 15)
 }
 
 // ---------------------------------------------------------------------------
@@ -80,6 +83,7 @@ interface StoreState {
   addNotification: (notification: UserNotification) => void;
   deleteNotification: (id: string) => void;
   toggleNotification: (id: string) => void;
+  setQuietHours: (enabled: boolean, start: number, end: number) => void;
   setBreathingRounds: (rounds: number) => void;
   setHasSeenOnboarding: () => void;
   resetAll: () => void;
@@ -108,6 +112,9 @@ const DEFAULT_SETTINGS: UserSettings = {
   notifications: [],
   breathingRounds: 12,
   hasSeenOnboarding: false,
+  quietHoursEnabled: true,
+  quietHoursStart: 22 * 60, // 22:00
+  quietHoursEnd: 8 * 60,    // 08:00
 };
 
 // ---------------------------------------------------------------------------
@@ -475,6 +482,17 @@ export const useStore = create<StoreState>()((set) => ({
         notifications: state.settings.notifications.map((n) =>
           n.id === id ? { ...n, enabled: !n.enabled } : n,
         ),
+      },
+    }));
+  },
+
+  setQuietHours: (enabled: boolean, start: number, end: number) => {
+    set((state) => ({
+      settings: {
+        ...state.settings,
+        quietHoursEnabled: enabled,
+        quietHoursStart: start,
+        quietHoursEnd: end,
       },
     }));
   },

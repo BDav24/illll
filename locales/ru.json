@@ -170,6 +170,11 @@
     "minute": "Минута",
     "daily": "Ежедневно",
     "interval": "Интервал",
+    "quietHours": "Тихие часы",
+    "quietHoursDesc": "Без уведомлений с {{start}} до {{end}}",
+    "quietHoursWarning": "Это напоминание попадает в тихие часы",
+    "quietHoursNudge": "Интервальные напоминания повторяются и ночью. Включить тихие часы?",
+    "quietHoursEnable": "Включить",
     "defaults": {
       "morning": {
         "title": "Утренний ритуал",

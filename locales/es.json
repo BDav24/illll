@@ -162,6 +162,11 @@
     "minute": "Minuto",
     "daily": "Diario",
     "interval": "Intervalo",
+    "quietHours": "Horas de silencio",
+    "quietHoursDesc": "Sin notificaciones entre {{start}} y {{end}}",
+    "quietHoursWarning": "Este recordatorio cae en las horas de silencio",
+    "quietHoursNudge": "Los recordatorios de intervalo se repiten también de noche. ¿Activar horas de silencio?",
+    "quietHoursEnable": "Activar",
     "defaults": {
       "morning": {
         "title": "Rutina matutina",

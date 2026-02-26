@@ -162,6 +162,11 @@
     "minute": "Menit",
     "daily": "Harian",
     "interval": "Interval",
+    "quietHours": "Jam tenang",
+    "quietHoursDesc": "Tidak ada notifikasi antara {{start}} dan {{end}}",
+    "quietHoursWarning": "Pengingat ini jatuh di jam tenang",
+    "quietHoursNudge": "Pengingat interval juga berulang di malam hari. Aktifkan jam tenang?",
+    "quietHoursEnable": "Aktifkan",
     "defaults": {
       "morning": {
         "title": "Rutinitas Pagi",
