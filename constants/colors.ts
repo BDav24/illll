@@ -27,6 +27,7 @@ const LightColors = {
   ringBg: '#EBEBEB',
   ringFill: '#3A6FD4',
 
+  checkboxBorder: '#E0E0E0',
   checkmark: '#FFFFFF',
 };
 
@@ -56,6 +57,7 @@ const DarkColors: typeof LightColors = {
   ringBg: '#252525',
   ringFill: '#6C9CFF',
 
+  checkboxBorder: '#555555',
   checkmark: '#1A1A1A',
 };
 

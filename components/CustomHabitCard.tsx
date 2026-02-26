@@ -113,7 +113,7 @@ function makeStyles(colors: ColorPalette) {
       height: 28,
       borderRadius: 14,
       borderWidth: 2,
-      borderColor: colors.border,
+      borderColor: colors.checkboxBorder,
       alignItems: 'center',
       justifyContent: 'center',
     },
