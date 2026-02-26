@@ -14,7 +14,7 @@
     "welcomeHint": "Tap a habit to mark it done!",
     "tapToComplete": "Tap to mark as done",
     "tapToUndo": "Tap to undo",
-    "objectiveReached": "Objective reached",
+    "objectiveReached": "Goal reached today",
     "streak_one": "{{count}} day streak",
     "streak_other": "{{count}} day streak"
   },

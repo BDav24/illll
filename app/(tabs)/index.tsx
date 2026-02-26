@@ -417,6 +417,29 @@ export default function DailyHub() {
                 />
               )}
 
+              <View style={styles.sheetBody}>
+                <Pressable
+                  style={styles.sheetCheckboxRow}
+                  accessibilityRole="checkbox"
+                  accessibilityState={{ checked: !!habitEntries[activeHabit]?.completed }}
+                  accessibilityLabel={t(`habits.${activeHabit}.name`)}
+                  accessibilityHint={habitEntries[activeHabit]?.completed ? t('hub.tapToUndo') : t('hub.tapToComplete')}
+                  onPress={() => handleCheckboxPress(activeHabit)}
+                >
+                  <View
+                    style={[
+                      styles.sheetCheckbox,
+                      habitEntries[activeHabit]?.completed && [styles.sheetCheckboxCompleted, { backgroundColor: colors[activeHabit] }],
+                    ]}
+                  >
+                    {habitEntries[activeHabit]?.completed && <Text style={styles.sheetCheckmark}>✓</Text>}
+                  </View>
+                  <Text style={styles.sheetCheckboxLabel}>
+                    {t('hub.objectiveReached')}
+                  </Text>
+                </Pressable>
+              </View>
+
               <Pressable
                 style={styles.whyBtn}
                 accessibilityRole="link"
@@ -501,7 +524,7 @@ export default function DailyHub() {
                       {today.habits[activeCustomHabit]?.completed && <Text style={styles.sheetCheckmark}>✓</Text>}
                     </View>
                     <Text style={styles.sheetCheckboxLabel}>
-                      {today.habits[activeCustomHabit]?.completed ? t('hub.objectiveReached') : t('hub.tapToComplete')}
+                      {t('hub.objectiveReached')}
                     </Text>
                   </Pressable>
                 </View>

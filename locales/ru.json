@@ -18,7 +18,7 @@
     "streak_few": "{{count}} дня подряд",
     "streak_many": "{{count}} дней подряд",
     "streak_other": "{{count}} дней подряд",
-    "objectiveReached": "Цель достигнута"
+    "objectiveReached": "Цель достигнута сегодня"
   },
   "habits": {
     "breathing": {

@@ -14,7 +14,7 @@
     "welcomeHint": "¡Toca un hábito para marcarlo!",
     "tapToComplete": "Toca para completar",
     "tapToUndo": "Toca para deshacer",
-    "objectiveReached": "Objetivo alcanzado"
+    "objectiveReached": "Objetivo alcanzado hoy"
   },
   "habits": {
     "breathing": {

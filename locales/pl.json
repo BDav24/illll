@@ -18,7 +18,7 @@
     "streak_few": "{{count}} dni z rzędu",
     "streak_many": "{{count}} dni z rzędu",
     "streak_other": "{{count}} dni z rzędu",
-    "objectiveReached": "Cel osiągnięty"
+    "objectiveReached": "Cel osiągnięty dzisiaj"
   },
   "habits": {
     "breathing": {
