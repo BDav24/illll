@@ -201,5 +201,15 @@
     "yes": "Tak",
     "no": "Nie",
     "notFound": "Nie znaleziono"
+  },
+  "onboarding": {
+    "title": "Witaj!",
+    "step1": "Określ swoje cele w każdej karcie nawyku",
+    "step2": "Zaplanuj je w swoim dniu i dodaj przypomnienia",
+    "step3": "Realizuj je codziennie i śledź postępy",
+    "start": "Zaczynamy!",
+    "labelSettings": "Ustawienia",
+    "labelProgress": "Postęp",
+    "labelHabits": "Twoje nawyki"
   }
 }

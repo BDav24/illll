@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Pressable,
   Platform,
+  Dimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -37,6 +38,7 @@ import { HabitCard } from '../../components/HabitCard';
 import { CustomHabitCard } from '../../components/CustomHabitCard';
 import { BreathingTimer } from '../../components/BreathingTimer';
 import { showToast } from '../../components/Toast';
+import { OnboardingOverlay } from '../../components/OnboardingOverlay';
 import { screenshotConfig } from '../../lib/screenshotMode';
 
 export default function DailyHub() {
@@ -77,11 +79,34 @@ export default function DailyHub() {
   const toggleCustomHabit = useStore((s) => s.toggleCustomHabit);
   const updateHabitData = useStore((s) => s.updateHabitData);
   const setHabitCriterion = useStore((s) => s.setHabitCriterion);
+  const hasSeenOnboarding = useStore((s) => s.settings.hasSeenOnboarding);
+  const setHasSeenOnboarding = useStore((s) => s.setHasSeenOnboarding);
 
   const [isEditingCriterion, setIsEditingCriterion] = useState(false);
   const [criterionDraft, setCriterionDraft] = useState('');
   const [activeCustomHabit, setActiveCustomHabit] = useState<string | null>(null);
   const didResetCriterion = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const settingsRef = useRef<View>(null);
+  const habitsSectionRef = useRef<View>(null);
+  const [settingsPos, setSettingsPos] = useState<{ x: number; y: number } | null>(null);
+  const [progressTabPos, setProgressTabPos] = useState<{ x: number; y: number } | null>(null);
+  const [habitsPos, setHabitsPos] = useState<{ x: number; y: number } | null>(null);
+
+  const measureTargets = useCallback(() => {
+    settingsRef.current?.measureInWindow((x, y, w, h) => {
+      setSettingsPos({ x: x + w / 2, y: y + h / 2 });
+    });
+    // Progress tab is in the tab bar (right half, bottom of screen)
+    const { width, height } = Dimensions.get('window');
+    setProgressTabPos({ x: width * 0.75, y: height - 45 });
+  }, []);
+
+  const measureHabits = useCallback(() => {
+    if (hasSeenOnboarding) return;
+    habitsSectionRef.current?.measureInWindow((x, y, w) => {
+      setHabitsPos({ x: x + w / 3, y });
+    });
+  }, [hasSeenOnboarding]);
 
   const today = useMemo(
     () => todayRecord ?? emptyDayRecord(currentDateKey),
@@ -266,6 +291,8 @@ export default function DailyHub() {
             <StreakBadge count={streak} />
           </Pressable>
           <Pressable
+            ref={settingsRef}
+            onLayout={!hasSeenOnboarding ? measureTargets : undefined}
             onPress={() => router.push('/settings')}
             style={styles.settingsBtn}
             accessibilityRole="button"
@@ -296,7 +323,7 @@ export default function DailyHub() {
         )}
 
         {/* Habit Cards */}
-        <View style={styles.habitsSection}>
+        <View ref={habitsSectionRef} onLayout={measureHabits} style={styles.habitsSection}>
           {visibleHabits.map((id) => {
             const entry = habitEntries[id];
             return (
@@ -533,6 +560,13 @@ export default function DailyHub() {
           })()}
         </BottomSheetView>
       </BottomSheet>}
+      <OnboardingOverlay
+        visible={!hasSeenOnboarding && !screenshotConfig.enabled}
+        onDismiss={setHasSeenOnboarding}
+        settingsPosition={settingsPos}
+        progressTabPosition={progressTabPos}
+        habitsPosition={habitsPos}
+      />
     </SafeAreaView>
   );
 }

@@ -193,5 +193,15 @@
     "yes": "Ja",
     "no": "Nee",
     "notFound": "Niet gevonden"
+  },
+  "onboarding": {
+    "title": "Welkom!",
+    "step1": "Stel je eigen doelen in bij elke gewoonte-kaart",
+    "step2": "Plan ze in je dag en voeg herinneringen toe",
+    "step3": "Voltooi ze elke dag en volg je voortgang",
+    "start": "Aan de slag!",
+    "labelSettings": "Instellingen",
+    "labelProgress": "Voortgang",
+    "labelHabits": "Je gewoontes"
   }
 }

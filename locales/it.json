@@ -193,5 +193,15 @@
     "yes": "Sì",
     "no": "No",
     "notFound": "Non trovato"
+  },
+  "onboarding": {
+    "title": "Benvenuto!",
+    "step1": "Definisci i tuoi obiettivi in ogni scheda abitudine",
+    "step2": "Pianificali nella giornata e aggiungi promemoria",
+    "step3": "Completali ogni giorno e monitora i tuoi progressi",
+    "start": "Iniziamo!",
+    "labelSettings": "Impostazioni",
+    "labelProgress": "Progressi",
+    "labelHabits": "Le tue abitudini"
   }
 }

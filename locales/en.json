@@ -187,6 +187,16 @@
     "almost": "🎯 So close! One more!",
     "allDone": "🎉 All done! Amazing!"
   },
+  "onboarding": {
+    "title": "Welcome!",
+    "step1": "Define your own goals in each habit card",
+    "step2": "Plan them in your day and add reminders",
+    "step3": "Complete them every day and track your progress",
+    "start": "Let's go!",
+    "labelSettings": "Settings",
+    "labelProgress": "Progress",
+    "labelHabits": "Your habits"
+  },
   "common": {
     "done": "Done",
     "cancel": "Cancel",

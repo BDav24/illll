@@ -193,5 +193,15 @@
     "yes": "Evet",
     "no": "Hayır",
     "notFound": "Bulunamadı"
+  },
+  "onboarding": {
+    "title": "Hoş geldiniz!",
+    "step1": "Her alışkanlık kartında kendi hedeflerini belirle",
+    "step2": "Gününde planla ve hatırlatıcılar ekle",
+    "step3": "Her gün tamamla ve gelişimini takip et",
+    "start": "Haydi başlayalım!",
+    "labelSettings": "Ayarlar",
+    "labelProgress": "İlerleme",
+    "labelHabits": "Alışkanlıkların"
   }
 }

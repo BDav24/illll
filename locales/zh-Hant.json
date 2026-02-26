@@ -193,5 +193,15 @@
     "yes": "是",
     "no": "否",
     "notFound": "未找到"
+  },
+  "onboarding": {
+    "title": "歡迎！",
+    "step1": "在每張習慣卡片中設定你的目標",
+    "step2": "規劃你的一天並添加提醒",
+    "step3": "每天完成並查看進度",
+    "start": "開始吧！",
+    "labelSettings": "設定",
+    "labelProgress": "進度",
+    "labelHabits": "你的習慣"
   }
 }

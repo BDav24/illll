@@ -193,5 +193,15 @@
     "yes": "はい",
     "no": "いいえ",
     "notFound": "見つかりません"
+  },
+  "onboarding": {
+    "title": "ようこそ！",
+    "step1": "各習慣カードで自分の目標を設定しよう",
+    "step2": "1日の計画を立ててリマインダーを追加しよう",
+    "step3": "毎日達成して進捗を確認しよう",
+    "start": "始めよう！",
+    "labelSettings": "設定",
+    "labelProgress": "進捗",
+    "labelHabits": "あなたの習慣"
   }
 }

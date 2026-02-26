@@ -54,6 +54,7 @@ export interface UserSettings {
   habitCriteria: Record<string, string>;
   notifications: UserNotification[];
   breathingRounds: number;
+  hasSeenOnboarding: boolean;
 }
 
 // ---------------------------------------------------------------------------
@@ -80,6 +81,7 @@ interface StoreState {
   deleteNotification: (id: string) => void;
   toggleNotification: (id: string) => void;
   setBreathingRounds: (rounds: number) => void;
+  setHasSeenOnboarding: () => void;
   resetAll: () => void;
 }
 
@@ -105,6 +107,7 @@ const DEFAULT_SETTINGS: UserSettings = {
   habitCriteria: {},
   notifications: [],
   breathingRounds: 12,
+  hasSeenOnboarding: false,
 };
 
 // ---------------------------------------------------------------------------
@@ -479,6 +482,12 @@ export const useStore = create<StoreState>()((set) => ({
   setBreathingRounds: (rounds: number) => {
     set((state) => ({
       settings: { ...state.settings, breathingRounds: rounds },
+    }));
+  },
+
+  setHasSeenOnboarding: () => {
+    set((state) => ({
+      settings: { ...state.settings, hasSeenOnboarding: true },
     }));
   },
 

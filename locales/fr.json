@@ -193,5 +193,15 @@
     "yes": "Oui",
     "no": "Non",
     "notFound": "Non trouvé"
+  },
+  "onboarding": {
+    "title": "Bienvenue !",
+    "step1": "Définissez vos propres objectifs dans chaque carte d'habitude",
+    "step2": "Planifiez-les dans votre journée et ajoutez des rappels",
+    "step3": "Complétez-les chaque jour et suivez votre progression",
+    "start": "C'est parti !",
+    "labelSettings": "Réglages",
+    "labelProgress": "Progrès",
+    "labelHabits": "Vos habitudes"
   }
 }

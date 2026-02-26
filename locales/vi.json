@@ -193,5 +193,15 @@
     "yes": "Có",
     "no": "Không",
     "notFound": "Không tìm thấy"
+  },
+  "onboarding": {
+    "title": "Chào mừng!",
+    "step1": "Xác định mục tiêu riêng trong mỗi thẻ thói quen",
+    "step2": "Lên kế hoạch trong ngày và thêm nhắc nhở",
+    "step3": "Hoàn thành mỗi ngày và theo dõi tiến trình",
+    "start": "Bắt đầu nào!",
+    "labelSettings": "Cài đặt",
+    "labelProgress": "Tiến trình",
+    "labelHabits": "Thói quen của bạn"
   }
 }

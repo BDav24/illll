@@ -193,5 +193,15 @@
     "yes": "Ya",
     "no": "Tidak",
     "notFound": "Tidak ditemukan"
+  },
+  "onboarding": {
+    "title": "Selamat datang!",
+    "step1": "Tentukan tujuanmu sendiri di setiap kartu kebiasaan",
+    "step2": "Rencanakan dalam harimu dan tambahkan pengingat",
+    "step3": "Selesaikan setiap hari dan lihat kemajuanmu",
+    "start": "Ayo mulai!",
+    "labelSettings": "Pengaturan",
+    "labelProgress": "Kemajuan",
+    "labelHabits": "Kebiasaan Anda"
   }
 }

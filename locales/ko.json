@@ -193,5 +193,15 @@
     "yes": "예",
     "no": "아니오",
     "notFound": "찾을 수 없음"
+  },
+  "onboarding": {
+    "title": "환영합니다!",
+    "step1": "각 습관 카드에서 나만의 목표를 설정하세요",
+    "step2": "하루를 계획하고 알림을 추가하세요",
+    "step3": "매일 완료하고 진행 상황을 확인하세요",
+    "start": "시작하기!",
+    "labelSettings": "설정",
+    "labelProgress": "진행",
+    "labelHabits": "당신의 습관"
   }
 }

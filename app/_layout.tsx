@@ -17,6 +17,7 @@ import { useColors } from '../constants/colors';
 import { useStore, type HabitId, type HabitEntry, type DayRecord } from '../store/useStore';
 import { screenshotConfig } from '../lib/screenshotMode';
 import { Toast } from '../components/Toast';
+import { OnboardingHighlights } from '../components/OnboardingOverlay';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -145,6 +146,7 @@ export default function RootLayout() {
         />
       </Stack>
       <Toast />
+      <OnboardingHighlights />
     </GestureHandlerRootView>
   );
 }

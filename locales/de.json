@@ -193,5 +193,15 @@
     "yes": "Ja",
     "no": "Nein",
     "notFound": "Nicht gefunden"
+  },
+  "onboarding": {
+    "title": "Willkommen!",
+    "step1": "Definiere deine eigenen Ziele in jeder Gewohnheitskarte",
+    "step2": "Plane sie in deinen Tag und füge Erinnerungen hinzu",
+    "step3": "Erledige sie jeden Tag und verfolge deinen Fortschritt",
+    "start": "Los geht's!",
+    "labelSettings": "Einstellungen",
+    "labelProgress": "Fortschritt",
+    "labelHabits": "Deine Gewohnheiten"
   }
 }

@@ -193,5 +193,15 @@
     "yes": "Sim",
     "no": "Não",
     "notFound": "Não encontrado"
+  },
+  "onboarding": {
+    "title": "Bem-vindo!",
+    "step1": "Defina seus objetivos em cada cartão de hábito",
+    "step2": "Planeje no seu dia e adicione lembretes",
+    "step3": "Complete todos os dias e acompanhe seu progresso",
+    "start": "Vamos lá!",
+    "labelSettings": "Configurações",
+    "labelProgress": "Progresso",
+    "labelHabits": "Seus hábitos"
   }
 }
