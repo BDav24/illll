@@ -131,7 +131,7 @@
     "heatmapLabel": "Mapa de calor anual de hábitos completados",
     "weeklyChartLabel": "Gráfico de completado semanal",
     "breathingStart": "Iniciar ejercicio de respiración",
-    "breathingRound": "Ronda {{current}} de {{total}}",
+    "breathingRemaining": "{{time}} restante",
     "decreaseRounds": "Disminuir rondas",
     "increaseRounds": "Aumentar rondas",
     "openStudy": "Se abre en el navegador",

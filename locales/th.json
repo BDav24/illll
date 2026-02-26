@@ -131,7 +131,7 @@
     "heatmapLabel": "แผนที่ความร้อนการทำนิสัยรายปี",
     "weeklyChartLabel": "กราฟการทำสำเร็จรายสัปดาห์",
     "breathingStart": "เริ่มฝึกหายใจ",
-    "breathingRound": "รอบที่ {{current}} จาก {{total}}",
+    "breathingRemaining": "เหลือ {{time}}",
     "decreaseRounds": "ลดจำนวนรอบ",
     "increaseRounds": "เพิ่มจำนวนรอบ",
     "openStudy": "เปิดในเบราว์เซอร์",

@@ -135,7 +135,7 @@
     "heatmapLabel": "Roczna mapa cieplna realizacji nawyków",
     "weeklyChartLabel": "Tygodniowy wykres realizacji",
     "breathingStart": "Rozpocznij ćwiczenie oddechowe",
-    "breathingRound": "Runda {{current}} z {{total}}",
+    "breathingRemaining": "{{time}} pozostało",
     "decreaseRounds": "Zmniejsz liczbę rund",
     "increaseRounds": "Zwiększ liczbę rund",
     "openStudy": "Otwiera się w przeglądarce",

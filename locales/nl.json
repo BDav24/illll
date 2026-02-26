@@ -131,7 +131,7 @@
     "heatmapLabel": "Jaarlijkse heatmap van gewoontes",
     "weeklyChartLabel": "Wekelijkse voltooiingsgrafiek",
     "breathingStart": "Ademhalingsoefening starten",
-    "breathingRound": "Ronde {{current}} van {{total}}",
+    "breathingRemaining": "{{time}} resterend",
     "decreaseRounds": "Rondes verlagen",
     "increaseRounds": "Rondes verhogen",
     "openStudy": "Opent in browser",

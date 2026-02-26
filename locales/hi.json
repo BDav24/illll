@@ -131,7 +131,7 @@
     "heatmapLabel": "वार्षिक आदत पूर्णता हीटमैप",
     "weeklyChartLabel": "साप्ताहिक पूर्णता चार्ट",
     "breathingStart": "श्वास अभ्यास शुरू करें",
-    "breathingRound": "राउंड {{current}} / {{total}}",
+    "breathingRemaining": "{{time}} शेष",
     "decreaseRounds": "राउंड घटाएं",
     "increaseRounds": "राउंड बढ़ाएं",
     "openStudy": "ब्राउज़र में खुलता है",

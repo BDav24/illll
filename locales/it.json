@@ -131,7 +131,7 @@
     "heatmapLabel": "Mappa termica annuale delle abitudini",
     "weeklyChartLabel": "Grafico di completamento settimanale",
     "breathingStart": "Inizia esercizio di respirazione",
-    "breathingRound": "Round {{current}} di {{total}}",
+    "breathingRemaining": "{{time}} rimanente",
     "decreaseRounds": "Diminuisci ripetizioni",
     "increaseRounds": "Aumenta ripetizioni",
     "openStudy": "Si apre nel browser",

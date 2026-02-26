@@ -131,7 +131,7 @@
     "heatmapLabel": "Yıllık alışkanlık tamamlama ısı haritası",
     "weeklyChartLabel": "Haftalık tamamlama grafiği",
     "breathingStart": "Nefes egzersizine başla",
-    "breathingRound": "Tur {{current}} / {{total}}",
+    "breathingRemaining": "{{time}} kalan",
     "decreaseRounds": "Tur sayısını azalt",
     "increaseRounds": "Tur sayısını artır",
     "openStudy": "Tarayıcıda açılır",

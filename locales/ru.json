@@ -135,7 +135,7 @@
     "heatmapLabel": "Годовая тепловая карта выполнения привычек",
     "weeklyChartLabel": "Недельный график выполнения",
     "breathingStart": "Начать дыхательное упражнение",
-    "breathingRound": "Раунд {{current}} из {{total}}",
+    "breathingRemaining": "Осталось {{time}}",
     "decreaseRounds": "Уменьшить раунды",
     "increaseRounds": "Увеличить раунды",
     "openStudy": "Откроется в браузере",

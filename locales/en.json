@@ -133,7 +133,7 @@
     "heatmapLabel": "Annual habit completion heatmap",
     "weeklyChartLabel": "Weekly completion chart",
     "breathingStart": "Start breathing exercise",
-    "breathingRound": "Round {{current}} of {{total}}",
+    "breathingRemaining": "{{time}} remaining",
     "decreaseRounds": "Decrease rounds",
     "increaseRounds": "Increase rounds",
     "openStudy": "Opens in browser",

@@ -131,7 +131,7 @@
     "heatmapLabel": "Bản đồ nhiệt hoàn thành thói quen hàng năm",
     "weeklyChartLabel": "Biểu đồ hoàn thành hàng tuần",
     "breathingStart": "Bắt đầu bài tập thở",
-    "breathingRound": "Vòng {{current}} / {{total}}",
+    "breathingRemaining": "Còn {{time}}",
     "decreaseRounds": "Giảm số vòng",
     "increaseRounds": "Tăng số vòng",
     "openStudy": "Mở trong trình duyệt",

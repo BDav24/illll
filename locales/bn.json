@@ -131,7 +131,7 @@
     "heatmapLabel": "বার্ষিক অভ্যাস সম্পন্নতার হিটম্যাপ",
     "weeklyChartLabel": "সাপ্তাহিক সম্পন্নতার চার্ট",
     "breathingStart": "শ্বাস ব্যায়াম শুরু করুন",
-    "breathingRound": "রাউন্ড {{current}} / {{total}}",
+    "breathingRemaining": "{{time}} বাকি",
     "decreaseRounds": "রাউন্ড কমান",
     "increaseRounds": "রাউন্ড বাড়ান",
     "openStudy": "ব্রাউজারে খোলে",

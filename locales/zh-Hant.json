@@ -131,7 +131,7 @@
     "heatmapLabel": "年度習慣完成熱力圖",
     "weeklyChartLabel": "每週完成圖表",
     "breathingStart": "開始呼吸練習",
-    "breathingRound": "第{{current}}輪，共{{total}}輪",
+    "breathingRemaining": "剩餘{{time}}",
     "decreaseRounds": "減少輪次",
     "increaseRounds": "增加輪次",
     "openStudy": "在瀏覽器中開啟",

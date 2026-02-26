@@ -131,7 +131,7 @@
     "heatmapLabel": "Peta panas penyelesaian kebiasaan tahunan",
     "weeklyChartLabel": "Grafik penyelesaian mingguan",
     "breathingStart": "Mulai latihan pernapasan",
-    "breathingRound": "Putaran {{current}} dari {{total}}",
+    "breathingRemaining": "{{time}} tersisa",
     "decreaseRounds": "Kurangi putaran",
     "increaseRounds": "Tambah putaran",
     "openStudy": "Dibuka di browser",

@@ -131,7 +131,7 @@
     "heatmapLabel": "Jährliche Heatmap der Gewohnheiten",
     "weeklyChartLabel": "Wöchentliches Abschlussdiagramm",
     "breathingStart": "Atemübung starten",
-    "breathingRound": "Runde {{current}} von {{total}}",
+    "breathingRemaining": "{{time}} verbleibend",
     "decreaseRounds": "Runden verringern",
     "increaseRounds": "Runden erhöhen",
     "openStudy": "Öffnet im Browser",

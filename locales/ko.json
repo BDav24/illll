@@ -131,7 +131,7 @@
     "heatmapLabel": "연간 습관 달성 히트맵",
     "weeklyChartLabel": "주간 달성 차트",
     "breathingStart": "호흡 운동 시작",
-    "breathingRound": "라운드 {{current}}/{{total}}",
+    "breathingRemaining": "{{time}} 남음",
     "decreaseRounds": "라운드 감소",
     "increaseRounds": "라운드 증가",
     "openStudy": "브라우저에서 열기",

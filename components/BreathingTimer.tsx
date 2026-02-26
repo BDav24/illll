@@ -207,6 +207,18 @@ export const BreathingTimer = React.memo(function BreathingTimer({ onComplete, a
     setBreathingRounds(Math.min(MAX_ROUNDS, selectedRounds + 1));
   }, [selectedRounds, setBreathingRounds]);
 
+  const remainingSeconds = useMemo(() => {
+    if (!isRunning) return 0;
+    const phaseOffset = phase === 'inhale' ? 12 : phase === 'holdIn' ? 8 : phase === 'exhale' ? 4 : 0;
+    return countdown + phaseOffset + (selectedRounds - currentRound - 1) * SECONDS_PER_ROUND;
+  }, [isRunning, phase, countdown, selectedRounds, currentRound]);
+
+  const remainingLabel = useMemo(() => {
+    const m = Math.floor(remainingSeconds / 60);
+    const s = remainingSeconds % 60;
+    return m > 0 ? `${m}:${s.toString().padStart(2, '0')}` : `0:${s.toString().padStart(2, '0')}`;
+  }, [remainingSeconds]);
+
   return (
     <View style={styles.container}>
       <Pressable onPress={handleStart} style={styles.pressArea} accessibilityRole="button" accessibilityLabel={isRunning ? getPhaseLabel() : t('accessibility.breathingStart')} accessibilityState={{ disabled: isRunning }}>
@@ -216,8 +228,8 @@ export const BreathingTimer = React.memo(function BreathingTimer({ onComplete, a
             <>
               <Text style={styles.countdown}>{countdown}</Text>
               <Text style={styles.phaseLabel}>{getPhaseLabel()}</Text>
-              <Text style={styles.roundLabel} accessibilityLabel={t('accessibility.breathingRound', { current: currentRound + 1, total: selectedRounds })}>
-                {currentRound + 1} / {selectedRounds}
+              <Text style={styles.remainingLabel} accessibilityLabel={t('accessibility.breathingRemaining', { time: remainingLabel })}>
+                {remainingLabel}
               </Text>
             </>
           ) : (
@@ -340,11 +352,11 @@ function makeStyles(colors: ColorPalette) {
       fontSize: 16,
       fontFamily: Fonts.semiBold,
     },
-    roundLabel: {
+    remainingLabel: {
       color: colors.text,
-      fontSize: 12,
-      fontFamily: Fonts.regular,
-      opacity: 0.7,
+      fontSize: 15,
+      fontFamily: Fonts.medium,
+      opacity: 0.8,
     },
   });
 }

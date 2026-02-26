@@ -137,7 +137,7 @@
     "heatmapLabel": "خريطة حرارية سنوية لإكمال العادات",
     "weeklyChartLabel": "مخطط الإكمال الأسبوعي",
     "breathingStart": "بدء تمرين التنفّس",
-    "breathingRound": "الجولة {{current}} من {{total}}",
+    "breathingRemaining": "{{time}} متبقي",
     "decreaseRounds": "تقليل الجولات",
     "increaseRounds": "زيادة الجولات",
     "openStudy": "يُفتح في المتصفح",

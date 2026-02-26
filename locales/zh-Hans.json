@@ -131,7 +131,7 @@
     "heatmapLabel": "年度习惯完成热力图",
     "weeklyChartLabel": "每周完成图表",
     "breathingStart": "开始呼吸练习",
-    "breathingRound": "第{{current}}轮，共{{total}}轮",
+    "breathingRemaining": "剩余{{time}}",
     "decreaseRounds": "减少轮次",
     "increaseRounds": "增加轮次",
     "openStudy": "在浏览器中打开",
