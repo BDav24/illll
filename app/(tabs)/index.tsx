@@ -36,6 +36,7 @@ import { StreakBadge } from '../../components/StreakBadge';
 import { HabitCard } from '../../components/HabitCard';
 import { CustomHabitCard } from '../../components/CustomHabitCard';
 import { BreathingTimer } from '../../components/BreathingTimer';
+import { showToast } from '../../components/Toast';
 import { screenshotConfig } from '../../lib/screenshotMode';
 
 export default function DailyHub() {
@@ -94,6 +95,23 @@ export default function DailyHub() {
     () => getDayScore(todayRecord, visibleHabits, customHabits),
     [todayRecord, visibleHabits, customHabits],
   );
+
+  const showToastIfNeeded = useCallback(
+    (prevCompleted: number, newCompleted: number, total: number) => {
+      if (newCompleted <= prevCompleted || total === 0) return;
+      if (newCompleted === total) {
+        showToast(t('toast.allDone'));
+      } else if (newCompleted === total - 1) {
+        showToast(t('toast.almost'));
+      } else if (newCompleted === Math.ceil(total / 2)) {
+        showToast(t('toast.halfway'));
+      } else if (newCompleted === 1) {
+        showToast(t('toast.first'));
+      }
+    },
+    [t],
+  );
+
   const days = useStore((s) => s.days);
   const streak = useMemo(
     () => getStreak(days, visibleHabits, customHabits),
@@ -175,9 +193,14 @@ export default function DailyHub() {
 
   const handleCheckboxPress = useCallback(
     (id: HabitId) => {
+      const wasCompleted = !!useStore.getState().days[currentDateKey]?.habits[id]?.completed;
       toggleHabit(id);
+      if (!wasCompleted) {
+        const newScore = getDayScore(useStore.getState().days[currentDateKey], visibleHabits, customHabits);
+        showToastIfNeeded(score.completed, newScore.completed, newScore.total);
+      }
     },
-    [toggleHabit],
+    [toggleHabit, currentDateKey, visibleHabits, customHabits, score.completed, showToastIfNeeded],
   );
 
   const handleBreathingComplete = useCallback(
@@ -187,6 +210,18 @@ export default function DailyHub() {
       setActiveHabit(null);
     },
     [updateHabitData],
+  );
+
+  const handleCustomCheckboxPress = useCallback(
+    (id: string) => {
+      const wasCompleted = !!useStore.getState().days[currentDateKey]?.habits[id]?.completed;
+      toggleCustomHabit(id);
+      if (!wasCompleted) {
+        const newScore = getDayScore(useStore.getState().days[currentDateKey], visibleHabits, customHabits);
+        showToastIfNeeded(score.completed, newScore.completed, newScore.total);
+      }
+    },
+    [toggleCustomHabit, currentDateKey, visibleHabits, customHabits, score.completed, showToastIfNeeded],
   );
 
   const handleCustomHabitPress = useCallback(
@@ -285,7 +320,7 @@ export default function DailyHub() {
                 text={ch.text}
                 completed={today.habits[ch.id]?.completed ?? false}
                 onPress={handleCustomHabitPress}
-                onCheckboxPress={toggleCustomHabit}
+                onCheckboxPress={handleCustomCheckboxPress}
                 criterion={habitCriteria[ch.id]}
               />
             ))}

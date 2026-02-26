@@ -177,6 +177,12 @@
       }
     }
   },
+  "toast": {
+    "first": "🔥 Harika başlangıç! Devam et!",
+    "halfway": "💪 Yarısına geldin!",
+    "almost": "🎯 Neredeyse! Bir tane daha!",
+    "allDone": "🎉 Hepsi tamam! Harika!"
+  },
   "common": {
     "done": "Tamam",
     "cancel": "İptal",

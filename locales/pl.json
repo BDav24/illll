@@ -185,6 +185,12 @@
       }
     }
   },
+  "toast": {
+    "first": "🔥 Dobry początek! Tak trzymaj!",
+    "halfway": "💪 Połowa za tobą!",
+    "almost": "🎯 Prawie! Jeszcze jeden!",
+    "allDone": "🎉 Wszystko zrobione! Świetnie!"
+  },
   "common": {
     "done": "Gotowe",
     "cancel": "Anuluj",

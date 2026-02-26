@@ -177,6 +177,12 @@
       }
     }
   },
+  "toast": {
+    "first": "🔥 Awal yang bagus! Lanjutkan!",
+    "halfway": "💪 Sudah setengah!",
+    "almost": "🎯 Hampir! Satu lagi!",
+    "allDone": "🎉 Semua selesai! Luar biasa!"
+  },
   "common": {
     "done": "Selesai",
     "cancel": "Batal",

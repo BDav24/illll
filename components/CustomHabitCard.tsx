@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import * as Haptics from 'expo-haptics';
 import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
+import { RewardBurst } from './RewardBurst';
 
 interface CustomHabitCardProps {
   id: string;
@@ -66,6 +67,7 @@ export const CustomHabitCard = React.memo(function CustomHabitCard({ id, text, c
           ]}
         >
           {completed && <Text style={styles.checkmark}>✓</Text>}
+          <RewardBurst trigger={completed} color={colors.accent} />
         </View>
       </Pressable>
     </Pressable>
@@ -116,6 +118,7 @@ function makeStyles(colors: ColorPalette) {
       borderColor: colors.checkboxBorder,
       alignItems: 'center',
       justifyContent: 'center',
+      overflow: 'visible',
     },
     checkboxCompleted: {
       borderWidth: 0,

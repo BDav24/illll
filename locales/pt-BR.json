@@ -177,6 +177,12 @@
       }
     }
   },
+  "toast": {
+    "first": "🔥 Bom começo! Continue!",
+    "halfway": "💪 Na metade!",
+    "almost": "🎯 Quase! Falta um!",
+    "allDone": "🎉 Tudo feito! Incrível!"
+  },
   "common": {
     "done": "Pronto",
     "cancel": "Cancelar",

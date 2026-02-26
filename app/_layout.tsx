@@ -16,6 +16,7 @@ import { loadLanguage } from '../lib/i18n';
 import { useColors } from '../constants/colors';
 import { useStore, type HabitId, type HabitEntry, type DayRecord } from '../store/useStore';
 import { screenshotConfig } from '../lib/screenshotMode';
+import { Toast } from '../components/Toast';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -143,6 +144,7 @@ export default function RootLayout() {
           }}
         />
       </Stack>
+      <Toast />
     </GestureHandlerRootView>
   );
 }

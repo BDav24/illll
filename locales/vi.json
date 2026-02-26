@@ -177,6 +177,12 @@
       }
     }
   },
+  "toast": {
+    "first": "🔥 Khởi đầu tốt! Tiếp tục!",
+    "halfway": "💪 Đã được nửa!",
+    "almost": "🎯 Sắp xong! Thêm một!",
+    "allDone": "🎉 Hoàn thành hết! Tuyệt vời!"
+  },
   "common": {
     "done": "Xong",
     "cancel": "Hủy",

@@ -6,6 +6,7 @@ import * as Haptics from 'expo-haptics';
 import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
 import { HABIT_MAP } from '../constants/habits';
+import { RewardBurst } from './RewardBurst';
 import type { HabitId } from '../store/useStore';
 
 interface HabitCardProps {
@@ -103,6 +104,7 @@ export const HabitCard = React.memo(function HabitCard({
           importantForAccessibility="no"
         >
           {completed && <Text style={styles.checkmark}>✓</Text>}
+          <RewardBurst trigger={completed} color={colors[habitId]} />
         </View>
       </Pressable>
     </Pressable>
@@ -175,6 +177,7 @@ function makeStyles(colors: ColorPalette) {
       borderColor: colors.checkboxBorder,
       alignItems: 'center',
       justifyContent: 'center',
+      overflow: 'visible',
     },
     checkboxCompleted: {
       borderWidth: 0,

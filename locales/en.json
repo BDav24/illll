@@ -181,6 +181,12 @@
       }
     }
   },
+  "toast": {
+    "first": "🔥 Great start! Keep going!",
+    "halfway": "💪 Halfway there!",
+    "almost": "🎯 So close! One more!",
+    "allDone": "🎉 All done! Amazing!"
+  },
   "common": {
     "done": "Done",
     "cancel": "Cancel",

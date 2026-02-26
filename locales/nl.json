@@ -177,6 +177,12 @@
       }
     }
   },
+  "toast": {
+    "first": "🔥 Goed begin! Ga zo door!",
+    "halfway": "💪 Halverwege!",
+    "almost": "🎯 Bijna! Nog eentje!",
+    "allDone": "🎉 Allemaal klaar! Geweldig!"
+  },
   "common": {
     "done": "Klaar",
     "cancel": "Annuleren",
