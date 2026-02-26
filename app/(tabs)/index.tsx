@@ -251,18 +251,20 @@ export default function DailyHub() {
             <Text style={styles.greeting} accessibilityRole="header">{greeting}</Text>
             <Text style={styles.date}>{dateStr}</Text>
           </View>
-          <View style={styles.headerRight}>
+          <Pressable onPress={() => router.push('/progress')} style={styles.headerRight}>
             <DailyScore
               completed={score.completed}
               total={score.total}
               size={64}
             />
-          </View>
+          </Pressable>
         </View>
 
         {/* Streak */}
         <View style={styles.streakRow}>
-          <StreakBadge count={streak} />
+          <Pressable onPress={() => router.push('/progress')}>
+            <StreakBadge count={streak} />
+          </Pressable>
           <Pressable
             onPress={() => router.push('/settings')}
             style={styles.settingsBtn}
