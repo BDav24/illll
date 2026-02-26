@@ -78,7 +78,7 @@ export function Toast() {
   }, [handleShow]);
 
   return (
-    <View style={styles.wrapper} pointerEvents="none">
+    <View style={styles.wrapper}>
       <Animated.View
         style={[
           styles.container,
@@ -104,15 +104,13 @@ const styles = StyleSheet.create({
     right: 0,
     zIndex: 1000,
     alignItems: 'center',
+    pointerEvents: 'none',
   },
   container: {
     paddingHorizontal: 28,
     paddingVertical: 16,
     borderRadius: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15,
-    shadowRadius: 8,
+    boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.15)',
     elevation: 6,
   },
   text: {

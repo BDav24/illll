@@ -271,7 +271,7 @@ export default function DailyHub() {
             accessibilityRole="button"
             accessibilityLabel={t('accessibility.settings')}
           >
-            <Svg width={22} height={22} viewBox="0 0 24 24" fill="none" importantForAccessibility="no">
+            <Svg width={22} height={22} viewBox="0 0 24 24" fill="none" aria-hidden>
               <Path
                 d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
                 stroke={colors.textSecondary}
@@ -357,7 +357,7 @@ export default function DailyHub() {
           {activeHabit && (
             <>
               <View style={styles.sheetHeader}>
-                <Text style={styles.sheetIcon} importantForAccessibility="no">
+                <Text style={styles.sheetIcon} aria-hidden>
                   {HABIT_MAP[activeHabit].icon}
                 </Text>
                 <Text style={styles.sheetTitle} accessibilityRole="header">

@@ -45,7 +45,7 @@ export default function HabitArticleScreen() {
 
         {/* Hero */}
         <View style={styles.hero}>
-          <Text style={styles.heroIcon} importantForAccessibility="no">{meta.icon}</Text>
+          <Text style={styles.heroIcon} aria-hidden>{meta.icon}</Text>
           <Text style={styles.heroTitle} accessibilityRole="header">
             {t('article.whyTitle', { habit: t(`habits.${habitId}.name`) })}
           </Text>

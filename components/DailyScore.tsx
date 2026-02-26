@@ -56,7 +56,7 @@ export const DailyScore = React.memo(function DailyScore({
       accessibilityLabel={t('accessibility.scoreLabel', { completed, total })}
       accessibilityValue={{ min: 0, max: total, now: completed }}
     >
-      <Svg width={size} height={size} importantForAccessibility="no">
+      <Svg width={size} height={size} aria-hidden>
         {/* Background ring */}
         <Circle
           cx={size / 2}
@@ -80,7 +80,7 @@ export const DailyScore = React.memo(function DailyScore({
           transform={`rotate(-90 ${size / 2} ${size / 2})`}
         />
       </Svg>
-      <View style={styles.labelContainer} importantForAccessibility="no">
+      <View style={styles.labelContainer} aria-hidden>
         <Text style={styles.labelText}>
           {t('hub.score', { completed, total })}
         </Text>

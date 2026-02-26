@@ -33,7 +33,6 @@ export const CustomHabitCard = React.memo(function CustomHabitCard({ id, text, c
   return (
     <Pressable
       onPress={handlePress}
-      accessibilityRole="button"
       accessibilityLabel={text}
       style={({ pressed }) => [
         styles.card,

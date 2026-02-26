@@ -44,7 +44,7 @@ export default function TabLayout() {
         options={{
           title: t('tabs.today'),
           tabBarIcon: ({ color }) => (
-            <Text style={[styles.tabIcon, { color }]} importantForAccessibility="no">◉</Text>
+            <Text style={[styles.tabIcon, { color }]} aria-hidden>◉</Text>
           ),
         }}
       />
@@ -53,7 +53,7 @@ export default function TabLayout() {
         options={{
           title: t('tabs.progress'),
           tabBarIcon: ({ color }) => (
-            <Text style={[styles.tabIcon, { color }]} importantForAccessibility="no">▦</Text>
+            <Text style={[styles.tabIcon, { color }]} aria-hidden>▦</Text>
           ),
         }}
       />

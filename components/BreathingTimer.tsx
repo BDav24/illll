@@ -222,7 +222,7 @@ export const BreathingTimer = React.memo(function BreathingTimer({ onComplete, a
   return (
     <View style={styles.container}>
       <Pressable onPress={handleStart} style={styles.pressArea} accessibilityRole="button" accessibilityLabel={isRunning ? getPhaseLabel() : t('accessibility.breathingStart')} accessibilityState={{ disabled: isRunning }}>
-        <Animated.View style={[styles.circle, animatedCircleStyle]} importantForAccessibility="no" />
+        <Animated.View style={[styles.circle, animatedCircleStyle]} aria-hidden />
         <View style={styles.centerContent} accessibilityLiveRegion="polite">
           {isRunning ? (
             <>

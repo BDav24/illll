@@ -46,7 +46,6 @@ export const HabitCard = React.memo(function HabitCard({
   return (
     <Pressable
       onPress={handlePress}
-      accessibilityRole="button"
       accessibilityLabel={t(`habits.${habitId}.name`)}
       style={({ pressed }) => [
         styles.card,
@@ -56,7 +55,7 @@ export const HabitCard = React.memo(function HabitCard({
       ]}
     >
       {/* Icon */}
-      <View style={styles.iconContainer} importantForAccessibility="no">
+      <View style={styles.iconContainer} aria-hidden>
         <Text style={styles.icon}>{habit.icon}</Text>
       </View>
 
@@ -101,7 +100,7 @@ export const HabitCard = React.memo(function HabitCard({
             styles.checkbox,
             completed && [styles.checkboxCompleted, { backgroundColor: colors[habitId] }],
           ]}
-          importantForAccessibility="no"
+          aria-hidden
         >
           {completed && <Text style={styles.checkmark}>✓</Text>}
           <RewardBurst trigger={completed} color={colors[habitId]} />

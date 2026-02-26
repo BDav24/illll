@@ -145,7 +145,7 @@ export default function SettingsScreen() {
             const isHidden = hiddenHabits.includes(habit.id);
             return (
               <View key={habit.id} style={styles.habitRow}>
-                <Text style={styles.habitIcon} importantForAccessibility="no">{habit.icon}</Text>
+                <Text style={styles.habitIcon} aria-hidden>{habit.icon}</Text>
                 <Text style={styles.habitName}>
                   {t(`habits.${habit.id}.name`)}
                 </Text>
