@@ -9,6 +9,7 @@ ILLLL (I'll Live Longer) is a React Native mobile app built with Expo that helps
 ## Architecture
 
 ### Tech Stack
+
 - **React Native 0.81.5** with Expo 54.x (New Architecture enabled)
 - **TypeScript** for type safety
 - **Expo Router** for file-based navigation
@@ -19,18 +20,21 @@ ILLLL (I'll Live Longer) is a React Native mobile app built with Expo that helps
 ### Key Patterns
 
 #### State Management
+
 - Single Zustand store in `store/useStore.ts`
 - Store is persisted to MMKV automatically
 - State includes: daily entries, user preferences, habit visibility
 - Selectors are used to compute derived values (e.g., streaks, scores)
 
 #### Navigation
+
 - File-based routing via Expo Router
 - `app/(tabs)/` contains tab navigation screens
 - `app/habit/[id].tsx` is a dynamic route for habit details
 - Use `useRouter()` hook for programmatic navigation
 
 #### Data Structure
+
 ```typescript
 // Daily entry stored by date key (YYYY-MM-DD)
 {
@@ -50,12 +54,14 @@ ILLLL (I'll Live Longer) is a React Native mobile app built with Expo that helps
 ```
 
 #### Internationalization
+
 - All user-facing strings must use `t()` from `useTranslation()`
 - Translation keys follow the pattern: `section.subsection.key`
 - Example: `t('habits.breathing.name')`
 - Add new strings to ALL locale files in `locales/`
 
 #### Styling
+
 - Use StyleSheet.create() for performance
 - Colors defined in `constants/colors.ts`
 - Dark mode is automatic based on system preference
@@ -64,24 +70,28 @@ ILLLL (I'll Live Longer) is a React Native mobile app built with Expo that helps
 ## Code Conventions
 
 ### TypeScript
+
 - Use strict TypeScript
 - Define types/interfaces for all props and data structures
 - Export types when they're shared across files
 - Prefer `type` over `interface` for simple object shapes
 
 ### React Components
+
 - Use functional components with hooks
 - Prefer named exports for components
 - Use `useCallback` for event handlers to prevent re-renders
 - Use `useMemo` for expensive computations
 
 ### File Organization
+
 - One component per file
 - Component files in PascalCase: `HabitCard.tsx`
 - Utility/config files in camelCase: `useStore.ts`
 - Co-locate styles with components using StyleSheet
 
 ### Naming Conventions
+
 - Components: PascalCase (`DailyScore`)
 - Functions/variables: camelCase (`toggleHabit`)
 - Constants: UPPER_SNAKE_CASE (`HABIT_MAP`)
@@ -90,6 +100,7 @@ ILLLL (I'll Live Longer) is a React Native mobile app built with Expo that helps
 ## Development Guidelines
 
 ### Adding a New Habit
+
 1. Update `HabitId` type in `store/useStore.ts`
 2. Add habit metadata to `constants/habits.ts`
 3. Add translations to all locale files
@@ -97,6 +108,7 @@ ILLLL (I'll Live Longer) is a React Native mobile app built with Expo that helps
 5. Update UI components if new quick action type is needed
 
 ### Adding a New Feature
+
 1. Check if it requires new state → update `store/useStore.ts`
 2. Add necessary components to `components/`
 3. Update relevant screens in `app/`
@@ -104,18 +116,21 @@ ILLLL (I'll Live Longer) is a React Native mobile app built with Expo that helps
 5. Maintain backwards compatibility with existing data
 
 ### Modifying State
+
 - Never mutate state directly
 - Use Zustand's set/get methods
 - Update both in-memory state and MMKV storage
 - Test with existing data to ensure migrations work
 
 ### Performance Considerations
+
 - MMKV is fast but serialize/deserialize has cost
 - Use selectors to prevent unnecessary re-renders
 - Minimize state updates on every keystroke
 - Use React Native's performance profiler for bottlenecks
 
 ### Accessibility
+
 - Not yet implemented, but should be added:
   - Accessible labels for icons/buttons
   - Screen reader support
@@ -124,6 +139,7 @@ ILLLL (I'll Live Longer) is a React Native mobile app built with Expo that helps
 ## Testing Strategy
 
 ### Manual Testing Checklist
+
 - [ ] Test on both iOS and Android
 - [ ] Test dark and light modes
 - [ ] Test multiple languages (especially RTL like Arabic)
@@ -133,6 +149,7 @@ ILLLL (I'll Live Longer) is a React Native mobile app built with Expo that helps
 - [ ] Test offline behavior (no network required)
 
 ### Common Issues
+
 - **Streaks not updating**: Check timezone handling in `getTodayKey()`
 - **Translations missing**: Ensure key exists in ALL locale files
 - **Storage not persisting**: Verify MMKV is initialized before store
@@ -141,23 +158,27 @@ ILLLL (I'll Live Longer) is a React Native mobile app built with Expo that helps
 ## File-Specific Notes
 
 ### `store/useStore.ts`
+
 - Single source of truth for all app state
 - Automatically persists to MMKV
 - Contains all business logic (streak calculation, scoring, etc.)
 - Use selectors (e.g., `useStore(s => s.getStreak())`) for derived data
 
 ### `constants/habits.ts`
+
 - Defines the six core habits
 - Each habit has: id, icon (emoji), color, i18nKey, quickActionType
 - `HABIT_MAP` provides O(1) lookup by id
 
 ### `app/(tabs)/index.tsx`
+
 - Main "Daily Hub" screen
 - Shows greeting, date, score, streak, habits, and tasks
 - Bottom sheet for habit quick actions
 - Most complex screen - handle with care
 
 ### `components/`
+
 - Self-contained, reusable UI components
 - Props should be explicit and typed
 - Avoid tight coupling to store (pass data as props when possible)
@@ -165,6 +186,7 @@ ILLLL (I'll Live Longer) is a React Native mobile app built with Expo that helps
 ## Common Tasks
 
 ### Adding a Translation
+
 ```typescript
 // 1. Add to locales/en.json
 {
@@ -181,6 +203,7 @@ const { t } = useTranslation();
 ```
 
 ### Adding a New Screen
+
 ```typescript
 // 1. Create file in app/ (e.g., app/stats.tsx)
 export default function StatsScreen() {
@@ -196,6 +219,7 @@ router.push('/stats');
 ```
 
 ### Updating State
+
 ```typescript
 // In store/useStore.ts
 setters: (set, get) => ({
@@ -229,6 +253,7 @@ myNewAction('value');
 ## Questions?
 
 When in doubt:
+
 1. Check existing patterns in the codebase
 2. Prioritize user experience and simplicity
 3. Maintain the current design language

@@ -5,6 +5,7 @@ A beautifully designed React Native mobile app focused on evidence-based longevi
 ## Features
 
 ### Core Habits
+
 - **Breathing Exercises** - Guided breathing timer for nervous system regulation
 - **Light Exposure** - Morning sunlight tracking for circadian rhythm
 - **Healthy Food** - Nutritious meal logging
@@ -13,6 +14,7 @@ A beautifully designed React Native mobile app focused on evidence-based longevi
 - **Gratitude** - Daily gratitude journaling
 
 ### Key Features
+
 - 📊 **Daily Score** - Track completion of habits and tasks
 - 🔥 **Streak Tracking** - Build momentum with consecutive days
 - 📈 **Progress Charts** - Visualize your progress with weekly charts and yearly heatmaps
@@ -49,7 +51,7 @@ A beautifully designed React Native mobile app focused on evidence-based longevi
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd illl
+cd illll
 
 # Install dependencies
 bun install
@@ -78,7 +80,7 @@ bun web
 ## Project Structure
 
 ```
-illl/
+illll/
 ├── app/                    # Expo Router pages
 │   ├── (tabs)/            # Tab navigation screens
 │   │   ├── index.tsx      # Daily Hub (main screen)
@@ -110,23 +112,29 @@ illl/
 ## Key Concepts
 
 ### Daily Hub
+
 The main screen where users see their greeting, daily score, current streak, all visible habits, and custom tasks.
 
 ### Habits
+
 Six core science-backed longevity practices. Each habit has:
+
 - Icon and color
 - One-liner explanation
 - Quick action type (timer, checkbox, input, etc.)
 - Detailed article with research and recommendations
 
 ### Progress Tracking
+
 - **Streaks**: Consecutive days of completing at least one task/habit
 - **Weekly Chart**: Bar chart showing daily completion rates
 - **Yearly Heatmap**: GitHub-style contribution heatmap for the year
 - **Completion Rate**: Percentage of completed vs. total items
 
 ### Data Storage
+
 All user data is stored locally using MMKV for privacy and performance. Data structure:
+
 - Daily entries keyed by date (YYYY-MM-DD)
 - Habit completion states and metadata
 - Custom tasks

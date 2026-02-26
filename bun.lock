@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "illl",
+      "name": "illll",
       "dependencies": {
         "@expo-google-fonts/quicksand": "^0.4.1",
         "@expo/metro-runtime": "~6.1.2",

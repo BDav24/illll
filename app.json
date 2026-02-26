@@ -15,7 +15,10 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.illll.app"
+      "bundleIdentifier": "com.devanco.illll.app",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -24,7 +27,7 @@
       },
       "edgeToEdgeEnabled": true,
       "softwareKeyboardLayoutMode": "resize",
-      "package": "com.illll.app"
+      "package": "com.devanco.illll.app"
     },
     "web": {
       "favicon": "./assets/favicon.png",
@@ -45,7 +48,7 @@
       "expo-updates"
     ],
     "updates": {
-      "url": "https://u.expo.dev/c3792bfe-594f-408b-810d-419f2eb22599"
+      "url": "https://u.expo.dev/c85e85a4-c013-4b5e-8350-0a5e588ec5d9"
     },
     "runtimeVersion": {
       "policy": "appVersion"
@@ -53,7 +56,7 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "c3792bfe-594f-408b-810d-419f2eb22599"
+        "projectId": "c85e85a4-c013-4b5e-8350-0a5e588ec5d9"
       }
     },
     "owner": "bdav24"
