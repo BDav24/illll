@@ -1,12 +1,24 @@
-import { Tabs } from 'expo-router';
+import { useEffect } from 'react';
+import { Tabs, usePathname, useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
-import { Text, StyleSheet } from 'react-native';
+import { BackHandler, Text, StyleSheet } from 'react-native';
 import { useColors } from '../../constants/colors';
 import { Fonts } from '../../constants/fonts';
 
 export default function TabLayout() {
   const { t } = useTranslation();
   const colors = useColors();
+  const pathname = usePathname();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (pathname === '/') return;
+    const handler = BackHandler.addEventListener('hardwareBackPress', () => {
+      router.replace('/');
+      return true;
+    });
+    return () => handler.remove();
+  }, [pathname, router]);
 
   return (
     <Tabs
