@@ -88,11 +88,11 @@ interface StoreState {
 // ---------------------------------------------------------------------------
 
 const DEFAULT_HABIT_ORDER: HabitId[] = [
+  'sleep',
+  'exercise',
   'breathing',
   'light',
   'food',
-  'sleep',
-  'exercise',
   'gratitude',
 ];
 
@@ -252,6 +252,15 @@ export function getStreak(
 // ---------------------------------------------------------------------------
 
 const persisted = loadState();
+
+// Migrate habit order from old default to new default
+const OLD_HABIT_ORDER: HabitId[] = ['breathing', 'light', 'food', 'sleep', 'exercise', 'gratitude'];
+if (
+  persisted.settings?.habitOrder &&
+  JSON.stringify(persisted.settings.habitOrder) === JSON.stringify(OLD_HABIT_ORDER)
+) {
+  persisted.settings.habitOrder = DEFAULT_HABIT_ORDER;
+}
 
 let persistTimeout: ReturnType<typeof setTimeout> | null = null;
 

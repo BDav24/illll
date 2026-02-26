@@ -21,7 +21,7 @@ import { Toast } from '../components/Toast';
 SplashScreen.preventAutoHideAsync();
 
 function buildScreenshotDays(scene: string): Record<string, DayRecord> {
-  const ALL_HABITS: HabitId[] = ['breathing', 'light', 'food', 'sleep', 'exercise', 'gratitude'];
+  const ALL_HABITS: HabitId[] = ['sleep', 'exercise', 'breathing', 'light', 'food', 'gratitude'];
   const days: Record<string, DayRecord> = {};
   const now = new Date();
 
