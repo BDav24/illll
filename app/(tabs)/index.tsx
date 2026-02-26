@@ -259,12 +259,6 @@ export default function DailyHub() {
     [],
   );
 
-  const [sheetOpen, setSheetOpen] = useState(false);
-
-  const handleSheetChange = useCallback((index: number) => {
-    setSheetOpen(index >= 0);
-  }, []);
-
   const snapPoints = useMemo(() => ['50%', '75%'], []);
 
   const habitEntries = today.habits;
@@ -373,24 +367,19 @@ export default function DailyHub() {
       </ScrollView>
 
       {/* Bottom Sheet for habit quick actions (hidden in screenshot mode unless breathing scene) */}
-      {!(screenshotConfig.enabled && screenshotConfig.scene !== 'breathing') && <View
-        style={StyleSheet.absoluteFillObject}
-        pointerEvents={sheetOpen ? 'box-none' : 'none'}
+      {!(screenshotConfig.enabled && screenshotConfig.scene !== 'breathing') && <BottomSheet
+        ref={bottomSheetRef}
+        index={-1}
+        snapPoints={snapPoints}
+        enablePanDownToClose
+        backgroundStyle={styles.sheetBg}
+        handleIndicatorStyle={styles.sheetHandle}
+        onClose={() => {
+          setActiveHabit(null);
+          setActiveCustomHabit(null);
+          setIsEditingCriterion(false);
+        }}
       >
-        <BottomSheet
-          ref={bottomSheetRef}
-          index={-1}
-          snapPoints={snapPoints}
-          enablePanDownToClose
-          backgroundStyle={styles.sheetBg}
-          handleIndicatorStyle={styles.sheetHandle}
-          onChange={handleSheetChange}
-          onClose={() => {
-            setActiveHabit(null);
-            setActiveCustomHabit(null);
-            setIsEditingCriterion(false);
-          }}
-        >
         <BottomSheetView style={styles.sheetContent}>
           {activeHabit && (
             <>
@@ -570,8 +559,7 @@ export default function DailyHub() {
             );
           })()}
         </BottomSheetView>
-      </BottomSheet>
-      </View>}
+      </BottomSheet>}
       <OnboardingOverlay
         visible={!hasSeenOnboarding && !screenshotConfig.enabled}
         onDismiss={setHasSeenOnboarding}
