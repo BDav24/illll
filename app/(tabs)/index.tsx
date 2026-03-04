@@ -9,7 +9,7 @@ import {
   Platform,
   Dimensions,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import BottomSheet, { BottomSheetView, BottomSheetTextInput } from '@gorhom/bottom-sheet';
@@ -46,6 +46,7 @@ export default function DailyHub() {
   const router = useRouter();
   const colors = useColors();
   const dateLocale = useDateLocale();
+  const insets = useSafeAreaInsets();
   const styles = useMemo(() => makeStyles(colors), [colors]);
   const bottomSheetRef = useRef<BottomSheet>(null);
   const [activeHabit, setActiveHabit] = useState<HabitId | null>(null);
@@ -96,10 +97,16 @@ export default function DailyHub() {
     settingsRef.current?.measureInWindow((x, y, w, h) => {
       setSettingsPos({ x: x + w / 2, y: y + h / 2 });
     });
-    // Progress tab is in the tab bar (right half, bottom of screen)
+    // Progress tab: tab bar is 85px with 8px paddingTop, includes bottom safe area
     const { width, height } = Dimensions.get('window');
-    setProgressTabPos({ x: width * 0.75, y: height - 45 });
-  }, []);
+    const TAB_BAR_HEIGHT = 85;
+    const TAB_BAR_PADDING_TOP = 8;
+    const tabContentHeight = TAB_BAR_HEIGHT - TAB_BAR_PADDING_TOP - insets.bottom;
+    setProgressTabPos({
+      x: width * 0.75,
+      y: height - insets.bottom - tabContentHeight / 2,
+    });
+  }, [insets.bottom]);
 
   const measureHabits = useCallback(() => {
     if (hasSeenOnboarding) return;
