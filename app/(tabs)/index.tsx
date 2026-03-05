@@ -97,6 +97,9 @@ export default function DailyHub() {
     settingsRef.current?.measureInWindow((x, y, w, h) => {
       setSettingsPos({ x: x + w / 2, y: y + h / 2 });
     });
+    habitsSectionRef.current?.measureInWindow((x, y, w) => {
+      setHabitsPos({ x: x + w / 3, y });
+    });
     // Progress tab: tab bar is 85px with 8px paddingTop, includes bottom safe area
     const { width, height } = Dimensions.get('window');
     const TAB_BAR_HEIGHT = 85;
@@ -108,12 +111,12 @@ export default function DailyHub() {
     });
   }, [insets.bottom]);
 
-  const measureHabits = useCallback(() => {
+  // Delay measurement until layout is settled (SafeAreaView insets applied)
+  useEffect(() => {
     if (hasSeenOnboarding) return;
-    habitsSectionRef.current?.measureInWindow((x, y, w) => {
-      setHabitsPos({ x: x + w / 3, y });
-    });
-  }, [hasSeenOnboarding]);
+    const timer = setTimeout(measureTargets, 100);
+    return () => clearTimeout(timer);
+  }, [hasSeenOnboarding, measureTargets]);
 
   const today = useMemo(
     () => todayRecord ?? emptyDayRecord(currentDateKey),
@@ -299,7 +302,6 @@ export default function DailyHub() {
           </Pressable>
           <Pressable
             ref={settingsRef}
-            onLayout={!hasSeenOnboarding ? measureTargets : undefined}
             onPress={() => router.push('/settings')}
             style={styles.settingsBtn}
             accessibilityRole="button"
@@ -330,7 +332,7 @@ export default function DailyHub() {
         )}
 
         {/* Habit Cards */}
-        <View ref={habitsSectionRef} onLayout={measureHabits} style={styles.habitsSection}>
+        <View ref={habitsSectionRef} style={styles.habitsSection}>
           {visibleHabits.map((id) => {
             const entry = habitEntries[id];
             return (
