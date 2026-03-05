@@ -1,17 +1,17 @@
-import { create } from 'zustand';
-import { storage } from './mmkv';
+import { create } from "zustand";
+import { storage } from "./mmkv";
 
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
 
 export type HabitId =
-  | 'breathing'
-  | 'light'
-  | 'food'
-  | 'sleep'
-  | 'exercise'
-  | 'gratitude';
+  | "breathing"
+  | "light"
+  | "food"
+  | "sleep"
+  | "exercise"
+  | "gratitude";
 
 export interface HabitEntry {
   completed: boolean;
@@ -29,11 +29,11 @@ export interface DayRecord {
   habits: Record<string, HabitEntry>; // accepts both core HabitId keys and 'custom_*' keys
 }
 
-export type ColorScheme = 'light' | 'dark' | 'auto';
+export type ColorScheme = "light" | "dark" | "auto";
 
 export type NotificationSchedule =
-  | { type: 'daily'; hour: number; minute: number }
-  | { type: 'interval'; hours: number; minutes: number };
+  | { type: "daily"; hour: number; minute: number }
+  | { type: "interval"; hours: number; minutes: number };
 
 export interface UserNotification {
   id: string;
@@ -57,7 +57,7 @@ export interface UserSettings {
   hasSeenOnboarding: boolean;
   quietHoursEnabled: boolean;
   quietHoursStart: number; // minutes from midnight, 0-1425 (step 15)
-  quietHoursEnd: number;   // minutes from midnight, 0-1425 (step 15)
+  quietHoursEnd: number; // minutes from midnight, 0-1425 (step 15)
 }
 
 // ---------------------------------------------------------------------------
@@ -79,13 +79,18 @@ interface StoreState {
   setHabitCriterion: (habitId: string, criterion: string) => void;
   setColorScheme: (scheme: ColorScheme) => void;
   setNotifications: (notifications: UserNotification[]) => void;
-  updateNotification: (id: string, updates: Partial<Omit<UserNotification, 'id'>>) => void;
+  updateNotification: (
+    id: string,
+    updates: Partial<Omit<UserNotification, "id">>,
+  ) => void;
   addNotification: (notification: UserNotification) => void;
   deleteNotification: (id: string) => void;
   toggleNotification: (id: string) => void;
   setQuietHours: (enabled: boolean, start: number, end: number) => void;
   setBreathingRounds: (rounds: number) => void;
   setHasSeenOnboarding: () => void;
+  onboardingHintsUntil: number; // timestamp; hints visible when Date.now() < this
+  startOnboardingHintsLinger: () => void;
   resetAll: () => void;
 }
 
@@ -94,12 +99,12 @@ interface StoreState {
 // ---------------------------------------------------------------------------
 
 const DEFAULT_HABIT_ORDER: HabitId[] = [
-  'sleep',
-  'exercise',
-  'breathing',
-  'light',
-  'food',
-  'gratitude',
+  "sleep",
+  "exercise",
+  "breathing",
+  "light",
+  "food",
+  "gratitude",
 ];
 
 const DEFAULT_SETTINGS: UserSettings = {
@@ -107,21 +112,21 @@ const DEFAULT_SETTINGS: UserSettings = {
   habitOrder: DEFAULT_HABIT_ORDER,
   language: null,
   customHabits: [],
-  colorScheme: 'light',
+  colorScheme: "light",
   habitCriteria: {},
   notifications: [],
   breathingRounds: 12,
   hasSeenOnboarding: false,
   quietHoursEnabled: true,
   quietHoursStart: 22 * 60, // 22:00
-  quietHoursEnd: 8 * 60,    // 08:00
+  quietHoursEnd: 8 * 60, // 08:00
 };
 
 // ---------------------------------------------------------------------------
 // MMKV persistence helpers
 // ---------------------------------------------------------------------------
 
-const STORAGE_KEY = 'illll-store';
+const STORAGE_KEY = "illll-store";
 
 interface PersistedSlice {
   days: Record<string, DayRecord>;
@@ -158,8 +163,8 @@ function persistState(state: PersistedSlice): void {
 export function getTodayKey(): string {
   const d = new Date();
   const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
   return `${y}-${m}-${day}`;
 }
 
@@ -190,7 +195,8 @@ export function getDayScore(
   visibleHabits: HabitId[],
   customHabits: CustomHabit[] = [],
 ): { completed: number; total: number } {
-  if (!day) return { completed: 0, total: visibleHabits.length + customHabits.length };
+  if (!day)
+    return { completed: 0, total: visibleHabits.length + customHabits.length };
 
   let completed = 0;
   const total = visibleHabits.length + customHabits.length;
@@ -217,8 +223,8 @@ export function getStreak(
     const d = new Date(now);
     d.setDate(d.getDate() - i);
     const y = d.getFullYear();
-    const m = String(d.getMonth() + 1).padStart(2, '0');
-    const dd = String(d.getDate()).padStart(2, '0');
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const dd = String(d.getDate()).padStart(2, "0");
     const key = `${y}-${m}-${dd}`;
     const day = days[key];
 
@@ -264,10 +270,18 @@ export function getStreak(
 const persisted = loadState();
 
 // Migrate habit order from old default to new default
-const OLD_HABIT_ORDER: HabitId[] = ['breathing', 'light', 'food', 'sleep', 'exercise', 'gratitude'];
+const OLD_HABIT_ORDER: HabitId[] = [
+  "breathing",
+  "light",
+  "food",
+  "sleep",
+  "exercise",
+  "gratitude",
+];
 if (
   persisted.settings?.habitOrder &&
-  JSON.stringify(persisted.settings.habitOrder) === JSON.stringify(OLD_HABIT_ORDER)
+  JSON.stringify(persisted.settings.habitOrder) ===
+    JSON.stringify(OLD_HABIT_ORDER)
 ) {
   persisted.settings.habitOrder = DEFAULT_HABIT_ORDER;
 }
@@ -446,7 +460,10 @@ export const useStore = create<StoreState>()((set) => ({
     }));
   },
 
-  updateNotification: (id: string, updates: Partial<Omit<UserNotification, 'id'>>) => {
+  updateNotification: (
+    id: string,
+    updates: Partial<Omit<UserNotification, "id">>,
+  ) => {
     set((state) => ({
       settings: {
         ...state.settings,
@@ -507,6 +524,11 @@ export const useStore = create<StoreState>()((set) => ({
     set((state) => ({
       settings: { ...state.settings, hasSeenOnboarding: true },
     }));
+  },
+
+  onboardingHintsUntil: 0,
+  startOnboardingHintsLinger: () => {
+    set({ onboardingHintsUntil: Date.now() + 10_000 });
   },
 
   resetAll: () => {

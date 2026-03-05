@@ -1,15 +1,28 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Tabs, usePathname, useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
-import { BackHandler, Text, StyleSheet } from 'react-native';
+import { BackHandler, Text, View, StyleSheet } from 'react-native';
 import { useColors } from '../../constants/colors';
 import { Fonts } from '../../constants/fonts';
+import { useStore } from '../../store/useStore';
+import { OnboardingHint } from '../../components/OnboardingOverlay';
 
 export default function TabLayout() {
   const { t } = useTranslation();
   const colors = useColors();
   const pathname = usePathname();
   const router = useRouter();
+  const hasSeenOnboarding = useStore((s) => s.settings.hasSeenOnboarding);
+  const onboardingHintsUntil = useStore((s) => s.onboardingHintsUntil);
+  const [, forceUpdate] = useState(0);
+  const hintsVisible = !hasSeenOnboarding || Date.now() < onboardingHintsUntil;
+
+  // Force re-render when linger timer expires
+  useEffect(() => {
+    if (!onboardingHintsUntil || Date.now() >= onboardingHintsUntil) return;
+    const timer = setTimeout(() => forceUpdate((n) => n + 1), onboardingHintsUntil - Date.now());
+    return () => clearTimeout(timer);
+  }, [onboardingHintsUntil]);
 
   useEffect(() => {
     if (pathname === '/') return;
@@ -53,7 +66,14 @@ export default function TabLayout() {
         options={{
           title: t('tabs.progress'),
           tabBarIcon: ({ color }) => (
-            <Text style={[styles.tabIcon, { color }]} aria-hidden>▦</Text>
+            <View style={styles.progressTabIcon}>
+              {hintsVisible && (
+                <View style={styles.progressHint}>
+                  <OnboardingHint label={t('onboarding.labelProgress')} direction="down" ring="large" />
+                </View>
+              )}
+              <Text style={[styles.tabIcon, { color }]} aria-hidden>▦</Text>
+            </View>
           ),
         }}
       />
@@ -64,5 +84,15 @@ export default function TabLayout() {
 const styles = StyleSheet.create({
   tabIcon: {
     fontSize: 22,
+  },
+  progressTabIcon: {
+    alignItems: 'center',
+  },
+  progressHint: {
+    position: 'absolute',
+    top: -68,
+    bottom: 0,
+    alignSelf: 'center',
+    zIndex: 10,
   },
 });

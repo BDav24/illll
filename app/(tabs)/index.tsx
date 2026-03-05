@@ -7,9 +7,8 @@ import {
   StyleSheet,
   Pressable,
   Platform,
-  Dimensions,
 } from 'react-native';
-import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import BottomSheet, { BottomSheetView, BottomSheetTextInput } from '@gorhom/bottom-sheet';
@@ -38,7 +37,7 @@ import { HabitCard } from '../../components/HabitCard';
 import { CustomHabitCard } from '../../components/CustomHabitCard';
 import { BreathingTimer } from '../../components/BreathingTimer';
 import { showToast } from '../../components/Toast';
-import { OnboardingOverlay } from '../../components/OnboardingOverlay';
+import { OnboardingOverlay, OnboardingHint } from '../../components/OnboardingOverlay';
 import { screenshotConfig } from '../../lib/screenshotMode';
 
 export default function DailyHub() {
@@ -46,7 +45,6 @@ export default function DailyHub() {
   const router = useRouter();
   const colors = useColors();
   const dateLocale = useDateLocale();
-  const insets = useSafeAreaInsets();
   const styles = useMemo(() => makeStyles(colors), [colors]);
   const bottomSheetRef = useRef<BottomSheet>(null);
   const [activeHabit, setActiveHabit] = useState<HabitId | null>(null);
@@ -87,36 +85,17 @@ export default function DailyHub() {
   const [criterionDraft, setCriterionDraft] = useState('');
   const [activeCustomHabit, setActiveCustomHabit] = useState<string | null>(null);
   const didResetCriterion = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const settingsRef = useRef<View>(null);
-  const habitsSectionRef = useRef<View>(null);
-  const [settingsPos, setSettingsPos] = useState<{ x: number; y: number } | null>(null);
-  const [progressTabPos, setProgressTabPos] = useState<{ x: number; y: number } | null>(null);
-  const [habitsPos, setHabitsPos] = useState<{ x: number; y: number } | null>(null);
+  const startOnboardingHintsLinger = useStore((s) => s.startOnboardingHintsLinger);
+  const onboardingHintsUntil = useStore((s) => s.onboardingHintsUntil);
+  const [, forceUpdate] = useState(0);
+  const hintsVisible = !hasSeenOnboarding || Date.now() < onboardingHintsUntil;
 
-  const measureTargets = useCallback(() => {
-    settingsRef.current?.measureInWindow((x, y, w, h) => {
-      setSettingsPos({ x: x + w / 2, y: y + h / 2 });
-    });
-    habitsSectionRef.current?.measureInWindow((x, y, w) => {
-      setHabitsPos({ x: x + w / 3, y });
-    });
-    // Progress tab: tab bar is 85px with 8px paddingTop, includes bottom safe area
-    const { width, height } = Dimensions.get('window');
-    const TAB_BAR_HEIGHT = 85;
-    const TAB_BAR_PADDING_TOP = 8;
-    const tabContentHeight = TAB_BAR_HEIGHT - TAB_BAR_PADDING_TOP - insets.bottom;
-    setProgressTabPos({
-      x: width * 0.75,
-      y: height - insets.bottom - tabContentHeight / 2,
-    });
-  }, [insets.bottom]);
-
-  // Delay measurement until layout is settled (SafeAreaView insets applied)
+  // Force re-render when linger timer expires
   useEffect(() => {
-    if (hasSeenOnboarding) return;
-    const timer = setTimeout(measureTargets, 100);
+    if (!onboardingHintsUntil || Date.now() >= onboardingHintsUntil) return;
+    const timer = setTimeout(() => forceUpdate((n) => n + 1), onboardingHintsUntil - Date.now());
     return () => clearTimeout(timer);
-  }, [hasSeenOnboarding, measureTargets]);
+  }, [onboardingHintsUntil]);
 
   const today = useMemo(
     () => todayRecord ?? emptyDayRecord(currentDateKey),
@@ -300,30 +279,36 @@ export default function DailyHub() {
           <Pressable onPress={() => router.push('/progress')}>
             <StreakBadge count={streak} />
           </Pressable>
-          <Pressable
-            ref={settingsRef}
-            onPress={() => router.push('/settings')}
-            style={styles.settingsBtn}
-            accessibilityRole="button"
-            accessibilityLabel={t('accessibility.settings')}
-          >
-            <Svg width={22} height={22} viewBox="0 0 24 24" fill="none" aria-hidden>
-              <Path
-                d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
-                stroke={colors.textSecondary}
-                strokeWidth={1.8}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <Path
-                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"
-                stroke={colors.textSecondary}
-                strokeWidth={1.8}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </Svg>
-          </Pressable>
+          <View style={styles.settingsHintWrapper}>
+            <Pressable
+              onPress={() => router.push('/settings')}
+              style={styles.settingsBtn}
+              accessibilityRole="button"
+              accessibilityLabel={t('accessibility.settings')}
+            >
+              <Svg width={22} height={22} viewBox="0 0 24 24" fill="none" aria-hidden>
+                <Path
+                  d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+                  stroke={colors.textSecondary}
+                  strokeWidth={1.8}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <Path
+                  d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"
+                  stroke={colors.textSecondary}
+                  strokeWidth={1.8}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </Svg>
+            </Pressable>
+            {hintsVisible && (
+              <View style={styles.settingsHint}>
+                <OnboardingHint label={t('onboarding.labelSettings')} direction="up" ring="small" />
+              </View>
+            )}
+          </View>
         </View>
 
         {/* Welcome hint */}
@@ -332,7 +317,12 @@ export default function DailyHub() {
         )}
 
         {/* Habit Cards */}
-        <View ref={habitsSectionRef} style={styles.habitsSection}>
+        <View style={styles.habitsSection}>
+          {hintsVisible && (
+            <View style={styles.habitsHint}>
+              <OnboardingHint label={t('onboarding.labelHabits')} direction="down" />
+            </View>
+          )}
           {visibleHabits.map((id) => {
             const entry = habitEntries[id];
             return (
@@ -571,10 +561,10 @@ export default function DailyHub() {
       </BottomSheet>}
       <OnboardingOverlay
         visible={!hasSeenOnboarding && !screenshotConfig.enabled}
-        onDismiss={setHasSeenOnboarding}
-        settingsPosition={settingsPos}
-        progressTabPosition={progressTabPos}
-        habitsPosition={habitsPos}
+        onDismiss={() => {
+          setHasSeenOnboarding();
+          startOnboardingHintsLinger();
+        }}
       />
     </SafeAreaView>
   );
@@ -775,6 +765,22 @@ function makeStyles(colors: ColorPalette) {
     },
     bottomSpacer: {
       height: 40,
+    },
+    settingsHintWrapper: {
+      alignItems: 'center',
+    },
+    settingsHint: {
+      position: 'absolute',
+      top: -2,
+      alignSelf: 'center',
+      zIndex: 10,
+    },
+    habitsHint: {
+      position: 'absolute',
+      top: -60,
+      left: '10%',
+      alignItems: 'center',
+      zIndex: 10,
     },
   });
 }

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { StyleSheet, useColorScheme } from 'react-native';
+import { Pressable, StyleSheet, useColorScheme } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import {
   useFonts,
@@ -17,7 +17,6 @@ import { useColors } from '../constants/colors';
 import { useStore, type HabitId, type HabitEntry, type DayRecord } from '../store/useStore';
 import { screenshotConfig } from '../lib/screenshotMode';
 import { Toast } from '../components/Toast';
-import { OnboardingHighlights } from '../components/OnboardingOverlay';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -52,6 +51,24 @@ function buildScreenshotDays(scene: string): Record<string, DayRecord> {
 
   return days;
 }
+
+function OnboardingHintsDismissLayer() {
+  const onboardingHintsUntil = useStore((s) => s.onboardingHintsUntil);
+  if (!onboardingHintsUntil || Date.now() >= onboardingHintsUntil) return null;
+  return (
+    <Pressable
+      style={dismissStyles.overlay}
+      onPress={() => useStore.setState({ onboardingHintsUntil: 0 })}
+    />
+  );
+}
+
+const dismissStyles = StyleSheet.create({
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    zIndex: 5,
+  },
+});
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -155,7 +172,7 @@ export default function RootLayout() {
         />
       </Stack>
       <Toast />
-      <OnboardingHighlights />
+      <OnboardingHintsDismissLayer />
     </GestureHandlerRootView>
   );
 }
