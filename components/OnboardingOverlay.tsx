@@ -268,13 +268,14 @@ export function OnboardingOverlay({
         <View style={dynamicStyles.cardWrapper}>
           <View style={dynamicStyles.card}>
             <Text style={dynamicStyles.title}>{t('onboarding.title')}</Text>
+            <Text style={dynamicStyles.subtitle}>{t('onboarding.subtitle')}</Text>
 
             <View style={dynamicStyles.steps}>
-              {STEPS.map((step) => (
+              {STEPS.map((step, index) => (
                 <View key={step.key} style={dynamicStyles.stepRow}>
                   <Text style={dynamicStyles.stepEmoji}>{step.emoji}</Text>
                   <Text style={dynamicStyles.stepText}>
-                    {t(`onboarding.${step.key}`)}
+                    {index + 1}. {t(`onboarding.${step.key}`)}
                   </Text>
                 </View>
               ))}
@@ -364,7 +365,15 @@ function makeStyles(colors: ColorPalette) {
       fontFamily: Fonts.bold,
       color: colors.text,
       textAlign: 'center',
+      marginBottom: 8,
+    },
+    subtitle: {
+      fontSize: 15,
+      fontFamily: Fonts.semiBold,
+      color: colors.textSecondary,
+      textAlign: 'center',
       marginBottom: 24,
+      lineHeight: 21,
     },
     steps: {
       gap: 16,

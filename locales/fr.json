@@ -201,6 +201,7 @@
   },
   "onboarding": {
     "title": "Bienvenue !",
+    "subtitle": "Suivez 6 habitudes validées par la science pour vivre plus longtemps et en meilleure santé.",
     "step1": "Définissez vos propres objectifs dans chaque carte d'habitude",
     "step2": "Planifiez-les dans votre journée et ajoutez des rappels",
     "step3": "Complétez-les chaque jour et suivez votre progression",
