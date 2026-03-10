@@ -537,7 +537,7 @@ export const useStore = create<StoreState>()((set) => ({
       persistTimeout = null;
     }
     storage.clearAll();
-    set({ days: {}, settings: { ...DEFAULT_SETTINGS } });
+    set({ days: {}, settings: { ...DEFAULT_SETTINGS }, onboardingHintsUntil: 0 });
   },
 }));
 
