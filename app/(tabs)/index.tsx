@@ -11,7 +11,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
-import BottomSheet, { BottomSheetView, BottomSheetTextInput } from '@gorhom/bottom-sheet';
+import BottomSheet, { BottomSheetView, BottomSheetTextInput, BottomSheetBackdrop } from '@gorhom/bottom-sheet';
 
 // BottomSheetTextInput crashes on web (RNTextInput.State.currentlyFocusedInput missing)
 const CriterionInput = Platform.OS === 'web' ? TextInput : BottomSheetTextInput;
@@ -250,6 +250,13 @@ export default function DailyHub() {
 
   const snapPoints = useMemo(() => ['50%', '75%'], []);
 
+  const renderBackdrop = useCallback(
+    (props: any) => (
+      <BottomSheetBackdrop {...props} disappearsOnIndex={-1} appearsOnIndex={0} pressBehavior="close" />
+    ),
+    [],
+  );
+
   const habitEntries = today.habits;
 
   return (
@@ -371,6 +378,7 @@ export default function DailyHub() {
         index={-1}
         snapPoints={snapPoints}
         enablePanDownToClose
+        backdropComponent={renderBackdrop}
         backgroundStyle={styles.sheetBg}
         handleIndicatorStyle={styles.sheetHandle}
         onClose={() => {
@@ -380,6 +388,17 @@ export default function DailyHub() {
         }}
       >
         <BottomSheetView style={styles.sheetContent}>
+          <Pressable
+            style={styles.sheetCloseBtn}
+            onPress={() => bottomSheetRef.current?.close()}
+            accessibilityRole="button"
+            accessibilityLabel={t('accessibility.close')}
+            hitSlop={8}
+          >
+            <Svg width={20} height={20} viewBox="0 0 24 24" fill="none">
+              <Path d="M18 6 6 18M6 6l12 12" stroke={colors.textMuted} strokeWidth={2} strokeLinecap="round" />
+            </Svg>
+          </Pressable>
           {activeHabit && (
             <>
               <View style={styles.sheetHeader}>
@@ -650,6 +669,13 @@ function makeStyles(colors: ColorPalette) {
       flex: 1,
       paddingHorizontal: 24,
       paddingTop: 8,
+    },
+    sheetCloseBtn: {
+      position: 'absolute',
+      top: 8,
+      right: 16,
+      zIndex: 10,
+      padding: 4,
     },
     sheetHeader: {
       flexDirection: 'row',
