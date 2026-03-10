@@ -83,6 +83,7 @@ jobs:
           eas build --platform android --profile development --local --non-interactive --output=./app-dev.apk
         env:
           NODE_ENV: development
+          GRADLE_OPTS: -Dorg.gradle.jvmargs="-Xmx4g -XX:MaxMetaspaceSize=1g"
 
       - name: 📱 Build Production APK
         if: github.event.inputs.buildType == 'prod-apk'
@@ -99,6 +100,7 @@ jobs:
           eas build --platform android --profile production --local --non-interactive --output=./app-prod.aab
         env:
           NODE_ENV: production
+          GRADLE_OPTS: -Dorg.gradle.jvmargs="-Xmx4g -XX:MaxMetaspaceSize=1g"
 
       - name: 🚀 OTA update
         if: github.event.inputs.buildType == 'ota-update'
