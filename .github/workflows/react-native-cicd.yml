@@ -10,8 +10,9 @@ on:
         options:
           - dev
           - preview-apk
+          - preview-ota-update
           - prod-aab
-          - ota-update
+          - prod-ota-update
 
 env:
   EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
@@ -103,8 +104,15 @@ jobs:
           NODE_ENV: production
           GRADLE_OPTS: -Dorg.gradle.jvmargs="-Xmx4g -XX:MaxMetaspaceSize=1g"
 
-      - name: 🚀 OTA update
-        if: github.event.inputs.buildType == 'ota-update'
+      - name: 🚀 Preview OTA update
+        if: github.event.inputs.buildType == 'preview-ota-update'
+        run: |
+          eas update --channel preview --auto
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+      - name: 🚀 Production OTA update
+        if: github.event.inputs.buildType == 'prod-ota-update'
         run: |
           eas update --auto
         env:
