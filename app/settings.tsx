@@ -10,6 +10,7 @@ import {
   Alert,
   Platform,
   KeyboardAvoidingView,
+  Modal,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -61,7 +62,10 @@ export default function SettingsScreen() {
   const setLanguage = useStore((s) => s.setLanguage);
   const setColorScheme = useStore((s) => s.setColorScheme);
   const addCustomHabit = useStore((s) => s.addCustomHabit);
+  const editCustomHabit = useStore((s) => s.editCustomHabit);
   const deleteCustomHabit = useStore((s) => s.deleteCustomHabit);
+  const habitCriteria = useStore((s) => s.settings.habitCriteria);
+  const setHabitCriterion = useStore((s) => s.setHabitCriterion);
   const notifications = useStore((s) => s.settings.notifications) ?? [];
   const setNotifications = useStore((s) => s.setNotifications);
   const quietHoursEnabled = useStore((s) => s.settings.quietHoursEnabled);
@@ -72,7 +76,10 @@ export default function SettingsScreen() {
   const [showLangPicker, setShowLangPicker] = useState(
     screenshotConfig.enabled && screenshotConfig.scene === 'settings',
   );
-  const [newHabitText, setNewHabitText] = useState('');
+  const [habitModalVisible, setHabitModalVisible] = useState(false);
+  const [habitModalId, setHabitModalId] = useState<string | null>(null);
+  const [habitModalName, setHabitModalName] = useState('');
+  const [habitModalGoal, setHabitModalGoal] = useState('');
 
   const handleClose = useCallback(() => {
     if (router.canGoBack()) {
@@ -82,12 +89,44 @@ export default function SettingsScreen() {
     }
   }, [router]);
 
-  const handleAddHabit = useCallback(() => {
-    const trimmed = newHabitText.trim();
-    if (trimmed.length === 0) return;
-    addCustomHabit(trimmed);
-    setNewHabitText('');
-  }, [newHabitText, addCustomHabit]);
+  const openHabitModal = useCallback((id?: string) => {
+    if (id) {
+      const ch = customHabits.find((c) => c.id === id);
+      if (!ch) return;
+      setHabitModalId(id);
+      setHabitModalName(ch.text);
+      setHabitModalGoal(habitCriteria[id] || '');
+    } else {
+      setHabitModalId(null);
+      setHabitModalName('');
+      setHabitModalGoal('');
+    }
+    setHabitModalVisible(true);
+  }, [customHabits, habitCriteria]);
+
+  const handleSaveHabit = useCallback(() => {
+    const trimmedName = habitModalName.trim();
+    if (!trimmedName) return;
+    if (habitModalId) {
+      editCustomHabit(habitModalId, trimmedName);
+      setHabitCriterion(habitModalId, habitModalGoal.trim());
+    } else {
+      addCustomHabit(trimmedName);
+      // Set criterion for newly created habit (find it by matching text)
+      const goalTrimmed = habitModalGoal.trim();
+      if (goalTrimmed) {
+        // Small delay to let the habit be created first, then find its ID
+        setTimeout(() => {
+          const latest = useStore.getState().settings.customHabits;
+          const created = latest[latest.length - 1];
+          if (created && created.text === trimmedName) {
+            setHabitCriterion(created.id, goalTrimmed);
+          }
+        }, 0);
+      }
+    }
+    setHabitModalVisible(false);
+  }, [habitModalId, habitModalName, habitModalGoal, addCustomHabit, editCustomHabit, setHabitCriterion]);
 
   const handleLanguageChange = async (code: string | null) => {
     setLanguage(code);
@@ -177,7 +216,7 @@ export default function SettingsScreen() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle} accessibilityRole="header">{t('settings.myHabits')}</Text>
           {customHabits.map((ch) => (
-            <View key={ch.id} style={styles.customHabitRow}>
+            <Pressable key={ch.id} style={styles.customHabitRow} onPress={() => openHabitModal(ch.id)}>
               <Text style={styles.habitName}>{ch.text}</Text>
               <Pressable onPress={() => {
                 confirmAlert(
@@ -189,23 +228,14 @@ export default function SettingsScreen() {
               }} hitSlop={8} accessibilityRole="button" accessibilityLabel={t('accessibility.deleteHabit', { name: ch.text })}>
                 <Text style={styles.deleteIcon}>✕</Text>
               </Pressable>
-            </View>
-          ))}
-          <View style={styles.addHabitRow}>
-            <TextInput
-              style={styles.addHabitInput}
-              placeholder={t('settings.addHabit')}
-              placeholderTextColor={colors.textMuted}
-              value={newHabitText}
-              onChangeText={setNewHabitText}
-              onSubmitEditing={handleAddHabit}
-              returnKeyType="done"
-              accessibilityLabel={t('settings.addHabit')}
-            />
-            <Pressable onPress={handleAddHabit} style={styles.addHabitBtn} accessibilityRole="button" accessibilityLabel={t('accessibility.addHabit')} hitSlop={4}>
-              <Text style={styles.addHabitBtnText}>+</Text>
             </Pressable>
-          </View>
+          ))}
+          <Pressable style={styles.addHabitRow} onPress={() => openHabitModal()} accessibilityRole="button" accessibilityLabel={t('accessibility.addHabit')}>
+            <Text style={styles.addHabitPlaceholder}>{t('settings.addHabit')}</Text>
+            <View style={styles.addHabitBtn}>
+              <Text style={styles.addHabitBtnText}>+</Text>
+            </View>
+          </Pressable>
         </View>
 
         {/* Reminders (native only) */}
@@ -336,6 +366,75 @@ export default function SettingsScreen() {
         <View style={styles.bottomSpacer} />
       </ScrollView>
       </KeyboardAvoidingView>
+
+      {/* Add / Edit Custom Habit Modal */}
+      <Modal
+        visible={habitModalVisible}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setHabitModalVisible(false)}
+      >
+        <Pressable style={styles.modalOverlay} onPress={() => setHabitModalVisible(false)}>
+          <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+            <Pressable style={styles.modalContent} onPress={() => {}}>
+              <Text style={styles.modalTitle}>
+                {habitModalId ? t('settings.editHabit') : t('settings.addHabitTitle')}
+              </Text>
+              <TextInput
+                style={styles.modalInput}
+                placeholder={t('settings.habitName')}
+                placeholderTextColor={colors.textMuted}
+                value={habitModalName}
+                onChangeText={setHabitModalName}
+                autoFocus
+                returnKeyType="next"
+              />
+              <TextInput
+                style={styles.modalInput}
+                placeholder={t('settings.goalOptional')}
+                placeholderTextColor={colors.textMuted}
+                value={habitModalGoal}
+                onChangeText={setHabitModalGoal}
+                returnKeyType="done"
+                onSubmitEditing={handleSaveHabit}
+              />
+              <View style={styles.modalButtons}>
+                <Pressable
+                  style={styles.modalCancelBtn}
+                  onPress={() => setHabitModalVisible(false)}
+                >
+                  <Text style={styles.modalCancelText}>{t('common.cancel')}</Text>
+                </Pressable>
+                <Pressable
+                  style={[styles.modalSaveBtn, !habitModalName.trim() && styles.modalSaveBtnDisabled]}
+                  onPress={handleSaveHabit}
+                  disabled={!habitModalName.trim()}
+                >
+                  <Text style={[styles.modalSaveText, !habitModalName.trim() && styles.modalSaveTextDisabled]}>
+                    {t('settings.save')}
+                  </Text>
+                </Pressable>
+              </View>
+              {habitModalId && (
+                <Pressable
+                  style={styles.modalDeleteBtn}
+                  onPress={() => {
+                    setHabitModalVisible(false);
+                    confirmAlert(
+                      t('common.delete'),
+                      habitModalName,
+                      () => deleteCustomHabit(habitModalId),
+                      { cancel: t('common.cancel'), confirm: t('common.delete') },
+                    );
+                  }}
+                >
+                  <Text style={styles.modalDeleteText}>{t('common.delete')}</Text>
+                </Pressable>
+              )}
+            </Pressable>
+          </KeyboardAvoidingView>
+        </Pressable>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -496,9 +595,9 @@ function makeStyles(colors: ColorPalette) {
       paddingVertical: 4,
       gap: 8,
     },
-    addHabitInput: {
+    addHabitPlaceholder: {
       flex: 1,
-      color: colors.text,
+      color: colors.textMuted,
       fontSize: 15,
       fontFamily: Fonts.regular,
       paddingVertical: 10,
@@ -516,6 +615,77 @@ function makeStyles(colors: ColorPalette) {
       fontSize: 20,
       fontFamily: Fonts.semiBold,
       lineHeight: 22,
+    },
+    modalOverlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0,0,0,0.5)',
+      justifyContent: 'center',
+      paddingHorizontal: 32,
+    },
+    modalContent: {
+      backgroundColor: colors.surface,
+      borderRadius: 16,
+      padding: 24,
+    },
+    modalTitle: {
+      fontSize: 20,
+      fontFamily: Fonts.bold,
+      color: colors.text,
+      marginBottom: 20,
+    },
+    modalInput: {
+      backgroundColor: colors.bg,
+      borderRadius: 10,
+      padding: 14,
+      fontSize: 15,
+      fontFamily: Fonts.regular,
+      color: colors.text,
+      marginBottom: 12,
+    },
+    modalButtons: {
+      flexDirection: 'row',
+      gap: 12,
+      marginTop: 8,
+    },
+    modalCancelBtn: {
+      flex: 1,
+      padding: 14,
+      borderRadius: 10,
+      backgroundColor: colors.bg,
+      alignItems: 'center',
+    },
+    modalCancelText: {
+      fontSize: 15,
+      fontFamily: Fonts.medium,
+      color: colors.textSecondary,
+    },
+    modalSaveBtn: {
+      flex: 1,
+      padding: 14,
+      borderRadius: 10,
+      backgroundColor: colors.accent,
+      alignItems: 'center',
+    },
+    modalSaveBtnDisabled: {
+      opacity: 0.4,
+    },
+    modalSaveText: {
+      fontSize: 15,
+      fontFamily: Fonts.semiBold,
+      color: '#fff',
+    },
+    modalSaveTextDisabled: {
+      opacity: 0.6,
+    },
+    modalDeleteBtn: {
+      marginTop: 16,
+      padding: 12,
+      alignItems: 'center',
+    },
+    modalDeleteText: {
+      fontSize: 14,
+      fontFamily: Fonts.medium,
+      color: colors.danger,
     },
     bottomSpacer: {
       height: 60,

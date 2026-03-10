@@ -72,6 +72,7 @@ interface StoreState {
   toggleHabit: (habitId: HabitId) => void;
   updateHabitData: (habitId: HabitId, data: Record<string, unknown>) => void;
   addCustomHabit: (text: string) => void;
+  editCustomHabit: (id: string, text: string) => void;
   deleteCustomHabit: (id: string) => void;
   toggleCustomHabit: (id: string) => void;
   toggleHideHabit: (habitId: HabitId) => void;
@@ -359,6 +360,19 @@ export const useStore = create<StoreState>()((set) => ({
       settings: {
         ...state.settings,
         customHabits: [...state.settings.customHabits, { id, text: trimmed }],
+      },
+    }));
+  },
+
+  editCustomHabit: (id: string, text: string) => {
+    const trimmed = text.trim();
+    if (!trimmed) return;
+    set((state) => ({
+      settings: {
+        ...state.settings,
+        customHabits: state.settings.customHabits.map((h) =>
+          h.id === id ? { ...h, text: trimmed } : h,
+        ),
       },
     }));
   },
