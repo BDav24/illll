@@ -1,5 +1,6 @@
 # Generated with https://github.com/TanayK07/expo-react-native-cicd
 name: React Native CI/CD
+run-name: "React Native CI/CD (${{ inputs.buildType || 'none' }})"
 
 on:
   workflow_dispatch:
