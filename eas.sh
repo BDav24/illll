@@ -60,7 +60,7 @@ if [[ "$PROFILE" == "production" ]]; then
 fi
 
 # Build command
-CMD="eas build --profile $PROFILE --non-interactive"
+CMD="eas build --profile $PROFILE"
 if [[ "$PLATFORM" == "all" ]]; then
   CMD="$CMD --platform all"
 else
