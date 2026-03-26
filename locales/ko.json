@@ -110,7 +110,10 @@
     "resetData": "모든 데이터 초기화",
     "resetConfirm": "모든 데이터가 삭제됩니다. 계속하시겠습니까?",
     "reminders": "알림",
-    "manageReminders": "일일 알림 관리"
+    "manageReminders": "일일 알림 관리",
+    "showOnDailyHub": "데일리 허브에 표시",
+    "myGoal": "나의 목표",
+    "position": "위치"
   },
   "criteria": {
     "myGoal": "나의 목표",

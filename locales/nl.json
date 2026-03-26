@@ -110,7 +110,10 @@
     "resetData": "Alle gegevens wissen",
     "resetConfirm": "Dit verwijdert al je gegevens. Weet je het zeker?",
     "reminders": "Herinneringen",
-    "manageReminders": "Beheer je dagelijkse herinneringen"
+    "manageReminders": "Beheer je dagelijkse herinneringen",
+    "showOnDailyHub": "Tonen in dagelijks overzicht",
+    "myGoal": "Mijn doel",
+    "position": "Positie"
   },
   "criteria": {
     "myGoal": "Mijn doel",

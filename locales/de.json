@@ -110,7 +110,10 @@
     "resetData": "Alle Daten zurücksetzen",
     "resetConfirm": "Dadurch werden alle deine Daten gelöscht. Bist du sicher?",
     "reminders": "Erinnerungen",
-    "manageReminders": "Tägliche Erinnerungen verwalten"
+    "manageReminders": "Tägliche Erinnerungen verwalten",
+    "showOnDailyHub": "Im täglichen Hub anzeigen",
+    "myGoal": "Mein Ziel",
+    "position": "Position"
   },
   "criteria": {
     "myGoal": "Mein Ziel",

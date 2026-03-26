@@ -110,7 +110,10 @@
     "resetData": "Redefinir todos os dados",
     "resetConfirm": "Isso excluirá todos os seus dados. Tem certeza?",
     "reminders": "Lembretes",
-    "manageReminders": "Gerencie seus lembretes diários"
+    "manageReminders": "Gerencie seus lembretes diários",
+    "showOnDailyHub": "Mostrar no hub diário",
+    "myGoal": "Minha meta",
+    "position": "Posição"
   },
   "criteria": {
     "myGoal": "Minha meta",

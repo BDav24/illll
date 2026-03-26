@@ -110,7 +110,10 @@
     "resetData": "Restablecer todos los datos",
     "resetConfirm": "Esto eliminará todos tus datos. ¿Estás seguro?",
     "reminders": "Recordatorios",
-    "manageReminders": "Gestiona tus recordatorios diarios"
+    "manageReminders": "Gestiona tus recordatorios diarios",
+    "showOnDailyHub": "Mostrar en el hub diario",
+    "myGoal": "Mi objetivo",
+    "position": "Posición"
   },
   "criteria": {
     "myGoal": "Mi objetivo",

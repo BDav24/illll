@@ -28,6 +28,7 @@ import {
   emptyDayRecord,
   getDayScore,
   getStreak,
+  getGlobalHabitOrder,
   type HabitId,
   type DayRecord,
 } from '../../store/useStore';
@@ -70,9 +71,10 @@ export default function DailyHub() {
   }, []);
 
   const todayRecord = useStore((s) => s.days[currentDateKey]) as DayRecord | undefined;
-  const hiddenHabits = useStore((s) => s.settings.hiddenHabits);
-  const habitOrder = useStore((s) => s.settings.habitOrder);
-  const customHabits = useStore((s) => s.settings.customHabits);
+  const settings = useStore((s) => s.settings);
+  const hiddenHabits = settings.hiddenHabits;
+  const habitOrder = settings.habitOrder;
+  const customHabits = settings.customHabits;
   const habitCriteria = useStore((s) => s.settings.habitCriteria);
   const toggleHabit = useStore((s) => s.toggleHabit);
   const toggleCustomHabit = useStore((s) => s.toggleCustomHabit);
@@ -104,6 +106,14 @@ export default function DailyHub() {
   const visibleHabits = useMemo(
     () => habitOrder.filter((id) => !hiddenHabits.includes(id)),
     [habitOrder, hiddenHabits],
+  );
+  const globalOrder = useMemo(
+    () => getGlobalHabitOrder(settings),
+    [settings],
+  );
+  const customHabitMap = useMemo(
+    () => new Map(customHabits.map((ch) => [ch.id, ch])),
+    [customHabits],
   );
   const score = useMemo(
     () => getDayScore(todayRecord, visibleHabits, customHabits),
@@ -196,13 +206,6 @@ export default function DailyHub() {
       bottomSheetRef.current?.expand();
     },
     [],
-  );
-
-  const handleInfoPress = useCallback(
-    (id: HabitId) => {
-      router.push(`/habit/${id}`);
-    },
-    [router],
   );
 
   const handleCheckboxPress = useCallback(
@@ -323,44 +326,45 @@ export default function DailyHub() {
           <Text style={styles.welcomeHint}>{t('hub.welcomeHint')}</Text>
         )}
 
-        {/* Habit Cards */}
+        {/* Habit Cards (unified order) */}
         <View style={styles.habitsSection}>
           {hintsVisible && (
             <View style={styles.habitsHint}>
               <OnboardingHint label={t('onboarding.labelHabits')} direction="down" />
             </View>
           )}
-          {visibleHabits.map((id) => {
-            const entry = habitEntries[id];
+          {globalOrder.map((id) => {
+            const ch = customHabitMap.get(id);
+            if (ch) {
+              return (
+                <CustomHabitCard
+                  key={ch.id}
+                  id={ch.id}
+                  text={ch.text}
+                  completed={today.habits[ch.id]?.completed ?? false}
+                  onPress={handleCustomHabitPress}
+                  onInfoPress={handleCustomHabitPress}
+                  onCheckboxPress={handleCustomCheckboxPress}
+                  criterion={habitCriteria[ch.id]}
+                  icon={ch.icon}
+                />
+              );
+            }
+            // Built-in habit — skip if hidden
+            if (hiddenHabits.includes(id as HabitId)) return null;
+            const entry = habitEntries[id as HabitId];
             return (
               <HabitCard
                 key={id}
-                habitId={id}
+                habitId={id as HabitId}
                 completed={entry?.completed ?? false}
                 onPress={handleHabitPress}
-                onInfoPress={handleInfoPress}
+                onInfoPress={handleHabitPress}
                 onCheckboxPress={handleCheckboxPress}
               />
             );
           })}
         </View>
-
-        {/* Custom Habits */}
-        {customHabits.length > 0 && (
-          <View style={styles.customHabitsSection}>
-            {customHabits.map((ch) => (
-              <CustomHabitCard
-                key={ch.id}
-                id={ch.id}
-                text={ch.text}
-                completed={today.habits[ch.id]?.completed ?? false}
-                onPress={handleCustomHabitPress}
-                onCheckboxPress={handleCustomCheckboxPress}
-                criterion={habitCriteria[ch.id]}
-              />
-            ))}
-          </View>
-        )}
 
         {/* All done message */}
         {score.total > 0 && score.completed === score.total && (
@@ -493,6 +497,7 @@ export default function DailyHub() {
                   router.push(`/habit/${activeHabit}`);
                 }}
               >
+                <Text style={styles.whyBtnIcon}>🔬</Text>
                 <Text style={styles.whyBtnText}>
                   {t('article.whyTitle', {
                     habit: t(`habits.${activeHabit}.name`),
@@ -646,10 +651,6 @@ function makeStyles(colors: ColorPalette) {
       gap: 12,
       marginBottom: 16,
     },
-    customHabitsSection: {
-      gap: 12,
-      marginBottom: 16,
-    },
     allDone: {
       alignItems: 'center',
       paddingVertical: 24,
@@ -780,14 +781,24 @@ function makeStyles(colors: ColorPalette) {
       color: colors.textSecondary,
     },
     whyBtn: {
-      marginTop: 20,
-      paddingVertical: 12,
+      flexDirection: 'row',
       alignItems: 'center',
+      justifyContent: 'center',
+      gap: 8,
+      marginTop: 20,
+      marginBottom: 20,
+      paddingVertical: 14,
+      paddingHorizontal: 20,
+      backgroundColor: colors.accent + '14',
+      borderRadius: 12,
+    },
+    whyBtnIcon: {
+      fontSize: 18,
     },
     whyBtnText: {
       color: colors.accent,
-      fontSize: 15,
-      fontFamily: Fonts.medium,
+      fontSize: 16,
+      fontFamily: Fonts.semiBold,
     },
     bottomSpacer: {
       height: 40,

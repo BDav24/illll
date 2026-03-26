@@ -110,7 +110,10 @@
     "resetData": "Tüm Verileri Sıfırla",
     "resetConfirm": "Bu, tüm verilerini silecek. Emin misin?",
     "reminders": "Hatırlatıcılar",
-    "manageReminders": "Günlük hatırlatıcılarınızı yönetin"
+    "manageReminders": "Günlük hatırlatıcılarınızı yönetin",
+    "showOnDailyHub": "Günlük merkezde göster",
+    "myGoal": "Hedefim",
+    "position": "Konum"
   },
   "criteria": {
     "myGoal": "Hedefim",

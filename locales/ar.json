@@ -116,7 +116,10 @@
     "resetData": "إعادة تعيين جميع البيانات",
     "resetConfirm": "سيؤدي هذا إلى حذف جميع بياناتك. هل أنت متأكد؟",
     "reminders": "التذكيرات",
-    "manageReminders": "إدارة تذكيراتك اليومية"
+    "manageReminders": "إدارة تذكيراتك اليومية",
+    "showOnDailyHub": "إظهار في المحور اليومي",
+    "myGoal": "هدفي",
+    "position": "الموضع"
   },
   "criteria": {
     "myGoal": "هدفي",

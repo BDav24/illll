@@ -110,7 +110,10 @@
     "resetData": "重置所有数据",
     "resetConfirm": "这将删除你的所有数据。确定要继续吗？",
     "reminders": "提醒",
-    "manageReminders": "管理你的每日提醒"
+    "manageReminders": "管理你的每日提醒",
+    "showOnDailyHub": "在每日中心显示",
+    "myGoal": "我的目标",
+    "position": "位置"
   },
   "criteria": {
     "myGoal": "我的目标",

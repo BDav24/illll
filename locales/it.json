@@ -110,7 +110,10 @@
     "resetData": "Reimposta tutti i dati",
     "resetConfirm": "Questo cancellerà tutti i tuoi dati. Sei sicuro?",
     "reminders": "Promemoria",
-    "manageReminders": "Gestisci i tuoi promemoria giornalieri"
+    "manageReminders": "Gestisci i tuoi promemoria giornalieri",
+    "showOnDailyHub": "Mostra nell'hub giornaliero",
+    "myGoal": "Il mio obiettivo",
+    "position": "Posizione"
   },
   "criteria": {
     "myGoal": "Il mio obiettivo",

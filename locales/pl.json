@@ -114,7 +114,10 @@
     "resetData": "Resetuj wszystkie dane",
     "resetConfirm": "Spowoduje to usunięcie wszystkich danych. Czy na pewno?",
     "reminders": "Przypomnienia",
-    "manageReminders": "Zarządzaj codziennymi przypomnieniami"
+    "manageReminders": "Zarządzaj codziennymi przypomnieniami",
+    "showOnDailyHub": "Pokaż w codziennym przeglądzie",
+    "myGoal": "Mój cel",
+    "position": "Pozycja"
   },
   "criteria": {
     "myGoal": "Mój cel",

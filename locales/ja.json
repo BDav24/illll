@@ -110,7 +110,10 @@
     "resetData": "すべてのデータをリセット",
     "resetConfirm": "すべてのデータが削除されます。よろしいですか？",
     "reminders": "リマインダー",
-    "manageReminders": "毎日のリマインダーを管理"
+    "manageReminders": "毎日のリマインダーを管理",
+    "showOnDailyHub": "デイリーハブに表示",
+    "myGoal": "目標",
+    "position": "位置"
   },
   "criteria": {
     "myGoal": "目標",

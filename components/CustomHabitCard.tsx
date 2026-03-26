@@ -11,11 +11,13 @@ interface CustomHabitCardProps {
   text: string;
   completed: boolean;
   onPress: (id: string) => void;
+  onInfoPress: (id: string) => void;
   onCheckboxPress: (id: string) => void;
   criterion?: string;
+  icon?: string;
 }
 
-export const CustomHabitCard = React.memo(function CustomHabitCard({ id, text, completed, onPress, onCheckboxPress, criterion }: CustomHabitCardProps) {
+export const CustomHabitCard = React.memo(function CustomHabitCard({ id, text, completed, onPress, onInfoPress, onCheckboxPress, criterion, icon }: CustomHabitCardProps) {
   const colors = useColors();
   const styles = useMemo(() => makeStyles(colors), [colors]);
   const { t } = useTranslation();
@@ -24,6 +26,10 @@ export const CustomHabitCard = React.memo(function CustomHabitCard({ id, text, c
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     onPress(id);
   }, [onPress, id]);
+
+  const handleInfo = useCallback(() => {
+    onInfoPress(id);
+  }, [onInfoPress, id]);
 
   const handleCheckbox = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -40,6 +46,11 @@ export const CustomHabitCard = React.memo(function CustomHabitCard({ id, text, c
         pressed && styles.cardPressed,
       ]}
     >
+      {icon ? (
+        <View style={styles.iconContainer} aria-hidden>
+          <Text style={styles.icon}>{icon}</Text>
+        </View>
+      ) : null}
       <View style={styles.textContainer}>
         <Text
           style={[styles.text, completed && styles.textCompleted]}
@@ -51,6 +62,15 @@ export const CustomHabitCard = React.memo(function CustomHabitCard({ id, text, c
           <Text style={styles.criterion} numberOfLines={1}>{criterion}</Text>
         ) : null}
       </View>
+      <Pressable
+        onPress={handleInfo}
+        hitSlop={8}
+        style={styles.infoButton}
+        accessibilityRole="button"
+        accessibilityLabel={text}
+      >
+        <Text style={styles.infoText}>📑</Text>
+      </Pressable>
       <Pressable
         onPress={handleCheckbox}
         hitSlop={10}
@@ -92,6 +112,15 @@ function makeStyles(colors: ColorPalette) {
     cardPressed: {
       opacity: 0.8,
     },
+    iconContainer: {
+      width: 36,
+      height: 36,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    icon: {
+      fontSize: 24,
+    },
     textContainer: {
       flex: 1,
     },
@@ -108,6 +137,16 @@ function makeStyles(colors: ColorPalette) {
       fontSize: 13,
       fontFamily: Fonts.regular,
       marginTop: 2,
+    },
+    infoButton: {
+      width: 30,
+      height: 30,
+      borderRadius: 15,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    infoText: {
+      fontSize: 18,
     },
     checkbox: {
       width: 28,

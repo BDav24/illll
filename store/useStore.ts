@@ -22,6 +22,7 @@ export interface HabitEntry {
 export interface CustomHabit {
   id: string; // 'custom_' + uuid
   text: string;
+  icon?: string; // optional emoji
 }
 
 export interface DayRecord {
@@ -48,6 +49,7 @@ export interface UserNotification {
 export interface UserSettings {
   hiddenHabits: HabitId[];
   habitOrder: HabitId[];
+  globalHabitOrder: string[]; // unified order: built-in HabitIds + custom habit ids
   language: string | null; // null = auto-detect
   customHabits: CustomHabit[];
   colorScheme: ColorScheme;
@@ -71,8 +73,8 @@ interface StoreState {
   // Actions
   toggleHabit: (habitId: HabitId) => void;
   updateHabitData: (habitId: HabitId, data: Record<string, unknown>) => void;
-  addCustomHabit: (text: string) => void;
-  editCustomHabit: (id: string, text: string) => void;
+  addCustomHabit: (text: string, icon?: string) => void;
+  editCustomHabit: (id: string, text: string, icon?: string) => void;
   deleteCustomHabit: (id: string) => void;
   toggleCustomHabit: (id: string) => void;
   toggleHideHabit: (habitId: HabitId) => void;
@@ -89,6 +91,7 @@ interface StoreState {
   toggleNotification: (id: string) => void;
   setQuietHours: (enabled: boolean, start: number, end: number) => void;
   setBreathingRounds: (rounds: number) => void;
+  setHabitPosition: (habitId: string, newPosition: number) => void;
   setHasSeenOnboarding: () => void;
   onboardingHintsUntil: number; // timestamp; hints visible when Date.now() < this
   startOnboardingHintsLinger: () => void;
@@ -111,6 +114,7 @@ const DEFAULT_HABIT_ORDER: HabitId[] = [
 const DEFAULT_SETTINGS: UserSettings = {
   hiddenHabits: [],
   habitOrder: DEFAULT_HABIT_ORDER,
+  globalHabitOrder: [...DEFAULT_HABIT_ORDER],
   language: null,
   customHabits: [],
   colorScheme: "light",
@@ -184,6 +188,16 @@ function ensureDay(
 // ---------------------------------------------------------------------------
 // Derived data helpers (use outside of selectors, e.g. in useMemo)
 // ---------------------------------------------------------------------------
+
+export function getGlobalHabitOrder(settings: UserSettings): string[] {
+  const order = settings.globalHabitOrder;
+  if (order && order.length > 0) return order;
+  // Fallback: built-in order + custom habits appended
+  return [
+    ...settings.habitOrder,
+    ...settings.customHabits.map((ch) => ch.id),
+  ];
+}
 
 export function getVisibleHabits(settings: UserSettings): HabitId[] {
   return settings.habitOrder.filter(
@@ -352,26 +366,29 @@ export const useStore = create<StoreState>()((set) => ({
     });
   },
 
-  addCustomHabit: (text: string) => {
+  addCustomHabit: (text: string, icon?: string) => {
     const trimmed = text.trim();
     if (!trimmed) return;
     const id = `custom_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+    const trimmedIcon = icon?.trim() || undefined;
     set((state) => ({
       settings: {
         ...state.settings,
-        customHabits: [...state.settings.customHabits, { id, text: trimmed }],
+        customHabits: [...state.settings.customHabits, { id, text: trimmed, icon: trimmedIcon }],
+        globalHabitOrder: [...getGlobalHabitOrder(state.settings), id],
       },
     }));
   },
 
-  editCustomHabit: (id: string, text: string) => {
+  editCustomHabit: (id: string, text: string, icon?: string) => {
     const trimmed = text.trim();
     if (!trimmed) return;
+    const trimmedIcon = icon?.trim() || undefined;
     set((state) => ({
       settings: {
         ...state.settings,
         customHabits: state.settings.customHabits.map((h) =>
-          h.id === id ? { ...h, text: trimmed } : h,
+          h.id === id ? { ...h, text: trimmed, icon: trimmedIcon } : h,
         ),
       },
     }));
@@ -395,6 +412,7 @@ export const useStore = create<StoreState>()((set) => ({
         settings: {
           ...state.settings,
           customHabits: state.settings.customHabits.filter((h) => h.id !== id),
+          globalHabitOrder: getGlobalHabitOrder(state.settings).filter((hid) => hid !== id),
           habitCriteria: remainingCriteria,
         },
       };
@@ -532,6 +550,20 @@ export const useStore = create<StoreState>()((set) => ({
     set((state) => ({
       settings: { ...state.settings, breathingRounds: rounds },
     }));
+  },
+
+  setHabitPosition: (habitId: string, newPosition: number) => {
+    set((state) => {
+      const order = [...getGlobalHabitOrder(state.settings)];
+      const currentIndex = order.indexOf(habitId);
+      if (currentIndex === -1) return state;
+      order.splice(currentIndex, 1);
+      const clampedPos = Math.max(0, Math.min(newPosition, order.length));
+      order.splice(clampedPos, 0, habitId);
+      return {
+        settings: { ...state.settings, globalHabitOrder: order },
+      };
+    });
   },
 
   setHasSeenOnboarding: () => {

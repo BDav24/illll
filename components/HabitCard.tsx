@@ -83,7 +83,7 @@ export const HabitCard = React.memo(function HabitCard({
         accessibilityRole="button"
         accessibilityLabel={t('article.whyTitle', { habit: t(`habits.${habitId}.name`) })}
       >
-        <Text style={styles.infoText}>?</Text>
+        <Text style={styles.infoText}>📑</Text>
       </Pressable>
 
       {/* Checkbox */}
@@ -158,15 +158,11 @@ function makeStyles(colors: ColorPalette) {
       width: 30,
       height: 30,
       borderRadius: 15,
-      borderWidth: 1.5,
-      borderColor: colors.border,
       alignItems: 'center',
       justifyContent: 'center',
     },
     infoText: {
-      color: colors.textMuted,
-      fontSize: 16,
-      fontFamily: Fonts.bold,
+      fontSize: 18,
     },
     checkbox: {
       width: 28,

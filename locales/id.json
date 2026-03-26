@@ -110,7 +110,10 @@
     "resetData": "Atur Ulang Semua Data",
     "resetConfirm": "Ini akan menghapus semua datamu. Apakah kamu yakin?",
     "reminders": "Pengingat",
-    "manageReminders": "Kelola pengingat harian Anda"
+    "manageReminders": "Kelola pengingat harian Anda",
+    "showOnDailyHub": "Tampilkan di Hub Harian",
+    "myGoal": "Tujuan saya",
+    "position": "Posisi"
   },
   "criteria": {
     "myGoal": "Tujuan saya",

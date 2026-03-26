@@ -110,7 +110,10 @@
     "resetData": "Đặt lại tất cả dữ liệu",
     "resetConfirm": "Thao tác này sẽ xóa tất cả dữ liệu của bạn. Bạn có chắc không?",
     "reminders": "Nhắc nhở",
-    "manageReminders": "Quản lý nhắc nhở hàng ngày"
+    "manageReminders": "Quản lý nhắc nhở hàng ngày",
+    "showOnDailyHub": "Hiển thị trên Hub hàng ngày",
+    "myGoal": "Mục tiêu của tôi",
+    "position": "Vị trí"
   },
   "criteria": {
     "myGoal": "Mục tiêu của tôi",
