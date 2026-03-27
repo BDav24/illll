@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Tabs, usePathname, useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { BackHandler, Text, View, StyleSheet } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useColors } from '../../constants/colors';
 import { Fonts } from '../../constants/fonts';
 import { useStore } from '../../store/useStore';
@@ -10,6 +11,7 @@ import { OnboardingHint } from '../../components/OnboardingOverlay';
 export default function TabLayout() {
   const { t } = useTranslation();
   const colors = useColors();
+  const insets = useSafeAreaInsets();
   const pathname = usePathname();
   const router = useRouter();
   const hasSeenOnboarding = useStore((s) => s.settings.hasSeenOnboarding);
@@ -41,8 +43,10 @@ export default function TabLayout() {
           backgroundColor: colors.surface,
           borderTopColor: colors.border,
           borderTopWidth: StyleSheet.hairlineWidth,
-          height: 85,
+          height: 60 + insets.bottom,
+          minHeight: 80,
           paddingTop: 8,
+          paddingBottom: insets.bottom,
         },
         tabBarActiveTintColor: colors.accent,
         tabBarInactiveTintColor: colors.textMuted,

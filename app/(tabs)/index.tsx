@@ -11,7 +11,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
-import BottomSheet, { BottomSheetView, BottomSheetTextInput, BottomSheetBackdrop } from '@gorhom/bottom-sheet';
+import BottomSheet, { BottomSheetScrollView, BottomSheetTextInput, BottomSheetBackdrop } from '@gorhom/bottom-sheet';
 
 // BottomSheetTextInput crashes on web (RNTextInput.State.currentlyFocusedInput missing)
 const CriterionInput = Platform.OS === 'web' ? TextInput : BottomSheetTextInput;
@@ -391,7 +391,7 @@ export default function DailyHub() {
           setIsEditingCriterion(false);
         }}
       >
-        <BottomSheetView style={styles.sheetContent}>
+        <BottomSheetScrollView contentContainerStyle={styles.sheetContent}>
           <Pressable
             style={styles.sheetCloseBtn}
             onPress={() => bottomSheetRef.current?.close()}
@@ -581,7 +581,7 @@ export default function DailyHub() {
               </>
             );
           })()}
-        </BottomSheetView>
+        </BottomSheetScrollView>
       </BottomSheet>}
       <OnboardingOverlay
         visible={!hasSeenOnboarding && !screenshotConfig.enabled}
@@ -667,9 +667,9 @@ function makeStyles(colors: ColorPalette) {
       backgroundColor: colors.textMuted,
     },
     sheetContent: {
-      flex: 1,
       paddingHorizontal: 24,
       paddingTop: 8,
+      paddingBottom: 24,
     },
     sheetCloseBtn: {
       position: 'absolute',
