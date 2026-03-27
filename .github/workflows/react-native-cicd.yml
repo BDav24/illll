@@ -108,14 +108,14 @@ jobs:
       - name: 🚀 Preview OTA update
         if: github.event.inputs.buildType == 'preview-ota-update'
         run: |
-          eas update --channel preview --auto
+          eas update --branch preview
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
       - name: 🚀 Production OTA update
         if: github.event.inputs.buildType == 'prod-ota-update'
         run: |
-          eas update --auto
+          eas update --branch production
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
