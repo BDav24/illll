@@ -1,0 +1,26 @@
+# App Store Connect API Key
+app_identifier("com.devanco.illll.app")
+team_id("93258165-a4d1-4c02-8043-f68af24aadc5")
+
+# Skip binary upload
+skip_binary_upload(true)
+
+# Upload metadata and screenshots
+skip_metadata(false)
+skip_screenshots(false)
+
+# Metadata path
+metadata_path("./fastlane/metadata/ios")
+screenshots_path("./fastlane/screenshots")
+
+# Don't submit for review automatically
+submit_for_review(false)
+
+# Overwrite screenshots
+overwrite_screenshots(true)
+
+# Force - skip confirmation prompts
+force(true)
+
+# Precheck
+run_precheck_before_submit(false)
