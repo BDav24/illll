@@ -159,7 +159,9 @@ export default function DailyHub() {
 
   const getDisplayedCriterion = useCallback(
     (habitId: string) => {
-      return habitCriteria[habitId] || t(`habits.${habitId}.criterion`);
+      if (habitCriteria[habitId] !== undefined) return habitCriteria[habitId];
+      if (habitId.startsWith('custom_')) return '';
+      return t(`habits.${habitId}.criterion`);
     },
     [habitCriteria, t],
   );
@@ -179,7 +181,7 @@ export default function DailyHub() {
     const trimmed = criterionDraft.trim();
     if (trimmed) {
       setHabitCriterion(habitId, trimmed);
-    } else if (activeCustomHabit) {
+    } else {
       setHabitCriterion(habitId, '');
     }
     setIsEditingCriterion(false);

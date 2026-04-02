@@ -469,7 +469,7 @@ export const useStore = create<StoreState>()((set) => ({
   setHabitCriterion: (habitId: string, criterion: string) => {
     set((state) => {
       const updated = { ...state.settings.habitCriteria };
-      if (criterion) {
+      if (criterion || habitId.startsWith('custom_')) {
         updated[habitId] = criterion;
       } else {
         delete updated[habitId];
