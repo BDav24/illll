@@ -33,7 +33,10 @@ export function useDateLocale(): Locale {
   const [locale, setLocale] = useState<Locale>(cache.get(lang) ?? enUS);
 
   useEffect(() => {
-    if (lang === 'en' || !LOCALE_LOADERS[lang]) return;
+    if (lang === 'en' || !LOCALE_LOADERS[lang]) {
+      setLocale(enUS);
+      return;
+    }
     if (cache.has(lang)) {
       setLocale(cache.get(lang)!);
       return;
