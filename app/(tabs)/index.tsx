@@ -179,6 +179,8 @@ export default function DailyHub() {
     const trimmed = criterionDraft.trim();
     if (trimmed) {
       setHabitCriterion(habitId, trimmed);
+    } else if (activeCustomHabit) {
+      setHabitCriterion(habitId, '');
     }
     setIsEditingCriterion(false);
   }, [activeHabit, activeCustomHabit, criterionDraft, setHabitCriterion]);
