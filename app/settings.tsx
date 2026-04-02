@@ -21,11 +21,14 @@ import {
   Platform,
   KeyboardAvoidingView,
   Modal,
+  useColorScheme,
+  TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
+import EmojiPicker from 'rn-emoji-keyboard';
 import { useColors, type ColorPalette } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
 import { HABITS, HABIT_MAP } from '../constants/habits';
@@ -62,6 +65,7 @@ export default function SettingsScreen() {
   const { t, i18n } = useTranslation();
   const router = useRouter();
   const colors = useColors();
+  const systemScheme = useColorScheme();
   const styles = useMemo(() => makeStyles(colors), [colors]);
 
   const hiddenHabits = useStore((s) => s.settings.hiddenHabits);
@@ -96,6 +100,7 @@ export default function SettingsScreen() {
   const [habitModalGoal, setHabitModalGoal] = useState('');
   const [habitModalIcon, setHabitModalIcon] = useState('');
   const [habitModalPosition, setHabitModalPosition] = useState('');
+  const [emojiPickerOpen, setEmojiPickerOpen] = useState(false);
 
   const [builtinGoalHabit, setBuiltinGoalHabit] = useState<string | null>(null);
   const [builtinGoalVisible, setBuiltinGoalVisible] = useState(false);
@@ -398,7 +403,7 @@ export default function SettingsScreen() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle} accessibilityRole="header">{t('settings.about')}</Text>
           <Text style={styles.versionText}>
-            {t('settings.version', { version: '1.0.0-13' })}
+            {t('settings.version', { version: '1.0.0-14' })}
           </Text>
         </View>
 
@@ -519,14 +524,17 @@ export default function SettingsScreen() {
                 {habitModalId ? t('settings.editHabit') : t('settings.addHabitTitle')}
               </Text>
               <View style={styles.emojiNameRow}>
-                <TextInput
+                <TouchableOpacity
                   style={styles.emojiInput}
-                  placeholder="😊"
-                  placeholderTextColor={colors.textMuted}
-                  value={habitModalIcon}
-                  onChangeText={(text) => setHabitModalIcon(text.slice(0, 2))}
-                  textAlign="center"
-                />
+                  onPress={() => setEmojiPickerOpen(true)}
+                  activeOpacity={0.6}
+                  accessibilityRole="button"
+                  accessibilityLabel="Choose icon"
+                >
+                  <Text style={styles.emojiInputText}>
+                    {habitModalIcon || '😊'}
+                  </Text>
+                </TouchableOpacity>
                 <TextInput
                   style={[styles.modalInput, styles.nameInput]}
                   placeholder={t('settings.habitName')}
@@ -611,6 +619,36 @@ export default function SettingsScreen() {
             </Pressable>
           </KeyboardAvoidingView>
         </Pressable>
+        {emojiPickerOpen && (
+          <EmojiPicker
+            open={emojiPickerOpen}
+            onClose={() => setEmojiPickerOpen(false)}
+            onEmojiSelected={(emoji) => setHabitModalIcon(emoji.emoji)}
+            enableSearchBar
+            enableRecentlyUsed
+            theme={{
+              backdrop: '#00000055',
+              knob: colors.textMuted,
+              container: colors.surface,
+              header: colors.text,
+              category: {
+                icon: colors.textMuted,
+                iconActive: colors.accent,
+                container: colors.surface,
+                containerActive: colors.surface,
+              },
+              search: {
+                text: colors.text,
+                placeholder: colors.textMuted,
+                icon: colors.textMuted,
+                background: colors.bg,
+              },
+              emoji: {
+                selected: colors.bg,
+              },
+            }}
+          />
+        )}
       </Modal>
     </SafeAreaView>
   );
@@ -892,10 +930,14 @@ function makeStyles(colors: ColorPalette) {
     emojiInput: {
       backgroundColor: colors.bg,
       borderRadius: 10,
-      padding: 14,
-      fontSize: 18,
       width: 52,
-      textAlign: 'center',
+      height: 52,
+      alignItems: 'center' as const,
+      justifyContent: 'center' as const,
+    },
+    emojiInputText: {
+      fontSize: 22,
+      lineHeight: 28,
     },
     nameInput: {
       flex: 1,
