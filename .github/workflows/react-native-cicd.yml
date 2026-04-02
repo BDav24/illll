@@ -20,7 +20,27 @@ env:
   NODE_OPTIONS: --openssl-legacy-provider
 
 jobs:
+  check-skip:
+    runs-on: ubuntu-latest
+    outputs:
+      should_skip: ${{ steps.check.outputs.should_skip }}
+    steps:
+      - name: 🏗 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for [skip ci]
+        id: check
+        run: |
+          COMMIT_MESSAGE=$(git log -1 --pretty=%s)
+          if echo "$COMMIT_MESSAGE" | grep -qi '\[skip ci\]'; then
+            echo "should_skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "should_skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
   test:
+    needs: check-skip
+    if: needs.check-skip.outputs.should_skip != 'true'
     runs-on: ubuntu-latest
     steps:
       - name: 🏗 Checkout repository
