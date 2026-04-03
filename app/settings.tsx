@@ -1,3 +1,4 @@
+import Constants from 'expo-constants';
 import { useState, useCallback, useMemo } from 'react';
 import Svg, { Path } from 'react-native-svg';
 
@@ -403,7 +404,7 @@ export default function SettingsScreen() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle} accessibilityRole="header">{t('settings.about')}</Text>
           <Text style={styles.versionText}>
-            {t('settings.version', { version: '1.0.1-00' })}
+            {t('settings.version', { version: `${Constants.expoConfig?.version ?? '1.0.0'}-${String(Constants.expoConfig?.extra?.otaIncrement ?? 0).padStart(2, '0')}` })}
           </Text>
         </View>
 

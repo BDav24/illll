@@ -11,14 +11,13 @@
     "fastlane": "bun scripts/fastlane.ts",
     "fastlane:android": "bun scripts/fastlane.ts android",
     "fastlane:ios": "bun scripts/fastlane.ts ios",
-    "build:dev:android": "eas build --profile development --platform android",
-    "build:dev:ios": "eas build --profile development --platform ios",
-    "release:android": "./eas.sh production android yes",
-    "release:all": "./eas.sh production all yes",
-    "release": "./eas.sh",
-    "update": "eas update",
-    "update:preview": "eas update --branch preview",
-    "update:production": "eas update --branch production"
+    "eas:confirm": "printf '\\n  version: %s  otaIncrement: %s\\n\\n' $(node -p \"require('./app.json').expo.version\") $(node -p \"require('./app.json').expo.extra.otaIncrement\") && read -p 'Press Enter to continue (Ctrl+C to abort)... '",
+    "build:dev:android": "bun run eas:confirm && eas build --profile development --platform android",
+    "build:dev:ios": "bun run eas:confirm && eas build --profile development --platform ios",
+    "release:android": "bun run eas:confirm && eas build --profile production --platform android --auto-submit",
+    "release:ios": "bun run eas:confirm && eas build --profile production --platform ios --auto-submit",
+    "update:preview": "bun run eas:confirm && eas update --branch preview",
+    "update:production": "bun run eas:confirm && eas update --branch production"
   },
   "dependencies": {
     "@expo-google-fonts/quicksand": "^0.4.1",

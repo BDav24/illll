@@ -54,6 +54,7 @@
       "policy": "appVersion"
     },
     "extra": {
+      "otaIncrement": 0,
       "router": {},
       "eas": {
         "projectId": "c85e85a4-c013-4b5e-8350-0a5e588ec5d9"
