@@ -403,7 +403,7 @@ export default function SettingsScreen() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle} accessibilityRole="header">{t('settings.about')}</Text>
           <Text style={styles.versionText}>
-            {t('settings.version', { version: '1.0.0-14' })}
+            {t('settings.version', { version: '1.0.1-00' })}
           </Text>
         </View>
 
